@@ -6,6 +6,11 @@ source:
   fn: mdtraj-0.8.0.tar.gz
   url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-0.8.0.tar.gz#md5=c1b020953144e63a242cf7323dc89f98
 
+build:
+  number: 1
+  entry_points:
+    - mdconvert = mdtraj.scripts.mdconvert:entry_point
+
 requirements:
   build:
     - python
