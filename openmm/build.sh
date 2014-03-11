@@ -3,12 +3,15 @@
 CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    if [ "$(uname -m | grep '64')" != "" ]; then
-	UBUNTU_NVIDIA_DIR=`sed -n '/^\/usr\/lib\//{p;q}' /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf`
-    else
-	UBUNTU_NVIDIA_DIR=`sed -n '/^\/usr\/lib\//{p;q}' /etc/ld.so.conf.d/i386-linux-gnu_GL.conf`
+    if [ $(command -v nvcc) ]; then
+        # have nvcc
+        if [ "$(uname -m | grep '64')" != "" ]; then
+            UBUNTU_NVIDIA_DIR=`sed -n '/^\/usr\/lib\//{p;q}' /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf`
+        else
+            UBUNTU_NVIDIA_DIR=`sed -n '/^\/usr\/lib\//{p;q}' /etc/ld.so.conf.d/i386-linux-gnu_GL.conf`
+        fi
+        CMAKE_FLAGS+=" -DCUDA_CUDA_LIBRARY=$UBUNTU_NVIDIA_DIR/libcuda.so"
     fi
-    CMAKE_FLAGS+=" -DCUDA_CUDA_LIBRARY=$UBUNTU_NVIDIA_DIR/libcuda.so"
     # setting the rpath so that libOpenMMPME.so finds the right libfftw3
     CMAKE_FLAGS+=" -DCMAKE_INSTALL_RPATH=.."
 
