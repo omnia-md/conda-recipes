@@ -2,6 +2,9 @@ package:
   name: fftw3f
   version: 3.3.3
 
+build:
+  number: 1
+
 source:
   fn: fftw-3.3.3.tar.gz
   url: http://www.fftw.org/fftw-3.3.3.tar.gz
