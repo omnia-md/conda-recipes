@@ -1,11 +1,10 @@
 package:
   name: msmbuilder
-  version: !!str 2.8.0
+  version: !!str 2.8.1
 
 source:
-  fn: msmbuilder-2.8.tar.gz
-  url: https://pypi.python.org/packages/source/m/msmbuilder/msmbuilder-2.8.tar.gz
-  md5: 353fc4677e0f58964ffa17a358bbf6a8
+  fn: msmbuilder-2.8.1.tar.gz
+  url: https://pypi.python.org/packages/source/m/msmbuilder/msmbuilder-2.8.1.tar.gz
 
 build:
   preserve_egg_dir: True
