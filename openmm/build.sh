@@ -3,17 +3,10 @@
 CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    if [ $(command -v nvcc) ]; then
-        # have nvcc
-        if [ "$(uname -m | grep '64')" != "" ]; then
-            UBUNTU_NVIDIA_DIR=`sed -n '/^\/usr\/lib\//{p;q}' /etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf`
-        else
-            UBUNTU_NVIDIA_DIR=`sed -n '/^\/usr\/lib\//{p;q}' /etc/ld.so.conf.d/i386-linux-gnu_GL.conf`
-        fi
-        CMAKE_FLAGS+=" -DCUDA_CUDA_LIBRARY=$UBUNTU_NVIDIA_DIR/libcuda.so"
-    fi
     # setting the rpath so that libOpenMMPME.so finds the right libfftw3
     CMAKE_FLAGS+=" -DCMAKE_INSTALL_RPATH=.."
+    CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
+    CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/opt/AMDAPP/lib/x86_64/libOpenCL.so"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     export MACOSX_DEPLOYMENT_TARGET="10.7"
