@@ -19,6 +19,7 @@ requirements:
 
   run:
     - python
+    - numpy
     - pytables
     - scipy
     - pandas
