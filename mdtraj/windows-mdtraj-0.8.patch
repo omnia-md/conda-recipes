@@ -1,0 +1,21 @@
+commit 8201a8cbedfab15901435999c083751dd539ad68
+Author: Robert McGibbon <rmcgibbo@gmail.com>
+Date:   Mon Mar 17 22:39:55 2014 -0800
+
+    Fix build for idiot windows is a terrible operating system and compiler stack
+
+diff --git a/MDTraj/formats/dcd/src/dcdplugin.c b/MDTraj/formats/dcd/src/dcdplugin.c
+index 66f32ab..63b04f1 100644
+--- a/MDTraj/formats/dcd/src/dcdplugin.c
++++ b/MDTraj/formats/dcd/src/dcdplugin.c
+@@ -770,8 +770,9 @@ int dcd_nsets(dcdhandle* v) {
+ }
+ 
+ int dcd_rewind(dcdhandle* dcd) {
++     /* nsets is just throwaway here */
++    int rc, nsets;
+     fio_fseek(dcd->fd, 0, FIO_SEEK_SET);
+-    int rc, nsets; // nsets is just throwaway here
+     if ((rc = read_dcdheader(dcd->fd, &dcd->natoms, &nsets, &dcd->istart,
+                              &dcd->nsavc, &dcd->delta, &dcd->nfixed, &dcd->freeind,
+                              &dcd->fixedcoords, &dcd->reverse, &dcd->charmm))) {

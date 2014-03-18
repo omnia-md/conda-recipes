@@ -45,7 +45,6 @@ test:
   # Python imports
   imports:
     - msmbuilder.project
-    - msmbuilder.reference
     - msmbuilder
     - msmbuilder.scripts
     - msmbuilder.lumping
