@@ -5,6 +5,8 @@ package:
 source:
   fn: mdtraj-0.8.0.tar.gz
   url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-0.8.0.tar.gz#md5=c1b020953144e63a242cf7323dc89f98
+  patches:
+      - windows-mdtraj-0.8.patch
 
 build:
   number: 1
@@ -32,7 +34,7 @@ test:
   commands:
     # You can put test commands to be run here.  Use this to test that the
     # entry points work.
-    - python -c 'import mdtraj; mdtraj.test()'
+    - python -c "import mdtraj; mdtraj.test()"
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
