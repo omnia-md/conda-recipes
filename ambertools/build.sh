@@ -23,6 +23,7 @@ echo y | ./configure \
 # Build and install.
 make install
 
-# Copy files into bin and lib.
+# Copy installation files into $PREFIX.
 cp -r bin $PREFIX
 cp -r lib $PREFIX
+cp -r dat $PREFIX
