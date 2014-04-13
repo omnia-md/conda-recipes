@@ -4,7 +4,7 @@ package:
 
 source:
   fn: AmberTools13.tar.bz2
-  url: https://github.com/jchodera/conda-recipes/raw/master/ambertools/tarball/AmberTools13.tar.bz2
+  url: https://github.com/jchodera/conda-recipes/raw/master/tarballs/ambertools/AmberTools13.tar.bz2
   md5: b71415e971a439007fa683d2b7bdeb71
 
 requirements:
