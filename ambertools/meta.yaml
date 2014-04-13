@@ -1,0 +1,29 @@
+package:
+  name: ambertools
+  version: 13
+
+source:
+  fn: AmberTools13.tar.bz2
+  url: http://www.choderalab.org/downloads/AmberTools13.tar.bz2
+  md5: b71415e971a439007fa683d2b7bdeb71
+
+requirements:
+  build:
+    - python
+    - netcdf4
+    - zlib
+  run:
+    - python
+    - netcdf4
+    - zlib
+
+test:
+  commands:
+    - antechamber
+    - parmchk
+    - tleap
+
+about:
+  home: http://ambermd.org/AmberTools-get.html
+  license: LGPL
+  summary: AmberTools 13 molecular modeling software
