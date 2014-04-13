@@ -3,7 +3,7 @@
 export CFLAGS="-I$PREFIX/include $CFLAGS"
 export LDFLAGS="-L$PREFIX/lib $LDFLAGS"
 
-# Must set AMBERHOME to base directory.
+# Must set AMBERHOME (which becomes ANACONDA_ROOT) to base directory for initial compilation.
 export AMBERHOME="$SRC_DIR"
 
 # Update with latest patches.
@@ -19,6 +19,9 @@ echo y | ./configure \
     -norism \
     -nofftw3 \
     gnu
+
+# Patch the code to change AMBERHOME.
+#grep -rl AMBERHOME --include \*.c --include \*.py . | xargs sed -i -e 's/AMBERHOME/ANACONDA/g'
 
 # Build and install.
 make install
