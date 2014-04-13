@@ -19,9 +19,7 @@ requirements:
 
 test:
   commands:
-    - antechamber
-    - parmchk
-    - tleap
+    - resp
 
 about:
   home: http://ambermd.org/AmberTools-get.html
