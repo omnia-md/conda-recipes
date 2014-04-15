@@ -5,7 +5,7 @@ package:
 source:
   fn: ambermini-master.zip
   url: https://github.com/swails/ambermini/archive/master.zip
-  md5: 67ff20cbe51d4c19e99b8ec2371ae826
+  md5: af1781384c81cd07dc1d2cd54d9054e7
 
 requirements:
   build:
@@ -19,9 +19,6 @@ requirements:
 
 test:
   commands:
-    - antechamber -L
-    - parmchk -h
-    - tleap -h
 
 about:
   home: http://ambermd.org/AmberTools-get.html
