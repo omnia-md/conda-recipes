@@ -9,12 +9,8 @@ source:
 
 requirements:
   build:
-    - python
-    - netcdf4
     - zlib
   run:
-    - python
-    - netcdf4
     - zlib
 
 test:
