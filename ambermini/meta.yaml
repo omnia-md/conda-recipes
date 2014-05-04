@@ -1,10 +1,10 @@
 package:
   name: ambermini
-  version: 13
+  version: 14
 
 source:
   fn: ambermini-master.zip
-  url: https://github.com/swails/ambermini/archive/master.zip
+  url: https://github.com/swails/ambermini/archive/14.0.zip
   md5: 5e723b90b4b5ce659f50dc4dffefd972
 
 requirements:
