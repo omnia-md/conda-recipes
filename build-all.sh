@@ -1,8 +1,6 @@
 echo 'Building python2.7 and python3.3 conda packages'
 echo 'This will take a while... (15 minutes or more)'
 
-conda build ambertools
-
 for CONDA_PY in 27 33; do
     export CONDA_PY=$CONDA_PY
     for CONDA_NPY in 17 18; do
@@ -26,3 +24,7 @@ for CONDA_PY in 27 33; do
     conda build openmm
     conda build mdtraj
 done
+
+conda build ambermini
+#conda build ambertools # replaced by ambermini
+
