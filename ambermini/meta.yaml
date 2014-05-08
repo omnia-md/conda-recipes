@@ -5,7 +5,7 @@ package:
 source:
   fn: ambermini-master.zip
   url: https://github.com/swails/ambermini/archive/14.0.zip
-  md5: 5e723b90b4b5ce659f50dc4dffefd972
+  md5: 898df32612f5b8b639d92a424caca3a4
 
 requirements:
   build:
