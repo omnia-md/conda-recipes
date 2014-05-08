@@ -18,6 +18,9 @@ requirements:
     - netcdf4
     - mpi4py
 
+build:
+  script: python setup.py install
+
 test:
   commands:
     #- nosetests
