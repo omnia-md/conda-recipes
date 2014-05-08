@@ -1,0 +1,28 @@
+package:
+  name: yank
+  version: 0.1
+
+source:
+  fn: yank-master.zip
+  url: https://github.com/choderalab/yank/archive/master.zip
+  md5: 3e19a5fa2c697adfab08caa95baa8f3e
+
+requirements:
+  build:
+
+  run:
+    - openmm
+    - scipy
+    - numpy
+    - ambermini
+    - netcdf4
+    - mpi4py
+
+test:
+  commands:
+    #- nosetests
+
+about:
+  home: http://github.com/choderalab/yank
+  license: LGPL
+  summary: Insanity in a box.
