@@ -5,7 +5,7 @@ package:
 source:
   fn: yank-master.zip
   url: https://github.com/choderalab/yank/archive/d342139d92d1ce893d89f5d60ef04d3b8ba98211.zip
-  md5: 2e2bb140bc32d3146c82a4773ab5dd98
+#  md5: 3e19a5fa2c697adfab08caa95baa8f3e
 
 requirements:
   build:
