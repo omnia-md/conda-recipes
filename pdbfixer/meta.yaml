@@ -1,0 +1,29 @@
+package:
+  name: pdbfixer
+  version: github-master
+
+source:
+  fn: master.zip
+  url: https://github.com/SimTk/pdbfixer/archive/master.zip
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - openmm
+
+  run:
+    - python
+    - openmm
+
+build:
+  script: $PYTHON setup.py install
+
+test:
+  commands:
+    - nosetests
+
+about:
+  home: http://github.com/simtk/pdbfixer
+  license: free
+  summary: PDBFixer fixes problems in PDB files to prepare them for molecular simulation.
