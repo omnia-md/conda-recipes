@@ -26,5 +26,8 @@ for CONDA_PY in 27 33; do
 done
 
 conda build ambermini
-#conda build ambertools # replaced by ambermini
+
+conda build pdbfixer
+
+
 
