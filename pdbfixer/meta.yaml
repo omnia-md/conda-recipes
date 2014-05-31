@@ -1,6 +1,6 @@
 package:
   name: pdbfixer
-  version: github-master
+  version: master
 
 source:
   fn: master.zip
