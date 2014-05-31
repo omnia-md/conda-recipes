@@ -17,3 +17,14 @@ conda install mdtraj
 conda install openmm
 ```
 
+To build a single Omnia conda package:
+
+```
+conda build packagename
+```
+
+To build all Omnia conda packages, you can use the included script:
+
+```
+sh build-all.sh
+```
