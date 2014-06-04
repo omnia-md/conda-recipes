@@ -28,3 +28,13 @@ To build all Omnia conda packages, you can use the included script:
 ```
 sh build-all.sh
 ```
+
+
+To upload to the Omnia binstar org, use
+
+```
+binstar upload -u omnia package.bz2
+```
+
+Command taken from this forum post: [From Binstar Forums](https://groups.google.com/a/continuum.io/forum/#!topic/conda/uYtVRGW--iU)
+
