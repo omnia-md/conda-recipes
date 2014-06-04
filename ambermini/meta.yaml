@@ -1,11 +1,11 @@
 package:
   name: ambermini
-  version: 14
+  version: 14.0.1
 
 source:
-  fn: ambermini-master.zip
-  url: https://github.com/swails/ambermini/archive/14.0.zip
-  md5: 898df32612f5b8b639d92a424caca3a4
+  fn: v.14.0.1.zip
+  url: https://github.com/choderalab/ambermini/archive/v.14.0.1.zip
+  md5: 4653df08b0f9d94a39704c10591fcd84
 
 requirements:
   build:
@@ -22,4 +22,4 @@ test:
 about:
   home: http://ambermd.org/AmberTools-get.html
   license: LGPL
-  summary: A stripped-down version of AmberTools 13 containing antechamber, sqm, and tleap
+  summary: A stripped-down version of AmberTools 14 containing antechamber, sqm, tleap, and parmchk2
