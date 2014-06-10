@@ -1,49 +1,29 @@
 package:
   name: mdtraj
-  version: !!str 0.8.0
+  version: !!str 0.9.0
 
 source:
-  fn: mdtraj-0.8.0.tar.gz
-  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-0.8.0.tar.gz#md5=c1b020953144e63a242cf7323dc89f98
-  patches:
-      - windows-mdtraj-0.8.patch
+  fn: mdtraj-0.9.0.tar.gz
+  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-0.9.0.tar.gz#md5=16b77d75ab2d151adf7ecf542e5e117d
 
 build:
   number: 1
   entry_points:
     - mdconvert = mdtraj.scripts.mdconvert:entry_point
+    - mdinspect = mdtraj.scripts.mdinspect:entry_point
 
 requirements:
   build:
     - python
     - cython
     - numpy
+    - setuptools
 
   run:
     - python
     - numpy
-    - pytables
     - scipy
     - pandas
-
-test:
-  # Python imports
-  imports:
-    - mdtraj
-
-  commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-    - python -c "import mdtraj; mdtraj.test()"
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  requires:
-    - setuptools
-    - nose
-    - pandas
-    - scripttest
 
 about:
   home: http://rmcgibbo.github.io/mdtraj
