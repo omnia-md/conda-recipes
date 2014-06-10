@@ -8,7 +8,7 @@ print('This will take a while... (15 minutes or more)')
 
 def build(name):
     fn = shell('conda build --output %s' % name)
-    if not os.path.exists(fn):
+    if not exists(fn):
         shell('conda build %s' % name)
 
 build('fftw3f')
@@ -20,7 +20,7 @@ for CONDA_PY in ['27', '33']:
     build('openmm')
     build('msmbuilder')
 
-    for CONDA_NPY = ['17', '18']:
+    for CONDA_NPY in ['17', '18']:
         environ['CONDA_NPY'] = CONDA_NPY
         build('fastcluster')
         build('mdtraj')
