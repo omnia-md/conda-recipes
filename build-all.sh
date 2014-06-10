@@ -24,3 +24,10 @@ for CONDA_PY in 27 33; do
     conda build openmm
     conda build mdtraj
 done
+
+conda build ambermini
+
+conda build pdbfixer
+
+
+
