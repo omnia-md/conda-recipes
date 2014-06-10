@@ -6,9 +6,11 @@ for CONDA_PY in 27 33; do
     for CONDA_NPY in 17 18; do
         export CONDA_NPY=$CONDA_NPY
         conda build fastcluster
-        conda build mtraj
+        conda build mdtraj
     done
 done
+
+exit
 
 for CONDA_NPY in 17 18; do
   export CONDA_PY=27
@@ -26,7 +28,6 @@ for CONDA_PY in 27 33; do
 done
 
 conda build ambermini
-
 conda build pdbfixer
 
 
