@@ -1,9 +1,10 @@
 package:
   name: openmm
   version: 6.0.1
-
+  
 source:
   url: https://github.com/SimTk/openmm/archive/6.0.1.zip
+  md5: c21bd3b905b18052bbe725b492fd0f21
   fn: source.zip
   patches:
     - plugin-dir.patch
