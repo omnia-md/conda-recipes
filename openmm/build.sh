@@ -6,7 +6,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # setting the rpath so that libOpenMMPME.so finds the right libfftw3
     CMAKE_FLAGS+=" -DCMAKE_INSTALL_RPATH=.."
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
-    CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/opt/AMDAPP/lib/x86_64/libOpenCL.so"
+    CMAKE_FLAGS+=" -DOPENCL_INCLUDE_DIR=/usr/local/cuda-6.0/include"
+    CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/usr/local/cuda-6.0/lib64/libOpenCL.so"
+    #CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/opt/AMDAPP/lib/x86_64/libOpenCL.so"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     export MACOSX_DEPLOYMENT_TARGET="10.7"
@@ -23,16 +25,18 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     CMAKE_FLAGS+=" -DFFTW_THREADS_LIBRARY=$PREFIX/lib/libfftw3f_threads.dylib"
 fi
 
-
 mkdir build
 cd build
 cmake .. $CMAKE_FLAGS
-make -j4
+make -j8
 make install
+
+export LD_LIBRARY_PATH="/opt/gnu/gcc/4.8.1/lib64:/opt/gnu/gcc/4.8.1/lib:/opt/gnu/gmp/lib:/opt/gnu/mpc/lib:/opt/gnu/mpfr/lib"
 
 export OPENMM_INCLUDE_PATH=$PREFIX/include
 export OPENMM_LIB_PATH=$PREFIX/lib
 cd python
+#$PYTHON setup.py config --compiler=clang build --compiler=clang install
 $PYTHON setup.py install
 
 # Remove one random file
