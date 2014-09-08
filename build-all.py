@@ -13,7 +13,7 @@ def build(name):
 
 build('fftw3f')
 
-for CONDA_PY in ['27', '33']:
+for CONDA_PY in ['26', '27', '33', '34']:
     environ['CONDA_PY'] = CONDA_PY
 
     build('scripttest')
