@@ -11,6 +11,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     export MACOSX_DEPLOYMENT_TARGET="10.7"
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
+    CMAKE_FLAGS+=" -DOPENMM_BUILD_DRUDE_OPENCL_LIB=OFF"
+    CMAKE_FLAGS+=" -DOPENMM_BUILD_RPMD_OPENCL_LIB=OFF"
 fi
 
 # Set location for FFTW3 on both linux and mac
@@ -34,7 +36,3 @@ export OPENMM_INCLUDE_PATH=$PREFIX/include
 export OPENMM_LIB_PATH=$PREFIX/lib
 cd python
 $PYTHON setup.py install
-
-# Remove one random file
-rm $PREFIX/bin/TestReferenceHarmonicBondForce
-
