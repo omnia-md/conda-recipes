@@ -1,16 +1,16 @@
 package:
   name: openmm
-  version: 6.0.1
-  
+  version: 6.1
+
 source:
-  url: https://github.com/SimTk/openmm/archive/6.0.1.zip
-  md5: c21bd3b905b18052bbe725b492fd0f21
-  fn: source.zip
+  url: https://github.com/SimTk/openmm/archive/6.1.tar.gz
+  fn: 6.1.tar.gz
+
   patches:
     - plugin-dir.patch
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
@@ -24,4 +24,4 @@ requirements:
 
 about:
   home: https://simtk.org/home/openmm
-  license: GPL
+  license: MIT
