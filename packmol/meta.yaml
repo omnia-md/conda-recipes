@@ -1,0 +1,21 @@
+package:
+  name: packmol
+  version: 1.0.0
+
+source:
+  fn: packmol.tar.gz
+  url: http://www.ime.unicamp.br/~martinez/packmol/packmol.tar.gz
+
+requirements:
+  build:
+    - zlib
+  run:
+    - zlib
+
+test:
+  commands:
+
+about:
+  home: http://www.ime.unicamp.br/~martinez/packmol/
+  license: GPL
+  summary: Packing Optimization for Molecular Dynamics Simulations
