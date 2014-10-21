@@ -1,0 +1,29 @@
+package:
+  name: ambermini
+  version: 13
+
+source:
+  fn: ambermini-master.zip
+  url: https://github.com/swails/ambermini/archive/master.zip
+  md5: 5e723b90b4b5ce659f50dc4dffefd972
+
+requirements:
+  build:
+    - python
+    - netcdf4
+    - zlib
+  run:
+    - python
+    - netcdf4
+    - zlib
+
+test:
+  commands:
+    - antechamber -h
+    - sqm -h
+    - tleap -h
+
+about:
+  home: http://ambermd.org/AmberTools-get.html
+  license: LGPL
+  summary: A stripped-down version of AmberTools 13 containing antechamber, sqm, and tleap
