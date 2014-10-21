@@ -1,10 +1,10 @@
 package:
   name: openmm
-  version: 6.1
+  version: master
 
 source:
-  url: https://github.com/SimTk/openmm/archive/6.1.tar.gz
-  fn: 6.1.tar.gz
+  url: https://github.com/pandegroup/openmm/archive/master.tar.gz
+  fn: master.tar.gz
 
   patches:
     - plugin-dir.patch
@@ -23,5 +23,5 @@ requirements:
     - fftw3f
 
 about:
-  home: https://simtk.org/home/openmm
+  home: http://openmm.org
   license: MIT
