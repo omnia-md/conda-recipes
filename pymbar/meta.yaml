@@ -1,10 +1,10 @@
 package:
-  name: pymbar-dev
-  version: 2.0.1
+  name: pymbar
+  version: 2.1beta0
 
 source:
-  fn: pymbar-master.zip
-  url: https://github.com/choderalab/pymbar/archive/master.zip
+  url: https://github.com/choderalab/pymbar/archive/v2.1.0-beta.tar.gz
+  fn: master.tar.gz
 
 requirements:
   build:
