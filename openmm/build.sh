@@ -34,7 +34,7 @@ fi
 
 mkdir build
 cd build
-cmake .. $CMAKE_FLAGS
+cmake .. "${CMAKE_FLAGS}"
 make -j8
 make install
 
