@@ -14,8 +14,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     export MACOSX_DEPLOYMENT_TARGET="10.9"
     CMAKE_FLAGS+=" -DOSX_DEPLOYMENT_TARGET=10.9" # builds are on OS X 10.9
     CMAKE_FLAGS+=" -DOSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk" # builds are on OS X 10.9
-    CMAKE_FLAGS+=" -DOSX_ARCHITECTURES=x86_64" # CUDA 6.5 no longer supports 32-bit
-    #CMAKE_FLAGS+=" -DSHARED_LINKER_FLAGS='-arch x86_64'" # CUDA 6.5 no longer supports 32-bit
+    CMAKE_FLAGS+=" -DCMAKE_OSX_ARCHITECTURES=x86_64" # CUDA 6.5 no longer supports 32-bit
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++" # use clang compilers
     CMAKE_FLAGS+=" -DOPENMM_BUILD_DRUDE_OPENCL_LIB=OFF" # OpenCL is only partially disabled on OS X, so turn this off manually
     CMAKE_FLAGS+=" -DOPENMM_BUILD_RPMD_OPENCL_LIB=OFF" # OpenCL is only partially disabled on OS X, so turn this off manually
