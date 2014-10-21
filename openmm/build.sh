@@ -11,7 +11,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     #CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/opt/AMDAPP/lib/x86_64/libOpenCL.so"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    export MACOSX_DEPLOYMENT_TARGET="10.7"
+    export MACOSX_DEPLOYMENT_TARGET="10.9"
+    CMAKE_FLAGS+=" -DOSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk"
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
     CMAKE_FLAGS+=" -DOPENMM_BUILD_DRUDE_OPENCL_LIB=OFF"
     CMAKE_FLAGS+=" -DOPENMM_BUILD_RPMD_OPENCL_LIB=OFF"
