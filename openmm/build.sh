@@ -12,6 +12,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     export MACOSX_DEPLOYMENT_TARGET="10.9"
+    #CMAKE_FLAGS+=" -DCMAKE_VERBOSE_MAKEFILE=TRUE" # for debugging
     CMAKE_FLAGS+=" -DOSX_DEPLOYMENT_TARGET=10.9" # builds are on OS X 10.9
     CMAKE_FLAGS+=" -DOSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk" # builds are on OS X 10.9
     CMAKE_FLAGS+=" -DCMAKE_OSX_ARCHITECTURES=x86_64" # CUDA 6.5 no longer supports 32-bit
@@ -32,7 +33,7 @@ fi
 
 mkdir build
 cd build
-cmake .. "${CMAKE_FLAGS}"
+cmake .. ${CMAKE_FLAGS}
 make -j8
 make install
 
