@@ -1,6 +1,6 @@
 package:
   name: openmm
-  version: master
+  version: 6.2.dev0
 
 source:
   url: https://github.com/pandegroup/openmm/archive/master.tar.gz

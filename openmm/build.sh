@@ -6,8 +6,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # setting the rpath so that libOpenMMPME.so finds the right libfftw3
     CMAKE_FLAGS+=" -DCMAKE_INSTALL_RPATH=.."
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
-    CMAKE_FLAGS+=" -DOPENCL_INCLUDE_DIR=/usr/local/cuda-6.0/include"
-    CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/usr/local/cuda-6.0/lib64/libOpenCL.so"
+    CMAKE_FLAGS+=" -DOPENCL_INCLUDE_DIR=/usr/local/cuda-6.5/include"
+    CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/usr/local/cuda-6.5/lib64/libOpenCL.so"
     #CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/opt/AMDAPP/lib/x86_64/libOpenCL.so"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
