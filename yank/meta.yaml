@@ -1,37 +1,34 @@
 package:
   name: yank
-  version: d342139d92d1ce893d89f5d60ef04d3b8ba98211
+  version: !!str dev
 
 source:
-  fn: yank-master.zip
-  url: https://github.com/choderalab/yank/archive/d342139d92d1ce893d89f5d60ef04d3b8ba98211.zip
-#  md5: 3e19a5fa2c697adfab08caa95baa8f3e
+  fn: master.zip
+  url: https://github.com/choderalab/yank/archive/master.zip
 
 requirements:
   build:
     - python
     - setuptools
     - scipy
-    - numpy
-    - netcdf4
-    - mpi4py
 
   run:
     - openmm
     - scipy
     - numpy
-    - ambermini
     - netcdf4
     - mpi4py
+    - repex
+    - ambermini
 
 build:
   script: $PYTHON setup.py install
 
 test:
   commands:
-    #- nosetests
+    - nosetests
 
 about:
   home: http://github.com/choderalab/yank
-  license: LGPL
-  summary: Insanity in a box.
+  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  summary: GPU-accelerated alchemical free energy calculations.

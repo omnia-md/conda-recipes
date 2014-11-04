@@ -1,10 +1,11 @@
 package:
   name: openmm
-  version: 6.1
+  version: 6.2.dev0
 
 source:
-  url: https://github.com/SimTk/openmm/archive/6.1.tar.gz
-  fn: 6.1.tar.gz
+  url: https://github.com/pandegroup/openmm/archive/master.tar.gz
+  fn: master.tar.gz
+
   patches:
     - plugin-dir.patch
 
@@ -16,11 +17,14 @@ requirements:
     - cmake
     - python
     - fftw3f
+    - sphinx
+    - pip
+    # - swig # leave out unless we use VM with workaround because conda swig is broken
 
   run:
     - python
     - fftw3f
 
 about:
-  home: https://simtk.org/home/openmm
+  home: http://openmm.org
   license: MIT

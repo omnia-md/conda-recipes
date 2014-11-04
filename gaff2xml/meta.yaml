@@ -1,0 +1,30 @@
+package:
+  name: gaff2xml
+  version: 0.0.0
+
+source:
+  url: https://github.com/choderalab/gaff2xml/archive/master.zip
+  fn: master.zip
+
+requirements:
+  build:
+    - python
+    - cython
+    - scipy
+    - setuptools
+    - mdtraj
+    - openmm
+    - ambermini
+
+  run:
+    - python
+    - pandas
+    - scipy
+    - mdtraj
+    - openmm
+    - ambermini
+
+about:
+  home: https://github.com/choderalab/gaff2xml
+  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+
