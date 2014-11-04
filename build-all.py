@@ -28,6 +28,11 @@ for CONDA_PY in ['26', '27', '33', '34']:
 
 build('ambermini')
 build('pdbfixer')
+build('openmmtools')
+build('packmol')
+build('gaff2xml')
+build('repex')
+build('yank')
 
 
 
