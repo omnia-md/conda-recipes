@@ -30,6 +30,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # TODO: What do we do about other dependencies, such as pdflatex and doxygen?
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    #
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # LaTeX
+    export PATH=${PATH}:/usr/texbin/
+fi
+
 
 # Install dependencies for building docs.
 pip install sphinxcontrib-bibtex
