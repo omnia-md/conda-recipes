@@ -39,7 +39,7 @@ fi
 
 
 # Install dependencies for building docs.
-pip install sphinxcontrib-bibtex
+pip install ordereddict sphinxcontrib-bibtex
 
 # Build in subdirectory.
 mkdir build
