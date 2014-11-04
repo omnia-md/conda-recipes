@@ -29,6 +29,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     CMAKE_FLAGS+=" -DFFTW_THREADS_LIBRARY=$PREFIX/lib/libfftw3f_threads.dylib"
 fi
 
+# TODO: What do we do about other dependencies, such as pdflatex and doxygen?
+
+# Install dependencies for building docs.
+pip install sphinxcontrib-bibtex
+
 # Build in subdirectory.
 mkdir build
 cd build
