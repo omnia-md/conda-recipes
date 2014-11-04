@@ -31,7 +31,7 @@ fi
 
 # TODO: What do we do about other dependencies, such as pdflatex and doxygen?
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    #
+    export PATH=${PATH}
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # LaTeX
     export PATH=${PATH}:/usr/texbin/
