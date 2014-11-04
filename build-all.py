@@ -13,7 +13,7 @@ def build(name):
     if not exists(fn):
         shell('conda build %s' % name)
 
-build('fftw3f')
+#build('fftw3f')
 
 for CONDA_PY in ['26', '27', '33', '34']:
     environ['CONDA_PY'] = CONDA_PY
