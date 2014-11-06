@@ -1,0 +1,31 @@
+# created with: conda skeleton pypi pystallone
+package:
+  name: pystallone
+  version: !!str 1.0.0b3
+
+source:
+  fn: pystallone-1.0.0b3.tar.gz
+  url: https://pypi.python.org/packages/source/p/pystallone/pystallone-1.0.0b3.tar.gz
+  md5: 420f99aab940fcd872bb780ae1598236
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - jpype1[numpy] >=0.5.6
+    - numpy >=1.6.0
+
+  run:
+    - python
+    - jpype1[numpy] >=0.5.6
+    - numpy >=1.6.0
+
+test:
+  imports:
+    - pystallone
+
+about:
+  home: http://bitbucket.org/cmb-fu/stallone
+  license:  BSD License
+  summary: 'Python binding for Stallone java library'
+
