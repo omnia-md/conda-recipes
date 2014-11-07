@@ -25,7 +25,7 @@ test:
   imports:
     - pyemma
 about:
-  home: http://compmolbio.biocomputing-berlin.de/index.php
+  home: http://github.com/markovmodel/PyEMMA
   license:  BSD License
   summary: "EMMA: Emma's Markov Model Algorithms"
 
