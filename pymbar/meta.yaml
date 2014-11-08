@@ -17,9 +17,6 @@ requirements:
     - numpy
     - scipy
 
-build:
-  script: $PYTHON setup.py install
-
 test:
   commands:
     - nosetests
