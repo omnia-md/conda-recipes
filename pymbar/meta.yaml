@@ -23,7 +23,10 @@ build:
 test:
   commands:
     - nosetests
-    
+
+  requires:
+    - nose
+
 about:
   home: http://github.com/choderalab/pymbar
   license: LGPL
