@@ -18,6 +18,7 @@ build('fftw3f')
 for CONDA_PY in ['26', '27', '33', '34']:
     environ['CONDA_PY'] = CONDA_PY
 
+    build('docopt')
     build('scripttest')
     build('openmm')
     build('msmbuilder')
