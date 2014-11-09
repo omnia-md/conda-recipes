@@ -12,12 +12,12 @@ requirements:
   build:
     - python
     - setuptools
-    - jpype1[numpy] >=0.5.6
+    - jpype1 >=0.5.6
     - numpy >=1.6.0
 
   run:
     - python
-    - jpype1[numpy] >=0.5.6
+    - jpype1 >=0.5.6
     - numpy >=1.6.0
 
 test:
