@@ -37,10 +37,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH=${PATH}:/usr/texbin/
 fi
 
-
-# Install dependencies for building docs.
-pip install sphinxcontrib-bibtex
-
 # Build in subdirectory.
 mkdir build
 cd build

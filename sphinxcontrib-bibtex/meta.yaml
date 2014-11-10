@@ -1,0 +1,34 @@
+package:
+  name: sphinxcontrib-bibtex
+  version: !!str 0.3.1
+
+source:
+  url: https://pypi.python.org/packages/source/s/sphinxcontrib-bibtex/sphinxcontrib-bibtex-0.3.1.tar.gz#md5=e7d5807297c71a6281ab5ee66293e339
+  fn: sphinxcontrib-bibtex-0.3.1.tar.gz
+
+build:
+  script: python setup.py install
+  preserve_egg_dir: True
+
+requirements:
+  build:
+    - setuptools
+    - sphinx
+    - python
+    - oset
+    - six
+    - pybtex-docutils
+    - latexcodec
+
+  run:
+    - python
+    - sphinx
+    - oset
+    - six
+    - pybtex-docutils
+    - latexcodec
+
+about:
+  home: https://pypi.python.org/pypi/sphinxcontrib-bibtex
+  license: BSD
+  summary: A Sphinx extension for BibTeX style citations.
