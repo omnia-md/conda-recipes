@@ -1,12 +1,12 @@
 # created with: conda skeleton pypi pystallone
 package:
   name: pystallone
-  version: !!str 1.0.0b3
+  version: !!str 1.0.0b4
 
 source:
-  fn: pystallone-1.0.0b3.tar.gz
-  url: https://pypi.python.org/packages/source/p/pystallone/pystallone-1.0.0b3.tar.gz
-  md5: 420f99aab940fcd872bb780ae1598236
+  fn: pystallone-1.0.0b4.tar.gz
+  url: https://pypi.python.org/packages/source/p/pystallone/pystallone-1.0.0b4.tar.gz
+  md5: e87ed77499df5299a057d7f94fa83dad 
 
 requirements:
   build:

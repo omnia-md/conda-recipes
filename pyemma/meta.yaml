@@ -1,6 +1,6 @@
 package:
   name: pyemma
-  version: !!str 1.0a1-19-g983f910
+  version: !!str 1.0a1_19_g983f910
 
 source:
   fn: pyEMMA-v1.0a1-19-g983f910.tar.gz
@@ -17,6 +17,7 @@ requirements:
 
   run:
     - python
+    - setuptools
     - numpy >=1.6.0
     - scipy >=0.11
     - pystallone >=1.0.0b3
