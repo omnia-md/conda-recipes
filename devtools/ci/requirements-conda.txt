@@ -2,4 +2,4 @@ pyyaml
 pip
 nose
 swig
-sphix
+sphinx
