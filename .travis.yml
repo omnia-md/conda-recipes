@@ -1,0 +1,11 @@
+language: c
+
+install:
+- export PACKAGENAME="conda-recipes"
+- source devtools/ci/install.sh
+- export PYTHONUNBUFFERED=true
+
+script:
+- export CC="gcc -std=c89"
+- python build-all.py
+

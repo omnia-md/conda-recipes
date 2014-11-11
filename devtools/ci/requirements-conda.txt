@@ -1,0 +1,4 @@
+pyyaml
+pip
+nose
+jinja2
