@@ -2,6 +2,10 @@ package:
   name: openmmtools
   version: 0.0.0
 
+source:
+  url: https://github.com/choderalab/openmmtools/archive/master.zip
+  fn: master.zip
+
 requirements:
   build:
     - python
@@ -11,7 +15,6 @@ requirements:
     - scipy
     - setuptools
     - openmm
-
 
   run:
     - python
