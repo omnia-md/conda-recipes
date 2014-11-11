@@ -2,6 +2,10 @@ package:
   name: openmmtools
   version: 0.0.0
 
+source:
+  url: https://github.com/choderalab/openmmtools/archive/master.zip
+  fn: master.tar.gz
+
 requirements:
   build:
     - python
