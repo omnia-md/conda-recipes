@@ -4,7 +4,7 @@ package:
 
 source:
   url: https://github.com/choderalab/openmmtools/archive/master.zip
-  fn: master.tar.gz
+  fn: master.zip
 
 requirements:
   build:
