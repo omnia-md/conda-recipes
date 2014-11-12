@@ -18,3 +18,4 @@ conda config --add channels http://conda.binstar.org/omnia
 conda install --yes conda-build jinja2
 conda install --yes --file devtools/ci/requirements-conda.txt
 pip install $PIP_ARGS nose-exclude
+pip install ordereddict sphinxcontrib-bibtex
