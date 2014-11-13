@@ -17,7 +17,7 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy
+#    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
     - scipy
     - fastcluster
     - pytables
@@ -26,7 +26,7 @@ requirements:
 
   run:
     - python
-    - numpy
+#    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
     - scipy
     - fastcluster
     - pytables
