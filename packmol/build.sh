@@ -5,5 +5,4 @@ export LDFLAGS="-L$PREFIX/lib $LDFLAGS"
 
 # Build and install.
 make
-chmod -R u+x bin
-make install
+cp packmol ${PREFIX}/bin/
