@@ -3,7 +3,7 @@ from subprocess import check_output
 from os import environ
 from os.path import exists
 shell = lambda cmd: check_output(cmd, shell=True)
-print('Building python2.7 and python3.3 conda packages')
+print('Building conda packages on grid of python / numpy versions')
 print('This will take a while... (15 minutes or more)')
 
 def build(name):
@@ -23,7 +23,7 @@ for CONDA_PY in ['26', '27', '33', '34']:
     build('openmm')
     build('msmbuilder')
 
-    for CONDA_NPY in ['17', '18']:
+    for CONDA_NPY in ['17', '18', '19']:
         environ['CONDA_NPY'] = CONDA_NPY
         build('fastcluster')
         build('mdtraj')
