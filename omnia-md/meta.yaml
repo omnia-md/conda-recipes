@@ -10,6 +10,7 @@ requirements:
     - pymbar
     - pdbfixer
     - msmbuilder    
+    - nose  # Needed to test everything
 
 about:
   home: http://omnia.md
