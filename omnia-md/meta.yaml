@@ -1,0 +1,18 @@
+package:
+  name: omnia-md
+  version: 0.1
+
+
+requirements:
+  run:
+    - openmm
+    - mdtraj
+    - pymbar
+    - pdbfixer
+    - msmbuilder    
+    - nose  # Needed to test everything
+
+about:
+  home: http://omnia.md
+  license: GPL
+  summary: Metapackage for the omnia.md biophysical simulation consortium.
