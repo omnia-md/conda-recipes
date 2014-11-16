@@ -11,7 +11,9 @@ requirements:
   build:
     - python
     - setuptools
-    - cython >=0.20
+# not needed actually, since we're deploying pre-cythonized sources
+# FIXME: if cython is available, build_ext step is not being called.
+#    - cython >=0.20
     - numpy >=1.6.0
     - scipy >=0.11
     - pystallone >=1.0.0b3
