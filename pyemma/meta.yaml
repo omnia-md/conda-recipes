@@ -1,16 +1,17 @@
 package:
   name: pyemma
-  version: !!str 1.0a1_19_g983f910
+  version: !!str 1.0a2
 
 source:
-  fn: pyEMMA-v1.0a1-19-g983f910.tar.gz
-  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-v1.0a1-19-g983f910.tar.gz
-  md5: f299d8ab8a8f94035ca64da1df218d11
+  fn: pyEMMA-v1.0a2.tar.gz
+  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.0a2.tar.gz
+  md5: 54133cbf879ad7875ea5bc461ec71f00 
 
 requirements:
   build:
     - python
     - setuptools
+    - cython >=0.20
     - numpy >=1.6.0
     - scipy >=0.11
     - pystallone >=1.0.0b3
