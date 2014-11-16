@@ -12,8 +12,8 @@ else:
 
 # if on osx yosemite or higher link against new libstdc++
 if `$PYTHON -c "$s"`; then
- echo "on yosemite";
- CFLAGS="-stdlib=libstdc++"
+ echo "on yosemite"
+ export CFLAGS="-stdlib=libstdc++"
 fi
 
 $PYTHON setup.py install
