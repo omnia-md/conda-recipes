@@ -62,3 +62,7 @@ cd ..
 # Copy all tests to bin directory so they will be distributed with install package.
 #cp `find . -name "Test*" -type f -maxdepth 1` $PREFIX/bin
 
+# Put docs into a subdirectory.
+cd $PREFIX/docs
+mkdir openmm
+mv *.pdf *.html api-* openmm/
