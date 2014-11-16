@@ -4,6 +4,7 @@ s="import platform; import sys
 from distutils.version import StrictVersion
 curr = StrictVersion(platform.mac_ver()[0])
 yosemite = StrictVersion('10.10')
+print curr, yosemite
 if curr >= yosemite:
    sys.exit(0)
 else:
