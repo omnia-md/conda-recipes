@@ -1,10 +1,10 @@
 package:
   name: mdtraj
-  version: !!str 1.0.0
+  version: !!str 1.1.0
 
 source:
-  fn: mdtraj-1.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-1.0.0.tar.gz#md5=357cc06f5bcce6fb2aa073224bdcf389
+  git_url: https://github.com/mdtraj/mdtraj
+  git_tag: 1.1.0
 
 build:
   number: 0
@@ -24,7 +24,9 @@ requirements:
     - numpy
     - scipy
     - pandas
+    - scripttest
 
 about:
   home: http://mdtraj.org/
   license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  summary: A modern, open library for the analysis of molecular dynamics trajectories
