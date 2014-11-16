@@ -1,6 +1,6 @@
 package:
   name: yank
-  version: !!str dev
+  version: !!str 0.0.0
 
 source:
   fn: master.zip
@@ -11,6 +11,10 @@ requirements:
     - python
     - setuptools
     - scipy
+    - docopt
+    - netcdf4
+    - openmmtools
+    - pymbar
 
   run:
     - openmm
@@ -20,13 +24,14 @@ requirements:
     - mpi4py
     - repex
     - ambermini
+    - docopt
+    - netcdf4
+    - openmmtools
+    - pymbar
 
-build:
-  script: $PYTHON setup.py install
-
-test:
-  commands:
-    - nosetests
+#test:
+#  commands:
+#    - nosetests
 
 about:
   home: http://github.com/choderalab/yank
