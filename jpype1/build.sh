@@ -13,7 +13,7 @@ else:
 # if on osx mavericks or higher link against new libstdc++
 if `$PYTHON -c "$s"`; then
  echo "on mavericks or higher"
- export CFLAGS="-stdlib=libstdc++"
+ export CFLAGS="-stdlib=libc++"
 fi
 
 $PYTHON setup.py install
