@@ -22,7 +22,6 @@ requirements:
     - numpy
     - netcdf4
     - mpi4py
-    - repex
     - ambermini
     - docopt
     - netcdf4
