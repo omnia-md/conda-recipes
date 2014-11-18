@@ -19,7 +19,6 @@ requirements:
     - setuptools
 #    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
     - scipy
-    - fastcluster
     - pytables
     - pyyaml
     - mdtraj
@@ -29,7 +28,6 @@ requirements:
     - python
 #    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
     - scipy
-    - fastcluster
     - pytables
     - pyyaml
     - mdtraj
