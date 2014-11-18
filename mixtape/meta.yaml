@@ -17,6 +17,7 @@ requirements:
   build:
     - python
     - setuptools
+    - cython    
 #    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
     - scipy
     - pytables
@@ -26,6 +27,7 @@ requirements:
 
   run:
     - python
+    - cython
 #    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
     - scipy
     - pytables
