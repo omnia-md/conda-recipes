@@ -4,12 +4,19 @@ package:
 
 
 requirements:
+  build:
+    - openmm
+    - mdtraj
+    - pymbar
+    - pdbfixer
+    - msmbuilder
+
   run:
     - openmm
     - mdtraj
     - pymbar
     - pdbfixer
-    - msmbuilder    
+    - msmbuilder
     - nose  # Needed to test everything
 
 about:
