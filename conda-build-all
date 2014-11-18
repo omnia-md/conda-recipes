@@ -1,0 +1,29 @@
+#!/bin/bash
+
+PYTHONS=( "26" "27" "33" "34")
+NUMPYS=( "19" )
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: $0 [one-or-more-conda-recipes...]";
+    echo
+    echo "Build conda packages with all versions of python."
+    exit 1;
+fi
+
+
+for recipe in "$@"; do
+    for py in ${PYTHONS[@]}; do
+	for npy in ${NUMPYS[@]}; do
+
+	    # check if output file exists first
+	    output=`CONDA_PY=$py CONDA_NPY=$npy conda build $recipe --output`;
+	    if [ -f "$output" ]; then
+		echo "Package exists: $output";
+		continue;
+	    fi;
+
+            # build
+	    CONDA_PY=$py CONDA_NPY=$npy conda build $recipe;
+	done
+    done
+done
