@@ -4,13 +4,6 @@ package:
 
 
 requirements:
-  build:
-    - openmm
-    - mdtraj
-    - pymbar
-    - pdbfixer
-    - msmbuilder
-
   run:
     - openmm
     - mdtraj
