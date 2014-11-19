@@ -46,5 +46,5 @@ To upload multiple packages to the test channel (for beta testing / pre-release)
 
 ```
 binstar login  # workaround bug in binstar login.
-binstar upload /home/vagrant/miniconda/conda-bld/linux-64/*.bz2  -u omnia --channel test --force
+binstar upload /home/vagrant/miniconda/conda-bld/linux-64/*.bz2  -u omnia --channel test
 ```
