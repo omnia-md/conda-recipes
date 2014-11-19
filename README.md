@@ -38,3 +38,9 @@ binstar upload -u omnia package.bz2
 
 Command taken from this forum post: [From Binstar Forums](https://groups.google.com/a/continuum.io/forum/#!topic/conda/uYtVRGW--iU)
 
+To upload multiple packages to the test channel
+
+```
+binstar login  # workaround bug in binstar login.
+binstar upload /home/vagrant/miniconda/conda-bld/linux-64/mixtape-0.2.2-np1*  -u omnia --channel test --force
+```
