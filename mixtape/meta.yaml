@@ -20,7 +20,7 @@ requirements:
     - python
     - setuptools
     - cython    
-#    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
+    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
     - scipy
     - pytables
     - pyyaml
@@ -30,7 +30,7 @@ requirements:
   run:
     - python
     - cython
-#    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
+    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
     - scipy
     - pytables
     - pyyaml
