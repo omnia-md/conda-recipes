@@ -26,9 +26,13 @@ conda build packagename
 To build all Omnia conda packages, you can use the included script:
 
 ```
-sh build-all.sh
+python build-all.py
 ```
+Or the other script:
 
+```
+./conda-build-all ./*
+```
 
 To upload to the Omnia binstar org, use
 
@@ -38,9 +42,9 @@ binstar upload -u omnia package.bz2
 
 Command taken from this forum post: [From Binstar Forums](https://groups.google.com/a/continuum.io/forum/#!topic/conda/uYtVRGW--iU)
 
-To upload multiple packages to the test channel
+To upload multiple packages to the test channel (for beta testing / pre-release)
 
 ```
 binstar login  # workaround bug in binstar login.
-binstar upload /home/vagrant/miniconda/conda-bld/linux-64/mixtape-0.2.2-np1*  -u omnia --channel test --force
+binstar upload /home/vagrant/miniconda/conda-bld/linux-64/*.bz2  -u omnia --channel test --force
 ```
