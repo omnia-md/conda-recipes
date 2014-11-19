@@ -1,10 +1,13 @@
 package:
   name: mixtape
-  version: !!str 0.2.2
+  #version: !!str 0.2.2
+  version: 0.3
 
 source:
-  fn: 0.2.2.tar.gz
-  url: https://github.com/rmcgibbo/mixtape/archive/0.2.2.tar.gz
+  #fn: 0.2.2.tar.gz
+  #url: https://github.com/rmcgibbo/mixtape/archive/0.2.2.tar.gz
+  fn: master.zip
+  url: https://github.com/rmcgibbo/mixtape/archive/master.zip
 
 build:
   preserve_egg_dir: True
