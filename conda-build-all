@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PYTHONS=( "26" "27" "33" "34")
-NUMPYS=( "19" )
+NUMPYS=( "18" "19" )
 
 if [[ $# -eq 0 ]]; then
     echo "Usage: $0 [one-or-more-conda-recipes...]";
