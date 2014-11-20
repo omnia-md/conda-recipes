@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PYTHONS=( "26" "27" "33" "34")
+PYTHONS=( "27" "33" "34")
 NUMPYS=( "18" "19" )
 
 if [[ $# -eq 0 ]]; then
