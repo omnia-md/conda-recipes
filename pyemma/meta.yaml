@@ -1,11 +1,11 @@
 package:
   name: pyemma
-  version: !!str 1.0a2
+  version: !!str 1.0a3
 
 source:
-  fn: pyEMMA-v1.0a2.tar.gz
-  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.0a2.tar.gz
-  md5: 54133cbf879ad7875ea5bc461ec71f00 
+  fn: pyEMMA-v1.0a3.tar.gz
+  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.0a3.tar.gz
+  md5: d5a8e658964fd20b83eeec1abf35f6b1 
 
 requirements:
   build:
@@ -13,7 +13,7 @@ requirements:
     - setuptools
 # not needed actually, since we're deploying pre-cythonized sources
 # FIXME: if cython is available, build_ext step is not being called.
-#    - cython >=0.20
+    - cython >=0.20
     - numpy >=1.6.0
     - scipy >=0.11
     - pystallone >=1.0.0b3
@@ -24,13 +24,14 @@ requirements:
     - numpy >=1.6.0
     - scipy >=0.11
     - pystallone >=1.0.0b3
+    - argparse # [py26]
 
 test:
   imports:
     - pyemma
 about:
   home: http://github.com/markovmodel/PyEMMA
-  license:  BSD License
+  license: BSD 2-Clause License
   summary: "EMMA: Emma's Markov Model Algorithms"
 
 
