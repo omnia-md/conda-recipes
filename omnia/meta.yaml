@@ -1,16 +1,9 @@
 package:
-  name: omnia-md
+  name: omnia
   version: 0.1
 
 
 requirements:
-  build:
-    - openmm
-    - mdtraj
-    - pymbar
-    - pdbfixer
-    - msmbuilder
-
   run:
     - openmm
     - mdtraj
