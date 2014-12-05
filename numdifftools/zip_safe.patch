@@ -1,0 +1,10 @@
+--- setup.py	2014-12-04 16:44:41.000000000 -0800
++++ setup.py	2014-12-04 16:45:00.000000000 -0800
+@@ -53,6 +53,7 @@
+     maintainer_email = 'Per.Andreas.Brodtkorb at gmail.com',
+     packages = ['numdifftools'],
+     package_data = {'': packagedata},
++    zip_safe=True,
+     classifiers=[
+           'Development Status :: 4 - Beta',
+           'Intended Audience :: Education',
