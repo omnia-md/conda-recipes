@@ -1,63 +1,51 @@
 package:
   name: msmbuilder
-  version: !!str 2.8.2
+  version: 3.0b1
 
 source:
-  fn: msmbuilder-2.8.2.tar.gz
-  url: https://pypi.python.org/packages/source/m/msmbuilder/msmbuilder-2.8.2.tar.gz
+  fn: master.zip
+  url: https://github.com/msmbuilder/msmbuilder/archive/master.zip
 
 build:
   preserve_egg_dir: True
+  number: 0
+  entry_points:
+    - msmb = msmbuilder.scripts.msmb:main
 
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  number: 1
 
 requirements:
   build:
     - python
     - setuptools
-#    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
-    - scipy
-    - fastcluster
-    - pytables
-    - pyyaml
+    - cython    
+    - numpy
     - mdtraj
-
   run:
     - python
-#    - numpy  # Don't include numpy here because it requires you to build a separate conda packages for each version.
+    - setuptools
+    - numpy
     - scipy
-    - fastcluster
-    - pytables
-    - pyyaml
+    - pandas
+    - six
     - mdtraj
+    - scikit-learn
+    - numpydoc
+    - pytables
+
 
 test:
-  # Python imports
-  #imports:
-  #  - msmbuilder.project
-  #  - msmbuilder
-  #  - msmbuilder.scripts
-  #  - msmbuilder.lumping
-  #  - msmbuilder.metrics
-  #  - msmbuilder.reduce
-  #  - msmbuilder.geometry
-
-  #commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
-
+  requires:
+    - nose
+    - munkres
+    - numdifftools
+  imports:
+    - msmbuilder
+  commands:
+    - msmb -h
+    - nosetests msmbuilder -v
+  
+  
 about:
-  home: https://msmbuilder.org
-  license: GPLv3.0
-  summary: 'MSMBuilder: a python library for Markov state models of conformational dynamics'
-
+  home: https://github.com/msmbuilder/msmbuilder
+  license: LGPLv2.1+
+  summary: 'MSMBuilder: Statistical models for biomolecular dynamics'
