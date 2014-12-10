@@ -1,0 +1,26 @@
+package:
+  name: cvxopt
+  version: 1.1.7
+
+source:
+  fn: cvxopt-1.1.7.tar.gz
+  url: https://pypi.python.org/packages/source/c/cvxopt/cvxopt-1.1.7.tar.gz
+  md5: 5b80f5382bb638e606e486ee39bc93b4
+
+  # number: 1
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+
+test:
+  imports:
+    - cvxopt
+
+about:
+  home: http://cvxopt.org
+  license: GNU GPL version 3
+  summary: 'Convex optimization package'
