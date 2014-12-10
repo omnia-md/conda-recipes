@@ -1,0 +1,34 @@
+package:
+  name: ecos
+  version: !!str 1.0.5
+
+source:
+  fn: ecos-1.0.5.tar.gz
+  url: https://pypi.python.org/packages/source/e/ecos/ecos-1.0.5.tar.gz
+  md5: e62685b2a9aa50e519162f1373d8f001
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy >=1.7
+    - scipy >=0.12
+
+  run:
+    - python
+    - setuptools
+    - numpy >=1.7
+    - scipy >=0.12
+
+test:
+  # Python imports
+  imports:
+    - ecos
+
+about:
+  home: https://github.com/embotech/ecos
+  license: GPLv3
+  summary: 'A lightweight conic solver for second-order cone programming.'
