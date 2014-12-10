@@ -1,0 +1,28 @@
+package:
+  name: scs
+  version: !!str 1.0.6
+
+source:
+  fn: scs-1.0.6.tar.gz
+  url: https://pypi.python.org/packages/source/s/scs/scs-1.0.6.tar.gz
+  md5: 38b603f460f9370b91b06248c95e4688
+
+requirements:
+  build:
+    - python
+    - numpy
+
+  run:
+    - python
+    - numpy
+    - scipy
+
+test:
+  # Python imports
+  imports:
+    - scs
+
+about:
+  home: http://github.com/cvxgrp/scs
+  license: GPLv3
+  summary: 'scs: splittling cone solver'

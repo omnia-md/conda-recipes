@@ -1,0 +1,88 @@
+package:
+  name: cvxpy
+  version: !!str 0.2.15
+
+source:
+  fn: cvxpy-0.2.15.tar.gz
+  url: https://pypi.python.org/packages/source/c/cvxpy/cvxpy-0.2.15.tar.gz
+  md5: 5cabc53f8d4630ff5976c3a9601ae0d7
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - cvxpy = cvxpy:main
+    #
+    # Would create an entry point called cvxpy that calls cvxpy.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cvxopt
+    - ecos
+    - scs
+    - toolz
+    - numpy
+    - scipy
+
+  run:
+    - python
+    - cvxopt
+    - ecos
+    - scs
+    - toolz
+    - numpy
+    - scipy
+
+test:
+  # Python imports
+  imports:
+    - cvxpy
+    - cvxpy.atoms
+    - cvxpy.atoms.affine
+    - cvxpy.atoms.elementwise
+    - cvxpy.constraints
+    - cvxpy.expressions
+    - cvxpy.expressions.constants
+    - cvxpy.expressions.variables
+    - cvxpy.interface
+    - cvxpy.interface.cvxopt_interface
+    - cvxpy.interface.numpy_interface
+    - cvxpy.lin_ops
+    - cvxpy.problems
+    - cvxpy.problems.problem_data
+    - cvxpy.problems.solvers
+    - cvxpy.tests
+    - cvxpy.utilities
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://github.com/cvxgrp/cvxpy/
+  license: GPLv3
+  summary: 'A domain-specific language for modeling convex optimization problems in Python.'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
