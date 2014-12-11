@@ -2,7 +2,7 @@ $PYTHONS = @("27", "33", "34")
 $NUMPYS = @("18", "19")
 
 If ($args.count -eq 0) {
-    Write-Host "Usage: conda-build-all.ps1 [one-or-more-conda-recipes...]"
+    Write-Host "Usage:" $MyInvocation.MyCommand.Name "[one-or-more-conda-recipes...]"
     Write-Host
     Write-Host "Build conda packages with all versions of python."
     exit 1
