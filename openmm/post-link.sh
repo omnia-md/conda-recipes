@@ -24,6 +24,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # For anaconda installs, the OpenMM examples should probably go in ~/anaconda/share/examples/openmm/
-mkdir $PREFIX/share/openmm/
-mkdir $PREFIX/share/openmm/examples
-mv $PREFIX/share/examples $PREFIX/share/openmm/examples
+# Now we handle this manually, in the future we should probably add an extra flag in 
+# CMAKE to make this cleaner.
+mkdir -p $PREFIX/share/openmm/examples
+
+mv -t $PREFIX/share/openmm/examples $PREFIX/examples/simulateAmber.py $PREFIX/examples/simulatePdb.py $PREFIX/examples/simulateGromacs.py 
+mv -t $PREFIX/share/openmm/examples $PREFIX/examples/benchmark.py $PREFIX/examples/argon-chemical-potential.py 
+mv -t $PREFIX/share/openmm/examples $PREFIX/examples/input.inpcrd $PREFIX/examples/input.prmtop $PREFIX/examples/input.pdb $PREFIX/examples/input.gro $PREFIX/examples/input.top 
+mv -t $PREFIX/share/openmm/examples $PREFIX/examples/5dfr_minimized.pdb $PREFIX/examples/5dfr_solv-cube_equil.pdb
+mv -t $PREFIX/share/openmm/examples $PREFIX/examples/README.txt $PREFIX/examples/Makefile $PREFIX/examples/NMakefile $PREFIX/examples/MakefileNotes.txt $PREFIX/examples/Empty.cpp
+
+mv -t $PREFIX/share/openmm/examples $PREFIX/examples/VisualStudio
