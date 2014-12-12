@@ -26,6 +26,7 @@ fi
 # For anaconda installs, the OpenMM examples should probably go in ~/anaconda/share/examples/openmm/
 # Now we handle this manually, in the future we should probably add an extra flag in 
 # CMAKE to make this cleaner.
+rm -rf $PREFIX/share/openmm/examples
 mkdir -p $PREFIX/share/openmm/examples
 
 mv -t $PREFIX/share/openmm/examples $PREFIX/examples/simulateAmber.py $PREFIX/examples/simulatePdb.py $PREFIX/examples/simulateGromacs.py 
