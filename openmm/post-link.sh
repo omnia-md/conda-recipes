@@ -24,6 +24,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # For anaconda installs, the OpenMM examples should probably go in ~/anaconda/share/examples/openmm/
-mkdir $PREFIX/share/openmm/examples
 mkdir $PREFIX/share/openmm/
+mkdir $PREFIX/share/openmm/examples
 mv $PREFIX/share/examples $PREFIX/share/openmm/examples
