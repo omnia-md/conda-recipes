@@ -1,11 +1,10 @@
 package:
   name: openmm
-  version: 6.2.rc1
+  version: 6.2
 
 source:
-  #url: https://github.com/pandegroup/openmm/archive/master.tar.gz
-  url: https://github.com/pandegroup/openmm/archive/6.2rc1.tar.gz
-  fn: master.tar.gz
+  url: https://github.com/pandegroup/openmm/archive/6.2.tar.gz
+  fn: 6.2.tar.gz
 
   patches:
     - plugin-dir.patch
