@@ -1,0 +1,5 @@
+pyyaml
+pip
+nose
+swig
+sphinx

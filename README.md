@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jchodera/conda-recipes.svg)](https://travis-ci.org/jchodera/conda-recipes)
+
 conda-recipes
 -------------
 
