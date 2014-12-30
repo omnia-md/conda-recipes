@@ -66,3 +66,7 @@ cd ..
 cd $PREFIX/docs
 mkdir openmm
 mv *.pdf *.html api-* openmm/
+
+# Put examples into an appropriate subdirectory.
+mkdir $PREFIX/share/openmm/
+mv $PREFIX/examples $PREFIX/share/openmm/
