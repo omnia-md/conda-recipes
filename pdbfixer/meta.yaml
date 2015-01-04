@@ -11,10 +11,12 @@ requirements:
     - python
     - setuptools
     - openmm
+    - numpy
 
   run:
     - python
     - openmm
+    - numpy
 
 build:
   script: $PYTHON setup.py install
