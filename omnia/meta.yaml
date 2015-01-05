@@ -4,6 +4,13 @@ package:
 
 
 requirements:
+  build: # needed to trigger automatic builds of omnia packges and dependencies
+    - openmm
+    - mdtraj
+    - pymbar
+    - pdbfixer
+    - msmbuilder
+    - nose  # Needed to test everything
   run:
     - openmm
     - mdtraj
