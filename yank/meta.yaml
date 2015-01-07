@@ -1,6 +1,6 @@
 package:
   name: yank
-  version: !!str 0.0.0
+  version: !!str 1.0.0
 
 source:
   fn: master.zip
@@ -27,6 +27,14 @@ requirements:
     - netcdf4
     - openmmtools
     - pymbar
+
+build:
+  entry_points:
+    - yank = yank.cli:main
+
+  script: python setup.py install
+
+  preserve_egg_dir: yes
 
 #test:
 #  commands:
