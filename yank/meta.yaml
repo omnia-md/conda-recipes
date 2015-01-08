@@ -32,10 +32,6 @@ build:
   entry_points:
     - yank = yank.cli:main
 
-  script: python setup.py install
-
-  preserve_egg_dir: yes
-
 #test:
 #  commands:
 #    - nosetests
