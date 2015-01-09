@@ -11,10 +11,9 @@ if [[ $# -eq 0 ]]; then
 fi
 
 
-for recipe in "$@"; do
-    for py in ${PYTHONS[@]}; do
-	for npy in ${NUMPYS[@]}; do
-
+for py in ${PYTHONS[@]}; do
+for npy in ${NUMPYS[@]}; do
+    for recipe in "$@"; do
 	    # check if output file exists first
 	    output=`CONDA_PY=$py CONDA_NPY=$npy conda build $recipe --output`;
 	    if [ -f "$output" ]; then
@@ -25,5 +24,5 @@ for recipe in "$@"; do
             # build
 	    CONDA_PY=$py CONDA_NPY=$npy conda build $recipe;
 	done
-    done
+done
 done
