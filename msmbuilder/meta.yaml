@@ -3,7 +3,7 @@ package:
   version: !!str 3.0.0
 
 source:
-    git_url: git@github.com:msmbuilder/msmbuilder.git
+    git_url: https://github.com/msmbuilder/msmbuilder.git
     git_tag: v3.0.0
 
 build:
