@@ -6,10 +6,16 @@ install:
     - bash $MINICONDA -b
     - rm -f $MINICONDA
     - export PATH=$HOME/miniconda/bin:$PATH
-    - bash ./mock-packages --force ./*
     - conda update --yes conda
     - conda install --yes conda-build jinja2
 
 script:
+    # We don't have enough time on travis to build all of the packages.
+    # But so far, most of the issues have been related to dependency resolution
+    # between the projects, not bugs with the projects themselves (those are
+    # handled upstream). So for testing here, we mock out the packages' build.sh
+    # to simply be a no-op, which makes things runs faster.
+    # this isn't a perfect solution, but it's something.
+    - bash ./mock-packages --force ./*
     - CONDA_BUILD_ALL_CONDA_FLAGS="--no-test" ./conda-build-all ./* || echo ' '
     - ls ~/miniconda/conda-bld/osx-64/
