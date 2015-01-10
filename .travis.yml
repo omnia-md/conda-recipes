@@ -7,7 +7,7 @@ install:
     - rm -f $MINICONDA
     - export PATH=$HOME/miniconda/bin:$PATH
     - conda update --yes conda
-    - conda install --yes conda-build jinja2
+    - conda install --yes conda-build binstar jinja2
 
 script:
     # We don't have enough time on travis to build all of the packages.
@@ -17,5 +17,5 @@ script:
     # to simply be a no-op, which makes things runs faster.
     # this isn't a perfect solution, but it's something.
     - bash ./mock-packages --force ./*
-    - CONDA_BUILD_ALL_CONDA_FLAGS="--no-test" ./conda-build-all ./* || echo ' '
+    - ./conda-build-all --no-test ./*
     - ls ~/miniconda/conda-bld/linux-64/
