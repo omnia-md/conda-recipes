@@ -1,6 +1,6 @@
-[![Travis dependency resolution test](https://travis-ci.org/omnia-md/conda-recipes.svg?branch=master)](https://travis-ci.org/omnia-md/conda-recipes)
-[![Jenkins `osx` build](https://jenkins.choderalab.org/job/conda-omnia-release-osx-2/badge/icon)](https://jenkins.choderalab.org/job/conda-omnia-release-osx-2/)
-[![Jenkins `linux` build](https://jenkins.choderalab.org/job/conda-omnia-release-linux-vagrant/badge/icon)](https://jenkins.choderalab.org/job/conda-omnia-release-linux-vagrant/)
+* Travis dependency resolution test: [![Travis dependency resolution test](https://travis-ci.org/omnia-md/conda-recipes.svg?branch=master)](https://travis-ci.org/omnia-md/conda-recipes)
+* Jenkins `osx` build: [![Jenkins `osx` build](https://jenkins.choderalab.org/job/conda-omnia-release-osx-2/badge/icon)](https://jenkins.choderalab.org/job/conda-omnia-release-osx-2/) [[console log]](https://jenkins.choderalab.org/job/conda-omnia-release-osx-2/lastBuild/consoleFull)
+* Jenkins `linux` build: [![Jenkins `linux` build](https://jenkins.choderalab.org/job/conda-omnia-release-linux-vagrant/badge/icon)](https://jenkins.choderalab.org/job/conda-omnia-release-linux-vagrant/) [[console log]](https://jenkins.choderalab.org/job/conda-omnia-release-linux-vagrant/lastBuild/consoleFull)
 
 conda-recipes
 -------------
