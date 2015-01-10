@@ -89,7 +89,7 @@ def toposort(data):
             yield item
         data = {item: (dep - ordered) for item, dep in data.iteritems()
                 if item not in ordered}
-    if not data:
+    if data:
         raise ValueError(
             "Cyclic dependencies exist among these items"
             ":\n%s" % '\n'.join(repr(x) for x in data.iteritems()))
