@@ -7,7 +7,6 @@ source:
   fn: pybtex-docutils-0.2.0.zip
 
 build:
-  script: python setup.py install
   preserve_egg_dir: True
 
 requirements:

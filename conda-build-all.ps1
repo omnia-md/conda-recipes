@@ -8,17 +8,17 @@ If ($args.count -eq 0) {
     exit 1
 }
 
-foreach ($recipe in $args) {
-    foreach ($py in $PYTHONS) {
-       foreach ($npy in $NUMPYS) {
-            $env:CONDA_PY = $py
-            $env:CONDA_NPY = $npy
-            $output = conda build $recipe --output
-            if (Test-Path $output) {
-                Write-Host "package exists:" $output
-                continue
-            }
-            conda build $recipe
-       }
-    }
+foreach ($py in $PYTHONS) {
+foreach ($npy in $NUMPYS) {
+    foreach ($recipe in $args) {
+        $env:CONDA_PY = $py
+        $env:CONDA_NPY = $npy
+        $output = conda build $recipe --output
+        if (Test-Path $output) {
+            Write-Host "package exists:" $output
+            continue
+        }
+        conda build $recipe
+   }
+}
 }

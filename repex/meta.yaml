@@ -14,21 +14,18 @@ requirements:
     - scipy
     - setuptools
     - mdtraj
-    - openmm     
+    - openmm
     - netcdf4
-    - mpi4py    
+    - mpi4py
 
   run:
     - python
     - pandas
     - scipy
     - mdtraj
-    - openmm       
+    - openmm
     - netcdf4
-    - mpi4py    
-
-build:
-  script: $PYTHON setup.py install
+    - mpi4py
 
 test:
   commands:
