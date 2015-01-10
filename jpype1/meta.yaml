@@ -9,12 +9,13 @@ source:
 
 requirements:
   build:
-    - python <3 # py-2 only
+    - python
     - setuptools
     - numpy
   run:
-    - python <3 # py-2 only
+    - python
     - numpy
+
 test:
   imports:
     - jpype
