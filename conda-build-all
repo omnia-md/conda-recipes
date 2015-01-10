@@ -1,32 +1,197 @@
-#!/bin/bash
+#!/usr/bin/env python
+import re
+from os.path import isfile, basename, join, isdir
+from conda.config import subdir as platform
+import sys
+import argparse
+from subprocess import check_output, call
+from functools import reduce
+assert platform in ('osx-64', 'linux-32', 'linux-64', 'win-32', 'win-64')
 
-PYTHONS=( "27" "33" "34" )
-NUMPYS=( "18" "19" )
+from conda_build.metadata import MetaData
+from conda.utils import memoized
+from binstar_client.utils import get_binstar
+from binstar_client.errors import NotFound
 
-if [[ $# -eq 0 ]]; then
-    echo "Usage: $0 [one-or-more-conda-recipes...]";
-    echo
-    echo "Build conda packages with all versions of python."
-    exit 1;
-fi
 
-RECIPES=`python topological-sort-recipes.py $@`
-echo "Building packages in the following order:"
-echo $RECIPES
-echo ""
 
-for recipe in ${RECIPES[@]}; do
-    for py in ${PYTHONS[@]}; do
-    for npy in ${NUMPYS[@]}; do
-	    # check if output file exists first
-	    output=`CONDA_PY=$py CONDA_NPY=$npy conda build $recipe --output`;
-	    if [ -f "$output" ]; then
-            echo "Package exists: $output";
-            continue;
-	    fi;
+def main():
+    p = argparse.ArgumentParser(
+        'Build conda packages',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    p.add_argument(
+        'recipe',
+        action="store",
+        metavar='RECIPE_PATH',
+        nargs='+',
+        help="path to recipe directory"
+    )
+    p.add_argument(
+        '--check-against',
+        metavar='BINSTAR_USER'
+    )
+    p.add_argument(
+        '--no-test',
+        action='store_true',
+        dest='notest',
+        help="do not test the package"
+    )
+    p.add_argument(
+        '--python',
+        help="Set the Python version used by conda build",
+        metavar="PYTHON_VER",
+        default='27,33,34',
+    )
+    p.add_argument(
+        '--numpy',
+        help="Set the NumPy version used by conda build",
+        metavar="NUMPY_VER",
+        default='18,19',
+    )
+    args = p.parse_args()
+    execute(args, p)
 
-        # build
-	    CONDA_PY=$py CONDA_NPY=$npy conda build $CONDA_BUILD_ALL_CONDA_FLAGS $recipe;
-    done
-    done
-done
+
+def toposort(data):
+    """Topological sort.
+
+    The expected input is a dictionary whose keys are items, and whose
+    values are a set of the dependent items.
+
+    The output is a genenerator over the items in topological order.
+    """
+    # http://code.activestate.com/recipes/578272-topological-sort/
+
+    # Ignore self dependencies.
+    for k, v in data.items():
+        v.discard(k)
+    # Find all items that don't depend on anything.
+    extra_items_in_deps = reduce(set.union, data.itervalues()) - set(data.iterkeys())
+    # Add empty dependences where needed
+    data.update({item:set() for item in extra_items_in_deps})
+    while True:
+        ordered = set(item for item, dep in data.iteritems() if not dep)
+        if not ordered:
+            break
+        for item in ordered:
+           yield item
+        # yield ordered
+        data = {item: (dep - ordered)
+                for item, dep in data.iteritems()
+                    if item not in ordered}
+    assert not data, "Cyclic dependencies exist among these items:\n%s" % '\n'.join(repr(x) for x in data.iteritems())
+
+
+def sort_recipes(recipe_paths):
+    metadatas = []
+    for r in recipe_paths:
+        try:
+            if isdir(r):
+                metadatas.append(MetaData(r))
+        except SystemExit:
+            pass
+
+    names = {m.get_value('package/name'): m for m in metadatas}
+
+    graph = {}
+    for m in metadatas:
+        all_requirements = set(m.get_value('requirements/build', []))
+        all_requirements.update(m.get_value('requirements/run', []))
+        all_requirements.update(m.get_value('test/requires', []))
+
+        our_requirements = set()
+        for r in all_requirements:
+            if r in names:
+                # remove any version specified in the requirements
+                # (e.g. numpy >= 1.6) or something -- we just want the "numpy"
+                if ' ' in r:
+                    r = r.split()[0]
+                our_requirements.add(r)
+
+        graph[m.get_value('package/name')] = our_requirements
+
+    order = list(toposort(graph))
+    return order
+
+
+@memoized
+def conda_build_output(recipe_path, python, numpy):
+    return check_output(
+        ['conda-build', '--output', '--python', python,
+         '--numpy', numpy, recipe_path]).strip()
+
+
+def package_exists_locally(recipe_path, python, numpy):
+    filename = conda_build_output(recipe_path, python, numpy)
+    if isfile(filename):
+        print('Package exists locally: %s' % basename(filename))
+        return True
+    return False
+
+
+def package_exists_binstar(recipe_path, python, numpy, binstar_user, binstar_handle):
+    if (not binstar_user) or (not binstar_handle):
+        return False
+
+    package = MetaData(recipe_path).get_value('package/name')
+    filename = basename(conda_build_output(recipe_path, python, numpy))
+    name, version, remainder = filename.split('-', 2)
+    spec = join(binstar_user, name, version, platform, filename)
+
+    try:
+        dist = binstar_handle.distribution(binstar_user, package, version, join(platform, filename))
+        print('Package exists on binstar: %s' % package)
+        print('  full_name: %s' % dist['full_name'])
+        print('  uploaded:  %s' % dist['upload_time'])
+        print('  md5:       %s' % dist['md5'])
+        return True
+    except NotFound:
+        return False
+
+
+class VersionIter(object):
+    def __init__(self, pkg, metadata, versions):
+        self.versions = versions
+        self.metadata = metadata
+        self.pkg = pkg
+    def __iter__(self):
+        reqs = self.metadata.get_value('requirements/build')
+        reqs = [r.split(' ')[0] if ' ' in r else r for r in reqs]
+        if self.pkg in reqs:
+            for v in self.versions:
+                yield v
+        else:
+            yield self.versions[0]
+
+
+def execute(args, p):
+    binstar_user = args.check_against
+    if binstar_user:
+        binstar = get_binstar()
+    else:
+        binstar = None
+
+    pythons = re.split(',\s*|\s+', args.python)
+    numpys = re.split(',\s*|\s+', args.numpy)
+
+    recipes = sort_recipes(args.recipe)
+
+    for recipe in recipes:
+        metadata = MetaData(recipe)
+        for python in VersionIter('python', metadata, pythons):
+            for numpy in VersionIter('numpy', metadata, numpys):
+                if package_exists_locally(recipe, python=python, numpy=numpy):
+                    continue
+                if package_exists_binstar(recipe, python=python, numpy=numpy,
+                        binstar_user=binstar_user, binstar_handle=binstar):
+                    continue
+
+                cmd = ['conda-build', '--python', python, '--numpy', numpy]
+                if args.notest:
+                    cmd.append('--no-test')
+                cmd.append(recipe)
+                call(cmd)
+
+
+if __name__ == '__main__':
+    main()
