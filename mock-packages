@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ "$1" != "--force" ]; then
+    echo "This is a destructive operation. Use --force"
+    exit 1;
+fi
+
+for recipe in "$@"; do
+    if [ -f "$recipe/build.sh" ]; then
+        echo "mocking $recipe"
+        echo 'touch file' > $recipe/build.sh
+        echo "echo 'building $recipe'" > $recipe/build.sh
+    fi;
+done
