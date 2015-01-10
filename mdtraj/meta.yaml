@@ -18,6 +18,7 @@ requirements:
     - cython
     - numpy
     - setuptools
+    - scripttest
 
   run:
     - python
