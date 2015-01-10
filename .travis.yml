@@ -1,0 +1,14 @@
+language: c
+
+install:
+    - MINICONDA=Miniconda-latest-Linux-x86_64.sh
+    - wget http://repo.continuum.io/miniconda/$MINICONDA
+    - bash $MINICONDA -b
+    - rm -f $MINICONDA
+    - export PATH=$HOME/miniconda/bin:$PATH
+    - bash ./mock-packages --force ./*
+    - conda update --yes conda
+    - conda install --yes conda-build jinja2
+
+script:
+    - ./conda-build-all ./*
