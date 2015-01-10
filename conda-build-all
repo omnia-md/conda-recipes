@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PYTHONS=( "27" "33" "34")
+PYTHONS=( "27" "33" "34" )
 NUMPYS=( "18" "19" )
 
 if [[ $# -eq 0 ]]; then
@@ -10,19 +10,23 @@ if [[ $# -eq 0 ]]; then
     exit 1;
 fi
 
+RECIPES=`python topological-sort-recipes.py $@`
+echo "Building packages in the following order:"
+echo $RECIPES
+echo ""
 
-for py in ${PYTHONS[@]}; do
-for npy in ${NUMPYS[@]}; do
-    for recipe in "$@"; do
+for recipe in ${RECIPES[@]}; do
+    for py in ${PYTHONS[@]}; do
+    for npy in ${NUMPYS[@]}; do
 	    # check if output file exists first
 	    output=`CONDA_PY=$py CONDA_NPY=$npy conda build $recipe --output`;
 	    if [ -f "$output" ]; then
-		echo "Package exists: $output";
-		continue;
+            echo "Package exists: $output";
+            continue;
 	    fi;
 
-            # build
+        # build
 	    CONDA_PY=$py CONDA_NPY=$npy conda build $CONDA_BUILD_ALL_CONDA_FLAGS $recipe;
-	done
-done
+    done
+    done
 done
