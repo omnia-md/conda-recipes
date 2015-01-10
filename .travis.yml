@@ -18,4 +18,4 @@ script:
     # this isn't a perfect solution, but it's something.
     - bash ./mock-packages --force ./*
     - CONDA_BUILD_ALL_CONDA_FLAGS="--no-test" ./conda-build-all ./* || echo ' '
-    - ls ~/miniconda/conda-bld/osx-64/
+    - ls ~/miniconda/conda-bld/linux-64/
