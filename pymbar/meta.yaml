@@ -6,6 +6,8 @@ source:
   url: https://github.com/choderalab/pymbar/archive/v2.1.0-beta.tar.gz
   fn: v2.1.0-beta.tar.gz
 
+build:
+  preserve_egg_dir: yes
 
 requirements:
   build:
@@ -22,7 +24,10 @@ requirements:
 test:
   commands:
     - nosetests
-
+  imports:
+    - pymbar
+    - pymbar.bar
+	
   requires:
     - nose
 
