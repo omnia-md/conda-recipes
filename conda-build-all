@@ -149,7 +149,7 @@ def package_exists_binstar(recipe_path, python, numpy, binstar_user,
 
     package = MetaData(recipe_path).get_value('package/name')
     filename = basename(conda_build_output(recipe_path, python, numpy))
-    name, version, remainder = filename.split('-', 2)
+    name, version, remainder = filename.rsplit('-', 2)
     spec = join(binstar_user, name, version, platform, filename)
 
     try:
@@ -208,6 +208,7 @@ def execute(args, p):
                     cmd.append('--no-test')
                 cmd.append(recipe)
                 call(cmd)
+                sys.stdout.flush()
 
 
 if __name__ == '__main__':
