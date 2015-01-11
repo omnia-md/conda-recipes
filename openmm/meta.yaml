@@ -37,3 +37,4 @@ test:
 about:
   home: http://openmm.org
   license: LGPL and MIT
+  summary: A high performance toolkit for molecular simulation.
