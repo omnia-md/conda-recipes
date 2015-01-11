@@ -2,6 +2,8 @@
 from __future__ import print_function
 import re
 import sys
+import operator
+import glob
 from os.path import isfile, basename, join, isdir
 import argparse
 from subprocess import check_output, call
@@ -190,7 +192,11 @@ def execute(args, p):
     pythons = re.split(',\s*|\s+', args.python)
     numpys = re.split(',\s*|\s+', args.numpy)
 
-    recipes = sort_recipes(args.recipe)
+    args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipe))
+    recipes = sort_recipes(args_recipe)
+    print('Building recipes in the following order:')
+    print(', '.join([basename(r) for r in args_recipe]))
+    print()
 
     for recipe in recipes:
         metadata = MetaData(recipe)
