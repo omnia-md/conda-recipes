@@ -10,7 +10,8 @@ source:
     - plugin-dir.patch
 
 build:
-  number: 0
+  number: 1
+  preserve_egg_dir: yes
 
 requirements:
   build:
@@ -26,6 +27,14 @@ requirements:
     - python
     - fftw3f # [not win]
 
+test:
+  imports:
+    - simtk
+    - simtk.openmm
+  commands:
+    - python -m simtk.testInstallation
+
 about:
   home: http://openmm.org
-  license: MIT
+  license: LGPL and MIT
+  summary: A high performance toolkit for molecular simulation.
