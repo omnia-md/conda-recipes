@@ -1,0 +1,19 @@
+package:
+  name: clapack
+  version: 3.2.1
+
+build:
+  number: 1
+  
+requirements:
+  build:
+    # cmake needs to be installed
+    # - cmake
+
+source:
+  fn: clapack-3.2.1-CMAKE.tgz
+  url: http://icl.cs.utk.edu/lapack-for-windows/clapack/clapack-3.2.1-CMAKE.tgz
+
+about:
+  home: Lapack
+  license: The University of Tennessee
