@@ -13,7 +13,9 @@ msbuild INSTALL.vcxproj
 
 set OPENMM_INCLUDE_PATH=%PREFIX%\include
 set OPENMM_LIB_PATH=%PREFIX%\lib
+cd python
 %PYTHON% setup.py install
+cd ..
 
 # Put examples into an appropriate subdirectory.
 mkdir %PREFIX%\share\openmm
