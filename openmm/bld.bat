@@ -16,6 +16,8 @@ cd python
 %PYTHON% setup.py install
 cd ..
 
-# Put examples into an appropriate subdirectory.
+:: Put examples into an appropriate subdirectory.
 mkdir %PREFIX%\share\openmm
 move %PREFIX%\examples %PREFIX%\share\openmm
+
+if errorlevel 1 exit 1
