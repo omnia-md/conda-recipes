@@ -24,7 +24,7 @@ requirements:
 
   run:
     - python
-    - fftw3f
+    - fftw3f # [not win]
 
 about:
   home: http://openmm.org
