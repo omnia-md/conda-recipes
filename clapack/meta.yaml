@@ -4,11 +4,12 @@ package:
 
 build:
   number: 1
-  
+
 requirements:
   build:
-    # cmake needs to be installed
-    # - cmake
+    # cmake needs to be installed, but isn't in the windows
+    # conda repos (need to install manually on win build machine)
+    - cmake  # [unix]
 
 source:
   fn: clapack-3.2.1-CMAKE.tgz
