@@ -16,5 +16,5 @@ source:
   url: http://icl.cs.utk.edu/lapack-for-windows/clapack/clapack-3.2.1-CMAKE.tgz
 
 about:
-  home: Lapack
+  home: Lapack static library
   license: The University of Tennessee
