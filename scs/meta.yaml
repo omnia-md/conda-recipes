@@ -8,7 +8,7 @@ source:
   md5: 38b603f460f9370b91b06248c95e4688
 
   patches:
-    - clapack.patch # [win]
+    - clapack.patch
 
 build:
   number: 1
@@ -17,7 +17,7 @@ requirements:
   build:
     - python
     - numpy
-    - clapack # [win]
+    - clapack
 
   run:
     - python
