@@ -10,7 +10,8 @@ source:
     - plugin-dir.patch
 
 build:
-  number: 0
+  number: 1
+  preserve_egg_dir: yes
 
 requirements:
   build:
