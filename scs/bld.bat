@@ -1,7 +1,8 @@
-:: on windows,
-:: return {'libraries': ['C:\\Miniconda\\lib\\libf2c', 'C:\\Miniconda\\lib\\blas', 'C:\\Miniconda\\lib\\lapack',]}
 
-SET LAPACK_LIBS="%PREFIX%\\lib\\libf2c %PREFIX%\\lib\\blas %PREFIX%\\lib\\lapack"
+set LAPACK_INCLUDE_PATH=%PREFIX%\include
+set LAPACK_LIB_PATH=%PREFIX%\Lib
+SET LAPACK_LIBS=%PREFIX%\Lib\libf2c %PREFIX%\Lib\blas %PREFIX%\Lib\lapack
+echo %LAPACK_LIBS%
 
 "%PYTHON%" setup.py install
 if errorlevel 1 exit 1
