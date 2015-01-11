@@ -7,7 +7,6 @@ if errorlevel 1 exit 1
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=%PREFIX% ..
-cmake --build .
 msbuild ALL_BUILD.vcxproj
 msbuild INSTALL.vcxproj
 
