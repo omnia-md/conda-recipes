@@ -1,0 +1,20 @@
+package:
+  name: clapack
+  version: 3.2.1
+
+build:
+  number: 1
+
+requirements:
+  build:
+    # cmake needs to be installed, but isn't in the windows
+    # conda repos (need to install manually on win build machine)
+    - cmake  # [unix]
+
+source:
+  fn: clapack-3.2.1-CMAKE.tgz
+  url: http://icl.cs.utk.edu/lapack-for-windows/clapack/clapack-3.2.1-CMAKE.tgz
+
+about:
+  home: Lapack static library
+  license: The University of Tennessee
