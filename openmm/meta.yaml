@@ -21,7 +21,7 @@ requirements:
     - fftw3f # [not win]
     - sphinx
     - sphinxcontrib-bibtex
-    # - swig # leave out unless we use VM with workaround because conda swig is broken
+    - swig
 
   run:
     - python
