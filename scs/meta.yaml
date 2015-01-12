@@ -7,10 +7,17 @@ source:
   url: https://pypi.python.org/packages/source/s/scs/scs-1.0.6.tar.gz
   md5: 38b603f460f9370b91b06248c95e4688
 
+  patches:
+    - clapack.patch
+
+build:
+  number: 1
+
 requirements:
   build:
     - python
     - numpy
+    - clapack
 
   run:
     - python
