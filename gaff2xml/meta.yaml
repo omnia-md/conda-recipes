@@ -1,10 +1,10 @@
 package:
   name: gaff2xml
-  version: 0.0.0
+  version: 0.6.0
 
 source:
-  url: https://github.com/choderalab/gaff2xml/archive/master.zip
-  fn: master.zip
+    git_url: https://github.com/choderalab/gaff2xml.git
+    git_tag: 0.6
 
 requirements:
   build:
