@@ -2,41 +2,56 @@ package:
   name: yank
   version: !!str 1.0.0
 
-source:
-  fn: master.zip
-  url: https://github.com/choderalab/yank/archive/master.zip
+build:
+  preserve_egg_dir: True
+  number: 0
 
 requirements:
   build:
     - python
-    - setuptools
+    - cython
+    - numpy
     - scipy
-    - docopt
+    - setuptools
     - netcdf4
+    - openmm
     - openmmtools
     - pymbar
-
-  run:
-    - openmm
-    - scipy
-    - numpy
-    - netcdf4
-    - mpi4py
     - ambermini
     - docopt
+    - gaff2xml
+    - jinja2
+
+  run:
+    - python
+    - pandas
+    - numpy
+    - scipy
+    - cython
     - netcdf4
+    - openmm
     - openmmtools
     - pymbar
+    - ambermini
+    - docopt
+    - gaff2xml
+#    - pyaml
+    - jinja2    
 
-build:
-  entry_points:
-    - yank = yank.cli:main
-
-#test:
-#  commands:
-#    - nosetests
+test:
+  requires:
+    - nose
+  imports:
+    - yank
+  commands:
+    - nosetests yank --nocapture --verbosity=2
+    - which yank
+    - yank --help    
 
 about:
-  home: http://github.com/choderalab/yank
+  home: https://github.com/choderalab/yank
   license: GNU Lesser General Public License v2 or later (LGPLv2+)
-  summary: GPU-accelerated alchemical free energy calculations.
+
+
+
+
