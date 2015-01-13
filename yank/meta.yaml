@@ -4,7 +4,7 @@ package:
 
 build:
   preserve_egg_dir: True
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -51,7 +51,3 @@ test:
 about:
   home: https://github.com/choderalab/yank
   license: GNU Lesser General Public License v2 or later (LGPLv2+)
-
-
-
-
