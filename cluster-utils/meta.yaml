@@ -17,9 +17,6 @@ requirements:
 
   run:
     - python
-    - argparse
-    - textwrap
-    - re
 
 about:
   home: https://github.com/choderalab/cluster-utils
