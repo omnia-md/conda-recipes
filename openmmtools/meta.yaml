@@ -1,10 +1,10 @@
 package:
   name: openmmtools
-  version: 0.6.0
+  version: 0.6.1
 
 source:
     git_url: https://github.com/choderalab/openmmtools.git
-    git_tag: 0.6
+    git_tag: 0.6.1
 
 build:
   preserve_egg_dir: True
@@ -28,6 +28,7 @@ requirements:
     - nose
     - setuptools
     - jinja2
+    - six    
 
 
 test:
