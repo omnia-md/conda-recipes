@@ -199,7 +199,14 @@ def execute(args, p):
     print()
 
     for recipe in recipes:
-        metadata = MetaData(recipe)
+
+        try:
+            metadata = MetaData(recipe)
+        except AssertionError as e:
+            print("Skipping recipe due to issue grabbing metadata.")
+            print(e)
+            continue
+
         for python in VersionIter('python', metadata, pythons):
             for numpy in VersionIter('numpy', metadata, numpys):
                 if package_exists_locally(recipe, python=python, numpy=numpy):
