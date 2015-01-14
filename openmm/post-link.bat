@@ -1,5 +1,7 @@
 @echo off
 echo ^
+import os ^
+
 import os.path ^
 
 import simtk ^
@@ -10,7 +12,7 @@ fn = os.path.join(dir, 'openmm', 'version.py') ^
 
 f = open(fn, 'a') ^
 
-f.write("\nopenmm_library_path = '%PREFIX%\\lib'") ^
+f.write("\nopenmm_library_path = '%s\\lib'" % os.environ['PREFIX']) ^
 
 f.close() ^
 
