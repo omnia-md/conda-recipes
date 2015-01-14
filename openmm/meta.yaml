@@ -1,13 +1,12 @@
 package:
   name: openmm
-  version: 6.2
+  version: 6.3.dev0
 
 source:
-  url: https://github.com/pandegroup/openmm/archive/6.2.tar.gz
-  fn: 6.2.tar.gz
-
-  patches:
-    - plugin-dir.patch
+  # url: https://github.com/pandegroup/openmm/archive/6.2.tar.gz
+  # fn: 6.2.tar.gz
+  git_url: https://github.com/rmcgibbo/openmm
+  git_tag: win32
 
 build:
   number: 1
@@ -21,7 +20,7 @@ requirements:
     - fftw3f # [not win]
     - sphinx
     - sphinxcontrib-bibtex
-    - swig
+    - swig  # [not win]
 
   run:
     - python
