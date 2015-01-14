@@ -13,13 +13,10 @@ build:
 requirements:
   build:
     - python
-    - distribute
+    - setuptools
 
   run:
     - python
-    - argparse
-    - textwrap
-    - re
 
 about:
   home: https://github.com/choderalab/cluster-utils
