@@ -22,7 +22,7 @@ requirements:
     - fftw3f # [not win]
     - sphinx
     - sphinxcontrib-bibtex
-    - swig
+    - swig   # [not win]
 
   run:
     - python
