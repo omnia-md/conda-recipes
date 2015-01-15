@@ -1,10 +1,14 @@
-:: Use python version to select which Visual Studio to use
-:: For win-64, we'll need more, since those are separate compilers
+:: Only python 3, since python2 uses VS2008,
+:: which is not capable of compiling OpenMM
+"%PYTHON%" -c "import sys; assert sys.version_info[0] == 3"
+if errorlevel 1 exit 1
+
 :: Build in subdirectory.
 mkdir build
 cd build
-cmake -G "NMake Makefiles" -DCMAKE_INSTALL_PREFIX=%PREFIX% -DCMAKE_BUILD_TYPE=Release ..
-jom install
+cmake -DCMAKE_INSTALL_PREFIX=%PREFIX% ..
+msbuild ALL_BUILD.vcxproj
+msbuild INSTALL.vcxproj
 
 set OPENMM_INCLUDE_PATH=%PREFIX%\include
 set OPENMM_LIB_PATH=%PREFIX%\lib

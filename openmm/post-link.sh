@@ -19,15 +19,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
             fi
        done
     done
+
+
 fi
 
-cat <<EOF > _temp.py
-import os.path
-import simtk
-dir = os.path.dirname(simtk.__file__)
-fn = os.path.join(dir, 'openmm', 'version.py')
-f = open(fn, 'a')
-f.write("\nopenmm_library_path = '%s/lib'\n" % os.environ['PREFIX'])
-EOF
-$PREFIX/bin/python _temp.py
-rm _temp.py
