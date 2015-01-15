@@ -1,13 +1,17 @@
 package:
   name: openmm
-  version: 6.3.dev0
+  version: 6.2
 
 source:
   url: https://github.com/pandegroup/openmm/archive/6.2.tar.gz
   fn: 6.2.tar.gz
 
+  patches:
+    # remove this after the first release (6.2.1 or 6.3.0) in which
+    # PR #780 is part of release
+    - openmm-pr-780.patch
 build:
-  number: 1
+  number: 2
   preserve_egg_dir: yes
 
 requirements:
@@ -18,7 +22,7 @@ requirements:
     - fftw3f # [not win]
     - sphinx
     - sphinxcontrib-bibtex
-    - swig  # [not win]
+    - swig
 
   run:
     - python
