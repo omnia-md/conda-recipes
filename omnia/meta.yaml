@@ -4,6 +4,9 @@ package:
 
 
 requirements:
+  build:
+    - python # necessary to ensure packages are built for each Python version
+
   run:
     - openmm
     - mdtraj
