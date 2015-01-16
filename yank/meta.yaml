@@ -25,7 +25,6 @@ requirements:
     - docopt
     - gaff2xml
     - jinja2
-    - mpi4py
 
   run:
     - python
