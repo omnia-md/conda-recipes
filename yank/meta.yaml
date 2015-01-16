@@ -25,6 +25,7 @@ requirements:
     - docopt
     - gaff2xml
     - jinja2
+    - mpi4py
 
   run:
     - python
@@ -39,8 +40,9 @@ requirements:
     - ambermini
     - docopt
     - gaff2xml
-#    - pyaml
-    - jinja2    
+    - mpi4py
+    - pyyaml
+    - jinja2
 
 test:
   requires:
@@ -50,7 +52,7 @@ test:
   commands:
     - nosetests yank --nocapture --verbosity=2
     - which yank
-    - yank --help    
+    - yank --help
 
 about:
   home: https://github.com/choderalab/yank
