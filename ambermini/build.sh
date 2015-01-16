@@ -4,7 +4,7 @@
 #export LD_LIBRARY_PATH="/opt/gnu/gcc/4.8.1/lib64:/opt/gnu/gcc/4.8.1/lib:/opt/gnu/gmp/lib:/opt/gnu/mpc/lib:/opt/gnu/mpfr/lib"
 
 export CFLAGS="-I$PREFIX/include $CFLAGS"
-export LDFLAGS="-L$PREFIX/lib $LDFLAGS"
+export LDFLAGS="-L$PREFIX/lib $LDFLAGS -static-libgfortran"
 
 # Configure build
 chmod u+x configure
