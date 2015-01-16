@@ -7,6 +7,9 @@ source:
   url: https://github.com/choderalab/ambermini/archive/v.14.0.1.zip
   md5: 4653df08b0f9d94a39704c10591fcd84
 
+build:
+  number: 1
+
 requirements:
   build:
     - zlib
