@@ -2,6 +2,10 @@ package:
   name: repex
   version: !!str dev
 
+source:
+    - fn: master.zip
+    - url: https://github.com/choderalab/repex/archive/master.zip
+
 build:
   preserve_egg_dir: True
   number: 0
