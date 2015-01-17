@@ -26,6 +26,7 @@ requirements:
     - openmm
     - netcdf4
     - mpi4py
+    - cluster_utils
 
 test:
   commands:
