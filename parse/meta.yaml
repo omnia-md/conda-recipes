@@ -1,43 +1,41 @@
 package:
-  name: pint
-  version: !!str 0.6
+  name: parse
+  version: !!str 1.6.6
 
 source:
-  fn: Pint-0.6.zip
-  url: https://pypi.python.org/packages/source/P/Pint/Pint-0.6.zip
-  md5: 88aa0918019071546b10c5fbdc91ae5e
+  fn: parse-1.6.6.tar.gz
+  url: https://pypi.python.org/packages/source/p/parse/parse-1.6.6.tar.gz
+  md5: 11bc8c60a30fe52db4ac9a827653d0ca
 #  patches:
    # List any patch files here
    # - fix.patch
 
-build:
-  preserve_egg_dir: True
+# build:
+  #preserve_egg_dir: True
   #entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - pint = pint:main
+    # - parse = parse:main
     #
-    # Would create an entry point called pint that calls pint.main()
+    # Would create an entry point called parse that calls parse.main()
 
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  number: 1
+  # number: 1
 
 requirements:
   build:
     - python
-    - setuptools
 
   run:
     - python
-    - setuptools
 
 test:
   # Python imports
   imports:
-    - pint
+    - parse
 
   #commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -52,9 +50,9 @@ test:
     # - nose
 
 about:
-  home: https://github.com/hgrecco/pint
+  home: https://github.com/r1chardj0n3s/parse
   license: BSD License
-  summary: 'Physical quantities module'
+  summary: 'parse() is the opposite of format()'
 
 # See
 # http://docs.continuum.io/conda/build.html for

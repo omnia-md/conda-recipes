@@ -1,48 +1,59 @@
 package:
-  name: pint
-  version: !!str 0.6
+  name: python-coveralls
+  version: !!str 2.4.3
 
 source:
-  fn: Pint-0.6.zip
-  url: https://pypi.python.org/packages/source/P/Pint/Pint-0.6.zip
-  md5: 88aa0918019071546b10c5fbdc91ae5e
+  fn: python-coveralls-2.4.3.tar.gz
+  url: https://pypi.python.org/packages/source/p/python-coveralls/python-coveralls-2.4.3.tar.gz
+  md5: dd2833a23210e32c09c35230cfd554b2
 #  patches:
    # List any patch files here
    # - fix.patch
 
 build:
-  preserve_egg_dir: True
-  #entry_points:
+  #preserve_egg_dir: True
+  entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - pint = pint:main
+    # - python-coveralls = python-coveralls:main
     #
-    # Would create an entry point called pint that calls pint.main()
+    # Would create an entry point called python-coveralls that calls python-coveralls.main()
 
+    - coveralls = coveralls:wear
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  number: 1
+  # number: 1
 
 requirements:
   build:
     - python
     - setuptools
+    - pyyaml
+    - requests
+    - coverage ==3.7.1
+    - six
+    - sh
 
   run:
     - python
-    - setuptools
+    - pyyaml
+    - requests
+    - coverage ==3.7.1
+    - six
+    - sh
 
 test:
   # Python imports
   imports:
-    - pint
+    - coveralls
 
-  #commands:
+  commands:
     # You can put test commands to be run here.  Use this to test that the
     # entry points work.
 
+    - coveralls --help
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
@@ -52,9 +63,9 @@ test:
     # - nose
 
 about:
-  home: https://github.com/hgrecco/pint
-  license: BSD License
-  summary: 'Physical quantities module'
+  home: http://github.com/z4r/python-coveralls
+  license: Apache Software License
+  summary: 'Python interface to coveralls.io API'
 
 # See
 # http://docs.continuum.io/conda/build.html for
