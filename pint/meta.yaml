@@ -11,7 +11,7 @@ source:
    # - fix.patch
 
 build:
-  #preserve_egg_dir: True
+  preserve_egg_dir: True
   #entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
@@ -32,6 +32,7 @@ requirements:
 
   run:
     - python
+    - setuptools
 
 test:
   # Python imports
