@@ -33,12 +33,14 @@ requirements:
     - parse >=1.6.3
     - parse_type >=0.3.4
     - six
+    - enum34 # [not py34]
 
   run:
     - python
     - parse >=1.6.3
     - parse_type >=0.3.4
     - six
+    - enum34 # [not py34]
 
 test:
   # Python imports
