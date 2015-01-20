@@ -10,6 +10,7 @@ requirements:
     - pymbar
     - pdbfixer
     - msmbuilder
+    - pyemma
     - nose  # Needed to test everything
 
 about:
