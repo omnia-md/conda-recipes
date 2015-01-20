@@ -2,9 +2,13 @@ package:
   name: repex
   version: !!str dev
 
-source:
-  fn: master.zip
-  url: https://github.com/choderalab/repex/archive/master.zip
+source: 
+    fn: master.zip
+    url: https://github.com/choderalab/repex/archive/master.zip
+
+build:
+  preserve_egg_dir: True
+  number: 0
 
 requirements:
   build:
@@ -15,23 +19,32 @@ requirements:
     - setuptools
     - mdtraj
     - openmm
+    - openmmtools    
+    - pymbar
     - netcdf4
     - mpi4py
-
   run:
     - python
     - pandas
     - scipy
     - mdtraj
     - openmm
+    - openmmtools
+    - pymbar
     - netcdf4
     - mpi4py
+    - pyzmq 
+    - cluster_utils
 
 test:
+  requires:
+    - nose
+    - pyzmq    
+  imports:
+    - repex
   commands:
-    - nosetests
+    - nosetests repex --nocapture --verbosity=2 --with-doctest --logging-level=WARN  -a '!slow'
 
 about:
   home: https://github.com/choderalab/repex
   license: GNU Lesser General Public License v2 or later (LGPLv2+)
-  summary: OpenMM replica exchange utilities
