@@ -42,7 +42,7 @@ requirements:
     - mpi4py
     - pyyaml
     - jinja2
-    - cluster_utils    
+    - clusterutils    
 
 test:
   requires:
