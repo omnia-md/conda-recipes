@@ -4,7 +4,7 @@ package:
 
 source:
    git_url: https://github.com/choderalab/clusterutils
-   git_tag: 0.1
+   git_tag: 0.1.1
 
 build:
   entry_points:
