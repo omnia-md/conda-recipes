@@ -34,7 +34,7 @@ requirements:
     - netcdf4
     - mpi4py
     - pyzmq 
-    - cluster_utils
+    - clusterutils
 
 test:
   requires:
