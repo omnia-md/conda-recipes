@@ -1,6 +1,6 @@
 package:
   name: clusterutils
-  version: !!str 0.1
+  version: !!str 0.1.1
 
 source:
    git_url: https://github.com/choderalab/clusterutils
