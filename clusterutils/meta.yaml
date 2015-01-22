@@ -1,14 +1,14 @@
 package:
-  name: cluster_utils
+  name: clusterutils
   version: !!str 0.1
 
 source:
-   git_url: https://github.com/choderalab/cluster-utils
+   git_url: https://github.com/choderalab/clusterutils
    git_tag: 0.1
 
 build:
   entry_points:
-    - build_mpirun_configfile = cluster_utils.build_mpirun_configfile:main
+    - build_mpirun_configfile = clusterutils.build_mpirun_configfile:main
 
 requirements:
   build:
@@ -19,6 +19,6 @@ requirements:
     - python
 
 about:
-  home: https://github.com/choderalab/cluster-utils
+  home: https://github.com/choderalab/clusterutils
   license: GNU Lesser General Public License v2 or later (LGPLv2+)
   summary: Tools for use in compute cluster environments.
