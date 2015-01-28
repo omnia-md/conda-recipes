@@ -1,11 +1,14 @@
 package:
   name: pyemma
-  version: !!str 1.0.1
+  version: !!str 1.0.2
 
 source:
-  fn: pyEMMA-v1.0.1.tar.gz
-  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.0.1.tar.gz
-  md5: 8958b71454687ad1b6861b48ddf32188 
+  fn: pyEMMA-v1.0.2.tar.gz
+  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.0.2.tar.gz
+  md5: 2bb4f18084befbb390779b5259c4853d
+
+build:
+  preserve_egg_dir: True
 
 requirements:
   build:
@@ -28,8 +31,8 @@ requirements:
 test:
   imports:
     - pyemma
-#  commands:
-#    - mm_cluster
+  commands:
+    - mm_cluster -h
 about:
   home: http://github.com/markovmodel/PyEMMA
   license: BSD 2-Clause License
