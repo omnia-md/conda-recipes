@@ -2,6 +2,9 @@ package:
   name: omnia
   version: 1.0
 
+build:
+  number: 1
+
 
 requirements:
   run:
@@ -10,6 +13,7 @@ requirements:
     - pymbar
     - pdbfixer
     - msmbuilder
+    - pyemma
     - nose  # Needed to test everything
 
 about:
