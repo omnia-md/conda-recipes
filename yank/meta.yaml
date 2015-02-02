@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -42,7 +42,7 @@ requirements:
     - mpi4py
     - pyyaml
     - jinja2
-    - clusterutils    
+    - clusterutils
 
 test:
   requires:
