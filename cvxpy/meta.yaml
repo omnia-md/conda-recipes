@@ -1,14 +1,11 @@
 package:
   name: cvxpy
-  version: !!str 0.2.15
+  version: !!str 0.2.17
 
 source:
-  fn: cvxpy-0.2.15.tar.gz
-  url: https://pypi.python.org/packages/source/c/cvxpy/cvxpy-0.2.15.tar.gz
-  md5: 5cabc53f8d4630ff5976c3a9601ae0d7
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: cvxpy-0.2.17.tar.gz
+  url: https://pypi.python.org/packages/source/c/cvxpy/cvxpy-0.2.17.tar.gz
+  md5: 7586c46b64165591db9ae8e939f8b802
 
 requirements:
   build:
