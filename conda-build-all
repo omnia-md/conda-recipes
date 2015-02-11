@@ -209,7 +209,7 @@ def execute(args, p):
                                           binstar_handle=binstar):
                     continue
 
-                cmd = ['conda-build', '--python', python, '--numpy', numpy]
+                cmd = ['conda-build', '-q', '--python', python, '--numpy', numpy]
                 if args.notest:
                     cmd.append('--no-test')
                 cmd.append(recipe)
