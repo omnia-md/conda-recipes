@@ -1,0 +1,47 @@
+package:
+  name: assaytools
+  version: !!str 0.1.0
+
+source:
+    git_url: https://github.com/choderalab/assaytools.git
+    git_tag: 0.1.0
+
+build:
+  entry_points:
+    - xml2png = assaytools.scripts.xml2png:entry_point
+    - xml2png4scans = assaytools.scripts.xml2png4scans:entry_point
+    - ipnbdoctest = assaytools.scripts.ipnbdoctest:entry_point
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+
+  run:
+    - python
+    - numpy
+    - pint
+    - pandas
+    - scipy
+    - pymc
+    - matplotlib
+    - seaborn
+    - lxml
+
+test:
+  requires:
+    - nose
+    - scripttest
+    - pint
+    - numpy
+    - scipy
+    - pymc
+    - matplotlib
+    - seaborn
+    - lxml
+
+about:
+  home: http://assaytools.choderalab.org
+  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  summary: A library for the modeling and analysis of plate-based assays (development snapshot)
