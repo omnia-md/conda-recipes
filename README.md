@@ -27,17 +27,12 @@ To build a single Omnia conda package:
 conda build packagename
 ```
 
-To build all Omnia conda packages, you can use the included script:
-
-```
-python build-all.py
-```
-Or the other script:
+To build all Omnia conda packages for all versions of python, you can use the
+included script:
 
 ```
 ./conda-build-all ./*
 ```
-
 
 To upload to the Omnia binstar org, use
 
