@@ -1,11 +1,11 @@
 package:
   name: scs
-  version: !!str 1.0.6
+  version: !!str 1.0.7
 
 source:
-  fn: scs-1.0.6.tar.gz
-  url: https://pypi.python.org/packages/source/s/scs/scs-1.0.6.tar.gz
-  md5: 38b603f460f9370b91b06248c95e4688
+  fn: scs-1.0.7.tar.gz
+  url: https://pypi.python.org/packages/source/s/scs/scs-1.0.7.tar.gz
+  md5: c55a271bcf4b1155b386aa575146b1b3
 
   patches:
     - clapack.patch
