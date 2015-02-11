@@ -1,0 +1,158 @@
+#!/usr/bin/env python
+"""Check that each of the conda recipes whose source comes from PyPI are
+using the latest released version.
+"""
+from __future__ import print_function
+import sys
+import os
+import time
+import argparse
+from os.path import isdir, join
+from pkg_resources import parse_version
+from datetime import datetime
+
+import requests
+
+try:
+    from conda_build.metadata import MetaData
+except ImportError:
+    print('This script requires conda-build', file=sys.stderr)
+    print('  $ conda install conda-build', file=sys.stderr)
+    exit(1)
+
+
+def pypi_packages():
+    """Generator that yields the conda recipe metadata object for each
+    conda recipe in the current directory whose source comes from pypi
+    """
+    PYPI_URL = 'https://pypi.python.org/'
+    for dirpath in (d for d in os.listdir('.') if isdir(d)):
+        if 'meta.yaml' in os.listdir(join(dirpath)):
+            meta = MetaData(dirpath)
+            url = meta.get_value('source/url')
+            if url is not None and PYPI_URL in url:
+                yield meta
+
+def execute():
+    any_outdated = False
+    for package in pypi_packages():
+        name = package.get_value('package/name')
+        version = package.get_value('package/version')
+
+        # this grabs the version number and release date
+        this_ver, this_date = get_version_and_release_date(name, version)
+        latest_ver, latest_date = get_version_and_release_date(name)
+
+        if (latest_date is not None) and (this_date is not None) and (latest_date > this_date):
+            any_outdated = True
+            print('%s-%s outdated. version %s is on pypi' % (
+                    name, this_ver, latest_ver))
+    return any_outdated
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.parse_args()
+    status = execute()
+    p.exit(status)
+
+
+# The code below comes from piprot. https://github.com/sesh/pipro
+
+# Copyright (c) 2014 Mark Hellewell, Brenton Cleeland, Dan Peade
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE
+
+def get_version_and_release_date(requirement, version=None,
+                                 verbose=False, response=None):
+    """Given a requirement and optional version returns a (version, releasedate)
+    tuple. Defaults to the latest version. Prints to stdout if verbose is True.
+    Optional response argument is the response from PyPI to be used for
+    asyncronous lookups.
+    """
+    try:
+        if not response:
+            url = get_pypi_url(requirement, version)
+            response = requests.get(url)
+
+        # see if the url is 404'ing because it has been redirected
+        if response.status_code == 404:
+            root_url = url.rpartition('/')[0]
+            res = requests.head(root_url)
+            if res.status_code == 301:
+                new_location = res.headers['location'] + '/json'
+                response = requests.get(new_location)
+
+        response = response.json()
+    except requests.HTTPError:
+        if version:
+            if verbose:
+                print ('{} ({}) isn\'t available on PyPI '
+                       'anymore!'.format(requirement, version))
+        else:
+            if verbose:
+                print ('{} isn\'t on PyPI. Check that the project '
+                       'still exists!'.format(requirement))
+        return None, None
+    except ValueError:
+        if verbose:
+            print ('Decoding the JSON response for {} ({}) '
+                   'failed'.format(requirement, version))
+        return None, None
+
+    try:
+        if version:
+            release_date = response['releases'][version][0]['upload_time']
+        else:
+            version = response['info']['stable_version']
+
+            if not version:
+                versions = {parse_version(v): v for v in response['releases'].keys() if not parse_version(v).is_prerelease}
+                if len(versions) == 0:
+                    return None, None
+
+                version = versions[max(versions.keys())]
+                release_date = response['releases'][str(version)][0]['upload_time']
+
+        return version, datetime.fromtimestamp(time.mktime(
+            time.strptime(release_date, '%Y-%m-%dT%H:%M:%S')
+        ))
+    except IndexError:
+        if verbose:
+            print ('{} ({}) didn\'t return a date property'.format(requirement,
+                                                                   version))
+        return None, None
+
+
+def get_pypi_url(requirement, version=None, base_url='https://pypi.python.org/pypi'):
+    """
+    Get the PyPI url for a given requirement and optional version number and
+    PyPI base URL. The default base url is 'https://pypi.python.org/pypi'
+    """
+    if version:
+        return '{base}/{req}/{version}/json'.format(base=base_url,
+                                                    req=requirement,
+                                                    version=version)
+    else:
+        return '{base}/{req}/json'.format(base=base_url, req=requirement)
+
+
+
+if __name__ == '__main__':
+    main()
