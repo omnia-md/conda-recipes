@@ -3,8 +3,8 @@ package:
   version: !!str dev
 
 source:
-  git_url: git@github.com:pandegroup/openmm.git
-  git_tag: master
+  url: https://github.com/pandegroup/openmm/archive/master.zip
+  fn: master.zip
 
   patches:
     # remove this after the first release (6.2.1 or 6.3.0) in which
