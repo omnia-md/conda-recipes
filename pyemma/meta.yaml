@@ -1,11 +1,11 @@
 package:
   name: pyemma
-  version: !!str 1.0.2
+  version: !!str 1.1
 
 source:
-  fn: pyEMMA-v1.0.2.tar.gz
-  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.0.2.tar.gz
-  md5: 2bb4f18084befbb390779b5259c4853d
+  fn: pyEMMA-v1.1.tar.gz
+  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.1.tar.gz
+#  md5: 2bb4f18084befbb390779b5259c4853d
 
 build:
   preserve_egg_dir: True
@@ -19,6 +19,9 @@ requirements:
     - numpy >=1.6.0
     - scipy >=0.11
     - pystallone >=1.0.0b3
+    - scikit-learn
+    - psutil
+    - mdtraj
 
   run:
     - python
@@ -27,12 +30,17 @@ requirements:
     - scipy >=0.11
     - pystallone >=1.0.0b3
     - argparse # [py26]
+    - scikit-learn
+    - mdtraj
+    - psutil
 
 test:
+  requires:
+    - nose
   imports:
     - pyemma
-  commands:
-    - mm_cluster -h
+#  commands:
+#    - mm_cluster -h
 about:
   home: http://github.com/markovmodel/PyEMMA
   license: BSD 2-Clause License
