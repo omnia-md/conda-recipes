@@ -1,0 +1,32 @@
+package:
+  name: ensembler
+  version: !!str 0.2
+
+source:
+   git_url: https://github.com/choderalab/ensembler
+   git_tag: 0.2
+
+build:
+  entry_points:
+    - ensembler = ensembler.cli:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - mpi4py
+    - mdtraj
+    - biopython
+    - openmm
+    - numpy
+    - lxml
+    - pyyaml
+    - subprocess32
+
+about:
+  home: https://github.com/choderalab/ensembler
+  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  summary: Pipeline for automating omics-scale protein modeling and simulation setup.
