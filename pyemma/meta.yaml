@@ -1,11 +1,11 @@
 package:
   name: pyemma
-  version: !!str 1.1.1
+  version: !!str 1.1.2
 
 source:
-  fn: pyEMMA-v1.1.1.tar.gz
-  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.1.1.tar.gz
-#  md5: 2bb4f18084befbb390779b5259c4853d
+  fn: pyEMMA-v1.1.2.tar.gz
+  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.1.2.tar.gz
+  md5: 257d8c2109cc7fd91edd99efe9e5aab8
 
 build:
   preserve_egg_dir: True
