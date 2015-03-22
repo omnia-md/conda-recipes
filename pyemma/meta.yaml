@@ -22,6 +22,7 @@ requirements:
     - scikit-learn
     - psutil
     - mdtraj
+    - matplotlib
 
   run:
     - python
@@ -33,6 +34,7 @@ requirements:
     - scikit-learn
     - mdtraj
     - psutil
+    - matplotlib
 
 test:
   requires:
