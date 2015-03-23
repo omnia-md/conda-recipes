@@ -1,0 +1,54 @@
+package:
+  name: bhmm
+  version: !!str 0.1.0
+
+source:
+    git_url: https://github.com/choderalab/bhmm.git
+    git_tag: 0.1.0
+
+build:
+  preserve_egg_dir: True
+  number: 0
+
+requirements:
+  build:
+    - python
+    - cython
+    - numpy
+    - scipy
+    - setuptools
+    - docopt
+    - jinja2
+    - scikit-learn
+    - matplotlib
+    - seaborn
+    - pyemma >=1.1.2
+
+  run:
+    - python
+    - numpy
+    - scipy
+    - cython
+    - docopt
+    - pyyaml
+    - jinja2
+    - scikit-learn
+    - matplotlib
+    - seaborn
+    - pyemma >=1.1.2
+
+test:
+  requires:
+    - nose
+  imports:
+    - bhmm
+  commands:
+    - nosetests bhmm --nocapture --verbosity=2 --with-doctest
+
+about:
+  home: https://github.com/choderalab/bhmm
+  license: GNU Lesser General Public License v3 or later (LGPLv3+)
+
+
+
+
