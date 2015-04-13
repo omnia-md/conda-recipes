@@ -1,0 +1,29 @@
+package:
+  name: ParmEd
+  version: !!str 2.0
+
+source:
+  fn: ParmEd-2.0.tar.gz
+  url: https://placeholder.com/ParmEd-2.0.tar.gz
+  md5: 12345678901bcdef1234567890abcdef
+
+build:
+  number: 0
+  entry_points:
+    - parmed.py = mdtraj.scripts.parmed.py:entry_point
+
+requirements:
+  build:
+    - python
+    - numpy
+    - setuptools
+
+  run:
+    - python
+    - numpy
+    - pandas
+
+about:
+  home: http://parmed.github.io/ParmEd
+  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  summary: A package for parsing, interconverting, manipulating, and simulating biomolecular simulations with many packages
