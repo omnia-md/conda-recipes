@@ -1,11 +1,10 @@
 package:
   name: pyemma
-  version: !!str 1.1.2
+  version: !!str 1.2
 
 source:
-  fn: pyEMMA-v1.1.2.tar.gz
-  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.1.2.tar.gz
-  md5: 257d8c2109cc7fd91edd99efe9e5aab8
+  git_url: https://github.com/markovmodel/PyEMMA.git
+  git_tag: v1.2
 
 build:
   preserve_egg_dir: True
@@ -14,26 +13,20 @@ requirements:
   build:
     - python
     - setuptools
-# not needed actually, since we're deploying pre-cythonized sources
     - cython >=0.20
-    - numpy >=1.6.0
-    - scipy >=0.11
-    - pystallone >=1.0.0b3
+    - numpy >=1.9.2
+    - scipy >=0.15
     - scikit-learn
-    - psutil
     - mdtraj
     - matplotlib
 
   run:
     - python
     - setuptools
-    - numpy >=1.6.0
-    - scipy >=0.11
-    - pystallone >=1.0.0b3
-    - argparse # [py26]
+    - numpy >=1.9.2
+    - scipy >=0.15
     - scikit-learn
     - mdtraj
-    - psutil
     - matplotlib
 
 test:
@@ -41,10 +34,9 @@ test:
     - nose
   imports:
     - pyemma
-#  commands:
-#    - mm_cluster -h
+
 about:
-  home: http://github.com/markovmodel/PyEMMA
+  home: http://emma-project.org
   license: BSD 2-Clause License
   summary: "EMMA: Emma's Markov Model Algorithms"
 
