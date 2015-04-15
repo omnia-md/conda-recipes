@@ -3,8 +3,11 @@ package:
   version: !!str 1.2
 
 source:
-  git_url: https://github.com/markovmodel/PyEMMA.git
-  git_tag: v1.2
+  fn: pyEMMA-1.2.zip
+  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.2.zip#md5=eca9a5ab6807e7c10d642af3beba33bc
+  sha256: 289fe02eb482ded3474c94d6a46177389fb2b501a4b4fd734c441384778fed46
+#  git_url: https://github.com/markovmodel/PyEMMA.git
+#  git_tag: v1.2
 
 build:
   preserve_egg_dir: True
