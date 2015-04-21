@@ -80,21 +80,21 @@ def toposort(data):
         v.discard(k)
     # Find all items that don't depend on anything.
     extra_items_in_deps = reduce(
-        set.union, data.itervalues()) - set(data.iterkeys())
+        set.union, data.values()) - set(data.keys())
     # Add empty dependences where needed
     data.update({item: set() for item in extra_items_in_deps})
     while True:
-        ordered = set(item for item, dep in data.iteritems() if not dep)
+        ordered = set(item for item, dep in data.items() if not dep)
         if not ordered:
             break
         for item in ordered:
             yield item
-        data = {item: (dep - ordered) for item, dep in data.iteritems()
+        data = {item: (dep - ordered) for item, dep in data.items()
                 if item not in ordered}
     if data:
         raise ValueError(
             "Cyclic dependencies exist among these items"
-            ":\n%s" % '\n'.join(repr(x) for x in data.iteritems()))
+            ":\n%s" % '\n'.join(repr(x) for x in data.items()))
 
 
 def sort_recipes(recipe_paths):
