@@ -1,0 +1,28 @@
+package:
+  name: boost
+  version: 1.58.0
+
+source:
+   url: http://sourceforge.net/projects/boost/files/boost/1.58.0/boost_1_58_0.tar.bz2
+   fn: boost_1_58_0.tar.bz2
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - bzip2
+    - zlib
+
+  run:
+    # this includes boost.python which is linked against libpython.
+    # so we need to make sure we create a different conda binary to
+    # go along with different versions of python.
+    - python
+
+about:
+  home: http://www.boost.org/
+  license: Boost-1.0
+
+   
