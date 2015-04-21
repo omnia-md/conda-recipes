@@ -20,15 +20,15 @@ requirements:
     - python
     - setuptools
     - numpy
+    - scipy
 
 test:
   requires:
     - nose
     - scipy
+    - statsmodels
   imports:
     - pyhmc
-  commands:
-    - nosetests pyhmc.tests
 
 about:
   home: https://github.com/rmcgibbo/pyhmc
