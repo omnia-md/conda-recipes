@@ -1,0 +1,20 @@
+--- setup.py.bak	2013-06-09 10:30:27.000000000 -0700
++++ setup.py	2015-04-22 13:24:57.566222913 -0700
+@@ -58,7 +58,7 @@ def main():
+             library_dirs=LIBRARY_DIRS + EXTRA_LIBRARY_DIRS,
+             libraries=LIBRARIES + EXTRA_LIBRARIES,
+             extra_compile_args=conf["CXXFLAGS"],
+-            define_macros=list(EXTRA_DEFINES.iteritems()),
++            define_macros=list(EXTRA_DEFINES.items()),
+             ))
+ 
+         requirements.append("PyUblas>=0.92.1")
+@@ -117,7 +117,7 @@ def main():
+                'Topic :: Software Development :: Libraries',
+                ],
+ 
+-            author=u"Andreas Kloeckner",
++            author="Andreas Kloeckner",
+             author_email="inform@tiker.net",
+             license="MIT",
+             url="http://mathema.tician.de/software/pyvisfile",
