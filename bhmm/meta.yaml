@@ -17,7 +17,7 @@ requirements:
     - numpy
     - scipy
     - setuptools
-    - docopt
+    #- docopt
     - jinja2
     - scikit-learn
     - matplotlib
@@ -29,7 +29,7 @@ requirements:
     - numpy
     - scipy
     - cython
-    - docopt
+    #- docopt
     - pyyaml
     - jinja2
     - scikit-learn
