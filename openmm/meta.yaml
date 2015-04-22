@@ -11,7 +11,7 @@ source:
     # PR #780 is part of release
     - openmm-pr-780.patch
 build:
-  number: 2
+  number: 3
   preserve_egg_dir: yes
 
 requirements:

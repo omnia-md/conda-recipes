@@ -14,8 +14,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-6.5"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
-    CMAKE_FLAGS+=" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9"
-    CMAKE_FLAGS+=" -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk"
+    CMAKE_FLAGS+=" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.7"
+    CMAKE_FLAGS+=" -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk"
     CMAKE_FLAGS+=" -DOPENMM_BUILD_OPENCL_LIB=OFF -DOPENMM_BUILD_DRUDE_OPENCL_LIB=OFF -DOPENMM_BUILD_RPMD_OPENCL_LIB=OFF -DOPENMM_BUILD_OPENCL_TESTS=FALSE -DOPENMM_BUILD_OPENCL_DOUBLE_PRECISION_TESTS=FALSE" # Don't build OpenCL on OS X
 fi
 
