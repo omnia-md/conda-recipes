@@ -1,0 +1,35 @@
+package:
+  name: pyvisfile
+  version: 2014.1
+
+source:
+  url: https://pypi.python.org/packages/source/p/pyvisfile/pyvisfile-2014.1.tar.gz#md5=4504b617356545da87ede00ef4337192
+  fn: pyvisfile-2014.1.tar.gz
+  md5: 4504b617356545da87ede00ef4337192
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - pyublas
+    - numpy
+    - python
+    - pytools
+
+  run:
+    - pyublas
+    - python
+    - numpy
+    - pytools
+
+test:
+  imports:
+    - pyvisfile
+    - pyvisfile.silo
+    - pyvisfile.vtk
+
+about:
+  home: http://mathema.tician.de/software/pyvisfile/
+  license: MIT
+  summary: Large-scale Visualization Data Storage
