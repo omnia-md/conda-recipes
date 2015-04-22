@@ -9,7 +9,7 @@ source:
 
 build:
   number: 1
-  preserve_egg_dir: yes
+  preserve_egg_dir: no
 
 requirements:
   build:
