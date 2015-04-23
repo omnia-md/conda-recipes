@@ -1,5 +1,5 @@
---- aksetup_helper.py.bak	2013-10-14 10:23:35.000000000 -0700
-+++ aksetup_helper.py	2015-04-22 13:39:16.294207893 -0700
+--- aksetup_helper.py	2013-10-14 10:23:35.000000000 -0700
++++ aksetup_helper.py	2015-04-22 17:25:55.517970028 -0700
 @@ -38,7 +38,7 @@ class NumpyExtension(Extension):
      def __init__(self, *args, **kwargs):
          Extension.__init__(self, *args, **kwargs)
@@ -9,7 +9,7 @@
  
      def get_numpy_incpath(self):
          from imp import find_module
-@@ -47,17 +47,14 @@ class NumpyExtension(Extension):
+@@ -47,22 +47,19 @@ class NumpyExtension(Extension):
          from os.path import join
          return join(pathname, "core", "include")
  
@@ -31,6 +31,12 @@
  
  class PyUblasExtension(NumpyExtension):
      def get_module_include_path(self, name):
+         from pkg_resources import Requirement, resource_filename
+-        return resource_filename(Requirement.parse(name), "%s/include" % name)
++        return resource_filename(str(Requirement.parse(name)), "%s/include" % name)
+ 
+     @property
+     def include_dirs(self):
 @@ -71,6 +68,9 @@ class PyUblasExtension(NumpyExtension):
                  self.get_module_include_path("pyublas"),
                  ]
