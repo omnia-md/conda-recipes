@@ -44,8 +44,8 @@ def main():
         metavar='BINSTAR_USER'
     )
     p.add_argument(
-        '--upload',
-        action="store_true"
+        '--upload-token',
+        metavar='BINSTAR_TOKEN'
     )
     p.add_argument(
         '--no-test',
@@ -220,9 +220,9 @@ def execute(args, p):
                 sys.stdout.flush()
 
                 # Upload to binstar if requested.
-                if args.upload:
+                if args.binstar_token:
                     filename = conda_build_output(recipe, python, numpy)
-                    cmd = ['binstar', 'upload', filename]
+                    cmd = ['binstar', '-q', '-t', args.binstar_token, '-u', binstar_user, 'upload', filename]
                     call(cmd)
                     sys.stdout.flush()
 
