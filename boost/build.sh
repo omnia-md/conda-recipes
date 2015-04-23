@@ -21,14 +21,13 @@ if [[ ( ! -d "${PY_LIB}/config" ) && ( -d "${PY_LIB}/config-${PY_VER}m" ) ]]; th
     ln -s "${PY_LIB}/config-${PY_VER}m" "${PY_LIB}/config"
 fi
 
-flags=''
+cxxflags="-I${INCLUDE_PATH}"
+linkflags="-L${LIBRARY_PATH}"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # http://stackoverflow.com/questions/20108407/how-do-i-compile-boost-for-os-x-64b-platforms-with-stdlibc
-    flags='cxxflags="-stdlib=libstdc++" linkflags="-stdlib=libstdc++"'
+    cxxflags="${cxxflags} -stdlib=libstdc++"
+    linkflags="${linkflags} stdlib=libstdc++"
 fi
 
-echo $PREFIX
-echo $flags
-
-bootstrap.sh install --prefix=$PREFIX
-./b2 -j4 install $flags
+./bootstrap.sh install --prefix=$PREFIX
+./b2 -j1 install cxxflags=\'$cxxflags\' linkflags=\'$linkflags\'
