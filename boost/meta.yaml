@@ -20,6 +20,8 @@ requirements:
     # so we need to make sure we create a different conda binary to
     # go along with different versions of python.
     - python
+    - bzip2
+    - zlib
 
 about:
   home: http://www.boost.org/
