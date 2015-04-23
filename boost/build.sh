@@ -12,5 +12,23 @@ if [[ ( ! -d "${PY_INCLUDE}" ) && ( -d "${PY_INCLUDE}m" ) ]]; then
     ln -s "${PY_INCLUDE}m" "${PY_INCLUDE}"
 fi
 
-./bootstrap.sh install --prefix=$PREFIX
-./b2 -j4 install
+if [[ ( ! -f "${LIBRARY_PATH}/libpython${PY_VER}.dylib" ) && ( -f "${LIBRARY_PATH}/libpython${PY_VER}m.dylib"  ) ]]; then
+    ln -s  "${LIBRARY_PATH}/libpython${PY_VER}m.dylib" "${LIBRARY_PATH}/libpython${PY_VER}.dylib"
+fi
+
+PY_LIB="${LIBRARY_PATH}/python${PY_VER}"
+if [[ ( ! -d "${PY_LIB}/config" ) && ( -d "${PY_LIB}/config-${PY_VER}m" ) ]]; then
+    ln -s "${PY_LIB}/config-${PY_VER}m" "${PY_LIB}/config"
+fi
+
+flags=''
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # http://stackoverflow.com/questions/20108407/how-do-i-compile-boost-for-os-x-64b-platforms-with-stdlibc
+    flags='cxxflags="-stdlib=libstdc++" linkflags="-stdlib=libstdc++"'
+fi
+
+echo $PREFIX
+echo $flags
+
+bootstrap.sh install --prefix=$PREFIX
+./b2 -j4 install $flags
