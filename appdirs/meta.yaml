@@ -10,7 +10,7 @@ source:
 requirements:
   build:
     - python
-    - setuptools <15.0
+    - setuptools
 
   run:
     - python
