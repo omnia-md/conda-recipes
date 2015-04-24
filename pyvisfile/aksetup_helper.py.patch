@@ -1,0 +1,108 @@
+--- aksetup_helper.py	2013-10-14 10:23:35.000000000 -0700
++++ aksetup_helper.py	2015-04-22 17:25:55.517970028 -0700
+@@ -38,7 +38,7 @@ class NumpyExtension(Extension):
+     def __init__(self, *args, **kwargs):
+         Extension.__init__(self, *args, **kwargs)
+         self._include_dirs = self.include_dirs
+-        del self.include_dirs  # restore overwritten property
++        # del self.include_dirs  # restore overwritten property
+ 
+     def get_numpy_incpath(self):
+         from imp import find_module
+@@ -47,22 +47,19 @@ class NumpyExtension(Extension):
+         from os.path import join
+         return join(pathname, "core", "include")
+ 
+-    def get_include_dirs(self):
++    @property
++    def include_dirs(self):
+         return self._include_dirs + [self.get_numpy_incpath()]
+ 
+-    def set_include_dirs(self, value):
++    @include_dirs.setter    
++    def include_dirs(self, value):
+         self._include_dirs = value
+ 
+-    def del_include_dirs(self):
+-        pass
+-
+-    include_dirs = property(get_include_dirs, set_include_dirs, del_include_dirs)
+-
+ 
+ class PyUblasExtension(NumpyExtension):
+     def get_module_include_path(self, name):
+         from pkg_resources import Requirement, resource_filename
+-        return resource_filename(Requirement.parse(name), "%s/include" % name)
++        return resource_filename(str(Requirement.parse(name)), "%s/include" % name)
+ 
+     @property
+     def include_dirs(self):
+@@ -71,6 +68,9 @@ class PyUblasExtension(NumpyExtension):
+                 self.get_module_include_path("pyublas"),
+                 ]
+ 
++    @include_dirs.setter
++    def include_dirs(self, value):
++        self._include_dirs = value
+ 
+ class HedgeExtension(PyUblasExtension):
+     @property
+@@ -220,7 +220,7 @@ def expand_value(v, options):
+ 
+ def expand_options(options):
+     return dict(
+-            (k, expand_value(v, options)) for k, v in options.items())
++            (k, expand_value(v, options)) for k, v in list(options.items()))
+ 
+ 
+ class ConfigSchema:
+@@ -260,7 +260,7 @@ class ConfigSchema:
+ 
+         exec(compile(contents, filename, "exec"), filevars)
+ 
+-        for key, value in filevars.items():
++        for key, value in list(filevars.items()):
+             if key in self.optdict:
+                 result[key] = value
+ 
+@@ -278,11 +278,11 @@ class ConfigSchema:
+         if "__builtins__" in filevars:
+             del filevars["__builtins__"]
+ 
+-        for key, value in config.items():
++        for key, value in list(config.items()):
+             if value is not None:
+                 filevars[key] = value
+ 
+-        keys = filevars.keys()
++        keys = list(filevars.keys())
+         keys.sort()
+ 
+         outf = open(filename, "w")
+@@ -337,7 +337,7 @@ class ConfigSchema:
+             filevars = {}
+             exec(compile(open(cfile, "r").read(), cfile, "exec"), filevars)
+ 
+-            for key, value in filevars.items():
++            for key, value in list(filevars.items()):
+                 if key in self.optdict:
+                     result[key] = value
+                 elif key == "__builtins__":
+@@ -600,7 +600,7 @@ def configure_frontend():
+         print("*** I have detected that you have already run configure.")
+         print("*** I'm taking the configured values as defaults for this")
+         print("*** configure run. If you don't want this, delete the file")
+-        print("*** %s." % schema.get_conf_file())
++        print(("*** %s." % schema.get_conf_file()))
+         print("************************************************************")
+ 
+     import sys
+@@ -766,7 +766,7 @@ def check_git_submodules():
+             print("")
+             print("These issues were found:")
+             for w in pkg_warnings:
+-                print("  %s" % w)
++                print(("  %s" % w))
+             print("")
+             print("I will try to initialize the submodules for you "
+                     "after a short wait.")

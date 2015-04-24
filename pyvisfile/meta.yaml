@@ -6,9 +6,12 @@ source:
   url: https://pypi.python.org/packages/source/p/pyvisfile/pyvisfile-2014.1.tar.gz#md5=4504b617356545da87ede00ef4337192
   fn: pyvisfile-2014.1.tar.gz
   md5: 4504b617356545da87ede00ef4337192
+  patches:
+    - setup.py.patch
+    - aksetup_helper.py.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -16,12 +19,14 @@ requirements:
     - numpy
     - python
     - pytools
+    - silo
 
   run:
     - pyublas
     - python
     - numpy
     - pytools
+    - silo
 
 test:
   imports:

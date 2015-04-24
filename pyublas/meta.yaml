@@ -8,18 +8,22 @@ source:
   md5: 67f686740ea0dae253d7bbb3c5ac17bc
 
 build:
-  number: 0
+  number: 1
+  preserve_egg_dir: no
 
 requirements:
   build:
     - boost
     - numpy
     - python
+    - pytest
+    - distribute
 
   run:
     - boost
     - python
     - numpy
+    - pytest
 
 test:
   imports:
