@@ -4,7 +4,8 @@ package:
 
 source:
     git_url: https://github.com/choderalab/openmoltools.git
-    git_tag: 0.6.5
+    git_tag: v0.6.5
+
 
 build:
   preserve_egg_dir: True
