@@ -57,3 +57,4 @@ test:
 about:
   home: https://github.com/choderalab/yank
   license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  summary: GPU-accelerated calculation of ligand binding affinities in implicit and explicit solvent using alchemical free energy methodologies
