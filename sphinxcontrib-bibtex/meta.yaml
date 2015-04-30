@@ -1,13 +1,11 @@
 package:
   name: sphinxcontrib-bibtex
-  version: !!str 0.3.1
+  version: !!str 0.3.2
 
 source:
-  url: https://pypi.python.org/packages/source/s/sphinxcontrib-bibtex/sphinxcontrib-bibtex-0.3.1.tar.gz#md5=e7d5807297c71a6281ab5ee66293e339
-  fn: sphinxcontrib-bibtex-0.3.1.tar.gz
-
-build:
-  preserve_egg_dir: True
+  url: https://pypi.python.org/packages/source/s/sphinxcontrib-bibtex/sphinxcontrib-bibtex-0.3.2.tar.gz
+  fn: sphinxcontrib-bibtex-0.3.2.tar.gz
+  md5: 6de8d82ea407abf1aebeb202255125ac
 
 requirements:
   build:
