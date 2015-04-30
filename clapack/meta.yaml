@@ -16,5 +16,6 @@ source:
   url: http://icl.cs.utk.edu/lapack-for-windows/clapack/clapack-3.2.1-CMAKE.tgz
 
 about:
-  home: Lapack static library
+  home: http://icl.cs.utk.edu/lapack-for-windows/clapack/
   license: The University of Tennessee
+  summary: LAPACK linear algebra libraries.
