@@ -11,14 +11,17 @@ source:
 
 build:
   preserve_egg_dir: True
+  number: 1
 
 requirements:
   build:
     - python
     - setuptools
     - cython >=0.20
-    - numpy >=1.9.2
-    - scipy >=0.15
+# mdtraj depends at least on np18, which will then enforce to use scipy>=0.14
+    - numpy >=1.7
+    - scipy 
+# sklearn will be obsolete in 1.3
     - scikit-learn
     - mdtraj
     - matplotlib
@@ -26,8 +29,8 @@ requirements:
   run:
     - python
     - setuptools
-    - numpy >=1.9.2
-    - scipy >=0.15
+    - numpy >=1.7
+    - scipy
     - scikit-learn
     - mdtraj
     - matplotlib
