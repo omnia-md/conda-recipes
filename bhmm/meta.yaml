@@ -15,8 +15,8 @@ requirements:
     - python
     - setuptools
     - cython
-    - numpy
-    - scipy
+    - numpy >=1.7
+    - scipy >=0.11
     - pyemma >=1.2
     - scikit-learn
     # - matplotlib
@@ -25,8 +25,8 @@ requirements:
   run:
     - python
     - cython
-    - numpy
-    - scipy
+    - numpy >=1.7
+    - scipy >=0.11
     - pyemma >=1.2
     - scikit-learn
     # - matplotlib
