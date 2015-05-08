@@ -46,6 +46,9 @@ def main():
     p.add_argument('--upload',
         help='Automatically upload to binstar under this username'
     )
+    p.add_argument('--token',
+        help='Authentication token for binstar'
+    )
 
     p.add_argument(
         '--no-test',
@@ -147,9 +150,12 @@ def package_exists_locally(recipe_path, python, numpy):
         return True
     return False
 
-def upload_to_binstar(recipe_path, python, numpy, username):
+def upload_to_binstar(recipe_path, python, numpy, username, token=None):
     filename = conda_build_output(recipe_path, python, numpy)
-    cmd = ['binstar', 'upload', '-u', username, filename]
+    cmd = ['binstar']
+    if token is not None:
+        cmd.extend(['-t', token])
+    cmd.extend(['upload', '-u', username, filename])
     return check_call(cmd)
 
 
@@ -224,7 +230,8 @@ def execute(args, p):
                 cmd.append(recipe)
                 retcode = call(cmd)
                 if retcode == 0 and args.upload is not None:
-                    upload_to_binstar(recipe, python, numpy, username=args.upload)
+                    upload_to_binstar(recipe, python, numpy,
+                        username=args.upload, token=args.token)
 
                 sys.stdout.flush()
 
