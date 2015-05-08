@@ -6,7 +6,7 @@ import operator
 import glob
 from os.path import isfile, basename, join, isdir
 import argparse
-from subprocess import check_output, call
+from subprocess import check_output, call, check_call
 from functools import reduce
 
 try:
@@ -43,6 +43,13 @@ def main():
         '--check-against',
         metavar='BINSTAR_USER'
     )
+    p.add_argument('--upload',
+        help='Automatically upload to binstar under this username'
+    )
+    p.add_argument('--token',
+        help='Authentication token for binstar'
+    )
+
     p.add_argument(
         '--no-test',
         action='store_true',
@@ -143,6 +150,14 @@ def package_exists_locally(recipe_path, python, numpy):
         return True
     return False
 
+def upload_to_binstar(recipe_path, python, numpy, username, token=None):
+    filename = conda_build_output(recipe_path, python, numpy)
+    cmd = ['binstar']
+    if token is not None:
+        cmd.extend(['-t', token])
+    cmd.extend(['upload', '-u', username, filename])
+    return check_call(cmd)
+
 
 def package_exists_binstar(recipe_path, python, numpy, binstar_user,
                            binstar_handle):
@@ -209,11 +224,15 @@ def execute(args, p):
                                           binstar_handle=binstar):
                     continue
 
-                cmd = ['conda-build', '-q', '--python', python, '--numpy', numpy]
+                cmd = ['conda-build', '-q', '--python', python, '--numpy', numpy, '--quiet']
                 if args.notest:
                     cmd.append('--no-test')
                 cmd.append(recipe)
-                call(cmd)
+                retcode = call(cmd)
+                if retcode == 0 and args.upload is not None:
+                    upload_to_binstar(recipe, python, numpy,
+                        username=args.upload, token=args.token)
+
                 sys.stdout.flush()
 
 
