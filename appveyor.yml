@@ -1,6 +1,6 @@
 environment:
   binstar_token:
-    secure: jGOkLWBiF8+f6ovUGK0BX5RiQS5TL3bVUgDqzXHvrA151TYi+dxk0z5Bj4hndt1/
+    secure: FUPNvcoGHFbTcuACl4bgsd3pisBSyDt9b95JWQ4Zalf/WgSkcEyARVwyvwdYQFig
 
   global:
     # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
