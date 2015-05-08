@@ -1,11 +1,11 @@
 package:
   name: behave
-  version: !!str 1.2.4
+  version: !!str 1.2.5
 
 source:
-  fn: behave-1.2.4.tar.gz
-  url: https://pypi.python.org/packages/source/b/behave/behave-1.2.4.tar.gz
-  md5: 13c21668c1434f67941955ffe9e12d26
+  fn: behave-1.2.5.tar.gz
+  url: https://pypi.python.org/packages/source/b/behave/behave-1.2.5.tar.gz
+  md5: 3af4bc2886d2be982e41bfaba61da3bc
 #  patches:
    # List any patch files here
    # - fix.patch

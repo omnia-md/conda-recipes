@@ -1,11 +1,11 @@
 package:
   name: jpype1
-  version: !!str 0.5.7
+  version: !!str 0.6.0
 
 source:
-  fn: JPype1-0.5.7.tar.gz
-  url: https://pypi.python.org/packages/source/J/JPype1/JPype1-0.5.7.tar.gz
-  md5: 71333b39aca9fd08b6d0515bfc6c1d62 
+  fn: JPype1-0.6.0.tar.gz
+  url: https://pypi.python.org/packages/source/J/JPype1/JPype1-0.6.0.tar.gz
+  md5: f0cbbe1d0c4b563f7e435d2bffc31736
 
 requirements:
   build:
