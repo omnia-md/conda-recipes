@@ -25,9 +25,9 @@ cxxflags="-I${INCLUDE_PATH}"
 linkflags="-L${LIBRARY_PATH}"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # http://stackoverflow.com/questions/20108407/how-do-i-compile-boost-for-os-x-64b-platforms-with-stdlibc
-    cxxflags="${cxxflags} -stdlib=libstdc++"
-    linkflags="${linkflags} stdlib=libstdc++"
+    cxxflags="-stdlib=libstdc++ ${cxxflags}"
+    linkflags="-stdlib=libstdc++ ${linkflags}"
 fi
 
 ./bootstrap.sh install --prefix=$PREFIX
-./b2 -j1 install cxxflags=\'$cxxflags\' linkflags=\'$linkflags\'
+./b2 -j1 install cxxflags='$cxxflags' linkflags='$linkflags'
