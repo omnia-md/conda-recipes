@@ -86,11 +86,72 @@ function UpdateConda ($python_home) {
     Start-Process -FilePath "$conda_path" -ArgumentList $args -Wait -Passthru
 }
 
+function CompilerIncludeDir ($python_home) {
+    # Get the include path for the compiler such as
+    # C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include
+    $python_path = $python_home + "\python.exe"
+    $args = '-c "from distutils.ccompiler import new_compiler; from os.path import split, join; cc=new_compiler(); cc.initialize(); print(join(split(cc.cc)[0], \"..\", \"include\"))"'
+
+    # http://stackoverflow.com/a/8762068/1079728
+    $pinfo = New-Object System.Diagnostics.ProcessStartInfo
+    $pinfo.FileName = $python_path
+    $pinfo.RedirectStandardError = $true
+    $pinfo.RedirectStandardOutput = $true
+    $pinfo.UseShellExecute = $false
+    $pinfo.Arguments = $args
+    $p = New-Object System.Diagnostics.Process
+    $p.StartInfo = $pinfo
+    $p.Start() | Out-Null
+    $p.WaitForExit()
+    $include_dir = $p.StandardOutput.ReadToEnd()
+    return $include_dir -replace [Environment]::NewLine,""
+}
+
+function InstallMissingHeaders ($python_home) {
+    # Visual Studio 2008 is missing stdint.h, but you can just download one
+    # from the web.
+    # http://stackoverflow.com/questions/126279/c99-stdint-h-header-and-ms-visual-studio
+    $webclient = New-Object System.Net.WebClient
+    $include_dir = CompilerIncludeDir $python_home
+    $urls = @(@("http://msinttypes.googlecode.com/svn/trunk/stdint.h", "stdint.h"),
+             @("http://msinttypes.googlecode.com/svn/trunk/inttypes.h", "inttypes.h"))
+
+    Foreach ($i in $urls) {
+        $url = $i[0]
+        $filename = $i[1]
+
+        $filepath = $include_dir + $filename
+        if (Test-Path $filepath) {
+            Write-Host $filename "already exists in" $include_dir
+            continue
+        }
+
+        Write-Host "Downloading remedial " $filename " from" $url "to" $filepath
+        $retry_attempts = 2
+        for($i=0; $i -lt $retry_attempts; $i++){
+            try {
+                $webclient.DownloadFile($url, $filepath)
+                break
+            }
+            Catch [Exception]{
+                Start-Sleep 1
+            }
+       }
+
+       if (Test-Path $filepath) {
+           Write-Host "File saved at" $filepath
+       } else {
+           # Retry once to get the error message if any at the last try
+           $webclient.DownloadFile($url, $filepath)
+       }
+    }
+}
 
 function main () {
     InstallMiniconda $env:PYTHON_VERSION $env:PYTHON_ARCH $env:PYTHON
     UpdateConda $env:PYTHON
     InstallCondaPackages $env:PYTHON "conda-build pip jinja2 binstar"
+    InstallMissingHeaders $env:PYTHON
 }
 
 main
