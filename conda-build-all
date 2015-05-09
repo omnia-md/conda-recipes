@@ -6,7 +6,8 @@ import operator
 import glob
 from os.path import isfile, basename, join, isdir
 import argparse
-from subprocess import check_output, call, check_call
+import traceback
+from subprocess import check_output, call, check_call, CalledProcessError
 from functools import reduce
 
 try:
@@ -156,7 +157,11 @@ def upload_to_binstar(recipe_path, python, numpy, username, token=None):
     if token is not None:
         cmd.extend(['-t', token])
     cmd.extend(['upload', '-u', username, filename])
-    return check_call(cmd)
+    try:
+        check_call(cmd)
+    except CalledProcessError:
+        traceback.print_exc()
+    return
 
 
 def package_exists_binstar(recipe_path, python, numpy, binstar_user,
