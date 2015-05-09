@@ -25,6 +25,7 @@ install:
   - powershell .\\devtools\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - conda config --add channels http://conda.binstar.org/omnia
+  - choco install jom
 
 build: false
 
