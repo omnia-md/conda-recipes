@@ -51,6 +51,10 @@ def main():
         help='Automatically upload to binstar under this username'
     )
     p.add_argument(
+        '--upload-token',
+        metavar='BINSTAR_TOKEN'
+    )
+    p.add_argument(
         '--no-test',
         action='store_true',
         dest='notest',
@@ -185,7 +189,6 @@ def package_exists_binstar(recipe_path, python, numpy, binstar_user,
     except NotFound:
         return False
 
-
 class VersionIter(object):
     def __init__(self, pkg, metadata, versions):
         self.versions = versions
@@ -239,6 +242,13 @@ def execute(args, p):
 
 
                 sys.stdout.flush()
+
+                # Upload to binstar if requested.
+                if args.binstar_token:
+                    filename = conda_build_output(recipe, python, numpy)
+                    cmd = ['binstar', '-q', '-t', args.binstar_token, '-u', binstar_user, 'upload', filename]
+                    call(cmd)
+                    sys.stdout.flush()
 
 
 if __name__ == '__main__':
