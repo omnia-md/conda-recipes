@@ -1,6 +1,7 @@
-* Travis dependency resolution test: [![Travis dependency resolution test](https://travis-ci.org/omnia-md/conda-recipes.svg?branch=master)](https://travis-ci.org/omnia-md/conda-recipes)
+* Travis-CI dependency resolution test: [![Travis dependency resolution test](https://travis-ci.org/omnia-md/conda-recipes.svg?branch=master)](https://travis-ci.org/omnia-md/conda-recipes)
 * Jenkins `osx` build: [![Jenkins `osx` build](https://jenkins.choderalab.org/job/conda-omnia-release-osx-2/badge/icon)](https://jenkins.choderalab.org/job/conda-omnia-release-osx-2/) [[console log]](https://jenkins.choderalab.org/job/conda-omnia-release-osx-2/lastBuild/consoleFull)
 * Jenkins `linux` build: [![Jenkins `linux` build](https://jenkins.choderalab.org/job/conda-omnia-release-linux-vagrant/badge/icon)](https://jenkins.choderalab.org/job/conda-omnia-release-linux-vagrant/) [[console log]](https://jenkins.choderalab.org/job/conda-omnia-release-linux-vagrant/lastBuild/consoleFull)
+* Appveyor-CI `windows` builds [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/tsjbbgtobpbb4xps?svg=true)](https://ci.appveyor.com/project/rmcgibbo/conda-recipes)
 
 conda-recipes
 -------------
