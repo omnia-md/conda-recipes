@@ -4,11 +4,14 @@ import re
 import sys
 import operator
 import glob
+import os
 from os.path import isfile, basename, join, isdir
 import argparse
 import traceback
 from subprocess import check_output, call, check_call, CalledProcessError
 from functools import reduce
+
+BINSTAR_TOKEN = os.environ.pop('BINSTAR_TOKEN', None)
 
 try:
     from conda.utils import memoized
@@ -47,10 +50,6 @@ def main():
     p.add_argument('--upload',
         help='Automatically upload to binstar under this username'
     )
-    p.add_argument('--token',
-        help='Authentication token for binstar'
-    )
-
     p.add_argument(
         '--no-test',
         action='store_true',
@@ -151,16 +150,17 @@ def package_exists_locally(recipe_path, python, numpy):
         return True
     return False
 
-def upload_to_binstar(recipe_path, python, numpy, username, token=None):
+def upload_to_binstar(recipe_path, python, numpy, username):
     filename = conda_build_output(recipe_path, python, numpy)
     cmd = ['binstar']
-    if token is not None:
-        cmd.extend(['-t', token])
+    if BINSTAR_TOKEN is not None:
+        cmd.extend(['-t', BINSTAR_TOKEN])
     cmd.extend(['upload', '-u', username, filename])
     try:
         check_call(cmd)
-    except CalledProcessError:
-        traceback.print_exc()
+    except CalledProcessError as e:
+        e.cmd = '[not shown]'
+        raise e
     return
 
 
@@ -176,7 +176,7 @@ def package_exists_binstar(recipe_path, python, numpy, binstar_user,
 
     try:
         dist = binstar_handle.distribution(
-            binstar_user, package, version, join(platform, filename))
+            binstar_user, package, version, platform + '/' + filename)
         print('Package exists on binstar: %s' % package)
         print('  full_name: %s' % dist['full_name'])
         print('  uploaded:  %s' % dist['upload_time'])
@@ -235,8 +235,8 @@ def execute(args, p):
                 cmd.append(recipe)
                 retcode = call(cmd)
                 if retcode == 0 and args.upload is not None:
-                    upload_to_binstar(recipe, python, numpy,
-                        username=args.upload, token=args.token)
+                    upload_to_binstar(recipe, python, numpy, username=args.upload)
+
 
                 sys.stdout.flush()
 
