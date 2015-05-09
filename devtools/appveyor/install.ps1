@@ -120,7 +120,7 @@ function InstallMissingHeaders ($python_home) {
         $url = $i[0]
         $filename = $i[1]
 
-        $filepath = $include_dir + $filename
+        $filepath = $include_dir + "\" + $filename
         if (Test-Path $filepath) {
             Write-Host $filename "already exists in" $include_dir
             continue
