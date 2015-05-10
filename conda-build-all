@@ -5,9 +5,11 @@ import sys
 import operator
 import glob
 import os
-from os.path import isfile, basename, join, isdir
+import shutil
+from os.path import isfile, basename, join, isdir, abspath
 import argparse
 import traceback
+import tempfile
 from subprocess import check_output, call, check_call, CalledProcessError
 from functools import reduce
 from six import string_types
@@ -182,7 +184,8 @@ def skip_package(recipe_path, python, numpy):
         skip_specs.discard('py%s' % python)
         skip_specs.discard(platform)
         if len(skip_specs) == 0:
-            print('[conda-build-all skip] %s on py%s_%s' % (recipe_path, python, platform))
+            print('[conda-build-all skip] %s on py%s_%s' % (
+                  basename(recipe_path), python, platform))
             return True
 
     return False
@@ -251,34 +254,41 @@ def execute(args, p):
     numpys = re.split(',\s*|\s+', args.numpy)
 
     args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipe))
-    recipes = sort_recipes(args_recipe)
+    recipes = [abspath(e) for e in sort_recipes(args_recipe)]
     print('Building recipes in the following order:')
     print(', '.join([basename(r) for r in args_recipe]))
     print()
 
-    for recipe in recipes:
-        metadata = MetaData(recipe)
-        for python in VersionIter('python', metadata, pythons):
-            for numpy in VersionIter('numpy', metadata, numpys):
-                if skip_package(recipe, python=python, numpy=numpy):
-                    continue
-                if package_exists_locally(recipe, python=python, numpy=numpy):
-                    continue
-                if package_exists_binstar(recipe, python=python, numpy=numpy,
-                                          binstar_user=binstar_user,
-                                          binstar_handle=binstar):
-                    continue
+    curdir = abspath(os.curdir)
+    tempdir = tempfile.mkdtemp()
+    try:
+        os.chdir(tempdir)
 
-                cmd = ['conda-build', '-q', '--python', python, '--numpy', numpy, '--quiet']
-                if args.notest:
-                    cmd.append('--no-test')
-                cmd.append(recipe)
-                retcode = call(cmd)
-                if retcode == 0 and args.upload is not None:
-                    upload_to_binstar(recipe, python, numpy, username=args.upload)
+        for recipe in recipes:
+            metadata = MetaData(recipe)
+            for python in VersionIter('python', metadata, pythons):
+                for numpy in VersionIter('numpy', metadata, numpys):
+                    if skip_package(recipe, python=python, numpy=numpy):
+                        continue
+                    if package_exists_locally(recipe, python=python, numpy=numpy):
+                        continue
+                    if package_exists_binstar(recipe, python=python, numpy=numpy,
+                                              binstar_user=binstar_user,
+                                              binstar_handle=binstar):
+                        continue
 
-                sys.stdout.flush()
+                    cmd = ['conda-build', '-q', '--python', python, '--numpy', numpy, '--quiet']
+                    if args.notest:
+                        cmd.append('--no-test')
+                    cmd.append(recipe)
+                    retcode = call(cmd)
+                    if retcode == 0 and args.upload is not None:
+                        upload_to_binstar(recipe, python, numpy, username=args.upload)
 
+                    sys.stdout.flush()
+    finally:
+        os.chdir(curdir)
+        shutil.rmtree(tempdir)
 
 if __name__ == '__main__':
     main()
