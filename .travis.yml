@@ -16,6 +16,6 @@ script:
     # handled upstream). So for testing here, we mock out the packages' build.sh
     # to simply be a no-op, which makes things runs faster.
     # this isn't a perfect solution, but it's something.
-    - bash ./mock-packages --force ./*
+    - bash ./devtools/travis/mock-packages --force ./*
     - ./conda-build-all --no-test ./*
     - ls ~/miniconda/conda-bld/linux-64/
