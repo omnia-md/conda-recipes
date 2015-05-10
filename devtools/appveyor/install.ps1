@@ -93,6 +93,7 @@ function InstallMissingHeaders () {
     $webclient = New-Object System.Net.WebClient
 
     $include_dirs = @("C:\Program Files\Microsoft SDKs\Windows\v7.0\Include",
+                      "C:\Program Files\Microsoft SDKs\Windows\v7.1\Include",
                       "C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include",
                       "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include")
 
