@@ -19,7 +19,7 @@ requirements:
     # on windows, need to install cmake manually
     - cmake  # [not win]
     - python
-    - fftw3f # [not win]
+    - fftw3f
     - sphinx
     - sphinxcontrib-bibtex
     - swig   # [not win]
@@ -29,6 +29,8 @@ requirements:
     - fftw3f # [not win]
 
 test:
+  requires:
+    - python
   imports:
     - simtk
     - simtk.openmm
