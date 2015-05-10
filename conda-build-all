@@ -182,7 +182,7 @@ def skip_package(recipe_path, python, numpy):
         skip_specs.discard('py%s' % python)
         skip_specs.discard(platform)
         if len(skip_specs) == 0:
-            print('[conda-builda-all skip] %s on py%s_%s' % (recipe_path, python, platform))
+            print('[conda-build-all skip] %s on py%s_%s' % (recipe_path, python, platform))
             return True
 
     return False
