@@ -142,9 +142,10 @@ def sort_recipes(recipe_paths):
 
 @memoized
 def conda_build_output(recipe_path, python, numpy):
-    return check_output(
+    out = check_output(
         ['conda-build', '--output', '--python', python,
          '--numpy', numpy, recipe_path]).strip()
+    return out.decode('utf-8')
 
 
 def package_exists_locally(recipe_path, python, numpy):
