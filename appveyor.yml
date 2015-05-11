@@ -29,14 +29,21 @@ environment:
       PYTHON_ARCH: "32"
       CONDA_PY: "34"
       CONDA_NPY: "19"
-      
+
+    - PYTHON: "C:\\Python34_64"
+      PYTHON_VERSION: "3.4"
+      PYTHON_ARCH: "64"
+      CONDA_PY: "34"
+      CONDA_NPY: "19"
+
 install:
   # this installs the appropriate Miniconda (Py2/Py3, 32/64 bit),
   # as well as pip, conda-build, and the binstar CLI
   - powershell .\\devtools\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - conda config --add channels http://conda.binstar.org/omnia
-  - choco install jom
+  - choco install -y jom
+  - choco install -y doxygen.install
 
 build: false
 
