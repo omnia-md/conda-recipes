@@ -24,11 +24,11 @@ environment:
     #  CONDA_PY: "27"
     #  CONDA_NPY: "19"
 
-    - PYTHON: "C:\\Python34_32"
-      PYTHON_VERSION: "3.4"
-      PYTHON_ARCH: "32"
-      CONDA_PY: "34"
-      CONDA_NPY: "19"
+    #- PYTHON: "C:\\Python34_32"
+    #  PYTHON_VERSION: "3.4"
+    #  PYTHON_ARCH: "32"
+    #  CONDA_PY: "34"
+    #  CONDA_NPY: "19"
 
     - PYTHON: "C:\\Python34_64"
       PYTHON_VERSION: "3.4"
@@ -49,4 +49,4 @@ install:
 build: false
 
 test_script:
-  - "%CMD_IN_ENV% python conda-build-all --check-against omnia --upload omnia --python %CONDA_PY% --numpy %CONDA_NPY% *"
+  - "%CMD_IN_ENV% python conda-build-all --check-against omnia --upload omnia --python %CONDA_PY% --numpy %CONDA_NPY% msmbuilder"
