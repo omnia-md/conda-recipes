@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX"
+CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_TESTING=OFF"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # setting the rpath so that libOpenMMPME.so finds the right libfftw3
@@ -41,7 +41,7 @@ fi
 mkdir build
 cd build
 cmake .. $CMAKE_FLAGS
-make -j16 all DoxygenApiDocs sphinxpdf # build docs as well
+make -j$CPU_COUNT all DoxygenApiDocs sphinxpdf # build docs as well
 make install
 
 # Run C tests.
