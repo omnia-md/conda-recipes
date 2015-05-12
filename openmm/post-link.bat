@@ -1,1 +1,4 @@
-%PREFIX%\python -c "import os, os.path, simtk; dir = os.path.dirname(simtk.__file__); fn = os.path.join(dir, 'openmm', 'version.py'); f = open(fn, 'a'); f.write('\nopenmm_library_path = \"{}\\\\lib\"'.format(os.environ['PREFIX'].replace('\\','\\\\'))); f.close()"
+SET FILE="%PREFIX%\Lib\site-packages\simtk\openmm\version.py"
+echo. >> %FILE%
+echo openmm_library_path = r"%PREFIX%\Lib" >> %FILE%
+echo. >> %FILE%
