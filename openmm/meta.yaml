@@ -35,7 +35,7 @@ test:
     - simtk
     - simtk.openmm
   commands:
-    - python -m simtk.testInstallation
+    - python -m simtk.testInstallation  # [not win]
 
 about:
   home: http://openmm.org
