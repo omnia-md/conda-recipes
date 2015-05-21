@@ -1,0 +1,30 @@
+package:
+  name: pymol
+  version: 1.7.6
+
+source:
+  fn: pymol-v1.7.6.0.tar.bz2
+  url: http://downloads.sourceforge.net/project/pymol/pymol/1.7/pymol-v1.7.6.0.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fpymol%2F&ts=1418515918&use_mirror=iweb
+  #url: svn co svn://svn.code.sf.net/p/pymol/code/trunk/pymol
+  #svn_url: svn://svn.code.sf.net/p/pymol/code/trunk/pymol
+
+requirements:
+  build:
+    - python
+    #- setuptools
+    - numpy
+
+  run:
+    - python
+    - numpy
+
+test:
+  commands:
+    - pymol -c
+
+about:
+  license: free
+  summary: Pymol is protein visualization
+  # Notes: needed these to install on ubuntu.
+  # sudo apt-get install libpng12-dev libglew-dev freeglut3-dev  freeglut3 libfreetype6-dev subversion build-essential python-dev python-pmw libglew-dev freeglut3-dev libpng-dev libfreetype6-dev libxml2-dev
+  # See http://www.pymolwiki.org/index.php/Linux_Install
