@@ -49,4 +49,4 @@ install:
 build: false
 
 test_script:
-  - "%CMD_IN_ENV% python conda-build-all --check-against omnia --upload omnia --python %CONDA_PY% --numpy %CONDA_NPY% openmm"
+  - "%CMD_IN_ENV% python conda-build-all --check-against omnia --upload omnia --python %CONDA_PY% --numpy %CONDA_NPY% *"
