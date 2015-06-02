@@ -1,5 +1,5 @@
 package:
-  name: ParmEd
+  name: parmed
   version: !!str 2.0-beta
 
 source:
