@@ -1,16 +1,14 @@
 package:
   name: ParmEd
-  version: !!str 2.0
+  version: !!str 2.0-beta
 
 source:
-  fn: ParmEd-2.0.tar.gz
-  url: https://placeholder.com/ParmEd-2.0.tar.gz
-  md5: 12345678901bcdef1234567890abcdef
+  fn: ParmEd-2.0-beta.tar.gz
+  url: https://github.com/ParmEd/ParmEd/archive/v2.0-beta.tar.gz
+  md5: 95be9c4aa4d519cc2e738c23d1662555
 
 build:
   number: 0
-  entry_points:
-    - parmed.py = mdtraj.scripts.parmed.py:entry_point
 
 requirements:
   build:
@@ -22,6 +20,7 @@ requirements:
     - python
     - numpy
     - pandas
+    - openmm
 
 about:
   home: http://parmed.github.io/ParmEd
