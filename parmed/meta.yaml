@@ -1,6 +1,6 @@
 package:
   name: parmed
-  version: !!str 2.0-beta
+  version: !!str 2.0beta0
 
 source:
   fn: ParmEd-2.0-beta.tar.gz
