@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -19,6 +19,7 @@ requirements:
     - scipy >=0.11
     - pyemma >=1.2
     - scikit-learn
+    - mock
     # - matplotlib
     # - seaborn
 
@@ -29,6 +30,7 @@ requirements:
     - scipy >=0.11
     - pyemma >=1.2
     - scikit-learn
+    - mock
     # - matplotlib
     # - seaborn
 
