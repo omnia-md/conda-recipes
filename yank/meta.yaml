@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,7 +20,7 @@ requirements:
     - netcdf4
     - openmm
     - openmmtools
-    - pymbar
+    - pymbar ==2.1beta0
     - ambermini
     - docopt
     - openmoltools
@@ -35,7 +35,7 @@ requirements:
     - netcdf4
     - openmm
     - openmmtools
-    - pymbar
+    - pymbar ==2.1beta0
     - ambermini
     - docopt
     - openmoltools
