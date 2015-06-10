@@ -32,8 +32,6 @@ test:
     - statsmodels
   imports:
     - pymbar
-  commands:
-    - nosetests pymbar --with-doctest --doctest-tests -v
 
 about:
   home: https://github.com/choderalab/pymbar
