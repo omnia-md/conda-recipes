@@ -1,10 +1,10 @@
 package:
   name: pymbar
-  version: 2.1beta0
+  version: 3.0.0.beta1
 
 source:
-  url: https://github.com/choderalab/pymbar/archive/v2.1.0-beta.tar.gz
-  fn: v2.1.0-beta.tar.gz
+  url: https://github.com/choderalab/pymbar/archive/3.0.0.beta1.tar.gz
+  fn: 3.0.0.beta1.tar.gz
 
 build:
   preserve_egg_dir: yes
