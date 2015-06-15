@@ -1,14 +1,14 @@
 package:
   name: parmed
-  version: !!str 2.0beta0
+  version: !!str 2.0beta1
 
 source:
-  fn: ParmEd-2.0-beta.tar.gz
-  url: https://github.com/ParmEd/ParmEd/archive/v2.0-beta.tar.gz
-  md5: 95be9c4aa4d519cc2e738c23d1662555
+  fn: ParmEd-2.0-beta1.tar.gz
+  url: https://github.com/ParmEd/ParmEd/archive/2.0beta1.tar.gz
+  md5: 51ecb3d781fda3e13afc00f3d85ebb8e
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
