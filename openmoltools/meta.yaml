@@ -9,7 +9,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -18,7 +18,7 @@ requirements:
     - mdtraj
     - numpy
     - scipy
-    - pandas
+    - pandas    
     - openmm-dev
     - ambermini
     - parmed
