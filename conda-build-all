@@ -13,6 +13,7 @@ import tempfile
 from subprocess import check_output, call, check_call, CalledProcessError
 from functools import reduce
 from six import string_types
+from distutils.spawn import find_executable
 
 BINSTAR_TOKEN = os.environ.pop('BINSTAR_TOKEN', None)
 
@@ -34,6 +35,17 @@ except ImportError:
     print('This script requires binstar', file=sys.stderr)
     print('  $ conda install binstar')
     exit(1)
+
+ROOTDIR = os.path.dirname(sys.executable)
+if sys.platform == 'win32':
+	# find conda-build associated with the current python
+	# interpreter
+	conda_build = find_executable('conda-build',
+		path=ROOTDIR + ';' + ROOTDIR + '\Scripts')
+	assert conda_build is not None
+else:
+	conda_build = find_executable('conda-build', path=ROOTDIR)
+	assert conda_build is not None
 
 
 def main():
@@ -143,7 +155,7 @@ def sort_recipes(recipe_paths):
 @memoized
 def conda_build_output(recipe_path, python, numpy):
     out = check_output(
-        ['conda-build', '--output', '--python', python,
+        [conda_build, '--output', '--python', python,
          '--numpy', numpy, recipe_path]).strip()
     return out.decode('utf-8')
 
@@ -278,7 +290,7 @@ def execute(args, p):
                                               binstar_handle=binstar):
                         continue
 
-                    cmd = ['conda-build', '-q', '--python', python, '--numpy', numpy, '--quiet']
+                    cmd = [conda_build, '-q', '--python', python, '--numpy', numpy, '--quiet']
                     if args.notest:
                         cmd.append('--no-test')
                     cmd.append(recipe)
