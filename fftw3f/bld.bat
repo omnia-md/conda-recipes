@@ -7,9 +7,13 @@ IF "%ARCH%"=="32" (
 )
 
 cd fftw3
+lib /def:libfftw3-3.def
 lib /def:libfftw3f-3.def
+lib /def:libfftw3l-3.def
 cd ..
 
 ls fftw3
+move fftw3\libfftw3-3.lib %LIBRARY_LIB%\
 move fftw3\libfftw3f-3.lib %LIBRARY_LIB%\
-move fftw3\fftw3.f %LIBRARY_INC%\
+move fftw3\libfftw3l-3.lib %LIBRARY_LIB%\
+move fftw3\fftw3.h %LIBRARY_INC%\
