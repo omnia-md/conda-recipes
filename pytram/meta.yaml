@@ -1,10 +1,10 @@
 package:
   name: pytram
-  version: "0.2.2"
+  version: "0.2.4"
 
 source:
-  fn: pytram-0.2.2.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytram/pytram-0.2.2.tar.gz
+  fn: pytram-0.2.4.tar.gz
+  url: https://pypi.python.org/packages/source/p/pytram/pytram-0.2.4.tar.gz
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -39,8 +39,8 @@ test:
   # Python imports
   imports:
     - pytram
-    - pytram.dtram
-    - pytram.xtram
+    - pytram._dtram
+    - pytram._xtram
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
