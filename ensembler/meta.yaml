@@ -1,11 +1,10 @@
 package:
   name: ensembler
-  version: !!str 1.0.1
+  version: !!str 1.0.2
 
-# TODO update
 source:
    git_url: https://github.com/choderalab/ensembler
-   git_tag: v1.0.1
+   git_tag: v1.0.2
 
 build:
   entry_points:
