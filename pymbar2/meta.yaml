@@ -1,0 +1,37 @@
+package:
+  name: pymbar
+  version: 2.1beta0
+
+source:
+  url: https://github.com/choderalab/pymbar/archive/v2.1.0-beta.tar.gz
+  fn: v2.1.0-beta.tar.gz
+
+build:
+  preserve_egg_dir: yes
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+
+  run:
+    - python
+    - numpy
+    - scipy
+
+test:
+  commands:
+    - nosetests
+  imports:
+    - pymbar
+    - pymbar.bar
+
+  requires:
+    - nose
+
+about:
+  home: http://github.com/choderalab/pymbar
+  license: LGPL
+  summary: Python implementation of the multistate Bennett acceptance ratio (MBAR).
