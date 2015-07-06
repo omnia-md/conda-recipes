@@ -6,8 +6,9 @@ install:
     - bash $MINICONDA -b
     - rm -f $MINICONDA
     - export PATH=$HOME/miniconda/bin:$PATH
-    - conda update --yes conda
-    - conda install --yes conda-build binstar jinja2
+    - conda update --yes --quiet conda
+    - conda install --yes --quiet conda-build binstar jinja2 pip
+    - conda config --add channels http://conda.binstar.org/omnia
 
 script:
     # We don't have enough time on travis to build all of the packages.
