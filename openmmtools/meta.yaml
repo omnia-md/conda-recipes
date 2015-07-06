@@ -1,10 +1,10 @@
 package:
   name: openmmtools
-  version: 0.7.0
+  version: 0.7.1
 
 source:
     git_url: https://github.com/choderalab/openmmtools.git
-    git_tag: 0.7.0
+    git_tag: 0.7.1
 
 build:
   preserve_egg_dir: True
@@ -20,6 +20,7 @@ requirements:
     - setuptools
     - openmm
     - jinja2
+    - parmed
 
   run:
     - python
@@ -29,7 +30,7 @@ requirements:
     - setuptools
     - jinja2
     - six
-
+    - parmed
 
 test:
   requires:
