@@ -1,4 +1,5 @@
 language: c
+sudo: false
 
 install:
     - MINICONDA=Miniconda-latest-Linux-x86_64.sh
