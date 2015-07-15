@@ -1,10 +1,10 @@
 package:
   name: ensembler
-  version: !!str 0.2
+  version: !!str 1.0.2
 
 source:
    git_url: https://github.com/choderalab/ensembler
-   git_tag: 0.2
+   git_tag: v1.0.2
 
 build:
   entry_points:
@@ -17,14 +17,25 @@ requirements:
 
   run:
     - python
-    - mpi4py
     - mdtraj
+    - msmbuilder
     - biopython
     - openmm
-    - numpy
+    - pdbfixer
+    # - numpy
     - lxml
     - pyyaml
-    - subprocess32
+    - docopt
+    - mock
+    - subprocess32 # [py2k]
+
+test:
+  requires:
+    - nose
+  imports:
+    - ensembler
+  commands:
+    - nosetests ensembler -v -a unit
 
 about:
   home: https://github.com/choderalab/ensembler

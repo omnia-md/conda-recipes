@@ -1,10 +1,10 @@
 package:
   name: bhmm
-  version: !!str 0.3.0
+  version: !!str 0.4.2
 
 source:
-    fn: 0.3.0.zip
-    url: https://github.com/bhmm/bhmm/archive/0.3.0.zip
+    fn: 0.4.2.zip
+    url: https://github.com/bhmm/bhmm/archive/0.4.2.zip
 
 build:
   preserve_egg_dir: True
@@ -20,8 +20,6 @@ requirements:
     - pyemma >=1.2
     - scikit-learn
     - mock
-    # - matplotlib
-    # - seaborn
 
   run:
     - python
@@ -31,8 +29,6 @@ requirements:
     - pyemma >=1.2
     - scikit-learn
     - mock
-    # - matplotlib
-    # - seaborn
 
 test:
   requires:

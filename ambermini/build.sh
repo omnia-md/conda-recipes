@@ -7,7 +7,7 @@
 #     https://github.com/omnia-md/conda-recipes/issues/132
 # This may require a patched version of gfortran to properly produce staticly linked binaries on osx
 if [[ "$OSTYPE" == "darwin"* ]]; then
-   export CUSTOMBUILDFLAGS="-static-libgfortran /usr/local/Cellar/gcc/4.9.2_1/lib/gcc/4.9/libquadmath.a -static-libgcc -lgfortran"
+   export CUSTOMBUILDFLAGS="-static-libgfortran /usr/local/gfortran/lib/libquadmath.a -static-libgcc -lgfortran"
 fi
 
 export CFLAGS="-I$PREFIX/include $CFLAGS"
