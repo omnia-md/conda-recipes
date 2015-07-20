@@ -120,6 +120,40 @@ def toposort(data):
             ":\n%s" % '\n'.join(repr(x) for x in data.items()))
 
 
+def packagename(m):
+    """
+    Return the unique package name.
+
+    Parameters
+    ----------
+    m : conda_build.metadata.MetaData
+        The metadata object.
+
+    Returns
+    -------
+    packagename : str
+        The unique packagename from package/name'
+
+    """
+    return m.get_value('package/name')
+
+def packagenameandversion(m):
+    """
+    Return the unique package name and version as 'packagename==version'.
+
+    Parameters
+    ----------
+    m : conda_build.metadata.MetaData
+        The metadata object.
+
+    Returns
+    -------
+    packagename : str
+        The unique packagename as 'packagename==version'
+
+    """
+    return m.get_value('package/name') + '==' + m.get_value('package/version')
+
 def sort_recipes(recipe_paths):
     metadatas = []
     for r in recipe_paths:
@@ -129,7 +163,7 @@ def sort_recipes(recipe_paths):
         except SystemExit:
             pass
 
-    names = {m.get_value('package/name'): m for m in metadatas}
+    packagenames = {packagename(m): m for m in metadatas}
 
     graph = {}
     for m in metadatas:
@@ -139,17 +173,31 @@ def sort_recipes(recipe_paths):
 
         our_requirements = set()
         for r in all_requirements:
-            if r in names:
+            if r in packagenames:
                 # remove any version specified in the requirements
                 # (e.g. numpy >= 1.6) or something -- we just want the "numpy"
                 if ' ' in r:
                     r = r.split()[0]
                 our_requirements.add(r)
 
-        graph[m.get_value('package/name')] = our_requirements
+        graph[packagename(m)] = our_requirements
 
-    order = list(toposort(graph))
-    return order
+    packagenames_order = list(toposort(graph))
+
+    # Convert back to recipe paths since there might be several recipes for different versions of the same package.
+    packagenames_to_recipepaths = dict()
+    for (r,m) in zip(recipe_paths,metadatas):
+        if packagename(m) in packagenames_to_recipepaths:
+            packagenames_to_recipepaths[packagename(m)].append(r)
+        else:
+            packagenames_to_recipepaths[packagename(m)] = [r]
+
+    recipe_paths_order = list()
+    for p in packagenames_order:
+        for recipe_path in packagenames_to_recipepaths[p]:
+            recipe_paths_order.append(recipe_path)
+
+    return recipe_paths_order
 
 
 @memoized
@@ -223,7 +271,7 @@ def package_exists_binstar(recipe_path, python, numpy, binstar_user,
     if (not binstar_user) or (not binstar_handle):
         return False
 
-    package = MetaData(recipe_path).get_value('package/name')
+    package = packagenameandversion(MetaData(recipe_path))
     filename = basename(conda_build_output(recipe_path, python, numpy))
     name, version, remainder = filename.rsplit('-', 2)
     spec = join(binstar_user, name, version, platform, filename)
@@ -269,7 +317,7 @@ def execute(args, p):
     args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipe))
     recipes = [abspath(e) for e in sort_recipes(args_recipe)]
     print('Building recipes in the following order:')
-    print(', '.join([basename(r) for r in args_recipe]))
+    print(', '.join([basename(r) for r in recipes]))
     print()
 
     curdir = abspath(os.curdir)
@@ -278,7 +326,14 @@ def execute(args, p):
         os.chdir(tempdir)
 
         for recipe in recipes:
-            metadata = MetaData(recipe)
+            print(recipe)
+            print("Gathering metadata for recipe '%s'..." % basename(recipe))
+            try:
+                metadata = MetaData(recipe)
+            except Exception as e:
+                print(str(e))
+                raise Exception("Could not parse metadata for recipe '%s'. Check that this directory contains a properly-formatted conda recipe." % recipe)
+
             for python in VersionIter('python', metadata, pythons):
                 for numpy in VersionIter('numpy', metadata, numpys):
                     if skip_package(recipe, python=python, numpy=numpy):
