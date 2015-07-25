@@ -1,17 +1,13 @@
 package:
   name: openmm
-  version: 6.2
+  version: 6.3
 
 source:
-  url: https://github.com/pandegroup/openmm/archive/6.2.tar.gz
-  fn: 6.2.tar.gz
+  url: https://github.com/pandegroup/openmm/archive/6.3.tar.gz
+  fn: 6.3.tar.gz
 
-  patches:
-    # remove this after the first release (6.2.1 or 6.3.0) in which
-    # PR #780 is part of release
-    - openmm-pr-780.patch
 build:
-  number: 3
+  number: 0
   preserve_egg_dir: yes
 
 requirements:
@@ -26,7 +22,7 @@ requirements:
 
   run:
     - python
-    - fftw3f # [not win]
+    - fftw3f
 
 test:
   requires:
