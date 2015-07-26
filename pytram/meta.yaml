@@ -1,10 +1,10 @@
 package:
   name: pytram
-  version: "0.2.5"
+  version: "0.2.6"
 
 source:
-  fn: pytram-0.2.5.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytram/pytram-0.2.5.tar.gz
+  fn: pytram-0.2.6.tar.gz
+  url: https://pypi.python.org/packages/source/p/pytram/pytram-0.2.6.tar.gz
 #  patches:
    # List any patch files here
    # - fix.patch
