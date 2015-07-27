@@ -1,24 +1,20 @@
 package:
   name: pyemma
-  version: !!str 1.2.1
+  version: !!str 1.2.2
 
 source:
-  fn: pyEMMA-1.2.1.zip
-  url: https://pypi.python.org/packages/source/p/pyEMMA/pyEMMA-1.2.1.zip
-#  sha256: 289fe02eb482ded3474c94d6a46177389fb2b501a4b4fd734c441384778fed46
-#  git_url: https://github.com/markovmodel/PyEMMA.git
-#  git_tag: v1.2
+  fn: pyEMMA-1.2.2.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v1.2.2.tar.gz
 
 build:
   preserve_egg_dir: True
-  number: 1
+  number: 0
 
 requirements:
   build:
     - python
     - setuptools
     - cython >=0.20
-# mdtraj depends at least on np18, which will then enforce to use scipy>=0.14
     - numpy >=1.7
     - scipy 
     - mdtraj
