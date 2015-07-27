@@ -1,0 +1,29 @@
+package:
+  name: freeglut 
+  version: 3.0.0
+
+source:
+  fn: freeglut-3.0.0.tar.gz
+  url: http://sourceforge.net/projects/freeglut/files/freeglut/3.0.0/freeglut-3.0.0.tar.gz
+  #patches: 
+  #  - libdir.patch 
+# ubuntu: sudo apt-get install libXmu-dev libXi-dev libgl-dev dos2unix
+requirements:
+    build:
+      - cmake
+#        - freeglut
+#     - perl
+#     - gcc
+#        - libxml2
+#        - numpy
+#        - python
+#    run:
+#        - python
+#        - numpy
+
+# TODO: test eg. linkage against glew
+#test:
+
+about:
+    home: http://opencv.org/
+    license: BSD
