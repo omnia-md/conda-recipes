@@ -22,6 +22,8 @@ try:
     from conda.config import subdir as platform
     assert platform in ('osx-64', 'linux-32', 'linux-64', 'win-32', 'win-64')
     from conda_build.metadata import MetaData
+    from conda_build.config import Config as CondaBuildConfig
+    BUILD_DIRECTORY = CondaBuildConfig.short_build_prefix
     import yaml
 except ImportError:
     print('This script requires conda-build', file=sys.stderr)
@@ -290,6 +292,8 @@ def execute(args, p):
                                               binstar_handle=binstar):
                         continue
 
+                    if os.path.isdir(BUILD_DIRECTORY):
+                        shutil.rmtree(BUILD_DIRECTORY)
                     cmd = [conda_build, '-q', '--python', python, '--numpy', numpy, '--quiet']
                     if args.notest:
                         cmd.append('--no-test')
