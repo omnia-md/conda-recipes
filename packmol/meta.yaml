@@ -6,14 +6,19 @@ source:
   fn: packmol.tar.gz
   url: http://www.ime.unicamp.br/~martinez/packmol/packmol.tar.gz
 
+build:
+  number: 1
+
 requirements:
   build:
     - zlib
+    - python
   run:
     - zlib
 
 test:
   commands:
+    - which packmol
 
 about:
   home: http://www.ime.unicamp.br/~martinez/packmol/
