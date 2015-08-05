@@ -1,21 +1,21 @@
 package:
   name: pdbfixer
-  version: 1.1
+  version: 1.2
 
 source:
-  fn: v1.1.tar.gz
-  url: https://github.com/pandegroup/pdbfixer/archive/v1.1.tar.gz
+  fn: v1.2.tar.gz
+  url: https://github.com/pandegroup/pdbfixer/archive/v1.2.tar.gz
 
 requirements:
   build:
     - python
     - setuptools
-    - openmm
+    - openmm >=6.3
     - numpy
 
   run:
     - python
-    - openmm
+    - openmm >=6.3
     - numpy
 
 test:
