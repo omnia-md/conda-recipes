@@ -5,9 +5,10 @@ package:
 source:
   fn: freeglut-3.0.0.tar.gz
   url: http://sourceforge.net/projects/freeglut/files/freeglut/3.0.0/freeglut-3.0.0.tar.gz
-  #patches: 
-  #  - libdir.patch 
-# ubuntu: sudo apt-get install libXmu-dev libXi-dev libgl-dev dos2unix
+
+build:
+  number: 1
+
 requirements:
     build:
       - cmake
