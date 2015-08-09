@@ -19,7 +19,7 @@ requirements:
     - numpy
     - scipy
     - pandas
-    - dev
+    - openmm
     - ambermini
     - parmed
 #    - rdkit    # rdkit is an optional dependency, may want to comment this out for the release version.
@@ -31,7 +31,7 @@ requirements:
     - mdtraj
     - numpydoc
     - scipy
-    - dev
+    - openmm
     - ambermini
     - parmed
 #    - rdkit    # rdkit is an optional dependency, may want to comment this out for the release version.
