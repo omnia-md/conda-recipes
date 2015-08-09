@@ -1,10 +1,10 @@
 package:
   name: ambermini
-  version: 15.0.3
+  version: 15.0.4
 
 source:
-  fn: 15.0.3.zip
-  url: https://github.com/choderalab/ambermini/archive/15.0.3.zip
+  fn: 15.0.4.zip
+  url: https://github.com/choderalab/ambermini/archive/15.0.4.zip
   md5: fcaf6410c5012460a99ad8f6ac5e35cd
 
 build:
