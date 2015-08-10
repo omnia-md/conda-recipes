@@ -1,10 +1,10 @@
 package:
   name: bhmm
-  version: !!str 0.4.2
+  version: !!str 0.5.0
 
 source:
-    fn: 0.4.2.zip
-    url: https://github.com/bhmm/bhmm/archive/0.4.2.zip
+  git_url: https://github.com/bhmm/bhmm.git
+  git_tag: 0.5.0
 
 build:
   preserve_egg_dir: True
