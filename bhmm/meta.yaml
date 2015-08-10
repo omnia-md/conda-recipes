@@ -17,18 +17,16 @@ requirements:
     - cython
     - numpy
     - scipy
-    - pyemma >=1.2
-    - scikit-learn
-    - mock
+    - msmtools
+    - six
 
   run:
     - python
     - cython
     - numpy
     - scipy
-    - pyemma >=1.2
-    - scikit-learn
-    - mock
+    - msmtools
+    - six
 
 test:
   requires:
