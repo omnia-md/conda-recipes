@@ -136,7 +136,7 @@ function InstallMissingHeaders () {
 function main () {
     InstallMiniconda $env:PYTHON_VERSION $env:PYTHON_ARCH $env:PYTHON
     UpdateConda $env:PYTHON
-    InstallCondaPackages $env:PYTHON "conda-build pip anaconda-client six"
+    InstallCondaPackages $env:PYTHON "conda-build pip anaconda-client six jinja2"
     InstallMissingHeaders
 }
 
