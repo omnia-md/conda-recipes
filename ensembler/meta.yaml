@@ -1,10 +1,10 @@
 package:
   name: ensembler
-  version: !!str 1.0.3
+  version: !!str 1.0.4
 
 source:
    git_url: https://github.com/choderalab/ensembler
-   git_tag: v1.0.3
+   git_tag: v1.0.4
 
 build:
   entry_points:
@@ -22,7 +22,7 @@ requirements:
     - msmbuilder
     - biopython
     - openmm
-    - pdbfixer
+    - pdbfixer ==1.2
     # - numpy
     - lxml
     - pyyaml
