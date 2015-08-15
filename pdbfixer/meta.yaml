@@ -6,6 +6,11 @@ source:
   fn: v1.2.tar.gz
   url: https://github.com/pandegroup/pdbfixer/archive/v1.2.tar.gz
 
+build:
+  number: 1
+  entry_points:
+    - pdbfixer = pdbfixer.pdbfixer:main
+
 requirements:
   build:
     - python
@@ -20,7 +25,10 @@ requirements:
 
 test:
   commands:
-#    - nosetests
+    - pdbfixer -h
+    # - nosetests pdbfixer --nocapture --verbosity=2 --with-doctest
+  imports:
+    - pdbfixer
 
 about:
   home: http://github.com/simtk/pdbfixer
