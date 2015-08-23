@@ -13,8 +13,10 @@ build:
 requirements:
   build:
     - zlib
+    - gcc
   run:
     - zlib
+    - gcc
 
 test:
   commands:
