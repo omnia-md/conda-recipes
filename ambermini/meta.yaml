@@ -8,13 +8,15 @@ source:
   md5: 5c72ad3ff91d05b3e10f7610b2149107
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - zlib
+    - gcc # [osx]
   run:
     - zlib
+    - gcc # [osx]
 
 test:
   commands:
