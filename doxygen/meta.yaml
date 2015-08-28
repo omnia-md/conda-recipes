@@ -1,0 +1,18 @@
+package:
+  name: doxygen
+  version: 3.0.7
+
+source:
+  fn: doxygen-1.8.10.windows.bin.zip                                             [win64]
+  url: http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.10.windows.bin.zip      [win64]
+  fn: doxygen-1.8.10.windows.x64.bin.zip                                         [win32]
+  url: http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.10.windows.x64.bin.zip  [win32]
+
+test:
+  commands:
+    - doxygen -v
+
+about:
+    home: http://www.stack.nl/~dimitri/doxygen/index.html
+    license: GPLv3
+

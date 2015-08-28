@@ -1,0 +1,16 @@
+package:
+  name: swig
+  version: 3.0.7
+
+source:
+  fn: swigwin-3.0.7.zip
+  url: http://prdownloads.sourceforge.net/swig/swigwin-3.0.7.zip
+  sha256: 11423c4a37209ea501d04d2bf7f71c275cf418b93a28cf062c87b3c1fdfbe286
+
+test:
+  commands:
+    - swig -help
+
+about:
+    home: http://www.swig.org/
+    license: GPLv3
