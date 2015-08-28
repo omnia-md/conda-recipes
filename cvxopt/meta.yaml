@@ -7,11 +7,13 @@ source:
   url: https://pypi.python.org/packages/source/c/cvxopt/cvxopt-1.1.7.tar.gz
   md5: 5b80f5382bb638e606e486ee39bc93b4
 
-  # number: 1
+  patches:
+    - win-setup.patch  [win64]
 
 requirements:
   build:
     - python
+    - mingwpy    [win]
 
   run:
     - python
