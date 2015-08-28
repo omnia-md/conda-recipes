@@ -11,6 +11,6 @@ test:
     - jom /H
 
 about:
-    home: http://www.swig.org/
-    license: GPLv3
-
+    home: https://wiki.qt.io/Jom
+    license: GPL
+    summary: jom is a clone of nmake to support the execution of multiple independent commands in parallel.
