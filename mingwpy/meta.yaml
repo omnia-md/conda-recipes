@@ -20,6 +20,8 @@ build:
   number: 3         [win]
 
 requirements:
+  run:
+    - python        [win]
   build:
     - python        [win]
     - setuptools    [win]

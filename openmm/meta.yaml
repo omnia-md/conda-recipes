@@ -13,13 +13,14 @@ build:
 requirements:
   build:
     # on windows, need to install cmake manually
-    - cmake  # [not win]
+    - cmake     [not win]
     - python
     - fftw3f
     - sphinx
     - sphinxcontrib-bibtex
-    - swig   # [not win]
-
+    - swig
+    - doxygen   [win]
+    - jom       [win]
   run:
     - python
     - fftw3f
@@ -31,7 +32,7 @@ test:
     - simtk
     - simtk.openmm
   commands:
-    - python -m simtk.testInstallation  # [not win]
+    - python -m simtk.testInstallation
 
 about:
   home: http://openmm.org

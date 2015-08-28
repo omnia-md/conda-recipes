@@ -13,10 +13,11 @@ build:
 requirements:
   build:
     - zlib
-    - gcc # [osx]
+    - gcc      [osx]
+    - mingwpy  [win]
   run:
     - zlib
-    - gcc # [osx]
+    - gcc      [osx]
 
 test:
   commands:
