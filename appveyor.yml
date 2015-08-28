@@ -37,7 +37,7 @@ install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - conda config --add channels http://conda.binstar.org/omnia
   - conda update -yq --all
-  - conda install -yq conda-build jinja2
+  - conda install -yq conda-build jinja2 anaconda-client
 
 build: false
 
