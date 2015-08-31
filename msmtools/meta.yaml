@@ -1,10 +1,10 @@
 package:
   name: msmtools 
-  version: !!str 1.0.4
+  version: !!str 1.1
 
 source:
-  fn: v1.0.4.zip
-  url: https://github.com/markovmodel/msmtools/archive/v1.0.4.zip 
+  fn: v1.1.zip
+  url: https://github.com/markovmodel/msmtools/archive/v1.1.zip 
 
 build:
   preserve_egg_dir: True
@@ -33,5 +33,5 @@ test:
 
 about:
   home: http://emma-project.org
-  license: BSD 2-Clause License
+  license: LGPLv3+ 
   summary: "MSMTools"
