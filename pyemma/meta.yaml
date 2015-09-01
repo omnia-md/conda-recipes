@@ -45,6 +45,4 @@ test:
 about:
   home: http://emma-project.org
   license: GNU Lesser Public License v3+
-  summary: "EMMA: Emma's Markov Model Algorithms"
-
-
+  summary: "EMMA: Emma's Markov Model Algorithms
