@@ -1,46 +1,50 @@
 package:
   name: pyemma
-  version: !!str 1.2.2
-
+  version: 2.0
 source:
-  fn: pyEMMA-1.2.2.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v1.2.2.tar.gz
+  fn: pyEMMA-2.0.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v2.0.tar.gz
 
 build:
   preserve_egg_dir: True
-  number: 0
 
 requirements:
   build:
     - python
     - setuptools
     - cython >=0.20
-    - numpy >=1.7
-    - scipy 
-    - mdtraj
+
+    - bhmm ==0.5.1
+    - joblib
     - matplotlib
-    - nose
+    - mdtraj
+    - nose # actually this should not be here...
     - mock
+    - msmtools
+    - numpy >=1.7
+    - scipy
+    - six
 
   run:
     - python
     - setuptools
+    - bhmm ==0.5.1
+    - joblib
+    - matplotlib
+    - mdtraj
+    - mock
+    - msmtools
     - numpy >=1.7
     - scipy
-    - mdtraj
-    - matplotlib
+    - six
 
 test:
-  requires:
-    - nose
   imports:
     - pyemma
-#  commands:
-#    - nosetests pyemma --verbose
 
 about:
   home: http://emma-project.org
-  license: BSD 2-Clause License
+  license: GNU Lesser Public License v3+
   summary: "EMMA: Emma's Markov Model Algorithms"
 
 
