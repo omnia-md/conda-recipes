@@ -1,9 +1,9 @@
 package:
   name: pyemma
-  version: 2.0
+  version: 2.0.1
 source:
-  fn: pyEMMA-2.0.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v2.0.tar.gz
+  fn: pyEMMA-2.0.1.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v2.0.1.tar.gz
 
 build:
   preserve_egg_dir: True
@@ -24,6 +24,8 @@ requirements:
     - numpy >=1.7
     - scipy
     - six
+    - psutil
+    - decorator
 
   run:
     - python
@@ -37,6 +39,9 @@ requirements:
     - numpy >=1.7
     - scipy
     - six
+    - psutil
+    - decorator
+
 
 test:
   imports:
