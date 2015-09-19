@@ -1,14 +1,13 @@
 package:
   name: quadprog
-  version: "0.1.2"
+  version: "0.1.4"
 
 build:
     string: py{{ py }}
 
 source:
-  fn: quadprog-0.1.2.tar.gz
-  url: https://pypi.python.org/packages/source/q/quadprog/quadprog-0.1.2.tar.gz
-  md5: 176a5384beae041ebb97541615cb83c5
+  fn: quadprog-0.1.4.tar.gz
+  url: https://pypi.python.org/packages/source/q/quadprog/quadprog-0.1.4.tar.gz
 
 requirements:
   build:
