@@ -1,0 +1,37 @@
+diff --git setup.py setup.py
+index 20670f7..b44aba2 100644
+--- setup.py
++++ setup.py
+@@ -12,7 +12,7 @@ BLAS_LIB_DIR = '/usr/lib'
+ # Default names of BLAS and LAPACK libraries
+ BLAS_LIB = ['blas']
+ LAPACK_LIB = ['lapack']
+-BLAS_EXTRA_LINK_ARGS = []
++BLAS_EXTRA_LINK_ARGS = ['-lgfortran', '-lquadmath']
+ 
+ # Set environment variable BLAS_NOUNDERSCORES=1 if your BLAS/LAPACK do
+ # not use trailing underscores
+@@ -154,8 +154,8 @@ umfpack = Extension('umfpack',
+         glob('src/C/SuiteSparse_cvxopt_extra/umfpack/*'))
+ 
+ # Build for int or long? 
+-import sys
+-if sys.maxsize > 2**31: MACROS += [('DLONG',None)]
++#import sys
++#if sys.maxsize > 2**31: MACROS += [('DLONG',None)]
+ 
+ cholmod = Extension('cholmod',
+     library_dirs = [ BLAS_LIB_DIR ],
+diff --git src/C/sparse.c src/C/sparse.c
+index 0174377..d0467d9 100644
+--- src/C/sparse.c
++++ src/C/sparse.c
+@@ -2280,7 +2280,7 @@ spmatrix_new(PyTypeObject *type, PyObject *args, PyObject *kwds)
+     PY_ERR_TYPE("V must be either a sequence type, a matrix, or a number");
+   }
+ 
+-  if (size && !PyArg_ParseTuple(size, "ll", &nrows, &ncols))
++  if (size && !PyArg_ParseTuple(size, "nn", &nrows, &ncols))
+     PY_ERR_TYPE("invalid dimension tuple");
+ 
+   if (size && (nrows < 0 || ncols < 0))
