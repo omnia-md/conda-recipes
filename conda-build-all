@@ -78,7 +78,7 @@ def main():
         '--python',
         help="Set the Python version used by conda build",
         metavar="PYTHON_VER",
-        default='27,33,34,35',
+        default='27,33,34',
     )
     p.add_argument(
         '--numpy',
