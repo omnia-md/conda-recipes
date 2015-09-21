@@ -13,6 +13,7 @@ build:
 requirements:
   build:
     - python
+    - setuptools
     - openmm >=6.3
     - numpy
 
