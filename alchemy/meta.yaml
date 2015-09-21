@@ -1,0 +1,32 @@
+package:
+  name: alchemy
+  version: 1.0.0
+
+source:
+  git_url: https://github.com/choderalab/alchemy.git
+  git_tag: 1.0.0
+
+build:
+  preserve_egg_dir: True
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - openmm >=6.3
+    - numpy
+
+  run:
+    - python
+    - openmm >=6.3
+    - numpy
+
+test:
+  imports:
+    - alchemy
+
+about:
+  home: https://github.com/choderalab/alchemy
+  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  summary: Alchemical tools for OpenMM
