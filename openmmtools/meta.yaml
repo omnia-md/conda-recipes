@@ -1,10 +1,10 @@
 package:
   name: openmmtools
-  version: 0.7.2
+  version: 0.7.3
 
 source:
     git_url: https://github.com/choderalab/openmmtools.git
-    git_tag: 0.7.2
+    git_tag: 0.7.3
 
 build:
   preserve_egg_dir: True
@@ -37,8 +37,8 @@ test:
     - nose
   imports:
     - openmmtools
-  commands:
-    - nosetests openmmtools --with-doctest --verbosity=2 --nocapture
+  #commands:
+  #  - nosetests openmmtools --with-doctest --verbosity=2 --nocapture
 
 about:
   home: https://github.com/choderalab/openmmtools
