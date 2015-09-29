@@ -1,10 +1,10 @@
 package:
   name: thermotools
-  version: "0.1.4"
+  version: "0.1.6"
 
 source:
-  fn: thermotools-0.1.4.tar.gz
-  url: https://pypi.python.org/packages/source/t/thermotools/thermotools-0.1.4.tar.gz
+  fn: thermotools-0.1.6.tar.gz
+  url: https://pypi.python.org/packages/source/t/thermotools/thermotools-0.1.6.tar.gz
 
 requirements:
   build:
