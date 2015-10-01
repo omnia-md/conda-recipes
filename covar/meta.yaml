@@ -1,0 +1,34 @@
+package:
+    name: covar
+    version: !!str 0.1
+
+source:
+    fn: covar-0.1.tar.gz
+    url: https://pypi.python.org/packages/source/c/covar/covar-0.1.tar.gz
+    md5: 4581b80c5581eeb1298399ff451d209e
+
+build:
+  number: 0
+  string: py{{ py }}
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+    - numpy
+    - scipy >=0.16
+  run:
+    - python
+    - setuptools
+    - numpy
+    - scipy >=0.16
+
+test:
+  imports:
+    - covar
+
+about:
+  home: https://github.com/rmcgibbo/covar
+  license: BSD
+  summary: 'covar: shrinkage covariance estimation'
