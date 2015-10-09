@@ -6,7 +6,7 @@ if [ "$(uname)" == "Darwin" ]; then
     ./configure -fftw3 --with-netcdf=$PREFIX clang
     export DYLD_LIBRARY_PATH=$ORIG_DYLD_LIBRARY_PATH
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    # Do something under Linux platform
+    # Linux
     ./configure -fftw3 --with-netcdf=$PREFIX gnu
 fi
 
