@@ -237,6 +237,7 @@ def execute(args, p):
     print('Building recipes in the following order:')
     print(', '.join([basename(r) for r in args_recipe]))
     print()
+    sys.stdout.flush()
 
     curdir = abspath(os.curdir)
     tempdir = tempfile.mkdtemp()
@@ -254,8 +255,6 @@ def execute(args, p):
                                               binstar_handle=binstar):
                         continue
 
-                    if os.path.isdir(BUILD_DIRECTORY):
-                        shutil.rmtree(BUILD_DIRECTORY)
                     cmd = [conda_build, '-q', '--python', python, '--numpy', numpy, '--quiet']
                     if args.notest:
                         cmd.append('--no-test')
