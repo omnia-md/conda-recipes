@@ -11,7 +11,7 @@ build:
   preserve_egg_dir: True
   number: 0
   skip:
-     - [py33 or py34]
+     - [py3k]
 
 requirements:
   build:

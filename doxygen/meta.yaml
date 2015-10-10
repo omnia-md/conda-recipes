@@ -4,7 +4,7 @@ package:
 
 build:
     skip:
-      - [linux32 or linux64 or osx]
+      - [unix]
 
 source:
   fn: doxygen-1.8.10.windows.bin.zip                                             [win64]
