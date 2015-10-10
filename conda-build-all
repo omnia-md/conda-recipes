@@ -170,42 +170,6 @@ def package_exists_locally(recipe_path, python, numpy):
     return False
 
 
-def skip_package(recipe_path, python, numpy):
-    PLATFORMS = {'linux-64', 'linux-32', 'linux-armv6l', 'osx-64', 'win-32',
-                 'win-64'}
-    PYTHONS = {'py26', 'py27', 'py32', 'py33', 'py34', 'py35'}
-
-    skip_path = join(recipe_path, 'skip.yaml')
-
-    if not os.path.exists(skip_path):
-        return False
-    with open(skip_path) as f:
-        skip_items = yaml.load(f)
-
-    for skip in skip_items:
-        if not isinstance(skip, string_types):
-            continue
-
-        skip_specs = set(skip.split('_'))
-        # each skip specification must look like <PLATFORM_SPEC>_<PYTHON_SPEC>,
-        # <PLATFORM_SPEC>, or <PYTHON_SPEC>, e.g. "win-32", "win-32_py34"
-        # or "py34". <PYTHON_SPEC> needs to look like "py26", "py34", etc.
-        valid = all((s in PLATFORMS) or (s in PYTHONS) for s in skip_specs)
-        if not valid:
-            print('%s: invalid skip specification: "%s"' % (skip_path, skip),
-                  file=sys.stderr)
-            exit(1)
-
-        skip_specs.discard('py%s' % python)
-        skip_specs.discard(platform)
-        if len(skip_specs) == 0:
-            print('[conda-build-all skip] %s on py%s_%s' % (
-                  basename(recipe_path), python, platform))
-            return True
-
-    return False
-
-
 def upload_to_binstar(recipe_path, python, numpy, username):
     filename = conda_build_output(recipe_path, python, numpy)
     cmd = ['binstar']
@@ -283,8 +247,6 @@ def execute(args, p):
             metadata = MetaData(recipe)
             for python in VersionIter('python', metadata, pythons):
                 for numpy in VersionIter('numpy', metadata, numpys):
-                    if skip_package(recipe, python=python, numpy=numpy):
-                        continue
                     if package_exists_locally(recipe, python=python, numpy=numpy):
                         continue
                     if package_exists_binstar(recipe, python=python, numpy=numpy,
