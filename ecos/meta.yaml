@@ -1,27 +1,29 @@
 package:
   name: ecos
-  version: !!str 1.1.1
+  version: "2.0.4"
 
 source:
-  fn: ecos-1.1.1.tar.gz
-  url: https://pypi.python.org/packages/source/e/ecos/ecos-1.1.1.tar.gz
-  md5: 3c836dfaa51096bc86eec48b96e2ee9f
+  fn: ecos-2.0.4.tar.gz
+  url: https://pypi.python.org/packages/source/e/ecos/ecos-2.0.4.tar.gz
+  md5: 39cc4c4a5598cc51ca4dc9aec810f41a
+
 
 requirements:
   build:
     - python
     - setuptools
-    - numpy >=1.7
+    - numpy x.x
     - scipy >=0.12
 
   run:
     - python
     - setuptools
-    - numpy >=1.7
+    - numpy x.x
     - scipy >=0.12
 
 test:
-  # Python imports
+  requires:
+    - nose
   imports:
     - ecos
 

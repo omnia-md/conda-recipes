@@ -6,24 +6,10 @@ source:
   fn: schema-0.3.1.tar.gz
   url: https://pypi.python.org/packages/source/s/schema/schema-0.3.1.tar.gz
   md5: 241d4f8211ebab33bc28be90a300cb58
-#  patches:
-   # List any patch files here
-   # - fix.patch
 
-# build:
-  #preserve_egg_dir: True
-  #entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - schema = schema:main
-    #
-    # Would create an entry point called schema that calls schema.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+build:
+  skip:
+    - [py3k]
 
 requirements:
   build:
@@ -34,27 +20,10 @@ requirements:
     - python
 
 test:
-  # Python imports
   imports:
     - schema
-
-  #commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
 
 about:
   home: http://github.com/halst/schema
   license: MIT License
   summary: 'Simple data validation library'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml

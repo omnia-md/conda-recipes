@@ -2,13 +2,15 @@ package:
   name: repex
   version: !!str dev
 
-source: 
+source:
     fn: master.zip
     url: https://github.com/choderalab/repex/archive/master.zip
 
 build:
   preserve_egg_dir: True
   number: 0
+  skip:
+    - True
 
 requirements:
   build:
@@ -19,7 +21,7 @@ requirements:
     - setuptools
     - mdtraj
     - openmm
-    - openmmtools    
+    - openmmtools
     - pymbar
     - netcdf4
     - mpi4py
@@ -33,13 +35,13 @@ requirements:
     - pymbar
     - netcdf4
     - mpi4py
-    - pyzmq 
+    - pyzmq
     - clusterutils
 
 test:
   requires:
     - nose
-    - pyzmq    
+    - pyzmq
   imports:
     - repex
   commands:

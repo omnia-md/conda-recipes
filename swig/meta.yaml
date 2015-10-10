@@ -2,6 +2,10 @@ package:
   name: swig
   version: 3.0.7
 
+build:
+  skip:
+    - [unix]
+
 source:
   fn: swigwin-3.0.7.zip
   url: http://prdownloads.sourceforge.net/swig/swigwin-3.0.7.zip

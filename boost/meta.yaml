@@ -12,6 +12,8 @@ source:
 
 build:
   number: 0
+  skip:
+    - [win]
 
 requirements:
   build:
@@ -31,4 +33,4 @@ about:
   home: http://www.boost.org/
   license: Boost-1.0
 
-   
+

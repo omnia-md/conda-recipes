@@ -17,13 +17,13 @@ requirements:
   build:
     - python
     - cython
-    - numpy
+    - numpy x.x
     - setuptools
     - scripttest
 
   run:
     - python
-    - numpy
+    - numpy x.x
     - scipy
     - pandas
     - scripttest

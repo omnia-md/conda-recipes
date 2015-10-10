@@ -10,6 +10,8 @@ source:
 build:
   preserve_egg_dir: True
   number: 1
+  skip:
+    - [win32 or (win and py2k)]
 
 requirements:
   build:
