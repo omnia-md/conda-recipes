@@ -1,5 +1,5 @@
 #!/bin/bash
-export LDFLAGS="-static-libgcc \
+export LDFLAGS="-static-libgcc -lm \
    $(gfortran -print-file-name=libgfortran.a) \
    $(gfortran -print-file-name=libquadmath.a)"
 
@@ -11,4 +11,3 @@ chmod u+x configure
 make -j$CPU_COUNT
 chmod -R u+x bin
 make install
-
