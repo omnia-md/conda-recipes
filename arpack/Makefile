@@ -1,11 +1,10 @@
-FC = gfortran
-CC = cc
+FC := gfortran
+CC := cc
 
-FFLAGS := -O3 -fPIC
-LDFLAGS = -lblas -llapack -lm -static-libgcc $(shell $(FC) -print-file-name=libgfortran.a) $(shell $(FC) -print-file-name=libquadmath.a)
-
-F_SRC := $(wildcard SRC/*.f) $(wildcard UTIL/*.f)
-OBJ   := $(patsubst %.f,%.o,$(F_SRC))
+FFLAGS  := -O3 -fPIC
+LDFLAGS := -lblas -llapack -lm -static-libgcc $(shell $(FC) -print-file-name=libgfortran.a) $(shell $(FC) -print-file-name=libquadmath.a)
+F_SRC   := $(wildcard SRC/*.f) $(wildcard UTIL/*.f)
+OBJ     := $(patsubst %.f,%.o,$(F_SRC))
 
 %.o : %.f
 	$(FC) $(FFLAGS) -c $< -o $@
