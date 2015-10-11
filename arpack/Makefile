@@ -1,6 +1,7 @@
 F2C      = f2c
-F2CFLAGS = -ARw8 -Nn802 -Nq300 -Nx400
-CC     	 = cc
+F2CFLAGS = -ARw8 -Nn802 -Nq300 -Nx400 -w
+CC       = cc
+AR       = ar
 
 PREFIX := $(shell echo $(PREFIX))
 CFLAGS := -O3 -fPIC -I$(PREFIX)/include
@@ -19,6 +20,10 @@ OBJ   := $(patsubst %.f,%.o,$(F_SRC))
 
 libarpack.so: $(OBJ)
 	$(CC)  -shared -o $@ $(OBJ) $(F2C_LDFLAGS) $(LDFLAGS)
+
+libarpack.a: $(OBJ)
+	$(AR) rcs $@ $(OBJ)
+	ranlib $@
 
 clean:
 	rm -f UTIL/*.c UTIL/*.o SRC/*.c SRC/*.o
