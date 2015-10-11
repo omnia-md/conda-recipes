@@ -1,11 +1,11 @@
 package:
   name: cvxpy
-  version: !!str 0.2.17
+  version: !!str 0.3.1
 
 source:
-  fn: cvxpy-0.2.17.tar.gz
-  url: https://pypi.python.org/packages/source/c/cvxpy/cvxpy-0.2.17.tar.gz
-  md5: 7586c46b64165591db9ae8e939f8b802
+  fn: cvxpy-0.3.1.tar.gz
+  url: https://pypi.python.org/packages/source/c/cvxpy/cvxpy-0.3.1.tar.gz
+  md5: 5d4c2a6862bbdd1cefb234786696900a
 
 requirements:
   build:
@@ -17,6 +17,7 @@ requirements:
     - toolz
     - numpy
     - scipy
+    - cvxcanon
 
   run:
     - python
@@ -26,6 +27,7 @@ requirements:
     - toolz
     - numpy
     - scipy
+    - cvxcanon
 
 test:
   # Python imports

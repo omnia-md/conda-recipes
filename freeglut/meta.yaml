@@ -1,5 +1,5 @@
 package:
-  name: freeglut 
+  name: freeglut
   version: 3.0.0
 
 source:
@@ -8,6 +8,8 @@ source:
 
 build:
   number: 1
+  skip:
+    - [osx or win]
 
 requirements:
     build:

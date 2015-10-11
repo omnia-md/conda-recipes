@@ -15,7 +15,7 @@ requirements:
     - python
     - setuptools
     - cython
-    - numpy
+    - numpy x.x
     - scipy
     - msmtools
     - six
@@ -23,7 +23,7 @@ requirements:
   run:
     - python
     - cython
-    - numpy
+    - numpy x.x
     - scipy
     - msmtools
     - six

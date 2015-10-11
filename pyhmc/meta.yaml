@@ -15,11 +15,11 @@ requirements:
     - python
     - setuptools
     - cython
-    - numpy
+    - numpy x.x
   run:
     - python
     - setuptools
-    - numpy
+    - numpy x.x
     - scipy
 
 test:

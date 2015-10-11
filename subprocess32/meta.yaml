@@ -7,6 +7,10 @@ source:
   url: https://pypi.python.org/packages/source/s/subprocess32/subprocess32-3.2.6.tar.gz
   md5: 754c5ab9f533e764f931136974b618f1
 
+build:
+  skip:
+    - [win or py3k]
+
 requirements:
   build:
     - python

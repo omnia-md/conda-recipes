@@ -10,11 +10,13 @@ source:
 build:
   number: 1
   preserve_egg_dir: no
+  skip:
+    - [win]
 
 requirements:
   build:
     - boost
-    - numpy
+    - numpy x.x
     - python
     - pytest
     - distribute
@@ -22,7 +24,7 @@ requirements:
   run:
     - boost
     - python
-    - numpy
+    - numpy x.x
     - pytest
 
 test:

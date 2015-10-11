@@ -1,11 +1,11 @@
 package:
   name: numdifftools
-  version: !!str 0.7.7
+  version: !!str 0.9.12
 
 source:
-  fn: numdifftools-0.7.7.zip
-  url: https://pypi.python.org/packages/source/N/Numdifftools/numdifftools-0.7.7.zip
-  md5: 07bce309b22fccee4af499c85518e90b
+  fn: numdifftools-0.9.12.zip
+  url: https://pypi.python.org/packages/source/N/Numdifftools/numdifftools-0.9.12.zip
+  md5: f1c3a80a08ca6ca21d7a8966ca5a97b0
 
 requirements:
   build:

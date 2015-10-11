@@ -8,6 +8,8 @@ source:
 
 build:
   number: 0
+  skip:
+    - [win]
 
 requirements:
   build:

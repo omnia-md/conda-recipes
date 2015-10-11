@@ -8,17 +8,19 @@ source:
 
 build:
   preserve_egg_dir: yes
+  skip:
+    - [py3k]
 
 requirements:
   build:
     - python
     - setuptools
-    - numpy
+    - numpy x.x
     - scipy
 
   run:
     - python
-    - numpy
+    - numpy x.x
     - scipy
 
 test:

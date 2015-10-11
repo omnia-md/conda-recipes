@@ -1,12 +1,11 @@
 package:
   name: algopy
-  version: "0.5.1"
+  version: "0.5.3"
 
 source:
-  fn: algopy-0.5.1.tar.gz
-  url: https://pypi.python.org/packages/source/a/algopy/algopy-0.5.1.tar.gz
-  md5: 8aad87cb8c54d114e4f5c851f875a63b
-  # number: 1
+  fn: algopy-0.5.3.tar.gz
+  url: https://pypi.python.org/packages/source/a/algopy/algopy-0.5.3.tar.gz
+  md5: bc2c83b5cb7635fb5b4b309d0312c1bd
 
 requirements:
   build:
