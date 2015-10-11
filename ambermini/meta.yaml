@@ -3,12 +3,14 @@ package:
   version: 15.0.4
 
 source:
-  fn: 15.0.4.zip
-  url: https://github.com/choderalab/ambermini/archive/15.0.4.zip
-  md5: 5c72ad3ff91d05b3e10f7610b2149107
+  #fn: 15.0.4.zip
+  #url: https://github.com/choderalab/ambermini/archive/15.0.4.zip
+  #md5: 5c72ad3ff91d05b3e10f7610b2149107
+  git_url: git@github.com:rmcgibbo/ambermini.git
+  git_tag: 504168751bc0f330db32d17807f2804d1c827977
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -17,7 +19,6 @@ requirements:
     - mingwpy  [win]
   run:
     - zlib
-    - gcc      [osx]
 
 test:
   commands:
