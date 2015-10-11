@@ -1,5 +1,7 @@
 #!/bin/bash
-export LDFLAGS="-static-libgcc $PREFIX/lib/libgfortran.a $PREFIX/lib/libquadmath.a"
+export LDFLAGS="-static-libgcc \
+   $(gfortran -print-file-name=libgfortran.a) \
+   $(gfortran -print-file-name=libquadmath.a)"
 
 # Configure build
 chmod u+x configure
