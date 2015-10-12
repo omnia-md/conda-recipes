@@ -34,8 +34,8 @@ try:
     from binstar_client.utils import get_binstar
     from binstar_client.errors import NotFound
 except ImportError:
-    print('This script requires binstar', file=sys.stderr)
-    print('  $ conda install binstar')
+    print('This script requires anaconda-client', file=sys.stderr)
+    print('  $ conda install anaconda-client')
     exit(1)
 
 ROOTDIR = os.path.dirname(sys.executable)
@@ -172,7 +172,10 @@ def package_exists_locally(recipe_path, python, numpy):
 
 def upload_to_binstar(recipe_path, python, numpy, username):
     filename = conda_build_output(recipe_path, python, numpy)
-    cmd = ['binstar']
+    if not os.path.exists(filename):
+        return
+
+    cmd = ['anaconda']
     if BINSTAR_TOKEN is not None:
         cmd.extend(['-t', BINSTAR_TOKEN])
     cmd.extend(['upload', '-u', username, filename])
