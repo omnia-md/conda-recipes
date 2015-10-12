@@ -1,11 +1,11 @@
 package:
     name: covar
-    version: !!str 0.1
+    version: "0.2"
 
 source:
-    fn: covar-0.1.tar.gz
-    url: https://pypi.python.org/packages/source/c/covar/covar-0.1.tar.gz
-    md5: 4581b80c5581eeb1298399ff451d209e
+    fn: covar-0.2.tar.gz
+    url: https://pypi.python.org/packages/source/c/covar/covar-0.2.tar.gz
+    md5: 843ffc591132cab0f8b374891aa8f4ff
 
 build:
   number: 0
