@@ -1,5 +1,5 @@
 if [[ `uname` == 'Darwin' ]]; then
-    make FC=gfortran DYNAMIC_ARCH=1 BINARY=${ARCH} NO_LAPACK=0 NO_AFFINITY=1 NUM_THREADS=1 -j${CPU_COUNT} libs netlib shared
+    DYLD_LIBRARY_PATH=$PREFOX/lib make FC=gfortran DYNAMIC_ARCH=1 BINARY=${ARCH} NO_LAPACK=0 NO_AFFINITY=1 NUM_THREADS=1 -j${CPU_COUNT}
     make install PREFIX=$PREFIX
 
     # Make sure the linked gfortran libraries are searched for on the RPATH.
@@ -9,6 +9,6 @@ if [[ `uname` == 'Darwin' ]]; then
     install_name_tool -change $GFORTRAN_LIB @rpath/libgfortran.3.dylib $PREFIX/lib/libopenblas.dylib
     install_name_tool -change $GCC_LIB @rpath/libgcc_s.1.dylib $PREFIX/lib/libopenblas.dylib
     install_name_tool -change $QUADMATH_LIB @rpath/libquadmath.0.dylib $PREFIX/lib/libopenblas.dylib
-elif
+else
     exit 1
 fi
