@@ -3,8 +3,9 @@ package:
   version: "0.2.14"
 
 source:
-  fn: OpenBLAS_mingwpy_amd64.7z
-  url: https://bitbucket.org/carlkl/mingw-w64-for-python/downloads/OpenBLAS_mingwpy_amd64.7z
+  fn: openblas-0.2.14.tgz
+  url: http://github.com/xianyi/OpenBLAS/tarball/v0.2.14
+  md5: d340dc3d8a03f549ae29488d737b9c30
 
 build:
   skip:
