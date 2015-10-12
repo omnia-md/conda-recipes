@@ -84,7 +84,7 @@ def main():
         '--numpy',
         help="Set the NumPy version used by conda build",
         metavar="NUMPY_VER",
-        default='18,19,1.10',
+        default='18,19',
     )
     args = p.parse_args()
     execute(args, p)
