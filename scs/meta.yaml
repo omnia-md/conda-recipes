@@ -14,9 +14,10 @@ requirements:
   build:
     - python
     - setuptools
-    - clapack
     - numpy x.x
     - scipy
+    - openblas [win]
+    - mingwpy [win]
 
   run:
     - python
@@ -26,7 +27,6 @@ requirements:
 test:
   requires:
     - nose
-  # Python imports
   imports:
     - scs
 
