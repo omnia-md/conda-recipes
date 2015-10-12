@@ -1,0 +1,13 @@
+package:
+  name: f2c
+  version: "20100827"
+
+source:
+  url: http://archive.ubuntu.com/ubuntu/pool/universe/f/f2c/f2c_20100827.orig.tar.gz
+  fn: f2c_20100827.orig.tar.gz
+  md5: 6ecbe4f85f8bb2499fd280dcfd146dd5
+
+about:
+  home: http://netlib.org/f2c/
+  license: BSD
+  summary: 'FORTRAN 77 to C/C++ translator'
