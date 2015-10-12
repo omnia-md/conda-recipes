@@ -7,14 +7,16 @@ source:
   fn: OpenBLAS_mingwpy-win32.7z  [win32]
   url: https://bitbucket.org/carlkl/mingw-w64-for-python/downloads/OpenBLAS_mingwpy_amd64.7z  [win64]
   url: https://bitbucket.org/carlkl/mingw-w64-for-python/downloads/OpenBLAS_mingwpy-win32.7z  [win32]
-
-build:
-  skip:
-    - [not win]
+  fn: openblas-0.2.14.tgz                                 [not win]
+  url: http://github.com/xianyi/OpenBLAS/tarball/v0.2.14  [not win]
+  md5: d340dc3d8a03f549ae29488d737b9c30                   [not win]
 
 requirements:
   build:
-    - mingwpy
+    - mingwpy  [win]
+    - gcc      [not win]
+  run:
+    - libgcc   [not win]
 
 about:
   home: http://xianyi.github.io/OpenBLAS/
