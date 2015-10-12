@@ -1,18 +1,17 @@
 package:
   name: quadprog
-  version: "0.1.4"
+  version: "0.1.6"
 
 source:
-  fn: quadprog-0.1.4.tar.gz
-  url: https://pypi.python.org/packages/source/q/quadprog/quadprog-0.1.4.tar.gz
+  fn: quadprog-0.1.6.tar.gz
+  url: https://pypi.python.org/packages/source/q/quadprog/quadprog-0.1.6.tar.gz
+  md5: de1b6322ef22ad917a5d6042e7e2c3c4
 
 requirements:
   build:
     - python
     - setuptools
-    - numpy
     - cython
-    - mingwpy   [win]
 
   run:
     - python
