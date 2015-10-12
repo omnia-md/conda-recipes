@@ -16,13 +16,15 @@ requirements:
     - setuptools
     - numpy x.x
     - scipy
-    - openblas [win]
+    - openblas
     - mingwpy [win]
 
   run:
     - python
     - numpy x.x
     - scipy
+    # openblas linked statically on windows, dynamically otherwise
+    - openblas [not win]
 
 test:
   requires:

@@ -15,10 +15,11 @@ requirements:
   build:
     - python
     - mingwpy    [win]
-    - openblas   [win]
+    - openblas
 
   run:
     - python
+    - openblas   [not win]
 
 test:
   imports:

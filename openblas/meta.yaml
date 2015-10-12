@@ -11,6 +11,9 @@ source:
   url: http://github.com/xianyi/OpenBLAS/tarball/v0.2.14  [not win]
   md5: d340dc3d8a03f549ae29488d737b9c30                   [not win]
 
+skip:
+  - [linux]
+
 requirements:
   build:
     - mingwpy  [win]
