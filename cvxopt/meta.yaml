@@ -1,19 +1,21 @@
 package:
   name: cvxopt
-  version: 1.1.7
+  version: 1.1.8
 
 source:
-  fn: cvxopt-1.1.7.tar.gz
-  url: https://pypi.python.org/packages/source/c/cvxopt/cvxopt-1.1.7.tar.gz
-  md5: 5b80f5382bb638e606e486ee39bc93b4
+  fn: cvxopt-1.1.8.tar.gz
+  url: https://pypi.python.org/packages/source/c/cvxopt/cvxopt-1.1.8.tar.gz
+  md5: d4ff0a0e51aba93f838a70302a088eea
 
   patches:
-    - win-setup.patch  [win64]
+    - win-setup.patch  [win]
+
 
 requirements:
   build:
     - python
     - mingwpy    [win]
+    - openblas   [win]
 
   run:
     - python
