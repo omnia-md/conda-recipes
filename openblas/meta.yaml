@@ -1,0 +1,20 @@
+package:
+  name: openblas
+  version: "0.2.14"
+
+source:
+  fn: OpenBLAS_mingwpy_amd64.7z
+  url: https://bitbucket.org/carlkl/mingw-w64-for-python/downloads/OpenBLAS_mingwpy_amd64.7z
+
+build:
+  skip:
+    - [not win]
+
+requirements:
+  build:
+    - mingwpy
+
+about:
+  home:
+  license:
+  summary:
