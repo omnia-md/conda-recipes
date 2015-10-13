@@ -1,5 +1,5 @@
 if [[ `uname` == 'Darwin' ]]; then
-    DYLD_LIBRARY_PATH=$PREFOX/lib make FC=gfortran DYNAMIC_ARCH=1 BINARY=${ARCH} NO_LAPACK=0 NO_AFFINITY=1 NUM_THREADS=1 -j${CPU_COUNT}
+    DYLD_LIBRARY_PATH=$PREFIX/lib make FC=gfortran DYNAMIC_ARCH=1 BINARY=${ARCH} NO_LAPACK=0 NO_AFFINITY=1 NUM_THREADS=1 -j${CPU_COUNT}
     make install PREFIX=$PREFIX
 
     # Make sure the linked gfortran libraries are searched for on the RPATH.
