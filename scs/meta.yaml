@@ -6,9 +6,11 @@ source:
   fn: scs-1.1.7.tar.gz
   url: https://pypi.python.org/packages/source/s/scs/scs-1.1.7.tar.gz
   md5: 4ff95eb4ad76f7fdea53263871d41eee
+  patches:
+    - 0001-set-zip-safe-flag-to-false.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
