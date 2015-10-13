@@ -14,6 +14,10 @@ environment:
       secure: 8ZUGhuOs5ffofdj5EqrwBaN+k9da2CbYVuve7QFl5SYvI0DwcfCcLw23GbkYKXoK
 
   matrix:
+    - PYTHON: "C:\\Miniconda-x64"
+      CONDA_PY: "35"
+      ARCH: "64"
+
     - PYTHON: "C:\\Miniconda"
       CONDA_PY: "27"
       ARCH: "32"
@@ -22,18 +26,13 @@ environment:
       CONDA_PY: "27"
       ARCH: "64"
 
-    #- PYTHON: "C:\\Miniconda3"
-    #  CONDA_PY: "34"
-    #  ARCH: "32"
-
-    #- PYTHON: "C:\\Miniconda-x64"
-    #  CONDA_PY: "34"
-    #  ARCH: "64"
+    - PYTHON: "C:\\Miniconda3"
+      CONDA_PY: "34"
+      ARCH: "32"
 
     - PYTHON: "C:\\Miniconda-x64"
-      CONDA_PY: "35"
+      CONDA_PY: "34"
       ARCH: "64"
-
 
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
