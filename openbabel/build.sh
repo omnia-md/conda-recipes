@@ -15,6 +15,10 @@ cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DPYTHON_INCLUDE_DIR=$PREFIX/include/python${PY_VER} \
       -DPYTHON_BINDINGS=ON \
       -DEIGEN3_INCLUDE_DIR=eigen-eigen-c58038c56923 \
+      -DLIBXML2_INCLUDE_DIR=$PREFIX/include \
+      -DLIBXML2_LIBRARIES=$PREFIX/lib/libxml2.${SO_EXT} \
+      -DZLIB_INCLUDE_DIR=$PREFIX/include \
+      -DZLIB_LIBRARY=$PREFIX/lib/libz.${SO_EXT} \
       -DRUN_SWIG=ON
 
 make -j${CPU_COUNT}
