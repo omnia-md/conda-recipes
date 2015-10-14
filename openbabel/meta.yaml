@@ -1,0 +1,47 @@
+package:
+  name: openbabel
+  version: 2015.09
+
+source:
+  git_url: https://github.com/openbabel/openbabel.git
+  git_tag: 2d45874928002488b3e9f72b0d489c3062add716
+
+  patches:
+    - include-dirs.patch
+    - fix_library_path_search.diff
+    - fix_data_path.diff
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: true
+  skip:
+    - [win]
+
+requirements:
+  build:
+    - cmake
+    - zlib
+    - swig
+    - bzip2
+    - python
+    - zlib
+    - libxml2
+  run:
+    - python
+    - zlib
+    - libxml2
+
+test:
+  imports:
+    - openbabel
+    - pybel
+  commands:
+    - cd $SRC_DIR/test ; python test_pybel.py
+    - cd $SRC_DIR/test ; python testkekule.py
+    - cd $SRC_DIR/test ; python testbindings.py
+    - cd $SRC_DIR/test ; python testexample.py
+
+about:
+    home: http://www.openbabel.org/
+    license: GPLv2
+    summary: "A chemical toolbox designed to speak the many languages of chemical data"
