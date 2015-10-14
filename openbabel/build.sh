@@ -25,4 +25,4 @@ make -j${CPU_COUNT}
 make install
 
 cd scripts/python
-python setup.py install
+OPENBABEL_INCLUDE_DIRS=$(pwd)/..:$PREFIX/include/openbabel-2.0 python setup.py install

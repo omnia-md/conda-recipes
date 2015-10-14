@@ -1,31 +1,17 @@
 package:
   name: openbabel
-  version: 2.3.2
+  version: 2d4587
 
 source:
-  fn: openbabel-2.3.2.tar.gz
-  url: http://sourceforge.net/projects/openbabel/files/openbabel/2.3.2/openbabel-2.3.2.tar.gz [unix]
-  sha1: b8831a308617d1c78a790479523e43524f07d50d
-
-# package:
-#     name: openbabel
-#     version: 2d4587
-#
-# source:
-#   git_url: https://github.com/openbabel/openbabel.git
-#   git_tag: 2d45874928002488b3e9f72b0d489c3062add716
+  git_url: https://github.com/openbabel/openbabel.git
+  git_tag: 2d45874928002488b3e9f72b0d489c3062add716
 
   patches:
-    - ob-2-3-2-patch.diff # [osx]
-    - ob-mavericks.patch  # [osx]
-    - pybel-test.patch
+    - include-dirs.patch
     - fix_library_path_search.diff
-    - fix_data_path.diff
-    - fix_babel_test_paths.diff
-    - 147.patch
 
 build:
-  number: 5
+  number: 0
   detect_binary_files_with_prefix: true
   skip:
     - [win]
@@ -50,7 +36,6 @@ test:
     - pybel
   commands:
     - cd $SRC_DIR/test ; python test_pybel.py
-    - cd $SRC_DIR/test ; python testbabel.py
     - cd $SRC_DIR/test ; python testkekule.py
     - cd $SRC_DIR/test ; python testbindings.py
     - cd $SRC_DIR/test ; python testexample.py
