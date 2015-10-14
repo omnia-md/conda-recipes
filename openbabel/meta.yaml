@@ -1,6 +1,6 @@
 package:
   name: openbabel
-  version: 2d4587
+  version: 2015.09
 
 source:
   git_url: https://github.com/openbabel/openbabel.git
