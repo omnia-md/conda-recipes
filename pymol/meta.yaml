@@ -10,7 +10,7 @@ source:
 
 build:
   skip:
-    - [not linux]
+    - [not (linux and py2)]
 
 requirements:
     build:
