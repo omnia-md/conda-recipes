@@ -3,8 +3,8 @@ package:
   version: 2015.09
 
 source:
-  git_url: https://github.com/openbabel/openbabel.git
-  git_tag: 2d45874928002488b3e9f72b0d489c3062add716
+  url: https://github.com/openbabel/openbabel/archive/2d45874928002488b3e9f72b0d489c3062add716.zip
+  fn: 2d45874928002488b3e9f72b0d489c3062add716.zip
 
   patches:
     - include-dirs.patch
