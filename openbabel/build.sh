@@ -1,4 +1,10 @@
 #!/bin/bash
+if [ `uname` == Darwin ]; then
+    SO_EXT='dylib'
+else
+    SO_EXT='so'
+fi
+
 wget http://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2
 tar -xjf 3.2.6.tar.bz2
 
