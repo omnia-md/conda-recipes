@@ -6,7 +6,7 @@ build:
   skip:
     - [unix]
 
-source:
+source:                                                              [win]
   fn: jom_1_0_16.zip                                                 [win]
   url: http://download.qt.io/official_releases/jom/jom_1_0_16.zip    [win]
 
