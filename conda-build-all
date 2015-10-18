@@ -78,7 +78,7 @@ def main():
         '--python',
         help="Set the Python version used by conda build",
         metavar="PYTHON_VER",
-        default='27,33,34',
+        default='27,34,35',
     )
     p.add_argument(
         '--numpy',
@@ -178,7 +178,7 @@ def upload_to_binstar(recipe_path, python, numpy, username):
     cmd = ['anaconda']
     if BINSTAR_TOKEN is not None:
         cmd.extend(['-t', BINSTAR_TOKEN])
-    cmd.extend(['upload', '-u', username, filename])
+    cmd.extend(['upload', '--no-progress', '-u', username, filename])
     try:
         check_call(cmd)
     except CalledProcessError as e:
