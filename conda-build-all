@@ -5,6 +5,7 @@ import sys
 import operator
 import glob
 import os
+import time
 import shutil
 from os.path import isfile, basename, join, isdir, abspath
 import argparse
@@ -170,7 +171,7 @@ def package_exists_locally(recipe_path, python, numpy):
     return False
 
 
-def upload_to_binstar(recipe_path, python, numpy, username):
+def upload_to_binstar(recipe_path, python, numpy, username, max_retries=5):
     filename = conda_build_output(recipe_path, python, numpy)
     if not os.path.exists(filename):
         return
@@ -179,12 +180,18 @@ def upload_to_binstar(recipe_path, python, numpy, username):
     if BINSTAR_TOKEN is not None:
         cmd.extend(['-t', BINSTAR_TOKEN])
     cmd.extend(['upload', '--no-progress', '-u', username, filename])
-    try:
-        check_call(cmd)
-    except CalledProcessError as e:
-        e.cmd = '[not shown]'
-        raise e
-    return
+
+    for i in range(max_retries):
+        try:
+            check_call(cmd)
+            return
+        except CalledProcessError as e:
+            e.cmd = '[not shown]'
+            print("Retrying after %s seconds..." % (i+1))
+            time.sleep(i+1)
+
+    # final raise error to client
+    raise e
 
 
 def package_exists_binstar(recipe_path, python, numpy, binstar_user,
