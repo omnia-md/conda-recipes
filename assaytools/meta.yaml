@@ -11,6 +11,8 @@ build:
     - xml2png = assaytools.scripts.xml2png:entry_point
     - xml2png4scans = assaytools.scripts.xml2png4scans:entry_point
     - ipnbdoctest = assaytools.scripts.ipnbdoctest:entry_point
+  skip:
+    - [py3k]
 
 requirements:
   build:
@@ -40,6 +42,8 @@ test:
     - matplotlib
     - seaborn
     - lxml
+  imports:
+    - assaytools
 
 about:
   home: http://assaytools.choderalab.org
