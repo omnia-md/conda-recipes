@@ -125,9 +125,8 @@ def toposort(data):
 def sort_recipes(recipe_paths):
     metadatas = []
     for r in recipe_paths:
-        try:            
+        try:
             if isdir(r):
-                print(r)
                 metadatas.append(MetaData(r))
         except SystemExit:
             pass
