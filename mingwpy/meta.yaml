@@ -2,7 +2,7 @@ package:
   name: mingwpy
   version: "0.1.0"
 
-source:                                                                                             [win]
+source:                                                                                             [(py27 or py33 or py34) and win]
   url: https://anaconda.org/carlkl/mingwpy/0.1.0b3/download/mingwpy-0.1.0b3-cp34-none-win32.whl     [py34 and win32]
   fn: mingwpy-0.1.0b3-cp34-none-win32.whl                                                           [py34 and win32]
   url: https://anaconda.org/carlkl/mingwpy/0.1.0b3/download/mingwpy-0.1.0b3-cp34-none-win_amd64.whl [py34 and win64]
@@ -19,7 +19,7 @@ source:                                                                         
 build:
   number: 3
   skip:
-    - [unix]
+    - [unix or py35]
 
 requirements:
   run:
