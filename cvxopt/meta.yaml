@@ -9,7 +9,7 @@ source:
 
   patches:
     - win-setup.patch  [win]
-
+    - 0001-setup.patch
 
 requirements:
   build:
