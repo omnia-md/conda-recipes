@@ -7,14 +7,14 @@ source:
   url: https://pypi.python.org/packages/source/N/Numdifftools/numdifftools-0.9.12.zip
   md5: f1c3a80a08ca6ca21d7a8966ca5a97b0
 
-build:
-  skip:
-    - True  # currently disabled. missing a package setuptools_scm
-
 requirements:
   build:
     - python
     - setuptools
+    - setuptools_scm
+    - sphinx
+    - sphinx_rtd_theme
+    - numpydoc
     - numpy >=1.4
     - scipy >=0.8
     - six
