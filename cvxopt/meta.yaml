@@ -11,6 +11,11 @@ source:
     - win-setup.patch  [win]
     - 0001-setup.patch
 
+build:
+  skip:
+    # no mingwpy py35
+    - [win and py35]
+
 requirements:
   build:
     - python

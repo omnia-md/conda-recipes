@@ -7,6 +7,10 @@ source:
   url: https://pypi.python.org/packages/source/e/ecos/ecos-2.0.4.tar.gz
   md5: 39cc4c4a5598cc51ca4dc9aec810f41a
 
+build:
+  skip:
+    # ecos/src/ecos.c(1093): error C2065: '_TWO_DIGIT_EXPONENT': undeclared identifier
+    - [win and py35]
 
 requirements:
   build:
