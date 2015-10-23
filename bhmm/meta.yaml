@@ -1,11 +1,10 @@
 package:
   name: bhmm
-  version: "0.5.1"
+  version: "0.5.2"
 
 source:
-  url: https://pypi.python.org/packages/source/b/bhmm/bhmm-0.5.1.tar.gz
-  md5: a4e0e1c9da1915f266c6cecc2b8b907a
-  fn: bhmm-0.5.1.tar.gz
+  url: https://github.com/bhmm/bhmm/archive/0.5.2.tar.gz
+  fn: 0.5.2.tar.gz
 
 build:
   number: 0
