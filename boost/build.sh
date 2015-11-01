@@ -8,18 +8,24 @@
 # (This only effects the miniconda _build env, so it doesn't mess
 # with any user's actual environment)
 
+linking_include_m=false
+linkinging_lib_m=false
+linking_config_m=false
 
 PY_INCLUDE="${PREFIX}/include/python${PY_VER}"
 if [[ ( ! -d "${PY_INCLUDE}" ) && ( -d "${PY_INCLUDE}m" ) ]]; then
+    linking_include_m=true
     ln -s "${PY_INCLUDE}m" "${PY_INCLUDE}"
 fi
 
 if [[ ( ! -f "${PREFIX}/lib/libpython${PY_VER}.dylib" ) && ( -f "${PREFIX}/lib/libpython${PY_VER}m.dylib"  ) ]]; then
+    linkinging_lib_m=true
     ln -s  "${PREFIX}/lib/libpython${PY_VER}m.dylib" "${PREFIX}/lib/libpython${PY_VER}.dylib"
 fi
 
 PY_LIB="${PREFIX}/lib/python${PY_VER}"
 if [[ ( ! -d "${PY_LIB}/config" ) && ( -d "${PY_LIB}/config-${PY_VER}m" ) ]]; then
+    linking_config_m=true
     ln -s "${PY_LIB}/config-${PY_VER}m" "${PY_LIB}/config"
 fi
 
@@ -33,3 +39,15 @@ fi
 
 ./bootstrap.sh install --prefix=$PREFIX
 ./b2 -j$CPU_COUNT install cxxflags="$cxxflags" linkflags="$linkflags"
+
+if [[ linking_include_m ]]; then
+    rm -f "${PY_INCLUDE}"
+fi
+if [[ linkinging_lib_m ]]; then
+    rm -f "${PREFIX}/lib/libpython${PY_VER}.dylib"
+fi
+
+if [[ linking_config_m ]]; then
+    rm -f "${PY_LIB}/config"
+fi
+
