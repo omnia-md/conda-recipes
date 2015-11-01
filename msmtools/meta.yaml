@@ -7,15 +7,14 @@ source:
   url: https://github.com/markovmodel/msmtools/archive/v1.1.zip 
 
 build:
-  preserve_egg_dir: True
-  number: 1 # take it binstar - take it!
+  number: 2
 
 requirements:
   build:
     - python
     - setuptools
     - cython >=0.20
-    - numpy >=1.7
+    - numpy x.x
     - scipy 
     - nose
     - six
@@ -23,7 +22,7 @@ requirements:
   run:
     - python
     - setuptools
-    - numpy >=1.7
+    - numpy x.x
     - scipy
     - six
 
