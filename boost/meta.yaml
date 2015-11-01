@@ -1,14 +1,11 @@
 package:
   name: boost
-  version: 1.58.0
+  version: 1.59.0
 
 source:
-   url: http://sourceforge.net/projects/boost/files/boost/1.58.0/boost_1_58_0.tar.bz2
-   fn: boost_1_58_0.tar.bz2
-   patches:
-     # Bug in boost 1.58.0 for python 3.0, 3.1, 3.2, 3.3
-     # http://lists.boost.org/Archives/boost/2015/04/221614.php
-     - 3e405b6fd5db5615bbef241763de070118222ca7.patch
+   url: http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.bz2
+   fn: boost_1_59_0.tar.bz2
+   md5: 6aa9a5c6a4ca1016edd0ed1178e3cb87
 
 build:
   number: 0
@@ -32,5 +29,5 @@ requirements:
 about:
   home: http://www.boost.org/
   license: Boost-1.0
-
+  summary: "Boost provides free peer-reviewed portable C++ source libraries."
 
