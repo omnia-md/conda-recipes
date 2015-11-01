@@ -15,10 +15,10 @@ build:
 
 requirements:
   build:
-    - python
-    - pcre
+    - python  [not win]
+    - pcre    [not win]
   run:
-    - pcre
+    - pcre    [not win]
 
 test:
   commands:
