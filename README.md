@@ -6,13 +6,13 @@ conda-recipes
 -------------
 
 Recipes for building binary conda packages for (c/)python components of the omnia project.
-Built binaries from these recipes are hosted on [binstar.org](https://binstar.org/omnia).
+Built binaries from these recipes are hosted on [anaconda.org](https://anaconda.org/omnia).
 
 To install packages run,
 
 ```
 # Add my channel
-$ conda config --add channels http://conda.binstar.org/omnia
+$ conda config --add channels omnia
 
 # Install one of our packages, like MDTraj
 conda install mdtraj
@@ -34,10 +34,10 @@ included script:
 ./conda-build-all ./*
 ```
 
-To upload to the Omnia binstar org, use
+To upload to the Omnia repository, use
 
 ```
-binstar upload -u omnia package.bz2
+anaconda upload -u omnia package.bz2
 ```
 
 Command taken from this forum post: [From Binstar Forums](https://groups.google.com/a/continuum.io/forum/#!topic/conda/uYtVRGW--iU)
