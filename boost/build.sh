@@ -40,14 +40,14 @@ fi
 ./bootstrap.sh install --prefix=$PREFIX
 ./b2 -j$CPU_COUNT install cxxflags="$cxxflags" linkflags="$linkflags"
 
-if [[ linking_include_m ]]; then
-    rm -f "${PY_INCLUDE}"
+if [[ "$linking_include_m" == "true" ]]; then
+    rm -f "${PY_INCLUDE}m"
 fi
-if [[ linkinging_lib_m ]]; then
+if [[ "$linkinging_lib_m" == "true" ]]; then
     rm -f "${PREFIX}/lib/libpython${PY_VER}.dylib"
 fi
 
-if [[ linking_config_m ]]; then
+if [[ "$linking_config_m" == "true" ]]; then
     rm -f "${PY_LIB}/config"
 fi
 
