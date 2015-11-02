@@ -12,6 +12,7 @@ build:
   preserve_egg_dir: no
   skip:
     - [win]
+    - [py35]
 
 requirements:
   build:
