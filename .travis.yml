@@ -24,7 +24,7 @@ script:
       UPLOAD=" ";
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      docker run -e UPLOAD -e BINSTAR_TOKEN
+      docker run -e UPLOAD=$UPLOAD -e BINSTAR_TOKEN
           -t -i --rm -v `pwd`:/io phusion/holy-build-box-64:latest
           bash /io/devtools/docker-build.sh;
     elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
