@@ -9,7 +9,6 @@ source:
 
 build:
   number: 1
-  preserve_egg_dir: no
   skip:
     - [win]
     - [py35]

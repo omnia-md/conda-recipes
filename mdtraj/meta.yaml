@@ -8,7 +8,7 @@ source:
   md5: 9ff949cde6623edf47227a734c6f2224
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - mdconvert = mdtraj.scripts.mdconvert:entry_point
     - mdinspect = mdtraj.scripts.mdinspect:entry_point

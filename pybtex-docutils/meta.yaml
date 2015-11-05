@@ -1,6 +1,6 @@
 package:
   name: pybtex-docutils
-  version: !!str 0.2.1
+  version: "0.2.1"
 
 source:
   url: https://pypi.python.org/packages/source/p/pybtex-docutils/pybtex-docutils-0.2.1.tar.gz
@@ -8,7 +8,7 @@ source:
   fn: pybtex-docutils-0.2.1.tar.gz
 
 build:
-  preserve_egg_dir: True
+  number: 1
 
 requirements:
   build:
@@ -21,6 +21,10 @@ requirements:
     - python
     - pybtex
     - six
+
+test:
+  imports:
+    - pybtex_docutils
 
 about:
   home: https://pypi.python.org/pypi/pybtex-docutils
