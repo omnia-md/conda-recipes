@@ -1,0 +1,38 @@
+os:
+  - linux
+  - osx
+
+language: c
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    secure: "GjbAskNQDToMpTQ87p2TcG+JPdr+TIyWxarkzwd/KCQLuJqTKVVinWtKZwB+uaEnz2mmnXT7jFgbUU2Vuq0Dv78SOgTnqeh+ObP60imN4z8TB88PAFihv7JDJ45Nfbe7viKrWLWDYRebkObbJduc7xms0YEb9vs4e1+knTojiEc="
+
+install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      docker pull phusion/holy-build-box-64:latest;
+    fi
+
+script:
+  - if [[ "${TRAVIS_PULL_REQUEST}" == "true" && "${TRAVIS_BRANCH}" == "master" ]]; then
+      UPLOAD="--upload omnia";
+    else
+      UPLOAD=" ";
+    fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      docker run -e UPLOAD -e BINSTAR_TOKEN
+          -t -i --rm -v `pwd`:/io phusion/holy-build-box-64:latest
+          bash /io/devtools/docker-build.sh;
+    elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
+      bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/anaconda;
+      export PATH=$HOME/anaconda/bin:$PATH;
+      conda config --add channels omnia;
+      conda install -yq conda-build jinja2 anaconda-client;
+      python conda-build-all --check-against omnia $UPLOAD *;
+    fi

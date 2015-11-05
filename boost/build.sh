@@ -41,7 +41,7 @@ fi
 ./b2 -j$CPU_COUNT install cxxflags="$cxxflags" linkflags="$linkflags"
 
 if [[ "$linking_include_m" == "true" ]]; then
-    rm -f "${PY_INCLUDE}m"
+    rm -f "${PY_INCLUDE}"
 fi
 if [[ "$linkinging_lib_m" == "true" ]]; then
     rm -f "${PREFIX}/lib/libpython${PY_VER}.dylib"
