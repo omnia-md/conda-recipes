@@ -14,7 +14,7 @@ build:
   number: 1
   skip:
     - [win]
-    - [py35]
+    - [py3k]
 
 requirements:
   build:

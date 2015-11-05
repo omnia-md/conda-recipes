@@ -1,4 +1,4 @@
-./configure.py --boost-inc-dir=$INCLUDE_PATH --boost-lib-dir=$LIBRARY_PATH
+./configure.py --boost-inc-dir=$PREFIX/include --boost-lib-dir=$PREFIX/lib
 make
 make install
 python setup.py install

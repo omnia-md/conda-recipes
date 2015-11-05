@@ -125,10 +125,13 @@ def toposort(data):
 
 def sort_recipes(recipe_paths):
     metadatas = []
+    name_to_path = {}
     for r in recipe_paths:
         try:
             if isdir(r):
-                metadatas.append(MetaData(r))
+                m = MetaData(r)
+                name_to_path[m.get_value('package/name')] = r
+                metadatas.append(m)
         except SystemExit:
             pass
 
@@ -151,7 +154,7 @@ def sort_recipes(recipe_paths):
 
         graph[m.get_value('package/name')] = our_requirements
 
-    order = list(toposort(graph))
+    order = [name_to_path[v] for v in toposort(graph)]
     return order
 
 
@@ -207,7 +210,7 @@ def package_exists_binstar(recipe_path, python, numpy, binstar_user,
     try:
         dist = binstar_handle.distribution(
             binstar_user, package, version, platform + '/' + filename)
-        print('Package exists on binstar: %s' % package)
+        print('Package exists on anaconda.org: %s' % package)
         print('  full_name: %s' % dist['full_name'])
         print('  uploaded:  %s' % dist['upload_time'])
         print('  md5:       %s' % dist['md5'])
@@ -245,7 +248,7 @@ def execute(args, p):
     args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipe))
     recipes = [abspath(e) for e in sort_recipes(args_recipe)]
     print('Building recipes in the following order:')
-    print(', '.join([basename(r) for r in args_recipe]))
+    print(', '.join([basename(r) for r in recipes]))
     print()
     sys.stdout.flush()
 
