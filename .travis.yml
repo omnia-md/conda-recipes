@@ -14,7 +14,7 @@ env:
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      docker pull phusion/holy-build-box-64:latest;
+      docker pull rmcgibbo/centos5-build-box;
     fi
 
 script:
@@ -25,7 +25,7 @@ script:
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       docker run -e UPLOAD -e BINSTAR_TOKEN
-          -t -i --rm -v `pwd`:/io phusion/holy-build-box-64:latest
+          -t -i --rm -v `pwd`:/io rmcgibbo/centos5-build-box:latest
           bash /io/devtools/docker-build.sh;
     elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
