@@ -27,9 +27,8 @@ two releases of Numpy.
 
 The recipes here are automatically built using [Appveyor-CI](http://www.appveyor.com/)
 and [Travis-CI](https://travis-ci.org/). For linux, we use the
-[Holy Build Box](http://phusion.github.io/holy-build-box/) infastructure to
-ensure that the binaries are fully compatible accross multiple linux distributions
-and versions.
+[Holy Build Box](http://phusion.github.io/holy-build-box/) to ensure that the
+packages are fully compatible accross multiple linux distributions and versions.
 
 To build a package yourself, run `conda build <package_name>`, or
 `./conda-build-all ./*` to build multiple packages accross each of the
