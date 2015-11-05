@@ -16,9 +16,7 @@ requirements: [not win]
     - cmake   [not win]
     - bison   [not win]
     - flex    [not win]
-    - qt      [not win]
-  run:        [not win]
-    - qt      [not win]
+
 test:
   commands:
     - doxygen -v
