@@ -21,7 +21,7 @@ requirements:
     - sphinx
     - sphinxcontrib-bibtex
     - swig
-    - doxygen   [win]
+    - doxygen
     - jom       [win]
   run:
     - python
