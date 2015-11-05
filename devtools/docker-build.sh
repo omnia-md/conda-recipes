@@ -3,6 +3,8 @@ set -e
 # Activate Holy Build Box environment.
 source /hbb_exe/activate
 
+echo "UPLOAD = $UPLOAD"
+
 set -x
 yum install -y git
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
