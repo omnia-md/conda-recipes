@@ -8,8 +8,7 @@ source:
     md5: 95b458908e53c65e0c0560398a412389
 
 build:
-  preserve_egg_dir: True
-  number: 0
+  number: 1
   entry_points:
     - msmb = msmbuilder.scripts.msmb:main
 

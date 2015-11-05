@@ -6,25 +6,6 @@ source:
   fn: PyXB-1.2.4.tar.gz
   url: https://pypi.python.org/packages/source/P/PyXB/PyXB-1.2.4.tar.gz
   md5: cea2ffde4a36ca88f76c687ee6549cfd
-#  patches:
-   # List any patch files here
-   # - fix.patch
-
-# build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - pyxb = pyxb:main
-    #
-    # Would create an entry point called pyxb that calls pyxb.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
 
 requirements:
   build:
@@ -51,23 +32,7 @@ test:
     - pyxb.utils
     - pyxb.xmlschema
 
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
-
 about:
   home: http://pyxb.sourceforge.net
   license: Apache Software License
   summary: 'PyXB ("pixbee") is a pure Python package that generates Python source code for classes that correspond to data structures defined by XMLSchema.'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml

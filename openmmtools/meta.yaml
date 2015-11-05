@@ -8,8 +8,7 @@ source:
     md5: 70bab6c402d24606774bf6161af9227b
 
 build:
-  preserve_egg_dir: True
-  number: 0
+  number: 1
   skip:
     - [win32 or (win and py2k)]
 

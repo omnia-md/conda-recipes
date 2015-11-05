@@ -7,7 +7,6 @@ source:
   fn: v2.1.0-beta.tar.gz
 
 build:
-  preserve_egg_dir: yes
   skip:
     - [py3k]
 

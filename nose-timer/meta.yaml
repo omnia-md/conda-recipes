@@ -6,25 +6,9 @@ source:
   fn: nose-timer-0.5.0.tar.gz
   url: https://pypi.python.org/packages/source/n/nose-timer/nose-timer-0.5.0.tar.gz
   md5: 7f9bc6e0eae50d588a9d08d809cddd3f
-#  patches:
-   # List any patch files here
-   # - fix.patch
 
 build:
-  # noarch_python: True
-  preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - nose-timer = nose-timer:main
-    #
-    # Would create an entry point called nose-timer that calls nose-timer.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  number: 1
 
 requirements:
   build:
