@@ -18,7 +18,7 @@ install:
     fi
 
 script:
-  - if [[ "${TRAVIS_PULL_REQUEST}" == "true" && "${TRAVIS_BRANCH}" == "master" ]]; then
+  - if [[ "${TRAVIS_PULL_REQUEST}" == "false" && "${TRAVIS_BRANCH}" == "master" ]]; then
       UPLOAD="--upload omnia";
     else
       UPLOAD=" ";
