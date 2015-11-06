@@ -27,4 +27,4 @@ test:
 about:
     home: http://www.swig.org/
     license: GPLv3
-    swig: "A tool that easily allows a developer to wrap C/C++ functions for use with scripting languages."
+    summary: "A tool that easily allows a developer to wrap C/C++ functions for use with scripting languages."
