@@ -145,11 +145,11 @@ def sort_recipes(recipe_paths):
 
         our_requirements = set()
         for r in all_requirements:
+            # remove any version specified in the requirements
+            # (e.g. numpy >= 1.6) or something -- we just want the "numpy"
+            if ' ' in r:
+                r = r.split()[0]
             if r in names:
-                # remove any version specified in the requirements
-                # (e.g. numpy >= 1.6) or something -- we just want the "numpy"
-                if ' ' in r:
-                    r = r.split()[0]
                 our_requirements.add(r)
 
         graph[m.get_value('package/name')] = our_requirements

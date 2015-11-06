@@ -7,8 +7,7 @@ source:
   fn: 6.3.tar.gz
 
 build:
-  number: 0
-  preserve_egg_dir: yes
+  number: 1
   skip:
     - [win32 or (win and py2k)]
 
@@ -16,13 +15,14 @@ requirements:
   build:
     # on windows, need to install cmake manually
     - cmake     [not win]
+    - jom       [win]
     - python
     - fftw3f
     - sphinx
     - sphinxcontrib-bibtex
     - swig
     - doxygen
-    - jom       [win]
+
   run:
     - python
     - fftw3f

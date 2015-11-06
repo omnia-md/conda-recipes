@@ -16,9 +16,7 @@ requirements: [not win]
     - cmake   [not win]
     - bison   [not win]
     - flex    [not win]
-    - qt      [not win]
-  run:        [not win]
-    - qt      [not win]
+
 test:
   commands:
     - doxygen -v
@@ -26,4 +24,5 @@ test:
 about:
     home: http://www.stack.nl/~dimitri/doxygen/index.html
     license: GPLv3
+    summary: "Doxygen is the de facto standard tool for generating documentation from annotated C++ sources"
 

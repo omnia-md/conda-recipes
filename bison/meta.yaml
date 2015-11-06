@@ -1,0 +1,26 @@
+package:
+  name: bison
+  version: 3.0.4
+
+source:
+  fn: bison-3.0.4.tar.gz
+  url: http://ftp.gnu.org/gnu/bison/bison-3.0.4.tar.gz
+  md5: a586e11cd4aff49c3ff6d3b6a4c9ccf8
+
+build:
+  number: 1
+  detect_binary_files_with_prefix: true
+  skip:
+    - [not unix]
+
+requirements:
+  build:
+    - m4
+
+  run:
+    - m4
+
+about:
+  home: https://www.gnu.org/software/bison/
+  license: GPL3
+  summary: "Bison, is a parser generator that is part of the GNU Project"

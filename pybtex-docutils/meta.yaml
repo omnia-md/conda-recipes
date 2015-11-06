@@ -29,3 +29,4 @@ test:
 about:
   home: https://pypi.python.org/pypi/pybtex-docutils
   license: MIT
+  summary: "A docutils backend for pybtex."
