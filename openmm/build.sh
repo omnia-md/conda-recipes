@@ -30,37 +30,19 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # TODO: What do we do about other dependencies, such as pdflatex and doxygen?
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    export PATH=${PATH}
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    # LaTeX
-    export PATH=${PATH}:/usr/texbin/
+if pdflatex -v  >/dev/null 2>&1; then
+    OTHER_TARGETS="sphinxpdf";
+else
+    echo "Skipping LaTeX documentation. No pdflatex found!";
+    OTHER_TARGETS=" ";
 fi
 
 # Build in subdirectory.
 mkdir build
 cd build
 cmake .. $CMAKE_FLAGS
-make -j$CPU_COUNT all DoxygenApiDocs sphinxpdf # build docs as well
-make install
-
-# Run C tests.
-# Exclude OpenCL tests because @peastman suspects mesa on travis implementation is broken.
-# @jchodera and @pgrinaway suspect travis is working, but AMD OpenCL tests are actually failing due to a bug.
-#ctest -j2 -V -E "[A-Za-z]+OpenCL[A-Za-z]+"
-
-# Install Python wrappers.
-export OPENMM_INCLUDE_PATH=$PREFIX/include
-export OPENMM_LIB_PATH=$PREFIX/lib
-cd python
-$PYTHON setup.py install
-cd ..
-
-# Remove one random file
-#rm $PREFIX/bin/TestReferenceHarmonicBondForce
-
-# Copy all tests to bin directory so they will be distributed with install package.
-#cp `find . -name "Test*" -type f -maxdepth 1` $PREFIX/bin
+make -j$CPU_COUNT all DoxygenApiDocs $OTHER_TARGETS
+make -j$CPU_COUNT install PythonInstall
 
 # Put docs into a subdirectory.
 cd $PREFIX/docs
