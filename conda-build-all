@@ -66,6 +66,13 @@ def main():
         '--check-against',
         metavar='BINSTAR_USER'
     )
+    p.add_argument(
+        '--no-build',
+        help=('Only check whether a recipe requires building, then exit. If '
+              'the recipe requires building, the exit status will be 0. '
+              'Otherwise it will be 1.'),
+        action='store_true'
+    )
     p.add_argument('--upload',
         help='Automatically upload to binstar under this username'
     )
@@ -88,6 +95,10 @@ def main():
         default='19,110',
     )
     args = p.parse_args()
+    if args.no_build:
+        if len(args.recipe) != 1:
+            p.exit('--no-build requires only a single recipe')
+
     execute(args, p)
 
 
@@ -269,6 +280,8 @@ def execute(args, p):
                                               binstar_user=binstar_user,
                                               binstar_handle=binstar):
                         continue
+                    if args.no_build:
+                        sys.exit(0)
 
                     cmd = [conda_build, '-q', '--python', python, '--numpy', numpy, '--quiet']
                     if args.notest:
@@ -282,6 +295,9 @@ def execute(args, p):
     finally:
         os.chdir(curdir)
         shutil.rmtree(tempdir)
+
+    if args.no_build:
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()
