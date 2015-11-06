@@ -46,5 +46,5 @@ script:
             sudo tar -zxf cuda_mac_installer_drv.tar.gz -C /;
         fi;
 
-        conda-build-all --check-against omnia $UPLOAD *;
+        ./conda-build-all --check-against omnia $UPLOAD *;
     fi
