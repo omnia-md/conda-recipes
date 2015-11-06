@@ -10,6 +10,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-7.0/"
     CMAKE_FLAGS+=" -DOPENCL_INCLUDE_DIR=/opt/AMDAPPSDK-2.9-1/include/"
     CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/opt/AMDAPPSDK-2.9-1/lib/x86_64/libOpenCL.so"
+    CMAKE_FLAGS+=" -DCMAKE_CXX_FLAGS_RELEASE=-I/usr/include/nvidia/"
     # CMAKE_FLAGS+=" -DOPENCL_INCLUDE_DUR=/usr/local/cuda-7.0/include/"
     # CMAKE_FLAGS+=" -DOPENCL_LIBRARY=/usr/lib64/nvidia/libOpenCL.so.1.0.0"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
