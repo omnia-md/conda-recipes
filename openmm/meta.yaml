@@ -10,7 +10,6 @@ build:
   number: 1
   skip:
     - [win32 or (win and py2k)]
-    - [osx]
 
 requirements:
   build:
@@ -22,7 +21,8 @@ requirements:
     - sphinx
     - sphinxcontrib-bibtex
     - swig
-    - doxygen
+    # on osx, need to install doxygen manually
+    - doxygen   [not osx]
 
   run:
     - python
