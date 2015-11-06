@@ -23,4 +23,4 @@ requirements:
 about:
   home: http://flex.sourceforge.net/
   license: BSD
-        
+  license: "Flex is a fast lexical analyser generator."

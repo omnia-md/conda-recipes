@@ -23,3 +23,4 @@ requirements:
 about:
   home: https://www.gnu.org/software/bison/
   license: GPL3
+  summary: "Bison, is a parser generator that is part of the GNU Project"

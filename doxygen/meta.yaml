@@ -24,4 +24,5 @@ test:
 about:
     home: http://www.stack.nl/~dimitri/doxygen/index.html
     license: GPLv3
+    summary: "Doxygen is the de facto standard tool for generating documentation from annotated C++ sources"
 
