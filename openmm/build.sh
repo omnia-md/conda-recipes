@@ -47,7 +47,10 @@ make -j$CPU_COUNT install PythonInstall
 # Put docs into a subdirectory.
 cd $PREFIX/docs
 mkdir openmm
-mv *.pdf *.html api-* openmm/
+mv *.html api-* openmm/
+if pdflatex -v  >/dev/null 2>&1; then
+    mv *.pdf openmm/
+fi
 
 # Put examples into an appropriate subdirectory.
 mkdir $PREFIX/share/openmm/
