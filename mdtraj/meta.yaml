@@ -1,11 +1,11 @@
 package:
   name: mdtraj
-  version: !!str 1.4.2
+  version: "1.5.0"
 
 source:
   fn: mdtraj-1.4.2.tar.gz
-  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-1.4.2.tar.gz#md5=9ff949cde6623edf47227a734c6f2224
-  md5: 9ff949cde6623edf47227a734c6f2224
+  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-1.5.0.tar.gz#md5=d30b9859daf8dc2f8273cc6679c73eff
+  md5: d30b9859daf8dc2f8273cc6679c73eff
 
 build:
   number: 1
