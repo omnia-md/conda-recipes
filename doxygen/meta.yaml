@@ -10,8 +10,9 @@ source:
   url: http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.10.src.tar.gz           [not win]
   fn: doxygen-1.8.10.src.tar.gz                                                  [not win]
 
-skip:
-  - [ osx ]
+build:
+  skip:
+    - [ osx ]
 
 requirements:  [not win]
   build:       [not win]
