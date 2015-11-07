@@ -6,14 +6,10 @@ import operator
 import glob
 import os
 import time
-import shutil
 import os.path
 import argparse
-import traceback
-import tempfile
-from subprocess import check_output, call, check_call, CalledProcessError
+from subprocess import call, check_call, CalledProcessError
 from functools import reduce
-from six import string_types
 from distutils.spawn import find_executable
 
 BINSTAR_TOKEN = os.environ.pop('BINSTAR_TOKEN', None)
@@ -28,18 +24,12 @@ try:
     from conda_build.metadata import MetaData
     from conda_build.config import Config as CondaBuildConfig
     BUILD_DIRECTORY = CondaBuildConfig.short_build_prefix
-    import yaml
 except ImportError:
-    print('This script requires conda-build', file=sys.stderr)
-    print('  $ conda install conda-build', file=sys.stderr)
-    exit(1)
+    print('''This script requires conda-build and anaconda-client and
+must run in the root conda environment.
 
-try:
-    from binstar_client.utils import get_binstar
-    from binstar_client.errors import NotFound
-except ImportError:
-    print('This script requires anaconda-client', file=sys.stderr)
-    print('  $ conda install anaconda-client')
+  $ source deactivate
+  $ conda install conda-build anaconda-client''', file=sys.stderr)
     exit(1)
 
 
@@ -65,7 +55,7 @@ def main():
               'number of build to-be-performed'),
     )
     p.add_argument('--upload',
-        help='Automatically upload to binstar under this username'
+        help='Automatically upload to binstar under this username',
     )
     p.add_argument(
         '--no-test',
@@ -131,18 +121,18 @@ def toposort(data):
 
 
 def sort_recipes(recipe_paths):
+    name2m = {}
     metadatas = []
-    name_to_path = {}
     for r in recipe_paths:
         try:
             if os.path.isdir(r):
                 m = MetaData(r)
-                name_to_path[m.get_value('package/name')] = r
                 metadatas.append(m)
+                name2m[m.get_value('package/name')] = m
         except SystemExit:
             pass
 
-    names = {m.get_value('package/name'): m for m in metadatas}
+    names = set(name2m.keys())
 
     graph = {}
     for m in metadatas:
@@ -161,13 +151,35 @@ def sort_recipes(recipe_paths):
 
         graph[m.get_value('package/name')] = our_requirements
 
-    order = [name_to_path[v] for v in toposort(graph)]
-    return order
+    return [name2m[name] for name in toposort(graph)]
 
 
+@memoized
+def conda_build_cmd():
+    ROOTDIR = os.path.dirname(sys.executable)
+    if sys.platform == 'win32':
+        # find conda-build associated with the current python  interpreter
+        conda_build = find_executable('conda-build', path=ROOTDIR + ';' + ROOTDIR + '\Scripts')
+        assert conda_build is not None
+    else:
+        conda_build = find_executable('conda-build', path=ROOTDIR)
+        assert conda_build is not None
+    return conda_build
 
-def upload_to_binstar(recipe_path, python, numpy, username, max_retries=5):
-    filename = conda_build_output(recipe_path, python, numpy)
+
+def get_bldpkg_path(m, python, numpy):
+    # globals used by conda-build to communicate python/numpy
+    # setting :(
+    conda_build_config.CONDA_PY = int(python.replace('.', ''))
+    conda_build_config.CONDA_NPY = int(numpy.replace('.', ''))
+    # need to re-parse jinja2 in light of changing config vars.
+    # (esp. for skip() to work)
+    m.parse_again()
+    return conda_build_build.bldpkg_path(m)
+
+
+def upload_to_binstar(m, python, numpy, username, max_retries=5):
+    filename = get_bldpkg_path(m, python, numpy)
     if not os.path.exists(filename):
         return
 
@@ -207,30 +219,24 @@ class VersionIter(object):
             yield self.versions[0]
 
 
-def required_builds(recipes, pythons, numpys, channel_urls, verbose):
+def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
     if not os.path.isdir(conda_build_config.bldpkgs_dir):
         os.makedirs(conda_build_config.bldpkgs_dir)
     conda_build_index.update_index(conda_build_config.bldpkgs_dir)
     index = conda_build_build.get_build_index(
         clear_cache=True, channel_urls=channel_urls)
 
-    for recipe in recipes:
-        m = MetaData(recipe)
-        m.check_fields()
+    for m in metadatas:
 
         last_base_bldpkg_path = None
         for python in VersionIter('python', m, pythons):
             for numpy in VersionIter('numpy', m, numpys):
-                # globals used by conda-build to communicate python/numpy
-                # setting :(
-                conda_build_config.CONDA_PY = int(python.replace('.', ''))
-                conda_build_config.CONDA_NPY = int(numpy.replace('.', ''))
-                # need to re-parse jinja2 in light of changing config vars.
-                # (esp. for skip() to work)
-                m.parse_again()
-
-                bldpkg_path = conda_build_build.bldpkg_path(m)
+                bldpkg_path = get_bldpkg_path(m, python, numpy)
                 base_bldpkg_path = os.path.basename(bldpkg_path)
+                if base_bldpkg_path == last_base_bldpkg_path:
+                    continue
+                last_base_bldpkg_path = base_bldpkg_path
+
                 if os.path.isfile(bldpkg_path):
                     if verbose > 1:
                         print('Package exists locally: %s' % base_bldpkg_path)
@@ -240,64 +246,41 @@ def required_builds(recipes, pythons, numpys, channel_urls, verbose):
                     continue
 
                 if base_bldpkg_path in index:
-                    if verbose > 1:
-                        print(index[base_bldpkg_path])
+                    if verbose > 2:
                         print('Package exists on anaconda.org: %s' % m.name())
                         print('  full_name: %s' % base_bldpkg_path)
                         print('  uploaded:  %s' % index[base_bldpkg_path]['platform'])
                         print('  md5:       %s' % index[base_bldpkg_path]['md5'])
                     continue
 
-
-                if base_bldpkg_path != last_base_bldpkg_path:
-                    yield m, python, numpy, base_bldpkg_path
-                last_base_bldpkg_path = base_bldpkg_path
+                yield m, python, numpy, base_bldpkg_path
 
 
-
-@memoized
-def conda_build_cmd():
-    ROOTDIR = os.path.dirname(sys.executable)
-    if sys.platform == 'win32':
-        # find conda-build associated with the current python  interpreter
-        conda_build = find_executable('conda-build', path=ROOTDIR + ';' + ROOTDIR + '\Scripts')
-        assert conda_build is not None
-    else:
-        conda_build = find_executable('conda-build', path=ROOTDIR)
-        assert conda_build is not None
-    return conda_build
-
-
-def build_package(recipe, python, numpy, args):
+def build_package(m, python, numpy, args):
     cmd = [conda_build_cmd(), '-q', '--python', python, '--numpy', numpy, '--quiet']
     if args.notest:
         cmd.append('--no-test')
-    cmd.append(recipe)
+    cmd.append(m.path)
     retcode = call(cmd)
     if retcode == 0 and args.upload is not None:
-        upload_to_binstar(recipe, python, numpy, username=args.upload)
+        upload_to_binstar(m, python, numpy, username=args.upload)
     sys.stdout.flush()
 
 
 def execute(args, p):
-    binstar_user = args.check_against
-    if binstar_user:
-        binstar = get_binstar()
-    else:
-        binstar = None
-
     pythons = re.split(',\s*|\s+', args.python)
     numpys = re.split(',\s*|\s+', args.numpy)
+    channel_urls = (args.check_against,) if args.check_against else ()
 
     args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipe))
-    recipes = [os.path.abspath(e) for e in sort_recipes(args_recipe)]
-    print('Considering recipes in the following order:')
-    print(', '.join([os.path.basename(r) for r in recipes]))
-    print()
+    metadatas = sort_recipes(args_recipe)
+    if args.verbose > 0:
+        print('Considering recipes in the following order:')
+        print(', '.join([os.path.basename(m.path) for m in metadatas]))
+        print()
     sys.stdout.flush()
 
-    channel_urls = (binstar_user,) if binstar_user else ()
-    to_build = list(required_builds(recipes, pythons, numpys, channel_urls, verbose=args.verbose))
+    to_build = list(required_builds(metadatas, pythons, numpys, channel_urls, verbose=args.verbose))
 
     if len(to_build) > 0:
         print('Scheduling the following builds:')
@@ -309,15 +292,10 @@ def execute(args, p):
         sys.exit(len(to_build))
 
     print()
-    curdir = os.path.abspath(os.curdir)
-    tempdir = tempfile.mkdtemp()
-    try:
-        os.chdir(tempdir)
-        for m, python, numpy, base_bldpkg_path in to_build:
-            build_package(m.path, python, numpy, args)
-    finally:
-        os.chdir(curdir)
-        shutil.rmtree(tempdir)
+
+    for m, python, numpy, base_bldpkg_path in to_build:
+        build_package(m, python, numpy, args)
+
 
 if __name__ == '__main__':
     main()
