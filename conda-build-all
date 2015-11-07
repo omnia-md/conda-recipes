@@ -303,6 +303,7 @@ def execute(args, p):
         print('Scheduling the following builds:')
     for m, python, numpy, base_bldpkg_path in to_build:
         print('  %s' % base_bldpkg_path)
+    sys.stdout.flush()
 
     if args.dry_run:
         sys.exit(len(to_build))
