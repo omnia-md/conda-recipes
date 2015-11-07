@@ -1,0 +1,36 @@
+package:
+  name: rdkit
+  version: 2015.03.1
+
+source:
+  git_url: https://github.com/rdkit/rdkit.git
+  git_tag: Release_2015_03_1 
+  patches:
+    - rdpaths.patch
+    - rdconfig.patch [win]
+
+build:
+  number: 0 
+
+requirements:
+  build:
+    - cmake [unix]
+    - requests
+    - boost
+    - python
+    - numpy
+    - pillow
+    - freetype
+    - py2cairo [linux and py2k]
+  run:
+    - boost
+    - python
+    - numpy
+
+test:
+  imports:
+    - rdkit
+
+about:
+  home: http://rdkit.org
+  license: BSD
