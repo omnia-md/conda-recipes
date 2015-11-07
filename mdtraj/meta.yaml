@@ -1,14 +1,14 @@
 package:
   name: mdtraj
-  version: !!str 1.4.2
+  version: "1.5.1"
 
 source:
-  fn: mdtraj-1.4.2.tar.gz
-  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-1.4.2.tar.gz#md5=9ff949cde6623edf47227a734c6f2224
-  md5: 9ff949cde6623edf47227a734c6f2224
+  fn: mdtraj-1.5.1.tar.gz
+  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-1.5.1.tar.gz#md5=fe21b3023a398fa918f23351c5079cc9
+  md5: fe21b3023a398fa918f23351c5079cc9
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - mdconvert = mdtraj.scripts.mdconvert:entry_point
     - mdinspect = mdtraj.scripts.mdinspect:entry_point
