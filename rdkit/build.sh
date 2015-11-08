@@ -23,6 +23,6 @@ cmake \
     -D CMAKE_BUILD_TYPE=Release \
     .
 
-make
+make -j $CPU_COUNT
 
 make install
