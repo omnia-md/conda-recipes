@@ -29,7 +29,7 @@ if [[ ( ! -d "${PY_LIB}/config" ) && ( -d "${PY_LIB}/config-${PY_VER}m" ) ]]; th
     ln -s "${PY_LIB}/config-${PY_VER}m" "${PY_LIB}/config"
 fi
 
-cxxflags="-I${PREFIX}/include/"
+cxxflags="-fPIC -I${PREFIX}/include/"
 linkflags="-L${PREFIX}/lib/"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # http://stackoverflow.com/questions/20108407/how-do-i-compile-boost-for-os-x-64b-platforms-with-stdlibc
