@@ -51,3 +51,4 @@ test:
 about:
   home: http://rdkit.org
   license: BSD
+  summary: "Open-Source Cheminformatics Software"
