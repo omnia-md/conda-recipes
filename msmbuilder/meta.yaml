@@ -8,7 +8,7 @@ source:
     md5: 95b458908e53c65e0c0560398a412389
 
 build:
-  number: 1
+  number: 2
   entry_points:
     - msmb = msmbuilder.scripts.msmb:main
 
@@ -28,7 +28,7 @@ requirements:
     - pandas
     - six
     - mdtraj
-    - scikit-learn
+    - scikit-learn <0.17.0
     - numpydoc
     - pytables
 
