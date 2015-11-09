@@ -20,9 +20,12 @@ cmake \
     -D PYTHON_INCLUDE_DIR=${PY_INC} \
     -D PYTHON_NUMPY_INCLUDE_PATH=$SP_DIR/numpy/core/include \
     -D BOOST_ROOT=$PREFIX -D Boost_NO_SYSTEM_PATHS=ON \
+    -D Boost_PYTHON3_LIBRARY_RELEASE=$PREFIX/lib/libboost_python3.a \
+    -D Boost_REGEX_LIBRARY_RELEASE=$PREFIX/lib/libboost_regex.a \
+    -D Boost_SERIALIZATION_LIBRARY_RELEASE=$PREFIX/lib/libboost_serialization.a \
+    -D Boost_SYSTEM_LIBRARY_RELEASE=$PREFIX/lib/libboost_system.a \
+    -D Boost_THREAD_LIBRARY_RELEASE=$PREFIX/lib/libboost_thread.a \
     -D CMAKE_BUILD_TYPE=Release \
     .
 
-make -j $CPU_COUNT
-
-make install
+make -j$CPU_COUNT install

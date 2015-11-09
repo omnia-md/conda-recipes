@@ -3,16 +3,17 @@ package:
   version: 2015.09.1
 
 source:
-  git_url: https://github.com/rdkit/rdkit.git
-  git_tag: Release_2015_09_1
+  url: https://github.com/rdkit/rdkit/archive/Release_2015_09_1.tar.gz
+  fn:  Release_2015_09_1.tar.gz
+  md5: 622f1dd6618cf87cb8003765f90cea8c
   patches:
     - rdpaths.patch
     - rdconfig.patch [win]
 
 build:
-  number: 0 
+  number: 1
   skip:
-    - [osx or win]
+    - [win]
 
 requirements:
   build:
@@ -25,7 +26,6 @@ requirements:
     - freetype
     - py2cairo [linux and py2k]
   run:
-    - boost
     - python
     - numpy
 
