@@ -26,6 +26,7 @@ cmake \
     -D Boost_SERIALIZATION_LIBRARY_RELEASE=$PREFIX/lib/libboost_serialization.a \
     -D Boost_SYSTEM_LIBRARY_RELEASE=$PREFIX/lib/libboost_system.a \
     -D Boost_THREAD_LIBRARY_RELEASE=$PREFIX/lib/libboost_thread.a \
+    -D CMAKE_EXE_LINKER_FLAGS_RELEASE="-lrt" \
     -D CMAKE_BUILD_TYPE=Release \
     .
 
