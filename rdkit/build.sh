@@ -20,6 +20,7 @@ cmake \
     -D PYTHON_INCLUDE_DIR=${PY_INC} \
     -D PYTHON_NUMPY_INCLUDE_PATH=$SP_DIR/numpy/core/include \
     -D BOOST_ROOT=$PREFIX -D Boost_NO_SYSTEM_PATHS=ON \
+    -D Boost_PYTHON_LIBRARY_RELEASE=$PREFIX/lib/libboost_python.a \
     -D Boost_PYTHON3_LIBRARY_RELEASE=$PREFIX/lib/libboost_python3.a \
     -D Boost_REGEX_LIBRARY_RELEASE=$PREFIX/lib/libboost_regex.a \
     -D Boost_SERIALIZATION_LIBRARY_RELEASE=$PREFIX/lib/libboost_serialization.a \
