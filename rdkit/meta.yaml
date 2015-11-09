@@ -27,9 +27,9 @@ requirements:
     - python
     - numpy
 
-#test:
-#  imports:
-#    - rdkit
+test:
+  imports:
+    - rdkit
 
 about:
   home: http://rdkit.org
