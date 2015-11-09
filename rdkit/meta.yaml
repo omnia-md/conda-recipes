@@ -26,6 +26,7 @@ requirements:
     - freetype
     - py2cairo [linux and py2k]
   run:
+    - boost [linux]
     - python
     - numpy
 
