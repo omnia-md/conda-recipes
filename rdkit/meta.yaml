@@ -32,6 +32,20 @@ requirements:
 test:
   imports:
     - rdkit
+    - rdkit.Avalon
+    - rdkit.Dbase
+    - rdkit.ML
+    - rdkit.RDPaths
+    - rdkit.VLib
+    - rdkit.Chem
+    - rdkit.DistanceGeometry
+    - rdkit.Numerics
+    - rdkit.RDRandom
+    - rdkit.DataManip
+    - rdkit.ForceField
+    - rdkit.RDConfig
+    - rdkit.DataStructs
+    - rdkit.Geometry
 
 about:
   home: http://rdkit.org
