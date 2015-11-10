@@ -32,6 +32,8 @@ must run in the root conda environment.
   $ conda install conda-build anaconda-client''', file=sys.stderr)
     exit(1)
 
+# from conda import config as conda_config
+# conda_config.subdir = 'win-64'
 
 def main():
     p = argparse.ArgumentParser(
