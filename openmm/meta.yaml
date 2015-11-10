@@ -11,6 +11,10 @@ build:
   skip:
     - [win32 or (win and py2k)]
 
+    # TODO. Build proper OpenMM for win py35
+    # (No CUDA / OpenCL on Appveyor)
+    - [win and py35]
+
 requirements:
   build:
     # on windows, need to install cmake manually
