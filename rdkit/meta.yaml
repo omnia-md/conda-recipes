@@ -28,6 +28,7 @@ requirements:
   run:
     - python
     - numpy
+    - boost [linux]
 
 test:
   imports:

@@ -7,7 +7,7 @@ PY_INC=`$PYTHON -c "from distutils import sysconfig; print (sysconfig.get_python
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     extra_flags="-DCMAKE_EXE_LINKER_FLAGS_RELEASE='-lrt'"
 else
-    extra_flags=""
+    extra_flags="-DBoost_USE_STATIC_LIBS=ON"
 fi
 
 cmake \
@@ -26,7 +26,6 @@ cmake \
     -DPYTHON_INCLUDE_DIR=${PY_INC} \
     -DPYTHON_NUMPY_INCLUDE_PATH=$SP_DIR/numpy/core/include \
     -DBOOST_ROOT=$PREFIX -D Boost_NO_SYSTEM_PATHS=ON \
-    -DBoost_USE_STATIC_LIBS=ON \
     -DCMAKE_BUILD_TYPE=Release \
     $extra_flags \
     .

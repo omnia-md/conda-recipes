@@ -10,3 +10,6 @@ PATH=/opt/rh/devtoolset-2/root/usr/bin:/opt/rh/autotools-latest/root/usr/bin:/an
 conda config --add channels omnia
 conda install -yq conda-build jinja2 anaconda-client
 /io/conda-build-all --check-against omnia $UPLOAD /io/*
+
+mv /anaconda/conda-bld/linux-64/*tar.bz2 /io/ || true
+# mv /anaconda/conda-bld/broken/*tar.bz2 /io/
