@@ -1,0 +1,31 @@
+package:
+  name: hmmlearn
+  version: "0.1.1"
+
+source:
+  fn: hmmlearn-0.1.1.tar.gz
+  url: https://pypi.python.org/packages/source/h/hmmlearn/hmmlearn-0.1.1.tar.gz
+  md5: 6db6ea730c849e2bc3b3f322e35ee65c
+
+requirements:
+  build:
+    - python
+    - numpy x.x
+    - cython
+    - nose
+    - scipy
+    - scikit-learn
+
+  run:
+    - python
+    - numpy x.x
+    - scikit-learn
+
+test:
+  imports:
+    - hmmlearn
+
+about:
+  home: https://github.com/hmmlearn/hmmlearn
+  license: BSD
+  summary: "Hidden Markov Models in Python with scikit-learn like API"
