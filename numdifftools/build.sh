@@ -1,2 +1,2 @@
 #!/bin/bash
-$PYTHON setup.py install
+pip install numdifftools==0.9.14

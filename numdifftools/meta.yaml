@@ -11,13 +11,10 @@ requirements:
   build:
     - python
     - setuptools
-    - setuptools_scm
-    - sphinx
-    - sphinx_rtd_theme
-    - numpydoc
+    - six
+    - pip
     - numpy >=1.4
     - scipy >=0.8
-    - six
     - algopy
 
   run:
@@ -28,11 +25,8 @@ requirements:
     - algopy
 
 test:
-  # Python imports
   imports:
     - numdifftools
-  requires:
-    - matplotlib
 
 about:
   home: http://code.google.com/p/numdifftools/
