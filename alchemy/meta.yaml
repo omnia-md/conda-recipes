@@ -4,7 +4,7 @@ package:
 
 source:
   url: https://github.com/choderalab/alchemy/archive/1.1.1.zip
-  filename: 1.1.1.zip
+  fn: 1.1.1.zip
 
 build:
   number: 0
