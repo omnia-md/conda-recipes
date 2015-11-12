@@ -15,11 +15,13 @@ requirements:
     - setuptools
     - numpy x.x
     - scipy
+    - six
 
   run:
     - python
     - numpy x.x
     - scipy
+    - six
 
 test:
   commands:
