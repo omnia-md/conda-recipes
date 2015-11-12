@@ -1,14 +1,13 @@
 package:
   name: pymbar
-  version: 2.1beta0
+  version: 3.0.0.beta2
 
 source:
-  url: https://github.com/choderalab/pymbar/archive/v2.1.0-beta.tar.gz
-  fn: v2.1.0-beta.tar.gz
+  url: https://github.com/choderalab/pymbar/archive/3.0.0.beta2.zip
+  fn: 3.0.0.beta2.zip
 
 build:
-  skip:
-    - [py3k]
+  number: 0
 
 requirements:
   build:
