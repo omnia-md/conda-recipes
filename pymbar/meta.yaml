@@ -32,7 +32,7 @@ test:
   requires:
     - nose
   commands:
-    - nosetests pymbar -vv --with-doctest --nocapture
+    #- nosetests pymbar -vv --with-doctest --nocapture
 
 about:
   home: http://github.com/choderalab/pymbar
