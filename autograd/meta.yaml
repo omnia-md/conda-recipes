@@ -32,11 +32,13 @@ requirements:
     - setuptools
     - numpy >=1.9
     - future
+    - scipy
 
   run:
     - python
     - numpy >=1.9
     - future
+    - scipy
 
 test:
   # Python imports
