@@ -30,13 +30,13 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy >=1.9
+    - numpy x.x
     - future
     - scipy
 
   run:
     - python
-    - numpy >=1.9
+    - numpy x.x
     - future
     - scipy
 
