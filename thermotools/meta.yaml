@@ -11,13 +11,13 @@ requirements:
     - python
     - setuptools
     - cython >=0.20
-    - numpy >=1.7
+    - numpy x.x
     - scipy >=0.11
     - msmtools >=1.1
 
   run:
     - python
-    - numpy >=1.7
+    - numpy x.x
     - scipy >=0.11
     - msmtools >=1.1
 
