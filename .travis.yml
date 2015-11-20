@@ -12,6 +12,8 @@ env:
   global:
     secure: "GjbAskNQDToMpTQ87p2TcG+JPdr+TIyWxarkzwd/KCQLuJqTKVVinWtKZwB+uaEnz2mmnXT7jFgbUU2Vuq0Dv78SOgTnqeh+ObP60imN4z8TB88PAFihv7JDJ45Nfbe7viKrWLWDYRebkObbJduc7xms0YEb9vs4e1+knTojiEc="
 
+# The Dockerfile that defines the image that for the build environment is
+# available at https://github.com/rmcgibbo/centos5-build-box/
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       docker pull rmcgibbo/centos5-build-box;
