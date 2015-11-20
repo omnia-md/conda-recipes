@@ -286,7 +286,7 @@ def execute(args, p):
     to_build = list(required_builds(metadatas, pythons, numpys, channel_urls, verbose=args.verbose))
 
     if len(to_build) > 0:
-        print('Scheduling the following builds:')
+        print('[conda-build-all] Scheduling the following builds:')
     for m, python, numpy, base_bldpkg_path in to_build:
         print('  %s' % base_bldpkg_path)
     sys.stdout.flush()
@@ -296,10 +296,19 @@ def execute(args, p):
 
     print()
 
-    retcode = 0
+    failed_builds = []
     for m, python, numpy, base_bldpkg_path in to_build:
-        retcode |= build_package(m, python, numpy, args)
-    return retcode
+        code = build_package(m, python, numpy, args)
+        if code != 0:
+            failed_builds.append(base_bldpkg_path)
+
+    if len(failed_builds) > 0:
+        print('[conda-build-all] Error: one or more packages failed to build', file=sys.stderr)
+        for b in  failed_builds:
+            print('  %s' % b, file=sys.stderr)
+        sys.stderr.flush()
+
+    return len(failed_builds)
 
 
 if __name__ == '__main__':
