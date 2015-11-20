@@ -26,7 +26,7 @@ script:
 
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
-        docker run -e UPLOAD -e BINSTAR_TOKEN
+        docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST
             -t -i --rm -v `pwd`:/io rmcgibbo/centos5-build-box:latest
             bash /io/devtools/docker-build.sh;
 
@@ -47,5 +47,9 @@ script:
             sudo tar -zxf cuda_mac_installer_drv.tar.gz -C /;
         fi;
 
-        ./conda-build-all --check-against omnia $UPLOAD *;
+        if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
+          ./conda-build-all --check-against omnia $UPLOAD * || true;
+        else
+          ./conda-build-all --check-against omnia $UPLOAD *;
+        fi;
     fi
