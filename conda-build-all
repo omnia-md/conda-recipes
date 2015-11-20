@@ -87,7 +87,7 @@ def main():
     if args.verbose is None:
         args.verbose = 0
 
-    execute(args, p)
+    return execute(args, p)
 
 
 def toposort(data):
@@ -267,6 +267,7 @@ def build_package(m, python, numpy, args):
     if retcode == 0 and args.upload is not None:
         upload_to_binstar(m, python, numpy, username=args.upload)
     sys.stdout.flush()
+    return retcode
 
 
 def execute(args, p):
@@ -285,7 +286,7 @@ def execute(args, p):
     to_build = list(required_builds(metadatas, pythons, numpys, channel_urls, verbose=args.verbose))
 
     if len(to_build) > 0:
-        print('Scheduling the following builds:')
+        print('[conda-build-all] Scheduling the following builds (%s):' % platform)
     for m, python, numpy, base_bldpkg_path in to_build:
         print('  %s' % base_bldpkg_path)
     sys.stdout.flush()
@@ -295,9 +296,21 @@ def execute(args, p):
 
     print()
 
+    failed_builds = []
     for m, python, numpy, base_bldpkg_path in to_build:
-        build_package(m, python, numpy, args)
+        code = build_package(m, python, numpy, args)
+        if code != 0:
+            failed_builds.append(base_bldpkg_path)
+
+    if len(failed_builds) > 0:
+        print(('[conda-build-all] Error: one or more packages '
+               'failed to build (%s)') % platform, file=sys.stderr)
+        for b in  failed_builds:
+            print('  %s' % b, file=sys.stderr)
+        sys.stderr.flush()
+
+    return len(failed_builds)
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
