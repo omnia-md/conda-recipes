@@ -105,7 +105,7 @@ def toposort(data):
         v.discard(k)
     # Find all items that don't depend on anything.
     extra_items_in_deps = reduce(
-        set.union, data.values()) - set(data.keys())
+        set.union, data.values(), set()) - set(data.keys())
     # Add empty dependences where needed
     data.update({item: set() for item in extra_items_in_deps})
     while True:

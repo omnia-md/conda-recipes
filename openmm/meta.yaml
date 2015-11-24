@@ -9,11 +9,8 @@ source:
 build:
   number: 1
   skip:
-    - [win32 or (win and py2k)]
-
-    # TODO. Build proper OpenMM for win py35
-    # (No CUDA / OpenCL on Appveyor)
-    - [win and py35]
+    # don't build on Appveyor (no OpenCL / CUDA)
+    - [ {{ os.environ['APPVEYOR'] == 'True' }} ]
 
 requirements:
   build:

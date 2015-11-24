@@ -7,6 +7,14 @@ source:
   url: https://pypi.python.org/packages/source/c/cvxpy/cvxpy-0.3.1.tar.gz
   md5: 5d4c2a6862bbdd1cefb234786696900a
 
+build:
+  skip:
+    # TODO no cvxopt on win py35
+    - [win and py35]
+    # some win-64 bug in cvxpy reported here:
+    # https://github.com/cvxgrp/cvxpy/issues/236
+    - [win64]
+
 requirements:
   build:
     - python

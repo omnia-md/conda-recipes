@@ -13,7 +13,7 @@ source:
 
 build:
   skip:
-    # no mingwpy py35
+    # TODO no mingwpy py35
     - [win and py35]
 
 requirements:

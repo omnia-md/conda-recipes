@@ -12,6 +12,8 @@ build:
     - pdbfixer = pdbfixer.pdbfixer:main
   skip:
     - [win32 or (win and py2k)]
+    # TODO no openmm py35 win
+    - [win and py35]
 
 requirements:
   build:

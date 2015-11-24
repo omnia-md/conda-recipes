@@ -9,6 +9,9 @@ source:
 
 build:
   number: 0
+  skip:
+    # TODO some problem getting statsmodels? https://ci.appveyor.com/project/rmcgibbo/conda-recipes/build/job/5o0t01g60hf12rse
+    - [win and py35]
 
 requirements:
   build:
