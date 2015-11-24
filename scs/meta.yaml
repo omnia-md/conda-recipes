@@ -14,6 +14,10 @@ build:
   skip:
     # no mingwpy py35
     - [win and py35]
+    # mingwpy doesn't work with py3k for numpy < 1.10
+    # https://github.com/numpy/numpy/issues/3557
+    - [win and np == '19' and py3k]
+
 
 requirements:
   build:
