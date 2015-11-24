@@ -3,8 +3,8 @@ package:
   version: !!str 0.1.1
 
 source:
-   git_url: https://github.com/choderalab/clusterutils
-   git_tag: 0.1.1
+   url: https://github.com/choderalab/clusterutils/archive/0.1.1.tar.gz
+   fn: 0.1.1.tar.gz
 
 build:
   entry_points:
