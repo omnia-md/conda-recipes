@@ -11,6 +11,9 @@ build:
   number: 0
   entry_points:
     - msmb = msmbuilder.scripts.msmb:main
+  skip:
+    # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
+    - [win32 and py35 and np == 19]
 
 
 requirements:
