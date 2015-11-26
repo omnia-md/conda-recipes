@@ -6,7 +6,6 @@ source:
   url: https://github.com/markovmodel/thermotools/archive/0.1.12.tar.gz
 
 build:
-  preserve_egg_dir: True
   number: 0
 
 requirements:
