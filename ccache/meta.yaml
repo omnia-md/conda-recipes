@@ -1,0 +1,21 @@
+package:
+  name: ccache
+  version: "3.2.4"
+
+source:
+  url: https://www.samba.org/ftp/ccache/ccache-3.2.4.tar.bz2
+  fn: ccache-3.2.4.tar.bz2
+
+build:
+  number: 0
+  skip:
+    - [not unix]
+
+test:
+  commands:
+    - ccache --help
+
+about:
+  home: "https://ccache.samba.org/"
+  license: GPL3
+  summary: "ccache is a compiler cache. It speeds up recompilation by caching previous compilations and detecting when the same compilation is being done again."
