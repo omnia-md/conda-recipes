@@ -1,0 +1,35 @@
+From bdbb1f5bdbfd0a4ff942ee211763e951b35142d8 Mon Sep 17 00:00:00 2001
+From: "Robert T. McGibbon" <rmcgibbo@gmail.com>
+Date: Sun, 3 Jan 2016 13:02:52 -0800
+Subject: [PATCH 1/1] Add OpenBLAS support through -openblas
+
+---
+ configure | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git configure configure
+index 29ecbd2..ce36e6c 100755
+--- configure
++++ configure
+@@ -44,6 +44,7 @@ UsageFull() {
+   echo "    -nonetcdf  : Do not use NetCDF"
+   echo "    -nomathlib : Do not include routines which require LAPACK or BLAS"
+   echo "    -noarpack  : Do not include routines which require ARPACK"
++  echo "    -openblas  : Use OpenBLAS (with LAPACK) instead of separate blas/lapack"
+   echo ""
+   echo "  ENVIRONMENT VARIABLES (can also be passed to configure as <VAR>=<VALUE>):"
+   echo "    CXX        : Name of the C++ compiler."
+@@ -536,6 +537,10 @@ while [[ ! -z $1 ]] ; do
+       DIRECTIVES="$DIRECTIVES -DNO_ARPACK"
+       ARPACK=""
+       ;;
++    "-openblas")
++      BLAS="-lopenblas"
++      LAPACK=""
++      ;;
+     "--with-bzlib"  )
+       INCLUDE="$INCLUDE -I$VALUE/include"
+       BZLIB_HOME="$VALUE"
+--
+2.3.4
+

@@ -1,0 +1,40 @@
+package:
+    name: cpptraj
+    version: "2015.12.23"
+
+source:
+    git_url: https://github.com/Amber-MD/cpptraj.git
+    git_tag: 328799a0807f9465319b5f8a1dbc3755382dc917
+
+    patches:
+      - 0001-Use-more-portable-expression-in-configure.patch
+      - 0002-Add-OpenBLAS-support-through-openblas.patch
+
+build:
+  number: 0
+  skip:
+    - [not unix]
+
+requirements:
+  build:
+    - libnetcdf
+    - arpack
+    - bzip2
+    - openblas [linux]
+    - gcc
+
+  run:
+    - libnetcdf
+    - arpack
+    - bzip2
+    - openblas [linux]
+    - libgcc
+
+test:
+  commands:
+    - cpptraj -h
+
+about:
+  home: https://github.com/amber-md/cpptraj
+  license: GPLv3+
+  summary: 'Biomolecular simulation trajectory/data analysis.'

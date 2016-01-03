@@ -1,0 +1,25 @@
+package:
+  name: arpack
+  version: "3.2.0"
+
+source:
+  url: https://github.com/opencollab/arpack-ng/archive/3.2.0.tar.gz
+  fn: 3.2.0.tar.gz
+  md5: 0ae8a0bb796370b06647d9e005c0f3ea
+
+build:
+  skip:
+    - [not unix]
+
+requirements:
+  build:
+    - gcc
+    - openblas [linux]
+  run:
+    - libgcc
+    - openblas [linux]
+
+about:
+  home: https://github.com/opencollab/arpack-ng
+  license:
+  summary: "ARPACK is a collection of Fortran77 subroutines designed to solve large scale eigenvalue problems."
