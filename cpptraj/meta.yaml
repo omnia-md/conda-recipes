@@ -20,14 +20,14 @@ requirements:
     - libnetcdf
     - arpack
     - bzip2
-    - openblas
+    - openblas [linux]
     - gcc
 
   run:
     - libnetcdf
     - arpack
     - bzip2
-    - openblas
+    - openblas [linux]
     - libgcc
 
 test:
