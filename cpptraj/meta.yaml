@@ -1,0 +1,30 @@
+package:
+    name: cpptraj
+    version: !!str 05ee56
+    # 05ee56ae9f6ffd7440e7d777bdb6927c620d2a74
+
+source:
+    git_url: https://github.com/rmcgibbo/cpptraj.git
+    git_tag: 05ee56
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - libnetcdf
+    - fftw3f
+    - mingw  [win]
+
+  run:
+    - fftw3f
+    - libnetcdf
+
+test:
+  commands:
+    - cpptraj -h
+
+about:
+  home: https://github.com/amber-md/cpptraj
+  license: GPLv3+
+  summary: 'Biomolecular simulation trajectory/data analysis.'
