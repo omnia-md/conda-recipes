@@ -8,6 +8,7 @@ source:
 
     patches:
       - 0001-Use-more-portable-expression-in-configure.patch
+      - 0002-Add-OpenBLAS-support-through-openblas.patch
 
 build:
   number: 0
@@ -19,12 +20,14 @@ requirements:
     - libnetcdf
     - arpack
     - bzip2
+    - openblas
     - gcc
 
   run:
     - libnetcdf
     - arpack
     - bzip2
+    - openblas
     - libgcc
 
 test:

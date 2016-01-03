@@ -14,10 +14,10 @@ build:
 requirements:
   build:
     - gcc
-    - openblas  [linux]
+    - openblas
   run:
     - libgcc
-    - openblas  [linux]
+    - openblas
 
 about:
   home: https://github.com/opencollab/arpack-ng
