@@ -1,14 +1,13 @@
 package:
     name: cpptraj
-    version: "2015.12.23"
+    version: "2016.0.07"
 
 source:
-    git_url: https://github.com/Amber-MD/cpptraj.git
-    git_tag: 328799a0807f9465319b5f8a1dbc3755382dc917
+    git_url: https://github.com/Amber-MD/cpptraj.git     [unix]
+    git_tag: 28982fda768b6b378fd4ce500fc7a4709ebdb98d    [unix]
+    url: https://ci.appveyor.com/api/buildjobs/30y4hbfv1nk4dwty/artifacts/cpptraj-2252910.zip [win]
+    fn: cpptraj-2252910.zip [win]
 
-    patches:
-      - 0001-Use-more-portable-expression-in-configure.patch
-      - 0002-Add-OpenBLAS-support-through-openblas.patch
 
 build:
   number: 0
