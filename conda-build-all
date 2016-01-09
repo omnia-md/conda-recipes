@@ -6,6 +6,7 @@ import operator
 import glob
 import os
 import time
+import tarfile
 import os.path
 import argparse
 from subprocess import call, check_call, CalledProcessError
@@ -183,10 +184,26 @@ def get_bldpkg_path(m, python, numpy):
     return conda_build_build.bldpkg_path(m)
 
 
+def list_package_contents(m, python, numpy):
+    filename = get_bldpkg_path(m, python, numpy)
+    if not os.path.exists(filename):
+        print('ERROR: File does not exist: %s' % filename)
+        return
+
+    tarf = tarfile.open(filename, 'r:bz2')
+    print('Package contents:')
+    for i, name in enumerate(tarf.getnames()):
+        print('  %s' % name)
+        if i > 20:
+            print('...')
+            break
+
+
+
 def upload_to_binstar(m, python, numpy, username, max_retries=5):
     filename = get_bldpkg_path(m, python, numpy)
     if not os.path.exists(filename):
-        print('ERROR: File does not exist: %' % filename)
+        print('ERROR: File does not exist: %s' % filename)
         return
 
     cmd = ['anaconda']
@@ -269,6 +286,8 @@ def build_package(m, python, numpy, args):
         cmd.append('--no-test')
     cmd.append(m.path)
     retcode = call(cmd)
+    list_package_contents(m, python, numpy)
+
     if args.upload is not None:
         if (retcode == 0):
             upload_to_binstar(m, python, numpy, username=args.upload)
