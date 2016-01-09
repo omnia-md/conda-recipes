@@ -193,6 +193,7 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5):
     err = None
     for i in range(max_retries):
         try:
+            print("Uploading package '%s' to anaconda user '%s'..." % (filename, username))
             check_call(cmd)
             return
         except CalledProcessError as e:
