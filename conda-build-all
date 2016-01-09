@@ -267,9 +267,9 @@ def build_package(m, python, numpy, args):
     retcode = call(cmd)
     if args.upload is not None:
         if (retcode == 0):
-            print('Package failed to build; will not upload.')
-        else:
             upload_to_binstar(m, python, numpy, username=args.upload)
+        else:
+            print('Package failed to build (return code %s); will not upload.' % str(retcode))
     sys.stdout.flush()
     return retcode
 
