@@ -1,0 +1,66 @@
+package:
+  name: sphinxcontrib-lunrsearch
+  version: "0.2"
+
+source:
+  fn: sphinxcontrib-lunrsearch-0.2.tar.gz
+  url: https://pypi.python.org/packages/source/s/sphinxcontrib-lunrsearch/sphinxcontrib-lunrsearch-0.2.tar.gz
+  md5: c22084f6e445c12dce393dff61d0c0d4
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - sphinxcontrib-lunrsearch = sphinxcontrib-lunrsearch:main
+    #
+    # Would create an entry point called sphinxcontrib-lunrsearch that calls sphinxcontrib-lunrsearch.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - sphinx >=1.0
+    - six >=1.4.1
+
+  run:
+    - python
+    - sphinx >=1.0
+    - six >=1.4.1
+
+test:
+  # Python imports
+  imports:
+    - sphinxcontrib
+    - sphinxcontrib.lunrsearch
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/rmcgibbo/sphinxcontrib-lunrsearch
+  license: MIT License
+  summary: 'Instant search for Sphinx'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
