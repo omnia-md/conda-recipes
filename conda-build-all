@@ -18,6 +18,7 @@ try:
     from conda.utils import memoized
     import conda_build.build as conda_build_build
     import conda_build.index as conda_build_index
+    from conda.config import hide_binstar_tokens
     from conda_build.config import config as conda_build_config
     from conda.config import subdir as platform
     assert platform in ('osx-64', 'linux-32', 'linux-64', 'win-32', 'win-64')
@@ -174,6 +175,8 @@ def get_bldpkg_path(m, python, numpy):
     # setting :(
     conda_build_config.CONDA_PY = int(python.replace('.', ''))
     conda_build_config.CONDA_NPY = int(numpy.replace('.', ''))
+    if m.info_index()['subdir'] == 'noarch':
+        conda_build_config.noarch = True
     # need to re-parse jinja2 in light of changing config vars.
     # (esp. for skip() to work)
     m.parse_again()
@@ -183,6 +186,7 @@ def get_bldpkg_path(m, python, numpy):
 def upload_to_binstar(m, python, numpy, username, max_retries=5):
     filename = get_bldpkg_path(m, python, numpy)
     if not os.path.exists(filename):
+        print('ERROR: File does not exist: %' % filename)
         return
 
     cmd = ['anaconda']
@@ -252,7 +256,7 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
                     if verbose > 2:
                         print('Package exists on anaconda.org: %s' % m.name())
                         print('  full_name: %s' % base_bldpkg_path)
-                        print('  uploaded:  %s' % index[base_bldpkg_path]['platform'])
+                        print('  channel:   %s' % hide_binstar_tokens(index[base_bldpkg_path]['channel']))
                         print('  md5:       %s' % index[base_bldpkg_path]['md5'])
                     continue
 
