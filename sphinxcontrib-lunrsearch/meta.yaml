@@ -13,13 +13,13 @@ requirements:
   build:
     - setuptools
     - python
-    - sphinx >=1.0
     - six >=1.4.1
+    - sphinx >=1.0
 
   run:
     - python
-    - sphinx >=1.0
     - six >=1.4.1
+    - sphinx >=1.0
 
 test:
   imports:
