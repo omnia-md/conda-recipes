@@ -18,6 +18,7 @@ requirements:
     - jinja2 >=2.3
     - lxml
     - mock
+    - pbr
 
   run:
     - python
@@ -26,6 +27,7 @@ requirements:
     - jinja2 >=2.3
     - lxml
     - mock
+    - pbr
 
 about:
   home: https://github.com/rmcgibbo/sphinxcontrib-autodoc_doxygen
