@@ -1,0 +1,33 @@
+package:
+  name: sphinxcontrib-lunrsearch
+  version: "0.2"
+
+source:
+  fn: sphinxcontrib-lunrsearch-0.2.tar.gz
+  url: https://pypi.python.org/packages/source/s/sphinxcontrib-lunrsearch/sphinxcontrib-lunrsearch-0.2.tar.gz
+
+build:
+  noarch_python: True
+
+requirements:
+  build:
+    - setuptools
+    - python
+    - six >=1.4.1
+    - sphinx >=1.0
+    - setuptools_scm
+
+  run:
+    - python
+    - six >=1.4.1
+    - sphinx >=1.0
+
+test:
+  imports:
+    - sphinxcontrib
+    - sphinxcontrib.lunrsearch
+
+about:
+  home: https://github.com/rmcgibbo/sphinxcontrib-lunrsearch
+  license: MIT License
+  summary: 'Instant search for Sphinx'
