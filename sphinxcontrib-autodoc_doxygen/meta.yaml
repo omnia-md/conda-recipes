@@ -3,8 +3,9 @@ package:
   version: "0.3.1"
 
 source:
-  fn: release.zip
-  url: https://github.com/rmcgibbo/sphinxcontrib-autodoc_doxygen/archive/0.3.1.zip
+  fn: sphinxcontrib-autodoc_doxygen-0.3.1.tar.gz
+  url: https://pypi.python.org/packages/source/s/sphinxcontrib-autodoc_doxygen/sphinxcontrib-autodoc_doxygen-0.3.1.tar.gz
+  md5: fcfbc77a810900865b143b7aa9409e2f
 
 build:
   noarch_python: True
