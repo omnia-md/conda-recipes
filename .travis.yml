@@ -25,6 +25,7 @@ script:
     else
         export UPLOAD=" ";
     fi
+  - echo $UPLOAD
 
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
