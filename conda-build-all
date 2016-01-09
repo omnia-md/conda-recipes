@@ -265,8 +265,11 @@ def build_package(m, python, numpy, args):
         cmd.append('--no-test')
     cmd.append(m.path)
     retcode = call(cmd)
-    if retcode == 0 and args.upload is not None:
-        upload_to_binstar(m, python, numpy, username=args.upload)
+    if args.upload is not None:
+        if (retcode == 0):
+            print('Package failed to build; will not upload.')
+        else:
+            upload_to_binstar(m, python, numpy, username=args.upload)
     sys.stdout.flush()
     return retcode
 
