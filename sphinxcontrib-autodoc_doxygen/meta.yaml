@@ -10,6 +10,8 @@ source:
 build:
   noarch_python: True
   number: 0
+  skip:
+    - [win]
 
 requirements:
   build:
