@@ -3,7 +3,7 @@ package:
   version: "0.2"
 
 source:
-  fn: 0.2.zip
+  fn: release.zip
   url: https://github.com/rmcgibbo/sphinxcontrib-lunrsearch/archive/0.2.zip
 
 build:

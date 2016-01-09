@@ -3,7 +3,7 @@ package:
   version: "0.3.1"
 
 source:
-  fn: 0.3.1.tar.gz
+  fn: release.zip
   url: https://github.com/rmcgibbo/sphinxcontrib-autodoc_doxygen/archive/0.3.1.zip
 
 build:
