@@ -255,7 +255,7 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
         os.makedirs(conda_build_config.bldpkgs_dir)
     conda_build_index.update_index(conda_build_config.bldpkgs_dir)
     index = conda_build_build.get_build_index(
-        clear_cache=True, channel_urls=channel_urls)
+        clear_cache=True, channel_urls=channel_urls, override_channels=True)
 
     for m in metadatas:
 
