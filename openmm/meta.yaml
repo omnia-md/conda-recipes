@@ -7,7 +7,7 @@ source:
   fn: 6.3.1.tar.gz
 
 build:
-  number: 0
+  number: 1
   skip:
     # don't build on Appveyor (no OpenCL / CUDA)
     - [ {{ os.environ.get('APPVEYOR', 'False') == 'True' }} ]

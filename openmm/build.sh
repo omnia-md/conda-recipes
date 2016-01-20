@@ -2,6 +2,9 @@
 
 CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_TESTING=OFF"
 
+# Ensure we build a release
+CMAKE_FLAGS+=" -DCMAKE_BUILD_TYPE=Release"
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     CMAKE_FLAGS+=" -DCUDA_CUDART_LIBRARY=/usr/local/cuda-7.0/lib64/libcudart.so"
     CMAKE_FLAGS+=" -DCUDA_NVCC_EXECUTABLE=/usr/local/cuda-7.0/bin/nvcc"
