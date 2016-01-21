@@ -183,6 +183,8 @@ def get_bldpkg_path(m, python, numpy):
     conda_build_config.CONDA_NPY = int(numpy.replace('.', ''))
     if m.info_index()['subdir'] == 'noarch':
         conda_build_config.noarch = True
+    else:
+        conda_build_config.noarch = False
     # need to re-parse jinja2 in light of changing config vars.
     # (esp. for skip() to work)
     m.parse_again()
