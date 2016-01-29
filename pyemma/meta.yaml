@@ -1,9 +1,9 @@
 package:
   name: pyemma
-  version: 2.0.2 
+  version: 2.0.3 
 source:
-  fn: pyEMMA-2.0.2.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v2.0.2.tar.gz
+  fn: pyEMMA-2.0.3.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v2.0.3.tar.gz
 
 
 
