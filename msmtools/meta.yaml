@@ -1,13 +1,13 @@
 package:
   name: msmtools 
-  version: !!str 1.1
+  version: !!str 1.1.1
 
 source:
-  fn: v1.1.zip
-  url: https://github.com/markovmodel/msmtools/archive/v1.1.zip 
+  fn: v1.1.1.zip
+  url: https://github.com/markovmodel/msmtools/archive/v1.1.1.zip 
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
