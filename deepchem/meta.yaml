@@ -10,6 +10,7 @@ build:
   number: 0
   skip:
     - [osx or win]
+    - [py3k]
 
 
 requirements:
