@@ -9,7 +9,7 @@ source:
 build:
   number: 0
   skip:
-    - [win]
+    - [osx or win]
 
 
 requirements:
@@ -49,9 +49,6 @@ test:
   imports:
     - deepchem
 
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
   commands:
     - nosetests -v deepchem
 
