@@ -1,0 +1,43 @@
+package:
+  name: keras
+  version: "0.3.1"
+
+source:
+  fn: Keras-0.3.1.tar.gz
+  url: https://pypi.python.org/packages/source/K/Keras/Keras-0.3.1.tar.gz
+  md5: 317ef8084254dd407dc7183280ee54bf
+
+build:
+  number: 0
+  skip:
+    - [osx or win]
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - theano
+    - pyyaml
+    - six
+
+  run:
+    - python
+    - theano
+    - pyyaml
+    - six
+
+test:
+  # Python imports
+  imports:
+    - keras
+    - keras.backend
+    - keras.datasets
+    - keras.layers
+    - keras.preprocessing
+    - keras.utils
+    - keras.wrappers
+
+about:
+  home: https://github.com/fchollet/keras
+  license: MIT
+  summary: 'Theano-based Deep Learning library'
