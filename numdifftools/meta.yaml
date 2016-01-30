@@ -1,11 +1,11 @@
 package:
   name: numdifftools
-  version: !!str 0.9.12
+  version: "0.9.14"
 
 source:
-  fn: numdifftools-0.9.12.zip
-  url: https://pypi.python.org/packages/source/N/Numdifftools/numdifftools-0.9.12.zip
-  md5: f1c3a80a08ca6ca21d7a8966ca5a97b0
+  fn: numdifftools-0.9.14.zip
+  url: https://pypi.python.org/packages/source/N/Numdifftools/numdifftools-0.9.14.zip#md5=04add9a62433466923764d9ef501eeb5
+  md5: 04add9a62433466923764d9ef501eeb5
 
 requirements:
   build:
@@ -13,14 +13,14 @@ requirements:
     - setuptools
     - six
     - pip
-    - numpy >=1.4
-    - scipy >=0.8
+    - numpy
+    - scipy
     - algopy
 
   run:
     - python
-    - numpy >=1.4
-    - scipy >=0.8
+    - numpy
+    - scipy
     - six
     - algopy
 
