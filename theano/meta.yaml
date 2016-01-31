@@ -4,6 +4,7 @@ package:
 
 source:
   git_url: https://github.com/Theano/Theano/
+  git_tag: 18319b8f426e99fa209c4910af7208c0d51c41a6
 
 build:
   number: 0
