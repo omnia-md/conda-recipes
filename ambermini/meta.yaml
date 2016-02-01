@@ -8,16 +8,16 @@ source:
   md5: 5c72ad3ff91d05b3e10f7610b2149107
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
     - zlib
-    - gcc      [osx]
+    - gcc      [unix]
     - mingwpy  [win]
   run:
     - zlib
-    - gcc      [osx]
+    - gcc      [unix]
 
 test:
   commands:
