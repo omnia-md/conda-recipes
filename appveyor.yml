@@ -50,6 +50,16 @@ install:
   - conda update -yq --all
   - conda install -yq conda-build jinja2 anaconda-client
   - powershell .\\devtools\\appveyor\\missing-headers.ps1
+  # conda-build for some inane reason, effectively puts C:\cygwin\bin at the
+  # front of the PATH, ahead of everything else, regardless. See
+  # https://github.com/conda/conda-build/blob/master/conda_build/external.py#L19
+  # On Appveyor, the version of git installed there doesn't work
+  # outside of the cygwin envronment, so despite a perfectly good version of
+  # git being installed somewhere else (git for windows, which works properly),
+  # conda-build will always choose to use the broken one. The only way I could
+  # think of to fix this is just to delete the broken one, so that it never gets
+  # found by conda-build. Or someone could fix conda-build.
+  - "del C:\\cygwin\\bin\\git.exe"
 
 build: false
 
