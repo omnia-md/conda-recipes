@@ -1,11 +1,11 @@
 package:
   name: keras
-  version: "0.3.1"
+  version: "0.3.2"
 
 source:
-  fn: Keras-0.3.1.tar.gz
-  url: https://pypi.python.org/packages/source/K/Keras/Keras-0.3.1.tar.gz
-  md5: 317ef8084254dd407dc7183280ee54bf
+  fn: Keras-0.3.2.tar.gz
+  url: https://pypi.python.org/packages/source/K/Keras/Keras-0.3.2.tar.gz
+  md5: db67e33bee76b574fc16c4db1dedd775
 
 build:
   number: 0
