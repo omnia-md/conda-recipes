@@ -1,0 +1,33 @@
+package:
+  name: nglview
+  version: "0.3"
+
+source:
+  fn: nglview-0.3.tar.gz
+  url: https://github.com/arose/nglview/archive/v0.3.tar.gz
+
+build:
+  number: 0 
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - ipython
+
+  run:
+    - python
+    - ipython
+    - ipywidgets
+
+test:
+  # Python imports
+  imports:
+    - nglview
+    - nglview.html
+
+about:
+  home: https://github.com/arose/nglview
+  license: MIT License
+  summary: 'IPython widget to interactively view molecular structures and trajectories.'
+
