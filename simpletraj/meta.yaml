@@ -1,0 +1,50 @@
+package:
+  name: simpletraj
+  version: "0.3"
+
+source:
+  fn: simpletraj-0.3.tar.gz
+  url: https://github.com/arose/simpletraj/archive/v0.3.tar.gz
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - simpletraj = simpletraj:main
+    #
+    # Would create an entry point called simpletraj that calls simpletraj.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+
+  run:
+    - python
+    - numpy
+
+test:
+  # Python imports
+  imports:
+    - simpletraj
+    - simpletraj.dcd
+    - simpletraj.xdrfile
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/arose/simpletraj
+  license: GNU General Public License v2 or later (GPLv2+)
+  summary: 'Lightweight coordinate-only trajectory reader based on code from GROMACS, MDAnalysis, VMD.'
+
