@@ -1,10 +1,10 @@
 package:
   name: bhmm
-  version: "0.5.2"
+  version: "0.6"
 
 source:
-  url: https://github.com/bhmm/bhmm/archive/0.5.2.tar.gz
-  fn: 0.5.2.tar.gz
+  url: https://github.com/bhmm/bhmm/archive/0.6.tar.gz
+  fn: 0.6.tar.gz
 
 build:
   number: 0
