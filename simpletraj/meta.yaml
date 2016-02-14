@@ -6,7 +6,10 @@ source:
   fn: simpletraj-0.3.tar.gz
   url: https://github.com/arose/simpletraj/archive/v0.3.tar.gz
 
-# build:
+build:
+  skip:
+    - [win]
+
   # noarch_python: True
   # preserve_egg_dir: True
   # entry_points:
