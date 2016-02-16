@@ -1,11 +1,11 @@
 package:
   name: mdtraj
-  version: "1.5.1"
+  version: "1.6.1"
 
 source:
-  fn: mdtraj-1.5.1.tar.gz
-  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-1.5.1.tar.gz#md5=fe21b3023a398fa918f23351c5079cc9
-  md5: fe21b3023a398fa918f23351c5079cc9
+  fn: mdtraj-1.6.1.tar.gz
+  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-1.6.1.tar.gz#md5=867ace28bf592af866745f4dc4acd9c2
+  md5: 867ace28bf592af866745f4dc4acd9c2
 
 build:
   number: 0
@@ -19,14 +19,14 @@ requirements:
     - cython
     - numpy x.x
     - setuptools
-    - scripttest
 
   run:
     - python
+    - setuptools
     - numpy x.x
     - scipy
     - pandas
-    - scripttest
+    - pytables
 
 about:
   home: http://mdtraj.org/
