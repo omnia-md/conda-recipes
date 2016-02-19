@@ -24,7 +24,7 @@ requirements:
     - msmtools
     - thermotools >=0.1.14
     - nose
-    - numpy x.x 
+    - numpy x.x
     - pyyaml
     - scipy
     - six
@@ -41,7 +41,7 @@ requirements:
     - mock
     - msmtools
     - thermotools >=0.1.14
-    - numpy x.x 
+    - numpy x.x
     - pyyaml
     - scipy
     - six
