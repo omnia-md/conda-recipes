@@ -5,7 +5,6 @@ source:
   fn: pyEMMA-2.1rc1.tar.gz
   url: https://github.com/markovmodel/PyEMMA/archive/v2.1rc1.tar.gz
 
-
 build:
   preserve_egg_dir: True
   number: 0
