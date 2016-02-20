@@ -6,6 +6,7 @@ source:
   url: https://github.com/markovmodel/PyEMMA/archive/v2.1rc1.tar.gz
 
 build:
+  skip: [py35 and win-32] # pytables not available for python3.5-win32...
   preserve_egg_dir: True
   number: 0
 
