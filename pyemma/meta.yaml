@@ -1,15 +1,14 @@
 package:
   name: pyemma
-  version: 2.0.4
+  version: 2.1rc1
 source:
-  fn: pyEMMA-2.0.4.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v2.0.4.tar.gz
-
-
+  fn: pyEMMA-2.1rc1.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v2.1rc1.tar.gz
 
 build:
+#  skip: [(py35 and win32)] # pytables not available for python3.5-win32...
   preserve_egg_dir: True
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -17,14 +16,16 @@ requirements:
     - setuptools
     - cython >=0.20
 
-    - bhmm <0.6
+    - bhmm <0.7
     - joblib ==0.8.4
     - matplotlib
-    - mdtraj >=1.5
+    - mdtraj >=1.6 # [ not (py35 and win32)]
+    - mdtraj >=1.5 # [(py35 and win32)]
     - mock
     - msmtools
+    - thermotools >=0.1.14
     - nose
-    - numpy >=1.7
+    - numpy x.x
     - pyyaml
     - scipy
     - six
@@ -34,13 +35,15 @@ requirements:
   run:
     - python
     - setuptools
-    - bhmm <0.6
+    - bhmm <0.7
     - joblib ==0.8.4
     - matplotlib
-    - mdtraj >=1.5
+    - mdtraj >=1.6 # [ not (py35 and win32)]
+    - mdtraj >=1.5 # [(py35 and win32)]
     - mock
     - msmtools
-    - numpy >=1.7
+    - thermotools >=0.1.14
+    - numpy x.x
     - pyyaml
     - scipy
     - six
@@ -55,5 +58,4 @@ about:
   home: http://emma-project.org
   license: GNU Lesser Public License v3+
   summary: "EMMA: Emma's Markov Model Algorithms"
-
 
