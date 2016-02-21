@@ -6,7 +6,6 @@ source:
   url: https://github.com/markovmodel/PyEMMA/archive/v2.1rc1.tar.gz
 
 build:
-#  skip: [(py35 and win32)] # pytables not available for python3.5-win32...
   preserve_egg_dir: True
   number: 0
 
@@ -19,6 +18,8 @@ requirements:
     - bhmm <0.7
     - joblib ==0.8.4
     - matplotlib
+# this ugly workaround reflects the fact, that pytables is not available
+# on py35, np19 for platform win32, so fallback to older version of mdtraj
     - mdtraj >=1.6 # [ not (py35 and win32)]
     - mdtraj >=1.5 # [(py35 and win32)]
     - mock
