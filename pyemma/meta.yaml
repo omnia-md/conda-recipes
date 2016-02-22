@@ -1,9 +1,9 @@
 package:
   name: pyemma
-  version: 2.1rc1
+  version: 2.1rc2
 source:
-  fn: pyEMMA-2.1rc1.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v2.1rc1.tar.gz
+  fn: pyEMMA-2.1rc2.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v2.1rc2.tar.gz
 
 build:
   preserve_egg_dir: True
