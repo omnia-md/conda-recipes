@@ -323,7 +323,7 @@ def execute(args, p):
     pythons = re.split(',\s*|\s+', args.python)
     numpys = re.split(',\s*|\s+', args.numpy)
     channel_urls = args.check_against if args.check_against else ()
-    args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipe))
+    args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipes))
     metadatas = sort_recipes(args_recipe)
 
     if args.verbose > 0:
