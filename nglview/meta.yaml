@@ -22,9 +22,10 @@ requirements:
 
 test:
   # Python imports
-  imports:
-    - nglview
-    - nglview.html
+# FIXME: disabled until the symlink problem has been addressed (arose/nglview#2)
+#  imports:
+#    - nglview
+#    - nglview.html
 
 about:
   home: https://github.com/arose/nglview
