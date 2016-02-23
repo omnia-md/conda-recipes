@@ -1,10 +1,10 @@
 package:
   name: nglview
-  version: "0.3"
+  version: "0.4"
 
 source:
-  fn: nglview-0.3.tar.gz
-  url: https://github.com/arose/nglview/archive/v0.3.tar.gz
+  fn: nglview-0.4.tar.gz
+  url: https://github.com/arose/nglview/archive/v0.4.tar.gz
 
 build:
   number: 0 
@@ -13,11 +13,11 @@ requirements:
   build:
     - python
     - setuptools
-    - ipython
+    - jupyter 
 
   run:
     - python
-    - ipython
+    - jupyter 
     - ipywidgets
 
 test:
