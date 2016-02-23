@@ -1,0 +1,49 @@
+package:
+  name: openmm-beta
+  version: 7.0beta1
+
+source:
+  git_url: https://github.com/pandegroup/openmm.git
+  git_rev: 7.0beta1
+
+build:
+  number: 0
+  skip:
+    # don't build on Appveyor (no OpenCL / CUDA)
+    - [ {{ os.environ.get('APPVEYOR', 'False') == 'True' }} ]
+
+requirements:
+  build:
+    # on windows, need to install cmake manually
+    - cmake     [not win]
+    - jom       [win]
+    - python
+    - fftw3f
+    # swig is pinned to use omnia swig 3.0.7
+    - swig ==3.0.7
+    # on osx, need to install doxygen manually
+    - doxygen   [not osx]
+    # for building docs
+    - sphinx
+    - sphinxcontrib-bibtex
+    - sphinxcontrib-lunrsearch
+    - sphinxcontrib-autodoc_doxygen
+    - lxml
+
+  run:
+    - python
+    - fftw3f
+
+test:
+  requires:
+    - python
+  imports:
+    - simtk
+    - simtk.openmm
+  commands:
+    - python -m simtk.testInstallation
+
+about:
+  home: http://openmm.org
+  license: LGPL and MIT
+  summary: A high performance toolkit for molecular simulation.
