@@ -267,7 +267,6 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
     conda_build_index.update_index(conda_build_config.bldpkgs_dir)
     chans = [url_path(conda_build_config.croot)]
     chans.extend(x for x in channel_urls)
-    print("chans", chans)
     index = conda.api.get_index(
         channel_urls=chans,
         prepend=False)
