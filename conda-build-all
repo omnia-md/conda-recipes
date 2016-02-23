@@ -44,7 +44,7 @@ def main():
         'Build conda packages',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     p.add_argument(
-        'recipe',
+        '--recipes',
         action="store",
         metavar='RECIPE_PATH',
         nargs='+',
