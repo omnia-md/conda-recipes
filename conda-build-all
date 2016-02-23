@@ -52,7 +52,8 @@ def main():
     )
     p.add_argument(
         '--check-against',
-        metavar='BINSTAR_USER'
+        metavar='BINSTAR_USER',
+        nargs='*'
     )
     p.add_argument(
         '--dry-run',
@@ -207,7 +208,10 @@ def list_package_contents(m, python, numpy):
             print('...')
             break
 
-
+def is_release_candidate(pkg_meta):
+    from pkg_resources._vendor.packaging import version
+    parsed = version.parse(pkg_meta.version())
+    return parsed.is_prerelease
 
 def upload_to_binstar(m, python, numpy, username, max_retries=5, force=False):
     filename = get_bldpkg_path(m, python, numpy)
@@ -219,6 +223,9 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5, force=False):
     if BINSTAR_TOKEN is not None:
         cmd.extend(['-t', BINSTAR_TOKEN])
     cmd.extend(['upload', '--no-progress', '-u', username, filename])
+    if is_prerelease(m):
+        print("is pre release, so uploading to pre-label")
+        cmd.extend(['--label', 'pre'])
     if force:
         cmd.extend(['--force'])
 
@@ -258,8 +265,11 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
     if not os.path.isdir(conda_build_config.bldpkgs_dir):
         os.makedirs(conda_build_config.bldpkgs_dir)
     conda_build_index.update_index(conda_build_config.bldpkgs_dir)
+    chans = [url_path(conda_build_config.croot)]
+    chans.extend(x for x in channel_urls)
+    print("chans", chans)
     index = conda.api.get_index(
-        channel_urls=[url_path(conda_build_config.croot)] + list(channel_urls),
+        channel_urls=chans,
         prepend=False)
 
     for m in metadatas:
@@ -313,10 +323,10 @@ def build_package(m, python, numpy, args):
 def execute(args, p):
     pythons = re.split(',\s*|\s+', args.python)
     numpys = re.split(',\s*|\s+', args.numpy)
-    channel_urls = (args.check_against,) if args.check_against else ()
-
+    channel_urls = args.check_against if args.check_against else ()
     args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipe))
     metadatas = sort_recipes(args_recipe)
+
     if args.verbose > 0:
         print('Considering recipes in the following order:')
         print(', '.join([os.path.basename(m.path) for m in metadatas]))
