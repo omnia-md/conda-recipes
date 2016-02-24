@@ -65,5 +65,5 @@ build: false
 
 test_script:
   - ps: if (($env:APPVEYOR_PULL_REQUEST_NUMBER -eq $null) -and ($env:APPVEYOR_REPO_BRANCH -eq "master")) { $env:UPLOAD = "--upload omnia" } else { $env:UPLOAD = " " }
-  - "%CMD_IN_ENV% python conda-build-all --check-against omnia omnia/label/pre %UPLOAD% --python %CONDA_PY% --recipes *"
+  - "%CMD_IN_ENV% python conda-build-all --check-against omnia %UPLOAD% --python %CONDA_PY% *"
 
