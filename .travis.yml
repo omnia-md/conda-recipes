@@ -42,7 +42,7 @@ script:
         conda install -yq conda-build jinja2 anaconda-client;
 
 
-        if ! ./conda-build-all --check-against omnia --dry-run openmm; then
+        if ! ./conda-build-all --check-against omnia omnia/label/pre --dry-run --recipes openmm; then
             brew install -y doxygen;
             curl -O -s http://developer.download.nvidia.com/compute/cuda/7_0/Prod/network_installers/mac/cuda_mac_installer_tk.tar.gz ;
             curl -O -s http://developer.download.nvidia.com/compute/cuda/7_0/Prod/network_installers/mac/cuda_mac_installer_drv.tar.gz ;
@@ -51,8 +51,8 @@ script:
         fi;
 
         if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
-          ./conda-build-all --check-against omnia $UPLOAD * || true;
+          ./conda-build-all --check-against omnia omnia/label/pre $UPLOAD --recipes * || true;
         else
-          ./conda-build-all --check-against omnia $UPLOAD *;
+          ./conda-build-all --check-against omnia omnia/label/pre $UPLOAD --recipes *;
         fi;
     fi
