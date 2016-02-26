@@ -51,8 +51,8 @@ script:
         fi;
 
         if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
-          ./conda-build-all --check-against omnia $UPLOAD * || true;
+          ./conda-build-all --check-against omnia omnia/label/pre $UPLOAD * || true;
         else
-          ./conda-build-all --check-against omnia $UPLOAD *;
+          ./conda-build-all --check-against omnia omnia/label/pre $UPLOAD *;
         fi;
     fi
