@@ -222,6 +222,8 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5, force=False):
     cmd.extend(['upload', '--no-progress', '-u', username, filename])
     if force:
         cmd.extend(['--force'])
+    if is_prerelease(m):
+        cmd.extend(['--label', 'pre'])
 
     err = None
     for i in range(max_retries):
@@ -309,6 +311,12 @@ def build_package(m, python, numpy, args):
             print('Package failed to build (return code %s); will not upload.' % str(retcode))
     sys.stdout.flush()
     return retcode
+
+
+def is_release_candidate(pkg_meta):
+    from pkg_resources._vendor.packaging import version
+    parsed = version.parse(pkg_meta.version())
+    return parsed.is_prerelease
 
 
 def execute(args, p):
