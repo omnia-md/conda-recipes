@@ -27,6 +27,7 @@ try:
     from conda_build.metadata import MetaData
     from conda_build.config import Config as CondaBuildConfig
     from conda.utils import url_path
+    from binstar_client.utils import get_server_api
     BUILD_DIRECTORY = CondaBuildConfig.short_build_prefix
 except ImportError:
     print('''This script requires conda-build and anaconda-client and
@@ -313,7 +314,11 @@ def build_package(m, python, numpy, args):
 def execute(args, p):
     pythons = re.split(',\s*|\s+', args.python)
     numpys = re.split(',\s*|\s+', args.numpy)
-    channel_urls = (args.check_against,) if args.check_against else ()
+    if args.check_against:
+        channels = get_server_api().list_channels(args.check_against).keys()
+        channel_urls = ['%s/label/%s' % (args.check_against, c) for c in channels]
+    else:
+        channel_urls = ()
 
     args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipe))
     metadatas = sort_recipes(args_recipe)
