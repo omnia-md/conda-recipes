@@ -16,7 +16,7 @@ env:
 # available in this repo at devtools/centos5-build-box/Dockerfile
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      docker pull rmcgibbo/centos5-build-box;
+      docker pull jchodera/omnia-build-box;
     fi
 
 script:
@@ -30,7 +30,7 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
         docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST
-            -t -i --rm -v `pwd`:/io rmcgibbo/centos5-build-box:latest
+            -t -i --rm -v `pwd`:/io jchodera/omnia-build-box:latest
             bash /io/devtools/docker-build.sh;
 
     elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
