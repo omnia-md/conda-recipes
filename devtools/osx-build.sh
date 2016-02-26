@@ -11,7 +11,7 @@ export PATH=$HOME/anaconda/bin:$PATH;
 conda config --add channels omnia;
 conda install -yq conda-build jinja2 anaconda-client;
 
-if ! ./conda-build-all --check-against omnia omnia/label/pre --dry-run openmm*; then
+if ! ./conda-build-all --check-against omnia --check-against omnia/label/pre --dry-run openmm*; then
     # Install OpenMM dependencies that can't be installed through
     # conda package manager (doxygen + CUDA)
     brew install -y --quiet doxygen
