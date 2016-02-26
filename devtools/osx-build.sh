@@ -11,7 +11,7 @@ export PATH=$HOME/anaconda/bin:$PATH;
 conda config --add channels omnia;
 conda install -yq conda-build jinja2 anaconda-client;
 
-if ! ./conda-build-all --check-against omnia --check-against omnia/label/pre --dry-run openmm*; then
+if ! ./conda-build-all --dry-run --check-against omnia omnia/label/pre openmm* ; then
     # Install OpenMM dependencies that can't be installed through
     # conda package manager (doxygen + CUDA)
     brew install -y --quiet doxygen
@@ -31,9 +31,9 @@ sudo tlmgr install titlesec framed threeparttable wrapfig multirow collection-fo
 
 # Build packages
 if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
-    ./conda-build-all --check-against omnia omnia/label/pre $UPLOAD * || true;
+    ./conda-build-all $UPLOAD --check-against omnia omnia/label/pre * || true;
 else
-    ./conda-build-all --check-against omnia omnia/label/pre $UPLOAD *;
+    ./conda-build-all $UPLOAD --check-against omnia omnia/label/pre *;
 fi;
 
 
