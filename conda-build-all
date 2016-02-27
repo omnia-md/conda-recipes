@@ -208,8 +208,6 @@ def list_package_contents(m, python, numpy):
             print('...')
             break
 
-
-
 def upload_to_binstar(m, python, numpy, username, max_retries=5, force=False):
     filename = get_bldpkg_path(m, python, numpy)
     if not os.path.exists(filename):
