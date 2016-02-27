@@ -313,7 +313,7 @@ def build_package(m, python, numpy, args):
     return retcode
 
 
-def is_release_candidate(pkg_meta):
+def is_prerelease(pkg_meta):
     from pkg_resources._vendor.packaging import version
     parsed = version.parse(pkg_meta.version())
     return parsed.is_prerelease
