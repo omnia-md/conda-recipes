@@ -1,0 +1,28 @@
+package:
+  name: gpy
+  version: 0.8.8
+
+source:
+  git_rev: devel
+  git_url: https://github.com/SheffieldML/GPy.git
+
+requirements:
+  build:
+    - python
+    - scipy
+    - numpy
+    - six
+    - nose
+    - setuptools
+    - cython
+
+  run:
+    - python
+    - scipy
+    - numpy
+    - cython
+    - six
+
+about:
+    home: http://sheffieldml.github.io/GPy/
+    license: GPL3
