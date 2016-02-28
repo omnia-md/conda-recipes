@@ -208,8 +208,6 @@ def list_package_contents(m, python, numpy):
             print('...')
             break
 
-
-
 def upload_to_binstar(m, python, numpy, username, max_retries=5, force=False):
     filename = get_bldpkg_path(m, python, numpy)
     if not os.path.exists(filename):
@@ -313,7 +311,7 @@ def build_package(m, python, numpy, args):
     return retcode
 
 
-def is_release_candidate(pkg_meta):
+def is_prerelease(pkg_meta):
     from pkg_resources._vendor.packaging import version
     parsed = version.parse(pkg_meta.version())
     return parsed.is_prerelease
