@@ -13,7 +13,7 @@ requirements:
     - numpy
     - six
     - nose
-    - setuptools
+    - paramz
     - cython
 
   run:
@@ -22,6 +22,7 @@ requirements:
     - numpy
     - cython
     - six
+    - paramz
 
 about:
     home: http://sheffieldml.github.io/GPy/
