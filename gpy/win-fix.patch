@@ -1,3 +1,12 @@
+From 8afe8c5b0e7a12b0672b19bdbce87f07f5fd85e6 Mon Sep 17 00:00:00 2001
+From: Carlos Hernandez <cxh@stanford.edu>
+Date: Thu, 3 Mar 2016 18:50:54 -0800
+Subject: [PATCH] patch
+
+---
+ setup.py | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
 diff --git a/setup.py b/setup.py
 index 0432cba..3185891 100644
 --- a/setup.py
@@ -30,3 +39,6 @@ index 0432cba..3185891 100644
                        extra_link_args = link_args),
              Extension(name='GPy.util.choleskies_cython',
                        sources=['GPy/util/choleskies_cython.c'],
+-- 
+2.5.4 (Apple Git-61)
+
