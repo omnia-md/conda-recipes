@@ -15,11 +15,9 @@ requirements:
     - python
     - mingwpy  [win]
     - gcc      [unix]
-    - libgfortran ==1.0 [linux]
   run:
     - zlib
     - libgcc   [unix]
-    - libgfortran ==1.0 [linux]
 
 test:
   commands:
