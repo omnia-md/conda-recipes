@@ -8,7 +8,7 @@ source:
   md5: 5c72ad3ff91d05b3e10f7610b2149107
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -17,9 +17,11 @@ requirements:
     - bison    [unix]
     - gcc      [unix]
     - mingwpy  [win]
+    - libgfortran ==1.0 [linux]
   run:
     - zlib
     - libgcc   [unix]
+    - libgfortran ==1.0 [linux]
 
 test:
   commands:
