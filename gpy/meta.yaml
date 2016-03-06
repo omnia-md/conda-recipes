@@ -5,8 +5,6 @@ package:
 source:
   git_rev: devel
   git_url: https://github.com/SheffieldML/GPy.git
-  patches:
-    - win-fix.patch
 
 requirements:
   build:
