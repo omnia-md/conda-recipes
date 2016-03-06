@@ -11,5 +11,5 @@ sed -e s_/usr/bin/gfortran_AUTO_ Makefile > Makefile.default
 
 chmod +x configure
 ./configure
-make parallel
+make
 cp packmol ${PREFIX}/bin/
