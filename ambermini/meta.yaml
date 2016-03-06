@@ -17,11 +17,9 @@ requirements:
     - bison    [unix]
     - gcc      [unix]
     - mingwpy  [win]
-    - libgfortran ==1.0 [linux]
   run:
     - zlib
     - libgcc   [unix]
-    - libgfortran ==1.0 [linux]
 
 test:
   commands:
