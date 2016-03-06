@@ -7,7 +7,7 @@ source:
   url: http://www.ime.unicamp.br/~martinez/packmol/packmol.tar.gz
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
@@ -15,9 +15,11 @@ requirements:
     - python
     - mingwpy  [win]
     - gcc      [unix]
+    - libgfortran ==1.0 [linux]
   run:
     - zlib
     - libgcc   [unix]
+    - libgfortran ==1.0 [linux]
 
 test:
   commands:
