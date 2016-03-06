@@ -7,7 +7,7 @@ source:
   url: http://www.ime.unicamp.br/~martinez/packmol/packmol.tar.gz
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
