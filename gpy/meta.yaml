@@ -10,10 +10,6 @@ source:
     - 0001-Add-basesetup.py.patch
     - 0002-Add-compiler-detection-code-for-OpenMP.patch
 
-build:
-  skip:
-    - [win and py34]
-
 requirements:
   build:
     - python
