@@ -3,8 +3,12 @@ package:
   version: 0.8.8
 
 source:
-  git_rev: devel
-  git_url: https://github.com/SheffieldML/GPy.git
+  url: https://github.com/SheffieldML/GPy/archive/v0.8.8.tar.gz
+  fn: v0.8.8.tar.gz
+  md5: f6ff0bba7cb8dc24c39dbb42b3ffa973
+  patches:
+    - 0001-Add-basesetup.py.patch
+    - 0002-Add-compiler-detection-code-for-OpenMP.patch
 
 build:
   skip:
