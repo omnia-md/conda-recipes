@@ -8,6 +8,7 @@ source:
   patches:
     - 0001-Add-basesetup.py.patch
     - 0002-Add-compiler-detection-code-for-OpenMP.patch
+    - 0003-Fix-rb-for-Python-3.patch
 
 build:
   skip:
