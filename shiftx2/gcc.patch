@@ -1,0 +1,11 @@
+--- modules/shiftx/Makefile
++++ modules/shiftx/Makefile
+@@ -6,7 +6,7 @@
+ # E-Mail:   anip@redpoll.pharmacy.ualberta.ca
+ #
+ #CC=gcc -Xcpluscomm -cckr
+-CC=/usr/bin/gcc
++CC=gcc
+ CFLAGS=-O3
+ SYSLIB=
+ INCLUDES=-I/usr/include

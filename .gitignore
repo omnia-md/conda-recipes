@@ -30,3 +30,6 @@ tramp
 
 # AUCTeX auto folder
 /auto/
+
+# vim
+*.swp
