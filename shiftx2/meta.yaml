@@ -6,6 +6,8 @@ source:
   fn: shiftx2-v109A-linux-20150821.tgz
   url: http://www.shiftx2.ca/download/shiftx2-v109A-linux-20150821.tgz
   md5: c425b4fd5b520b517f948ca18af2b19f
+  patches:
+    - gcc.patch
 
 build:
   number: 0
