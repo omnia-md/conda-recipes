@@ -1,0 +1,32 @@
+package:
+  name: shiftx2
+  version: "1.09A"
+
+source:
+  fn: shiftx2-v109A-linux-20150821.tgz
+  url: http://www.shiftx2.ca/download/shiftx2-v109A-linux-20150821.tgz
+  md5: c425b4fd5b520b517f948ca18af2b19f
+
+build:
+  number: 0
+  skip:
+    - [win]
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - shiftx2.py -h
+
+about:
+  home: http://www.shiftx2.ca/
+  license: All rights reserved
+  summary: SHIFTX2 predicts both the backbone and side chain 1H, 13C and 15N
+      chemical shifts for proteins using their structural (PDB) coordinates as
+      input.
+
+# vim: ts=2 sw=2 et
