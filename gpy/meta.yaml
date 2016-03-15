@@ -1,14 +1,19 @@
 package:
   name: gpy
-  version: 0.8.8
+  version: 0.8.8.post1
 
 source:
-  git_rev: devel
   git_url: https://github.com/SheffieldML/GPy.git
+  git_tag: 6ca841f35be5dc3f03aff20b250127047b70351f
+  patches:
+    - 0001-Add-basesetup.py.patch
+    - 0002-Add-compiler-detection-code-for-OpenMP.patch
+    - 0003-Fix-rb-for-Python-3.patch
 
 build:
   skip:
     - [win and py34]
+
 
 requirements:
   build:
@@ -27,6 +32,10 @@ requirements:
     - cython
     - six
     - paramz
+
+test:
+  imports:
+    - GPy
 
 about:
     home: http://sheffieldml.github.io/GPy/
