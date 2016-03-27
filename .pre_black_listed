@@ -1,0 +1,2 @@
+# each line denotes a package name, which does not obey pep440 version numbering
+shiftx2

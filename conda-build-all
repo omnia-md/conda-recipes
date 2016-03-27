@@ -220,7 +220,7 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5, force=False):
     cmd.extend(['upload', '--no-progress', '-u', username, filename])
     if force:
         cmd.extend(['--force'])
-    if is_prerelease(m):
+    if not pre_black_listed(m) and is_prerelease(m) :
         cmd.extend(['--label', 'pre'])
 
     err = None
@@ -316,6 +316,14 @@ def is_prerelease(pkg_meta):
     parsed = version.parse(pkg_meta.version())
     return parsed.is_prerelease
 
+
+def pre_black_listed(pkg_meta):
+    with open('.pre_black_listed') as fh:
+        black_list = fh.read().splitlines()
+        for b in black_list:
+            if pkg_meta.name in b:
+                return True
+    return False
 
 def execute(args, p):
     pythons = re.split(',\s*|\s+', args.python)
