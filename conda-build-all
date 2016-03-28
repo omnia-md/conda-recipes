@@ -318,11 +318,12 @@ def is_prerelease(pkg_meta):
 
 
 def pre_black_listed(pkg_meta):
-    with open('.pre_black_listed') as fh:
-        black_list = fh.read().splitlines()
-        for b in black_list:
-            if pkg_meta.name in b:
-                return True
+    filename = '.pre_black_listed'
+    if os.path.exists(filename):
+        with open(filename) as f:
+            for line in f:
+                if not line.startswith('#') and pkg_meta.name in line:
+                    return True
     return False
 
 def execute(args, p):
