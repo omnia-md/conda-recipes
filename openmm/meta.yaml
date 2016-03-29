@@ -1,13 +1,13 @@
 package:
   name: openmm
-  version: 6.3.1
+  version: 7.0rc1
 
 source:
-  url: https://github.com/pandegroup/openmm/archive/6.3.1.tar.gz
-  fn: 6.3.1.tar.gz
+  url: https://github.com/pandegroup/openmm/archive/7.0rc1.tar.gz
+  fn: 7.0rc1.tar.gz
 
 build:
-  number: 1
+  number: 0
   skip:
     # don't build on Appveyor (no OpenCL / CUDA)
     - [ {{ os.environ.get('APPVEYOR', 'False') == 'True' }} ]
@@ -18,12 +18,18 @@ requirements:
     - cmake     [not win]
     - jom       [win]
     - python
-    - fftw3f
-    - sphinx
-    - sphinxcontrib-bibtex
-    - swig
+    # Pin fftw3f to 3.3.3 to work around OSX py34 issues
+    - fftw3f ==3.3.3
+    # swig is pinned to use omnia swig 3.0.7
+    - swig ==3.0.7
     # on osx, need to install doxygen manually
     - doxygen   [not osx]
+    # for building docs
+    - sphinx
+    - sphinxcontrib-bibtex
+    - sphinxcontrib-lunrsearch
+    - sphinxcontrib-autodoc_doxygen
+    - lxml
 
   run:
     - python
