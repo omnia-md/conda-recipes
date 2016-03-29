@@ -48,6 +48,7 @@ requirements:
 test:
   requires:
     - nose
+    - openmmtools
   imports:
     - openmoltools
   commands:
