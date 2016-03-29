@@ -15,13 +15,13 @@ requirements:
     - zlib
     - flex     [unix]
     - bison    [unix]
-    - gcc ==4.8.5  [unix]
+    - gcc  [unix]
     - mingwpy  [win]
-    - libgfortran ==3.0 [linux]
+    #- libgfortran ==3.0 [linux]
   run:
     - zlib
-    - libgcc ==4.8.5  [unix]
-    - libgfortran ==3.0 [linux]
+    - libgcc  [unix]
+    #- libgfortran ==3.0 [linux]
 
 test:
   commands:
