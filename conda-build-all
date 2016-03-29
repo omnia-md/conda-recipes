@@ -322,7 +322,7 @@ def pre_black_listed(pkg_meta):
     if os.path.exists(filename):
         with open(filename) as f:
             for line in f:
-                if not line.startswith('#') and pkg_meta.name in line:
+                if not line.startswith('#') and pkg_meta.name() in line:
                     return True
     return False
 
