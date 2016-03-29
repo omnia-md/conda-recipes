@@ -37,6 +37,7 @@ requirements:
     - numpydoc
     - pytables
     - pyhmc # [not (win32 and py35 and np == 19)]
+    - libgfortran 1.* # [linux and py35 and np == 19]
 
 
 test:
