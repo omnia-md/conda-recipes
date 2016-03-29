@@ -36,7 +36,7 @@ requirements:
     - scikit-learn
     - numpydoc
     - pytables
-    - pyhmc
+    - pyhmc # [not (win32 and py35 and np == 19)]
 
 
 test:
