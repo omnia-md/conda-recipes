@@ -23,7 +23,7 @@ requirements:
     - mdtraj
     - numpy
     - numpydoc
-    - scipy
+    - scipy ==0.16.1
     - pandas
     - openmm
     - ambermini
@@ -38,7 +38,7 @@ requirements:
     - mdtraj
     - numpy
     - numpydoc
-    - scipy
+    - scipy ==0.16.1
     - openmm
     - ambermini
     - pytables
