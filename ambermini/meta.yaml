@@ -8,20 +8,20 @@ source:
   md5: 5c72ad3ff91d05b3e10f7610b2149107
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
     - zlib
     - flex     [unix]
     - bison    [unix]
-    - gcc      [unix]
+    - gcc ==4.8.5  [unix]
     - mingwpy  [win]
-    - libgfortran ==1.0 [linux]
+    - libgfortran ==3.0 [linux]
   run:
     - zlib
-    - libgcc   [unix]
-    - libgfortran ==1.0 [linux]
+    - libgcc ==4.8.5  [unix]
+    - libgfortran ==3.0 [linux]
 
 test:
   commands:
