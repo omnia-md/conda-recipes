@@ -1,18 +1,20 @@
 package:
   name: msmbuilder
-  version: "3.3.1"
+  version: "3.4.0"
 
 source:
-    fn: msmbuilder-3.3.1.tar.gz
-    url: https://pypi.python.org/packages/source/m/msmbuilder/msmbuilder-3.3.1.tar.gz#md5=fd406242ada2f9007fc60e6607a38956
-    md5: fd406242ada2f9007fc60e6607a38956
+    fn: msmbuilder-3.4.0.tar.gz
+    url: https://pypi.python.org/packages/source/m/msmbuilder/msmbuilder-3.4.0.tar.gz#md5=e9ab6ce08dfb7589ae772b51ed4da145
+    md5: e9ab6ce08dfb7589ae772b51ed4da145
 
 build:
   number: 0
   entry_points:
     - msmb = msmbuilder.scripts.msmb:main
   skip:
-    # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
+    # https://github.com/ContinuumIO/anaconda-issues/issues/557
+    # https://github.com/msmbuilder/msmbuilder/issues/715
+    # https://github.com/omnia-md/conda-recipes/pull/424
     - [win32 and py35 and np == 19]
 
 
@@ -34,6 +36,7 @@ requirements:
     - scikit-learn
     - numpydoc
     - pytables
+    - pyhmc
 
 
 test:
@@ -41,6 +44,9 @@ test:
     - nose
     - munkres
     - numdifftools
+    - statsmodels
+    - hmmlearn
+    - cvxpy # [not win]
   imports:
     - msmbuilder
   commands:
