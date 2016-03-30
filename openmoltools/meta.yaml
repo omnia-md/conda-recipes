@@ -23,7 +23,7 @@ requirements:
     - mdtraj
     - numpy
     - numpydoc
-    - scipy ==0.16.1
+    - scipy
     - pandas
     - openmm
     - ambermini
@@ -38,11 +38,12 @@ requirements:
     - mdtraj
     - numpy
     - numpydoc
-    - scipy ==0.16.1
+    - scipy
     - openmm
     - ambermini
     - pytables
     - parmed
+    - libgfortran 1.* # [linux and np == 19]
 #    - rdkit    # rdkit is an optional dependency, may want to comment this out for the release version.
 
 test:
