@@ -15,7 +15,7 @@ build:
     # https://github.com/ContinuumIO/anaconda-issues/issues/557
     # https://github.com/msmbuilder/msmbuilder/issues/715
     # https://github.com/omnia-md/conda-recipes/pull/424
-    - [win32 and py35 and np == 19]
+    - [win and py35 and np == 19]
 
 
 requirements:
@@ -36,7 +36,7 @@ requirements:
     - scikit-learn
     - numpydoc
     - pytables
-    - pyhmc # [not (win32 and py35 and np == 19)]
+    - pyhmc
     - libgfortran 1.* # [linux and py35 and np == 19]
 
 
