@@ -19,7 +19,8 @@ requirements:
     - jom       [win]
     - python
     # Pin fftw3f to 3.3.3 to work around OSX py34 issues
-    - fftw3f ==3.3.3
+    - fftw3f ==3.3.3 [not win]
+    - fftw3f ==3.3.4 [win]
     # swig is pinned to use omnia swig 3.0.7
     - swig ==3.0.7
     # on osx, need to install doxygen manually
