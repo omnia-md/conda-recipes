@@ -3,8 +3,8 @@ package:
   version: 7.0rc1
 
 source:
-  url: https://github.com/pandegroup/openmm/archive/f4339363dcc4c904b2baae05949dedc0676b3f50.zip
-  fn: f4339363dcc4c904b2baae05949dedc0676b3f50.zip
+  git_url: https://github.com/pandegroup/openmm/archive/f4339363dcc4c904b2baae05949dedc0676b3f50.zip
+  git_rev: f4339363dcc4c904b2baae05949dedc0676b3f50.zip
 
 build:
   number: 1
@@ -18,8 +18,7 @@ requirements:
     - cmake     [not win]
     - jom       [win]
     - python
-    # Pin fftw3f to 3.3.3 to work around OSX py34 issues
-    - fftw3f ==3.3.3
+    - fftw3f
     # swig is pinned to use omnia swig 3.0.7
     - swig ==3.0.7
     # on osx, need to install doxygen manually
