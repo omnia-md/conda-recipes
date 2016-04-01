@@ -3,11 +3,11 @@ package:
   version: 7.0rc1
 
 source:
-  url: https://github.com/pandegroup/openmm/archive/7.0rc1.tar.gz
-  fn: 7.0rc1.tar.gz
+  git_url: https://github.com/pandegroup/openmm.git
+  git_rev: f433936
 
 build:
-  number: 0
+  number: 1
   skip:
     # don't build on Appveyor (no OpenCL / CUDA)
     - [ {{ os.environ.get('APPVEYOR', 'False') == 'True' }} ]
