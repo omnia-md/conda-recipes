@@ -16,7 +16,7 @@ requirements:
     - cython >=0.20
 
     - bhmm >=0.6,<0.7
-    - joblib ==0.8.4
+    - joblib >0.8.4
     - matplotlib
 # this ugly workaround reflects the fact, that pytables is not available
 # on py35, np19 for platform win32, so fallback to older version of mdtraj
@@ -37,7 +37,7 @@ requirements:
     - python
     - setuptools
     - bhmm >=0.6,<0.7
-    - joblib ==0.8.4
+    - joblib >0.8.4
     - matplotlib
     - mdtraj >=1.6 # [ not (py35 and win32)]
     - mdtraj >=1.5 # [(py35 and win32)]
