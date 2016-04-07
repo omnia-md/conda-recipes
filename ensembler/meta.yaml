@@ -7,6 +7,7 @@ source:
    git_tag: v1.0.5
 
 build:
+  number: 1
   entry_points:
     - ensembler = ensembler.cli:main
   skip:
@@ -19,7 +20,7 @@ requirements:
 
   run:
     - python
-    - modeller ==9.15
+    - modeller ==9.16
     - mdtraj
     - msmbuilder
     - biopython
@@ -38,7 +39,8 @@ test:
   imports:
     - ensembler
   commands:
-    - nosetests ensembler -v -a unit
+    #- nosetests ensembler -v -a unit
+    - ensembler init
 
 about:
   home: https://github.com/choderalab/ensembler
