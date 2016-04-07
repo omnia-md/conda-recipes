@@ -7,6 +7,7 @@ source:
    git_tag: v1.0.5
 
 build:
+  number: 1
   entry_points:
     - ensembler = ensembler.cli:main
   skip:
@@ -19,7 +20,7 @@ requirements:
 
   run:
     - python
-    - modeller ==9.15
+    - modeller ==9.16
     - mdtraj
     - msmbuilder
     - biopython
