@@ -39,7 +39,8 @@ test:
   imports:
     - ensembler
   commands:
-    - nosetests ensembler -v -a unit
+    #- nosetests ensembler -v -a unit
+    - ensembler init
 
 about:
   home: https://github.com/choderalab/ensembler
