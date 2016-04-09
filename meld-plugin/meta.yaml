@@ -1,0 +1,19 @@
+package:
+  name: meld-test
+  version: "0.0.0"
+
+
+source:
+  git_url: https://github.com/maccallumlab/meld-openmm-plugin.git
+  git_rev: 2d6ecdd481d74c7a8fddb0d79237d4161d426628
+
+requirements:
+  build:
+    - openmm
+    - cmake
+    - python
+    - swig ==3.0.7
+    - eigen3
+
+  run:
+    - python
