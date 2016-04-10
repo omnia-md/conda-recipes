@@ -19,6 +19,9 @@ export OPENMM_LIB_PATH=$OPENMM_DIR/lib
 export LD_LIBRARY_PATH+=$OPENMM_DIR/lib
 export LD_LIBRARY_PATH+=$CUDA_PATH/lib64
 
+ls $OPENMM_INCLUDE_PATH
+ls $OPENMM_DIR
+
 mkdir build
 cd build
 
