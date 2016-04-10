@@ -9,7 +9,7 @@ source:
 
 requirements:
   build:
-    - openmm
+    - openmm-dev
     - cmake
     - python
     - swig ==3.0.7
@@ -17,3 +17,4 @@ requirements:
 
   run:
     - python
+    - openmm-dev
