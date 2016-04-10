@@ -1,0 +1,19 @@
+package:
+  name: openmm-example
+  version: "0.0.0"
+
+
+source:
+  git_url: https://github.com/peastman/openmmexampleplugin.git
+  git_rev: f1e12743d7c5403bb6d7ad8da69af6a2f27e1b26
+
+requirements:
+  build:
+    - openmm-dev
+    - cmake
+    - python
+    - swig ==3.0.7
+
+  run:
+    - python
+    - openmm-dev
