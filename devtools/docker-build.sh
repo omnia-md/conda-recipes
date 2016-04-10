@@ -14,7 +14,7 @@ conda config --add channels omnia
 conda install -yq conda-build jinja2 anaconda-client
 # temporary hack until we setup maccallumlab package
 # for eigen3
-conda config --add channel Juanlu001
+conda config --add channels Juanlu001
 conda install eigen3
 
 if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
