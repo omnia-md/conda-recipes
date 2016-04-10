@@ -13,20 +13,15 @@ CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=${CUDA_PATH}/"
 CMAKE_FLAGS+=" -DCMAKE_CXX_FLAGS_RELEASE=-I/usr/include/nvidia/"
 
 export EIGEN3_INCLUDE_DIR="/anaconda/include/eigen3/"
-export OPENMM_DIR="/anaconda/"
+export OPENMM_DIR="/anaconda/envs/_build"
 export OPENMM_INCLUDE_PATH=$OPENMM_DIR/include
 export OPENMM_LIB_PATH=$OPENMM_DIR/lib
 export LD_LIBRARY_PATH+=$OPENMM_DIR/lib
 export LD_LIBRARY_PATH+=$CUDA_PATH/lib64
 
-ls $OPENMM_INCLUDE_PATH
-ls $OPENMM_DIR
-
 mkdir build
 cd build
 
-ls /anaconda/include
-
 cmake .. $CMAKE_FLAGS
-VERBOSE=1 make -j$CPU_COUNT all
+make -j$CPU_COUNT all
 make -j$CPU_COUNT install PythonInstall
