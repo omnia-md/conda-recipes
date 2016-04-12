@@ -16,8 +16,8 @@ export EIGEN3_INCLUDE_DIR="/anaconda/include/eigen3/"
 export OPENMM_DIR="/anaconda/envs/_build"
 export OPENMM_INCLUDE_PATH=$OPENMM_DIR/include
 export OPENMM_LIB_PATH=$OPENMM_DIR/lib
-export LD_LIBRARY_PATH+=$OPENMM_DIR/lib
-export LD_LIBRARY_PATH+=$CUDA_PATH/lib64
+export LD_LIBRARY_PATH=$OPENMM_DIR/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
 mkdir build
 cd build
