@@ -12,7 +12,7 @@ CMAKE_FLAGS+=" -DCUDA_TOOLKIT_INCLUDE=${CUDA_PATH}/include"
 CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=${CUDA_PATH}/"
 CMAKE_FLAGS+=" -DCMAKE_CXX_FLAGS_RELEASE=-I/usr/include/nvidia/"
 
-export EIGEN3_INCLUDE_DIR="/anaconda/include/eigen3/"
+export EIGEN3_INCLUDE_DIR="/anaconda/envs/_build/include/eigen3/"
 export OPENMM_DIR="/anaconda/envs/_build"
 export OPENMM_INCLUDE_PATH=$OPENMM_DIR/include
 export OPENMM_LIB_PATH=$OPENMM_DIR/lib
