@@ -91,7 +91,7 @@ def main():
         '--numpy',
         help="Set the NumPy version used by conda build",
         metavar="NUMPY_VER",
-        default='19,110',
+        default='1.10,1.11',
     )
     p.add_argument(
         '-v', '--verbose',
