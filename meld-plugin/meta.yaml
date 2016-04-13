@@ -9,6 +9,7 @@ source:
 
 requirements:
   build:
+    skip: True # [win or osx]
     - openmm-dev
     - cmake
     - python
