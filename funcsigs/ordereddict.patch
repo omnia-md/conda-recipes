@@ -1,0 +1,29 @@
+diff --git a/setup.py b/setup.py
+index 6a08f29..35e49be 100644
+--- setup.py
++++ setup.py
+@@ -1,4 +1,5 @@
+ #!/usr/bin/env python
++from __future__ import print_function
+ from setuptools import setup
+ import re
+ import sys
+@@ -15,7 +16,7 @@ def load_version(filename='funcsigs/version.py'):
+         return version
+ 
+ 
+-setup(
++metadata=dict(
+     name="funcsigs",
+     version=load_version(),
+     packages=['funcsigs'],
+@@ -47,3 +48,9 @@ setup(
+     tests_require = ['unittest2'],
+     test_suite = 'unittest2.collector',
+ )
++if sys.version_info.major == 2 and sys.version_info.minor > 6:
++   print("omiting ordereddict dep")
++   ind = metadata['install_requires'].index('ordereddict')
++   del metadata['install_requires'][ind]
++
++setup(**metadata)
