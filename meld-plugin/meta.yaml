@@ -7,10 +7,12 @@ source:
   git_url: https://github.com/maccallumlab/meld-openmm-plugin.git
   git_rev: v0.1.1
 
+build:
+  skip:
+    - [not linux]
+    
 requirements:
   build:
-    skip:
-      [not linux]
     - openmm-dev
     - cmake
     - python
