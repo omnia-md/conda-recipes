@@ -1,5 +1,5 @@
 diff --git a/setup.py b/setup.py
-index 6a08f29..35e49be 100644
+index 6a08f29..5502397 100644
 --- setup.py
 +++ setup.py
 @@ -1,4 +1,5 @@
@@ -17,12 +17,15 @@ index 6a08f29..35e49be 100644
      name="funcsigs",
      version=load_version(),
      packages=['funcsigs'],
-@@ -47,3 +48,9 @@ setup(
+@@ -47,3 +48,12 @@ setup(
      tests_require = ['unittest2'],
      test_suite = 'unittest2.collector',
  )
-+if sys.version_info.major == 2 and sys.version_info.minor > 6:
-+   print("omiting ordereddict dep")
++major = sys.version_info.major
++minor = sys.version_info.minor
++
++if (major == 2 and sys.version_info.minor > 6) or (major > 2):
++   print("omitting ordereddict dep")
 +   ind = metadata['install_requires'].index('ordereddict')
 +   del metadata['install_requires'][ind]
 +
