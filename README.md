@@ -33,3 +33,12 @@ packages are fully compatible accross multiple linux distributions and versions.
 To build a package yourself, run `conda build <package_name>`, or
 `./conda-build-all ./*` to build multiple packages accross each of the
 supported Python/Numpy configurations.
+
+### Contributing a recipe
+
+1. Fork this repo
+2. Add your conda recipe for building your package `packagename` in a subdirectory called `packagename`. Feel free to use other recipes here as examples.
+3. Open a pull request to merge your branch into this master repo.
+4. It will automatically be tested to make sure it compiles.
+5. We will discuss the recipe and give suggestions about how to fix any issues.
+6. The recipe will be merged and our automated build framework will build and deploy the packages to the `omnia` anaconda channel.
