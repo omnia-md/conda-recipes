@@ -7,25 +7,23 @@ source:
   url: https://github.com/arose/nglview/archive/v0.4.tar.gz
 
 build:
-  number: 0 
+  number: 0
 
 requirements:
   build:
     - python
     - setuptools
-    - jupyter 
+    - jupyter
 
   run:
     - python
-    - jupyter 
+    - jupyter
     - ipywidgets
 
 test:
-  # Python imports
-# FIXME: disabled until the symlink problem has been addressed (arose/nglview#2)
-#  imports:
-#    - nglview
-#    - nglview.html
+  imports:
+    - nglview
+    - nglview.html
 
 about:
   home: https://github.com/arose/nglview
