@@ -138,7 +138,11 @@ def sort_recipes(recipe_paths):
     for r in recipe_paths:
         try:
             if os.path.isdir(r):
-                m = MetaData(r)
+                try:
+                    m = MetaData(r)
+                except RuntimeError:
+                    print('Failed to load %s' % r)
+                    raise
                 metadatas.append(m)
                 name2m[m.get_value('package/name')] = m
         except SystemExit:
