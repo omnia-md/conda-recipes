@@ -1,9 +1,9 @@
 package:
   name: thermotools
-  version: 0.1.14
+  version: 0.2.0
 source:
-  fn: thermotools-0.1.14.tar.gz
-  url: https://github.com/markovmodel/thermotools/archive/0.1.14.tar.gz
+  fn: thermotools-0.2.0.tar.gz
+  url: https://github.com/markovmodel/thermotools/archive/0.2.0.tar.gz
 
 build:
   number: 0
@@ -33,4 +33,4 @@ test:
 about:
   home: https://github.com/markovmodel/thermotools
   license: GNU Lesser Public License v3+
-  summary: "Lowlevel implementation of free energy estimators"
+  summary: "Lowlevel implementation toolbox for the analyis of multi-ensemble calculations"
