@@ -14,7 +14,7 @@ requirements:
     - pyqt
     - networkx >=1.11
     - graphviz
-    - pygraphviz ==1.2
+    - pygraphviz
     - pil
 
   run:
