@@ -1,15 +1,17 @@
 package:
   name: clusterutils
-  version: !!str 0.1.1
+  version: 0.1.2
 
 source:
-   url: https://github.com/choderalab/clusterutils/archive/0.1.1.tar.gz
-   fn: 0.1.1.tar.gz
+   url: https://github.com/choderalab/clusterutils/archive/0.1.2.tar.gz
+   fn: 0.1.2.tar.gz
 
 build:
   entry_points:
     - build_mpirun_configfile = clusterutils.build_mpirun_configfile:main
-
+  skip:
+    - [not unix]
+    
 requirements:
   build:
     - python
