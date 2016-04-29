@@ -1,0 +1,36 @@
+package:
+  name: pygraphviz
+  version: "1.3.1"
+
+source:
+  fn: pygraphviz-1.3.1.tar.gz
+  url: https://pypi.python.org/packages/source/p/pygraphviz/pygraphviz-1.3.1.tar.gz
+  md5: 7f690295dfe77edaa9e552d09d98d279
+
+build:
+  skip:
+    - [not unix]
+
+requirements:
+  build:
+    - python
+    - graphviz
+
+  run:
+    - python
+    - graphviz
+
+test:
+  # Python imports
+  imports:
+    - pygraphviz
+    - pygraphviz.tests
+
+about:
+  home: http://pygraphviz.github.io
+  license:  BSD License
+  summary: 'Python interface to Graphviz'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
