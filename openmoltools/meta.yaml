@@ -25,7 +25,7 @@ requirements:
     - numpydoc
     - scipy
     - pandas
-    - openmm
+    - openmm ==7.0rc1
     - ambermini
     - pytables
     - parmed
@@ -39,7 +39,7 @@ requirements:
     - numpy
     - numpydoc
     - scipy
-    - openmm
+    - openmm ==7.0rc1
     - ambermini
     - pytables
     - parmed
