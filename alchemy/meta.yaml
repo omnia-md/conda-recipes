@@ -1,10 +1,10 @@
 package:
   name: alchemy
-  version: 1.1.4
+  version: 1.2.0
 
 source:
-  url: https://github.com/choderalab/alchemy/archive/1.1.4.zip
-  fn: 1.1.4.zip
+  url: https://github.com/choderalab/alchemy/archive/1.2.0.zip
+  fn: 1.2.0.zip
 
 build:
   number: 0
