@@ -1,10 +1,10 @@
 package:
   name: openmoltools
-  version: 0.6.9
+  version: 0.7.0
 
 source:
     git_url: https://github.com/choderalab/openmoltools.git
-    git_tag: v0.6.9
+    git_tag: v0.7.0
 
 
 build:
@@ -25,7 +25,7 @@ requirements:
     - numpydoc
     - scipy
     - pandas
-    - openmm
+    - openmm ==7.0rc1
     - ambermini
     - pytables
     - parmed
@@ -39,15 +39,17 @@ requirements:
     - numpy
     - numpydoc
     - scipy
-    - openmm
+    - openmm ==7.0rc1
     - ambermini
     - pytables
     - parmed
+    - libgfortran 1.* # [linux and np == 19]
 #    - rdkit    # rdkit is an optional dependency, may want to comment this out for the release version.
 
 test:
   requires:
     - nose
+    - openmmtools
   imports:
     - openmoltools
   commands:
