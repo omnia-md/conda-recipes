@@ -1,11 +1,11 @@
 package:
   name: mdtraj
-  version: "1.6.1"
+  version: "1.7.2"
 
 source:
-  fn: mdtraj-1.6.1.tar.gz
-  url: https://pypi.python.org/packages/source/m/mdtraj/mdtraj-1.6.1.tar.gz#md5=867ace28bf592af866745f4dc4acd9c2
-  md5: 867ace28bf592af866745f4dc4acd9c2
+  fn: mdtraj-1.7.2.tar.gz
+  url: https://pypi.python.org/packages/bf/81/6f611041374bd7d2d49a15040d999cc52eed1a44e856a4a8d9c02370ac37/mdtraj-1.7.2.tar.gz#md5=f7880d56400cb0abc68603298877843a
+  md5: f7880d56400cb0abc68603298877843a
 
 build:
   number: 0
