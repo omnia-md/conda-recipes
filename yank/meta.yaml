@@ -4,10 +4,10 @@ package:
 
 source:
     git_url: https://github.com/choderalab/yank.git
-    git_tag: 0.7.0
+    git_tag: 0.8.0
 
 build:
-  number: 1
+  number: 0
   skip:
     - [win32 or (win and py2k)]  # for openmm
     - [py3k]   # this package is not p3k compatible yet
@@ -20,13 +20,17 @@ requirements:
     - scipy
     - setuptools
     - netcdf4
-    - openmm
-    - openmmtools
-    - pymbar ==2.1beta0
-    - ambermini ==14.0.1
+    - openmm ==7.0rc1 # temporarily test against stable version
+    - mdtraj 1.5.1 # TODO remove me when segment_id bug is fixed (this is installed through openmoltools)
+    - openmmtools ==0.7.5 # temporarily test against stable version
+    - pymbar ==2.1beta0 # temporarily test against stable version
+    - ambermini ==14.0.1 # temporarily test against stable version
     - docopt
-    - openmoltools
-    - jinja2
+    - openmoltools ==0.7.0 # temporarily test against stable version
+    - sphinxcontrib-bibtex
+    - alchemy ==1.2.0
+    #- gcc 4.8.2 # [linux]
+    #- gcc 4.8.2 # [osx]
 
   run:
     - python
@@ -35,27 +39,30 @@ requirements:
     - scipy
     - cython
     - netcdf4
-    - openmm
-    - openmmtools
-    - pymbar ==2.1beta0
-    - ambermini ==14.0.1
+    - openmm ==7.0rc1 # temporarily test against stable version
+    - mdtraj 1.5.1 # TODO remove me when segment_id bug is fixed (this is installed through openmoltools)
+    - openmmtools ==0.7.5 # temporarily test against stable version
+    - pymbar ==2.1beta0 # temporarily test against stable version
+    - ambermini
     - docopt
-    - openmoltools
+    - openmoltools ==0.7.0 # temporarily test against stable version
     - mpi4py
     - pyyaml
-    - jinja2
     - clusterutils
+    - sphinxcontrib-bibtex
+    - alchemy ==1.2.0
+    #- libgcc
 
 test:
   requires:
     - nose
+    - nose-timer
   imports:
     - yank
   commands:
-    - which yank
     - yank --help
+    - yank selftest
 
 about:
   home: https://github.com/choderalab/yank
   license: GNU Lesser General Public License v2 or later (LGPLv2+)
-  summary: GPU-accelerated calculation of ligand binding affinities in implicit and explicit solvent using alchemical free energy methodologies
