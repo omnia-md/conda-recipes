@@ -41,4 +41,9 @@ supported Python/Numpy configurations.
 3. Open a pull request to merge your branch into this master repo.
 4. It will automatically be tested to make sure it compiles.
 5. We will discuss the recipe and give suggestions about how to fix any issues.
-6. The recipe will be merged and our automated build framework will build and deploy the packages to the `omnia` anaconda channel.
+6. The recipe will be merged and our automated build framework will build 
+   and deploy the packages to the `omnia` anaconda channel under the `rc` label.
+7. Test the binaries by using `conda install -c omnia/label/rc packagename`
+8. When you're sure the binaries are ready for a full release, comment on the
+   original pull request and a maintainer will move the package from the `rc`
+   label to the main label. 
