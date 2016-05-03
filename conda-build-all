@@ -69,6 +69,12 @@ def main():
         dest='force',
         help='Force a package upload regardless of errors',
     )
+    p.add_argument('--dev',
+       action='store_true',
+       dest='dev',
+       help=('Push package to the dev label. This requires '
+             '--force to be enabled.'),
+    )
     p.add_argument(
         '--no-test',
         action='store_true',
@@ -208,7 +214,8 @@ def list_package_contents(m, python, numpy):
             print('...')
             break
 
-def upload_to_binstar(m, python, numpy, username, max_retries=5, force=False):
+def upload_to_binstar(m, python, numpy, username, max_retries=5,
+                      force=False, dev=False):
     filename = get_bldpkg_path(m, python, numpy)
     if not os.path.exists(filename):
         print('ERROR: File does not exist: %s' % filename)
@@ -220,8 +227,15 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5, force=False):
     cmd.extend(['upload', '--no-progress', '-u', username, filename])
     if force:
         cmd.extend(['--force'])
-    if not pre_black_listed(m) and is_prerelease(m) :
+    if not pre_black_listed(m) and is_prerelease(m):
         cmd.extend(['--label', 'pre'])
+    elif dev:
+        assert force, "Dev packages require forced uploads."
+        cmd.extend(['--label', 'dev'])
+    else:
+        # By default, packages go to the "rc" release candidate label
+        # Please test these binaries before switching them to the main label.
+        cmd.extend(['--label', 'rc'])
 
     err = None
     for i in range(max_retries):
@@ -304,7 +318,7 @@ def build_package(m, python, numpy, args):
     if args.upload is not None:
         if (retcode == 0):
             upload_to_binstar(m, python, numpy, username=args.upload,
-                              force=args.force)
+                              force=args.force, dev=args.dev)
         else:
             print('Package failed to build (return code %s); will not upload.' % str(retcode))
     sys.stdout.flush()
