@@ -9,6 +9,7 @@ requirements:
   build:
     - python
     - setuptools
+    - boost ==1.59
     - rdkit
     - matplotlib
     - pyqt
@@ -19,6 +20,7 @@ requirements:
 
   run:
     - python
+    - boost ==1.59
     - rdkit 
     - matplotlib
     - pyqt
