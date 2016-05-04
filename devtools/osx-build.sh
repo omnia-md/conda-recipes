@@ -10,8 +10,9 @@ bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/anaconda;
 export PATH=$HOME/anaconda/bin:$PATH;
 conda config --add channels omnia;
 conda install -yq conda-build jinja2 anaconda-client;
+checkagainst='omnia omnia/label/pre omnia/label/rc'
 
-if ! ./conda-build-all --dry-run --check-against omnia omnia/label/pre -- openmm* ; then
+if ! ./conda-build-all --dry-run --check-against $checkagainst -- openmm* ; then
     # Install OpenMM dependencies that can't be installed through
     # conda package manager (doxygen + CUDA)
     brew install -y --quiet doxygen
@@ -31,9 +32,9 @@ sudo tlmgr install titlesec framed threeparttable wrapfig multirow collection-fo
 
 # Build packages
 if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
-    ./conda-build-all $UPLOAD --check-against omnia omnia/label/pre -- * || true;
+    ./conda-build-all $UPLOAD --check-against $checkagainst -- * || true;
 else
-    ./conda-build-all $UPLOAD --check-against omnia omnia/label/pre -- *;
+    ./conda-build-all $UPLOAD --check-against $checkagainst -- *;
 fi;
 
 
