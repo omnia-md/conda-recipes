@@ -1,9 +1,16 @@
 package:
-  name: lomap
-  version: "1.0.0"
+  name: lomap-dev
+  version: "0.0.0"
+
 source:
-  git_rev: 1.0.0
+  git_rev: 0.0.0
   git_url: https://github.com/nividic/Lomap.git
+
+build:
+  number: 1
+  skip:
+    - [win32 or (win and py2k)]  
+    - [py3k]   # this package is not p3k compatible yet
 
 requirements:
   build:
@@ -29,7 +36,18 @@ requirements:
     - pygraphviz
     - pil
 
+
+test:
+  requires:
+    - nose
+  imports:
+    - lomap
+  commands:
+    - which lomap
+    - lomap -h
+
 about:
   home: https://github.com/nividic/Lomap
   license: LGPL
   license_file: LICENCE.txt  
+  summary: Alchemical free-energy calculations planner
