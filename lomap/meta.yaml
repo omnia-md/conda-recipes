@@ -1,16 +1,11 @@
 package:
-  name: lomap-dev
+  name: lomap
   version: "0.0.0"
 
 source:
   git_rev: 0.0.0
   git_url: https://github.com/nividic/Lomap.git
 
-build:
-  number: 1
-  skip:
-    - [win32 or (win and py2k)]  
-    - [py3k]   # this package is not p3k compatible yet
 
 requirements:
   build:
