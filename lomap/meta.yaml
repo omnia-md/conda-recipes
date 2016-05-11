@@ -9,6 +9,7 @@ source:
 
 build:
   skip:
+    - [not unix]
     - [py3k]
 
 requirements:
