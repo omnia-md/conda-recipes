@@ -1,13 +1,11 @@
 package:
   name: scs
-  version: !!str 1.1.7
+  version: "1.2.6"
 
 source:
-  fn: scs-1.1.7.tar.gz
-  url: https://pypi.python.org/packages/source/s/scs/scs-1.1.7.tar.gz
-  md5: 4ff95eb4ad76f7fdea53263871d41eee
-  patches:
-    - 0001-set-zip-safe-flag-to-false.patch
+  fn: scs-1.2.6.tar.gz
+  url: https://pypi.python.org/packages/94/b0/7517c1113c121db1b9cc19a381f28fc915294eaa61f61e0a3502746dfa88/scs-1.2.6.tar.gz
+  md5: 3eaa04ffa76aaf27dc8a8e608c6a9f12
 
 build:
   number: 1
@@ -25,15 +23,13 @@ requirements:
     - setuptools
     - numpy x.x
     - scipy
-    - openblas
     - mingwpy [win]
 
   run:
     - python
     - numpy x.x
     - scipy
-    # openblas linked statically on windows, dynamically otherwise
-    - openblas [not win]
+
 
 test:
   requires:
