@@ -116,28 +116,12 @@ def get_version_and_release_date(requirement, version=None,
                    'failed'.format(requirement, version))
         return None, None
 
-    try:
-        if version:
-            release_date = response['releases'][version][0]['upload_time']
-        else:
-            version = response['info']['stable_version']
+    if not version:
+        version = response['info']['version']
 
-            if not version:
-                versions = {parse_version(v): v for v in response['releases'].keys() if not parse_version(v).is_prerelease}
-                if len(versions) == 0:
-                    return None, None
-
-                version = versions[max(versions.keys())]
-                release_date = response['releases'][str(version)][0]['upload_time']
-
-        return version, datetime.fromtimestamp(time.mktime(
-            time.strptime(release_date, '%Y-%m-%dT%H:%M:%S')
-        ))
-    except IndexError:
-        if verbose:
-            print ('{} ({}) didn\'t return a date property'.format(requirement,
-                                                                   version))
-        return None, None
+    release_date = response['releases'][version][0]['upload_time']
+    return version, datetime.fromtimestamp(time.mktime(
+        time.strptime(release_date, '%Y-%m-%dT%H:%M:%S')))
 
 
 def get_pypi_url(requirement, version=None, base_url='https://pypi.python.org/pypi'):
