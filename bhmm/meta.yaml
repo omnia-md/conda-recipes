@@ -28,12 +28,8 @@ requirements:
     - six
 
 test:
-  requires:
-    - nose
   imports:
     - bhmm
-  commands:
-    - nosetests bhmm --nocapture --verbosity=2 --with-doctest
 
 about:
   home: https://github.com/choderalab/bhmm
