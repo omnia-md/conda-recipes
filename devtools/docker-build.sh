@@ -17,7 +17,7 @@ checkagainst='omnia omnia/label/pre omnia/label/rc'
 if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
     /io/conda-build-all $UPLOAD --check-against $checkagainst -- /io/* || true
 else
-    /io/conda-build-all $UPLOAD --check-against $checkagainst -- /io/*
+    /io/conda-build-all -v -v -v $UPLOAD --check-against $checkagainst -- /io/*
 fi
 
 #mv /anaconda/conda-bld/linux-64/*tar.bz2 /io/ || true

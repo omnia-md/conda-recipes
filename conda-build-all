@@ -289,6 +289,8 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
                 bldpkg_path = get_bldpkg_path(m, python, numpy)
                 base_bldpkg_path = os.path.basename(bldpkg_path)
                 if base_bldpkg_path == last_base_bldpkg_path:
+                    if verbose > 1:
+                        print('base_bldpkg_path == last_base_bldpkg_path for %s' % bldpkg_path)
                     continue
                 last_base_bldpkg_path = base_bldpkg_path
 
@@ -298,6 +300,8 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
                     continue
 
                 if m.skip():
+                    if verbose > 1:
+                        print('Skipping %s' % bldpkg_path)
                     continue
 
                 if base_bldpkg_path in index:
@@ -307,6 +311,12 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
                         print('  channel:   %s' % hide_binstar_tokens(index[base_bldpkg_path]['channel']))
                         print('  md5:       %s' % index[base_bldpkg_path]['md5'])
                     continue
+
+                if verbose > 1:
+                    print('Scheduling package: %s' % m.name())
+                    print('  full_name: %s' % base_bldpkg_path)
+                    print('  python: %s' % python)
+                    print('  numpy: %s' % numpy)
 
                 yield m, python, numpy, base_bldpkg_path
 
@@ -348,6 +358,13 @@ def execute(args, p):
     pythons = re.split(',\s*|\s+', args.python)
     numpys = re.split(',\s*|\s+', args.numpy)
     channel_urls = tuple(args.check_against) if args.check_against else ()
+
+    if args.verbose > 0:
+        print('EXECUTE:')
+        print('verbose: %s' % str(args.verbose))
+        print('pythons: %s' % str(pythons))
+        print('numpys: %s' % str(numpys))
+        print('channel_urls: %s' % str(channel_urls)) # DEBUG
 
     args_recipe = reduce(operator.add, (glob.glob(e) for e in args.recipe))
     metadatas = sort_recipes(args_recipe)

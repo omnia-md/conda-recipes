@@ -7,10 +7,11 @@ source:
     git_tag: 0.8.0
 
 build:
-  number: 1
+  number: 0
   skip:
-    - [win32 or (win and py2k)]  # for openmm
-    - [py3k]   # this package is not p3k compatible yet
+    - [win]
+    - [osx and py3k]
+    - [unix and py3k]
 
 requirements:
   build:
