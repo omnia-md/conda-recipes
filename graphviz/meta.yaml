@@ -14,7 +14,7 @@ build:
   binary_relocation: true
   skip:
     - [not unix]
-    - [p3yk]
+    - [py3k]
 
 requirements:
   build:
