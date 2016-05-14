@@ -12,6 +12,10 @@ build:
     # don't build on Appveyor (no OpenCL / CUDA)
     - [ {{ os.environ.get('APPVEYOR', 'False') == 'True' }} ]
 
+# by default upload binaries to 'rc' channel on anaconda.org
+extras:
+  upload: rc
+
 requirements:
   build:
     # on windows, need to install cmake manually
