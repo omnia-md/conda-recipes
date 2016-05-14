@@ -1,11 +1,11 @@
 package:
   name: autoprotocol
-  version: "3.1.0"
+  version: "3.5.2"
 
 source:
-  fn: autoprotocol-3.1.0.tar.gz
-  url: https://pypi.python.org/packages/source/a/autoprotocol/autoprotocol-3.1.0.tar.gz
-  md5: 68dd34236440b2922b5d9db984b4257a
+  fn: autoprotocol-3.5.2.tar.gz
+  url: https://pypi.python.org/packages/3c/aa/6835e5833c142ee654b33f63e119f701fe8e0e1936d61a9dc03f017b63b8/autoprotocol-3.5.2.tar.gz
+  md5: 8405d7c17487a7340ae0448b36c29a77
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -55,7 +55,7 @@ test:
 
 about:
   home: http://github.com/autoprotocol/autoprotocol-python
-  license: UNKNOWN
+  license: BSD
   summary: 'Python library for generating Autoprotocol'
 
 # See

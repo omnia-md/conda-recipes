@@ -1,11 +1,11 @@
 package:
   name: autograd
-  version: "1.1.2"
+  version: "1.1.4"
 
 source:
-  fn: autograd-1.1.2.tar.gz
-  url: https://pypi.python.org/packages/source/a/autograd/autograd-1.1.2.tar.gz
-  md5: db1cc306f37bb39f30d36c72a39ce1e9
+  fn: autograd-1.1.4.tar.gz
+  url: https://pypi.python.org/packages/c7/8e/a12c9b3b2bb21554d8de6caa2a3761497ff9015b7fa0df87652cf194550a/autograd-1.1.4.tar.gz
+  md5: 06b9cc3c3a884769d90390b3ae14cca7
 #  patches:
    # List any patch files here
    # - fix.patch

@@ -1,11 +1,11 @@
 package:
   name: cvxcanon
-  version: "0.0.21"
+  version: "0.0.23.4"
 
 source:
-  fn: CVXcanon-0.0.21.tar.gz
-  url: https://pypi.python.org/packages/source/C/CVXcanon/CVXcanon-0.0.21.tar.gz
-  md5: 815fe7a87455d1e17cae63046bffa12c
+  fn: CVXcanon-0.0.23.4.tar.gz
+  url: https://pypi.python.org/packages/1c/ea/879ffaa990a4a769063005c02ecdc2881945da7325837cd315da8acf8f4c/CVXcanon-0.0.23.4.tar.gz
+  md5: f8f80f63cb9ab8f862fcb79a12507954
 
 requirements:
   build:
@@ -20,7 +20,7 @@ requirements:
 
 test:
   imports:
-    # - CVXcanon
+    - CVXcanon
 
 about:
   home: https://github.com/cvxgrp/CVXcanon
