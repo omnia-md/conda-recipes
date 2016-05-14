@@ -15,6 +15,12 @@ from distutils.spawn import find_executable
 
 BINSTAR_TOKEN = os.environ.pop('BINSTAR_TOKEN', None)
 
+# these labels will be checked by default for existent packages.
+STANDARD_LABELS = ('main',
+                   'dev',
+                   'rc',
+                   )
+
 try:
     from conda.utils import memoized
     import conda_build.build as conda_build_build
@@ -36,8 +42,6 @@ must run in the root conda environment.
   $ conda install conda-build anaconda-client''', file=sys.stderr)
     exit(1)
 
-# from conda import config as conda_config
-# conda_config.subdir = 'win-64'
 
 def main():
     p = argparse.ArgumentParser(
@@ -53,7 +57,8 @@ def main():
     p.add_argument(
         '--check-against',
         nargs="+",
-        metavar='BINSTAR_USER'
+        metavar='ANACONDA_USER/label/$name',
+        default=['omnia/label/%s' % label for label in STANDARD_LABELS],
     )
     p.add_argument(
         '--dry-run',
@@ -236,10 +241,11 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
     elif dev:
         assert force, "Dev packages require forced uploads."
         cmd.extend(['--label', 'dev'])
+    elif m.section('extras') and 'upload' in m.section('extras'):
+        label = m.section('extras')['upload']
+        cmd.extend(['--label', label])
     else:
-        # By default, packages go to the "rc" release candidate label
-        # Please test these binaries before switching them to the main label.
-        cmd.extend(['--label', 'rc'])
+        cmd.extend(['--label', 'main'])
 
     err = None
     for i in range(max_retries):
