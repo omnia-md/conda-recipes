@@ -10,8 +10,8 @@ function InstallMissingHeaders () {
                       "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include")
 
     Foreach ($include_dir in $include_dirs) {
-    $urls = @(@("http://msinttypes.googlecode.com/svn/trunk/stdint.h", "stdint.h"),
-             @("http://msinttypes.googlecode.com/svn/trunk/inttypes.h", "inttypes.h"))
+    $urls = @(@("https://raw.githubusercontent.com/chemeris/msinttypes/master/stdint.h", "stdint.h"),
+             @("https://raw.githubusercontent.com/chemeris/msinttypes/master/inttypes.h", "inttypes.h"))
 
     Foreach ($i in $urls) {
         $url = $i[0]
