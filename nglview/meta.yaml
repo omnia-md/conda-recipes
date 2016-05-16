@@ -7,7 +7,8 @@ source:
   url: https://github.com/arose/nglview/archive/v0.4.tar.gz
 
 build:
-  number: 0
+  number: 1
+  noarch_python: True
 
 requirements:
   build:
