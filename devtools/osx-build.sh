@@ -31,7 +31,7 @@ sudo tlmgr install titlesec framed threeparttable wrapfig multirow collection-fo
 
 # Build packages
 if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
-    ./conda-build-all $UPLOAD  -- * || true;
+    ./conda-build-all -vvv $UPLOAD  -- * || true;
 else
     ./conda-build-all -vvv $UPLOAD -- *;
 fi;
