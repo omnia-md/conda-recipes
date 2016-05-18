@@ -9,7 +9,7 @@ build:
   preserve_egg_dir: True
   number: 0
   # until we have pytables on windoze-32 py27 numpy-1.11
-  skip: True # [win-32 and py27 and np111]
+  skip: True # [win32 and py27 and np111]
 
 requirements:
   build:
