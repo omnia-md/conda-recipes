@@ -1,9 +1,9 @@
 package:
   name: pyemma
-  version: 2.1.1
+  version: 2.2
 source:
-  fn: pyEMMA-2.1.1.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v2.1.1.tar.gz
+  fn: pyEMMA-2.2.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v2.2.tar.gz
 
 build:
   preserve_egg_dir: True
@@ -18,13 +18,10 @@ requirements:
     - bhmm >=0.6,<0.7
     - joblib >0.8.4
     - matplotlib
-# this ugly workaround reflects the fact, that pytables is not available
-# on py35, np19 for platform win32, so fallback to older version of mdtraj
-    - mdtraj >=1.6 # [ not (py35 and win32)]
-    - mdtraj >=1.5 # [(py35 and win32)]
+    - mdtraj >=1.6
     - mock
     - msmtools
-    - thermotools >=0.1.14
+    - thermotools >=0.2
     - nose
     - numpy x.x
     - pyyaml
@@ -39,11 +36,10 @@ requirements:
     - bhmm >=0.6,<0.7
     - joblib >0.8.4
     - matplotlib
-    - mdtraj >=1.6 # [ not (py35 and win32)]
-    - mdtraj >=1.5 # [(py35 and win32)]
+    - mdtraj >=1.6 
     - mock
     - msmtools
-    - thermotools >=0.1.14
+    - thermotools >=0.2
     - numpy x.x
     - pyyaml
     - scipy
