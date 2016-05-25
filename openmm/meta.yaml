@@ -1,13 +1,13 @@
 package:
   name: openmm
-  version: 7.0rc1
+  version: 7.0.1
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_rev: f433936
+  git_rev: 5e86c4f
 
 build:
-  number: 1
+  number: 0
   skip:
     # don't build on Appveyor (no OpenCL / CUDA)
     - [ {{ os.environ.get('APPVEYOR', 'False') == 'True' }} ]
