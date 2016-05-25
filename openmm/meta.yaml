@@ -46,8 +46,7 @@ test:
     - simtk.openmm
   commands:
     - python -m simtk.testInstallation
-    - python -c "from simtk import openmm ; print openmm.version.git_revision"
-    - python -c "from simtk import openmm; print openmm.Platform.getOpenMMVersion()"
+    - test.py
     
 about:
   home: http://openmm.org
