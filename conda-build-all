@@ -153,6 +153,11 @@ def sort_recipes(recipe_paths):
     for r in recipe_paths:
         try:
             if os.path.isdir(r):
+                # Skip if no meta.yaml
+                meta_yaml_filename = os.path.join(r, 'meta.yaml')
+                if not os.path.exists(meta_yaml_filename):
+                    print("Skipping '%s' because no meta.yaml file found..." % r)
+
                 try:
                     m = MetaData(r)
                 except RuntimeError:
