@@ -160,7 +160,11 @@ def sort_recipes(recipe_paths):
                     raise
                 metadatas.append(m)
                 name2m[m.get_value('package/name')] = m
-        except SystemExit:
+        except SystemExit as e:
+            # Log the error
+            print("ERROR: Recipe '%s' has a fatal error that prevents processing", r)
+            print(str(e))
+            # Keep going
             pass
 
     names = set(name2m.keys())
