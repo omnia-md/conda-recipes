@@ -9,8 +9,7 @@ source:
       - fix_tests.patch
 
 build:
-  skip:
-    - [not (linux and py2)]
+  skip: True # [not (linux and py2)]
 
 requirements:
     build:
