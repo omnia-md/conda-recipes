@@ -7,7 +7,7 @@ source:
   git_rev: 5e86c4f
 
 build:
-  number: 0
+  number: 1
   skip:
     # don't build on Appveyor (no OpenCL / CUDA)
     - [ {{ os.environ.get('APPVEYOR', 'False') == 'True' }} ]
