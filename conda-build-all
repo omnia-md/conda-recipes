@@ -162,7 +162,7 @@ def sort_recipes(recipe_paths):
                 name2m[m.get_value('package/name')] = m
         except SystemExit as e:
             # Log the error
-            print("ERROR: Recipe '%s' has a fatal error that prevents processing", r)
+            print("ERROR: Recipe '%s' has a fatal error that prevents processing" % r)
             print(str(e))
             # Keep going
             pass

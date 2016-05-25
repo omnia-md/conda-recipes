@@ -8,8 +8,7 @@ source:
 
 build:
   number: 0
-  # don't build on Appveyor (no OpenCL / CUDA)
-  skip: True # [ {{ os.environ.get('APPVEYOR', 'False') == 'True' }} ]
+  skip: True # [win]
 
 # by default upload binaries to 'rc' channel on anaconda.org
 extras:
