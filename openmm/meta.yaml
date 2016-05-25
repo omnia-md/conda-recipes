@@ -8,12 +8,10 @@ source:
 
 build:
   number: 0
-  skip:
-    # don't build on Appveyor (no OpenCL / CUDA)
-    - [ {{ os.environ.get('APPVEYOR', 'False') == 'True' }} ]
+  skip: True # [win]
 
 # by default upload binaries to 'rc' channel on anaconda.org
-extras:
+extra:
   upload: rc
 
 requirements:
@@ -48,6 +46,8 @@ test:
     - simtk.openmm
   commands:
     - python -m simtk.testInstallation
+    - python -c "import simtk ; print simtk.openmm.version.git_revision"
+    - python -c "from simtk import openmm ; print openmm.version.git_revision"
 
 about:
   home: http://openmm.org
