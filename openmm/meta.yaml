@@ -11,7 +11,7 @@ build:
   skip: True # [win]
 
 # by default upload binaries to 'rc' channel on anaconda.org
-extras:
+extra:
   upload: rc
 
 requirements:
