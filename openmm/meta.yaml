@@ -41,14 +41,11 @@ requirements:
 test:
   requires:
     - python
-  files:
-    - test.py
   imports:
     - simtk
     - simtk.openmm
   commands:
     - python -m simtk.testInstallation
-    - test.py
 
 about:
   home: http://openmm.org
