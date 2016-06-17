@@ -11,6 +11,7 @@ import os.path
 import argparse
 from subprocess import call, check_call, CalledProcessError
 from functools import reduce
+from collections import defaultdict
 from distutils.spawn import find_executable
 
 BINSTAR_TOKEN = os.environ.pop('BINSTAR_TOKEN', None)
@@ -299,6 +300,10 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
     index = conda.api.get_index(
         channel_urls=[url_path(conda_build_config.croot)] + list(channel_urls),
         prepend=False)
+    index_by_pkgname = defaultdict(lambda: {})
+    for k, v in index.items():
+        channel, pkgname = k.split('::')
+        index_by_pkgname[pkgname][channel] = v
 
     for m in metadatas:
 
@@ -328,12 +333,12 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
                         print('Skipping %s' % bldpkg_path)
                     continue
 
-                if base_bldpkg_path in index:
+                if base_bldpkg_path in index_by_pkgname:
                     if verbose > 2:
                         print('Package exists on anaconda.org: %s' % m.name())
                         print('  full_name: %s' % base_bldpkg_path)
-                        print('  channel:   %s' % hide_binstar_tokens(index[base_bldpkg_path]['channel']))
-                        print('  md5:       %s' % index[base_bldpkg_path]['md5'])
+                        print('  channel:   %s' % tuple(index_by_pkgname[base_bldpkg_path].keys()))
+                        print('  md5:       %s' % tuple([v['md5'] for v in index_by_pkgname[base_bldpkg_path].values()]))
                     continue
 
                 if verbose > 1:
