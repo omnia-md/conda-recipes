@@ -1,17 +1,17 @@
 package:
   name: solvationtoolkit
-  version: 0.4.0
+  version: 0.4.1
 
 source:
     git_url: https://github.com/MobleyLab/SolvationToolkit.git
-    git_tag: v0.4.0
+    git_tag: v0.4.1
 
 build:
   number: 1
   skip:
-    #- [win32 or (win and py2k)]
+    - [win32 or (win and py2k)]
     # TODO no openmm py35 win
-    #- [win and py35]
+    - [win and py35]
 
 requirements:
   build:
@@ -37,7 +37,7 @@ requirements:
     - scipy
     - ambermini
     - parmed-dev
-    - libgfortran ==1.0 # [linux]
+    - libgfortran 1.* # [linux and np == 19]
     - openmoltools
     - mdtraj
     - packmol
@@ -51,6 +51,7 @@ test:
     - nose
     - openmmtools
   imports:
+    - solvationtoolkit
     - openmoltools
   commands:
     - nosetests solvationtoolkit -v 
