@@ -300,7 +300,7 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
     index = conda.api.get_index(
         channel_urls=[url_path(conda_build_config.croot)] + list(channel_urls),
         prepend=False)
-    index_by_pkgname = defaultdict(lambda: {})
+    index_by_pkgname = defaultdict(dict)
     for k, v in index.items():
         channel, pkgname = k.split('::')
         index_by_pkgname[pkgname][channel] = v
