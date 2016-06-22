@@ -1,9 +1,9 @@
 package:
   name: pyemma
-  version: 2.2
+  version: 2.2.1
 source:
-  fn: pyEMMA-2.2.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v2.2.tar.gz
+  fn: pyEMMA-2.2.1.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v2.2.1.tar.gz
 
 build:
   preserve_egg_dir: True
@@ -18,7 +18,7 @@ requirements:
     - bhmm >=0.6,<0.7
     - joblib >0.8.4
     - matplotlib
-    - mdtraj >=1.6
+    - mdtraj >=1.7
     - mock
     - msmtools
     - thermotools >=0.2
@@ -36,7 +36,7 @@ requirements:
     - bhmm >=0.6,<0.7
     - joblib >0.8.4
     - matplotlib
-    - mdtraj >=1.6 
+    - mdtraj >=1.7 
     - mock
     - msmtools
     - thermotools >=0.2
