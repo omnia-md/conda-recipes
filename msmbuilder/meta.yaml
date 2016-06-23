@@ -14,6 +14,9 @@ build:
   number: 0
   entry_points:
     - msmb = msmbuilder.scripts.msmb:main
+  skip:
+    # (2016-06-23) conda build quietly refuses to build this config.
+    - [win and np == 111]
 
 requirements:
   build:
