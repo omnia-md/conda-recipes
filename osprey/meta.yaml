@@ -1,11 +1,10 @@
 package:
   name: osprey
-  version: "0.4"
+  version: "1.0.0"
 
 source:
-  fn: osprey-0.4.tar.gz
-  url: https://pypi.python.org/packages/source/o/osprey/osprey-0.4.tar.gz
-  md5: 76c9f4467490f80d2d5d0536c47de296
+  git_url: https://github.com/msmbuilder/osprey.git
+  git_tag: afde00d59497f57d610aa59e3a12e3905468fcd6
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -25,7 +24,15 @@ build:
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  # number: 1g
+
+build:
+  skip:
+    - win
+
+extra:
+  maintainers:
+   - cxhernandez
 
 requirements:
   build:
@@ -34,6 +41,12 @@ requirements:
 
   run:
     - python
+    - six
+    - pyyaml
+    - numpy
+    - scipy
+    - scikit-learn
+    - sqlalchemy
 
 test:
   # Python imports
