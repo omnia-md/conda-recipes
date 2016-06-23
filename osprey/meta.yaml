@@ -33,6 +33,12 @@ requirements:
 
   run:
     - python
+    - six
+    - pyyaml
+    - numpy
+    - scipy
+    - scikit-learn
+    - sqlalchemy
 
 test:
   # Python imports
