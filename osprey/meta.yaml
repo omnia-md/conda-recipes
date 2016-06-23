@@ -26,6 +26,10 @@ build:
   # number. If you do not include this key, it defaults to 0.
   # number: 1g
 
+build:
+  skip:
+    - win
+
 requirements:
   build:
     - python
