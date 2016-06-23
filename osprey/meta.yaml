@@ -30,6 +30,10 @@ build:
   skip:
     - win
 
+extra:
+  maintainers:
+   - cxhernandez
+
 requirements:
   build:
     - python
