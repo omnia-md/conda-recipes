@@ -17,6 +17,9 @@ build:
   skip:
     # (2016-06-23) conda build quietly refuses to build this config.
     - [win and np == 111]
+    # These configurations don't work and I don't want to figure out why
+    - [win64 and py27]
+    - [win64 and py34]
 
 requirements:
   build:
