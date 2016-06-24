@@ -1,22 +1,25 @@
 package:
   name: msmbuilder
-  version: "3.4.0"
+  version: "3.5.0"
 
 source:
-    fn: msmbuilder-3.4.0.tar.gz
-    url: https://pypi.python.org/packages/source/m/msmbuilder/msmbuilder-3.4.0.tar.gz#md5=e9ab6ce08dfb7589ae772b51ed4da145
-    md5: e9ab6ce08dfb7589ae772b51ed4da145
+    fn: msmbuilder-3.5.0.tar.gz
+    url: https://pypi.python.org/packages/58/59/b492a806a899f28609d4333e009e89be8558ca8dd9c61146e5f562e761c2/msmbuilder-3.5.0.tar.gz#md5=0fdf47eac1fd423b3edb1c2a84dfb2e9
+    md5: 0fdf47eac1fd423b3edb1c2a84dfb2e9
+
+extra:
+  upload: rc
 
 build:
   number: 0
   entry_points:
     - msmb = msmbuilder.scripts.msmb:main
   skip:
-    # https://github.com/ContinuumIO/anaconda-issues/issues/557
-    # https://github.com/msmbuilder/msmbuilder/issues/715
-    # https://github.com/omnia-md/conda-recipes/pull/424
-    - [win and py35 and np == 19]
-
+    # (2016-06-23) conda build quietly refuses to build this config.
+    - [win and np == 111]
+    # These configurations don't work and I don't want to figure out why
+    - [win64 and py27]
+    - [win64 and py34]
 
 requirements:
   build:
@@ -37,17 +40,8 @@ requirements:
     - numpydoc
     - pytables
     - pyhmc
-    - libgfortran 1.* # [linux and py35 and np == 19]
-
 
 test:
-  requires:
-    - nose
-    - munkres
-    - numdifftools
-    - statsmodels
-    - hmmlearn
-    - cvxpy # [not win]
   imports:
     - msmbuilder
   commands:
@@ -58,3 +52,5 @@ about:
   home: https://github.com/msmbuilder/msmbuilder
   license: LGPLv2.1+
   summary: 'MSMBuilder: Statistical models for biomolecular dynamics'
+
+# vim: ts=2 sw=2 expandtab
