@@ -1,16 +1,14 @@
 package:
   name: fahmunge
-  version: 0.1.1
+  version: 0.1.2
 
 source:
-   url: https://github.com/choderalab/fahmunge/archive/0.1.1.tar.gz
-   fn: 0.1.1.tar.gz
+   url: https://github.com/choderalab/fahmunge/archive/0.1.2.tar.gz
+   fn: 0.1.2.tar.gz
 
 build:
   preserve_egg_dir: True
   number: 0
-  entry_points:
-    - munge-fah-data = fahmunge.cli:main
   skip:
     - [not linux]
 
@@ -22,7 +20,7 @@ requirements:
     - pandas
     - pytables
     - natsort
-    - mdtraj 1.5.1 # TODO remove me when segment_id bug is fixed (this is installed through openmoltools)
+    - mdtraj
 
   run:
     - python
@@ -30,7 +28,7 @@ requirements:
     - pandas
     - pytables
     - natsort
-    - mdtraj 1.5.1 # TODO remove me when segment_id bug is fixed (this is installed through openmoltools)
+    - mdtraj
 
 test:
   requires:
