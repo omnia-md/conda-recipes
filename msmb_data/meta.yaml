@@ -1,10 +1,10 @@
 package:
   name: msmb_data
-  version: "1.0.0"
+  version: "1.1.0"
 
 source:
   git_url: https://github.com/msmbuilder/msmb_data.git
-  git_tag: 043676571130dab6c3fcca60d49a8d5f4dc99c59
+  git_tag: v1.1
 
 extra:
   maintainers:
@@ -15,28 +15,19 @@ requirements:
     - python
     - setuptools
     - cython
-    - numpy
+    - numpy x.x
 
   run:
     - python
     - six
-    - msmbuilder
-    - numpy
+    - numpy x.x
     - scipy
 
 test:
-  requires:
-    - nose
-    - nose-timer
-    - msmbuilder
-    - mdtraj
   imports:
     - msmb_data
-  commands:
-    - nosetests msmb_data -v --with-timer
-
 
 about:
-  home: https://github.com/msmbuilder/msmbuilder
+  home: https://github.com/msmbuilder/msmb_data
   license: LGPLv2.1+
   summary: 'Testing data for MSMBuilder'
