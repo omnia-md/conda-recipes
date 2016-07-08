@@ -24,16 +24,8 @@ requirements:
     - scipy
 
 test:
-  requires:
-    - nose
-    - nose-timer
-    - msmbuilder
-    - mdtraj
   imports:
     - msmb_data
-  commands:
-    - nosetests msmb_data -v --with-timer
-
 
 about:
   home: https://github.com/msmbuilder/msmb_data
