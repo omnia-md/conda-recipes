@@ -1,11 +1,11 @@
 package:
   name: schema
-  version: !!str 0.3.1
+  version: !!str 0.5.0
 
 source:
-  fn: schema-0.3.1.tar.gz
-  url: https://pypi.python.org/packages/source/s/schema/schema-0.3.1.tar.gz
-  md5: 241d4f8211ebab33bc28be90a300cb58
+  fn: schema-0.5.0.tar.gz
+  url: https://pypi.python.org/packages/4b/eb/fadd6bc4967fded31495ea70aebd3bdc90b83e3944d08bfd841039062f83/schema-0.5.0.tar.gz
+  md5: cee375ebfa54f1c4a218438b3b1c6803
 
 build:
   skip:
