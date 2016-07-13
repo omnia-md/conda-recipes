@@ -52,8 +52,8 @@ test:
     - openmmtools
   imports:
     - openmoltools
-  commands:
-    - nosetests openmoltools -v -a '!slow'
+  #commands:
+  #  - nosetests openmoltools -v -a '!slow'
 
 about:
   home: https://github.com/choderalab/openmoltools
