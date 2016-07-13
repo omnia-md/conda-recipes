@@ -8,7 +8,7 @@ source:
 
 
 build:
-  number: 1
+  number: 2
   skip:
     - [win32 or (win and py2k)]
     # TODO no openmm py35 win
@@ -25,7 +25,7 @@ requirements:
     - numpydoc
     - scipy
     - pandas
-    - openmm ==7.0rc1
+    - openmm >=7.0.1
     - ambermini
     - pytables
     - parmed
@@ -52,8 +52,8 @@ test:
     - openmmtools
   imports:
     - openmoltools
-  commands:
-    - nosetests openmoltools -v -a '!slow'
+  #commands:
+  #  - nosetests openmoltools -v -a '!slow'
 
 about:
   home: https://github.com/choderalab/openmoltools
