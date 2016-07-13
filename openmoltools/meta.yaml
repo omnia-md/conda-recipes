@@ -8,7 +8,7 @@ source:
 
 
 build:
-  number: 2
+  number: 3
   skip:
     - [win32 or (win and py2k)]
     # TODO no openmm py35 win
@@ -39,7 +39,7 @@ requirements:
     - numpy
     - numpydoc
     - scipy
-    - openmm ==7.0rc1
+    - openmm >=7.0.1
     - ambermini
     - pytables
     - parmed
