@@ -48,7 +48,7 @@ install:
   - conda config --add channels omnia
   - conda config --add channels salilab
   - conda update -yq --all
-  - conda install -yq conda-build jinja2 anaconda-client
+  - conda install -yq conda-build=1.21.3 jinja2 anaconda-client
   - powershell .\\devtools\\appveyor\\missing-headers.ps1
   # conda-build for some inane reason, effectively puts C:\cygwin\bin at the
   # front of the PATH, ahead of everything else, regardless. See
