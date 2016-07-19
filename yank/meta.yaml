@@ -21,11 +21,11 @@ requirements:
     - scipy
     - setuptools
     - netcdf4
-    - openmm  ==7.0.1
-    - mdtraj 1.5.1 # TODO remove me when segment_id bug is fixed (this is installed through openmoltools)
+    - openmm ==7.0.1
+    - mdtraj ==1.5.1 # TODO the segment_id bug should be fixed: update version with next release
     - openmmtools ==0.7.5
     - pymbar ==2.1beta0
-    - ambermini ==14.0.1
+    - ambermini ==15.0.4
     - docopt
     - openmoltools ==0.7.1
     - sphinxcontrib-bibtex
@@ -42,10 +42,10 @@ requirements:
     - cython
     - netcdf4
     - openmm ==7.0.1
-    - mdtraj 1.5.1 # TODO remove me when segment_id bug is fixed (this is installed through openmoltools)
+    - mdtraj ==1.5.1 # TODO the segment_id bug should be fixed: update version with next release
     - openmmtools ==0.7.5
     - pymbar ==2.1beta0
-    - ambermini ==14.0.1
+    - ambermini ==15.0.4
     - docopt
     - openmoltools ==0.7.1
     - mpi4py
