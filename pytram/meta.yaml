@@ -1,10 +1,10 @@
 package:
   name: pytram
-  version: "0.2.6"
+  version: "0.3.0"
 
 source:
-  fn: pytram-0.2.6.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytram/pytram-0.2.6.tar.gz
+  fn: pytram-0.3.0.tar.gz
+  url: https://github.com/markovmodel/pytram/archive/0.3.0.tar.gz
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -18,12 +18,12 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy >=1.7.1
+    - numpy x.x
     - cython >=0.15
 
   run:
     - python
-    - numpy >=1.7.1
+    - numpy x.x
 
 test:
   # Python imports
