@@ -293,7 +293,8 @@ class VersionIter(object):
             yield self.versions[0]
 
 
-def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
+def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
+                    force=False):
     if not os.path.isdir(conda_build_config.bldpkgs_dir):
         os.makedirs(conda_build_config.bldpkgs_dir)
     conda_build_index.update_index(conda_build_config.bldpkgs_dir)
@@ -333,7 +334,7 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose):
                         print('Skipping %s' % bldpkg_path)
                     continue
 
-                if base_bldpkg_path in index_by_pkgname:
+                if (base_bldpkg_path in index_by_pkgname) and not force:
                     if verbose > 2:
                         print('Package exists on anaconda.org: %s' % m.name())
                         print('  full_name: %s' % base_bldpkg_path)
@@ -408,7 +409,7 @@ def execute(args, p):
         print()
     sys.stdout.flush()
 
-    to_build = list(required_builds(metadatas, pythons, numpys, channel_urls, verbose=args.verbose))
+    to_build = list(required_builds(metadatas, pythons, numpys, channel_urls, verbose=args.verbose, force=args.force))
 
     if len(to_build) > 0:
         print('[conda-build-all] Scheduling the following builds (%s):' % platform)
