@@ -1,0 +1,47 @@
+package:
+  name: openpathsampling
+  version: "0.9.0"
+
+source:
+  git_url: git@github.com:openpathsampling/openpathsampling.git
+
+build:
+  preserve_egg_dir: True
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pyyaml
+
+  run:
+    - python
+    - numpy
+    - scipy
+    - pandas
+    - netcdf4
+    - openmm
+    - openmmtools
+    - pyyaml
+    - mdtraj
+    - svgwrite
+    - networkx
+    - matplotlib
+
+test:
+  requires:
+    - nose
+    - nose-timer
+    - python-coveralls
+    - msmbuilder
+    - pyemma
+    - ipynbtest
+
+  imports:
+    - openpathsampling
+
+about:
+  home: http://github.com/openpathsampling/openpathsampling
+  license: LGPL 2.1 or later
+  summary: 'An open source Python framework for transition interface and path sampling calculations'
