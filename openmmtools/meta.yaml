@@ -1,11 +1,10 @@
 package:
   name: openmmtools
-  version: 0.7.5
+  version: 0.8.0
 
 source:
-    fn: 0.7.5.tar.gz
-    url: https://github.com/choderalab/openmmtools/archive/0.7.5.tar.gz
-    md5: 70bab6c402d24606774bf6161af9227b
+    fn: 0.8.0.tar.gz
+    url: https://github.com/choderalab/openmmtools/archive/0.8.0.tar.gz
 
 build:
   number: 1
