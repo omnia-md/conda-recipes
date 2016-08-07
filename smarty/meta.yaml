@@ -11,6 +11,7 @@ build:
   number: 0
   skip:
     - [win]
+    - [py34 or py35] # current version isn't py3.x ready
 
 requirements:
   build:
