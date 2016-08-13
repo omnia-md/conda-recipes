@@ -9,6 +9,8 @@ source:
 build:
   noarch_python: True
   number: 1
+  skip:
+    - [osx or win]
 
 
 requirements:
