@@ -1,11 +1,11 @@
 package:
   name: autoprotocol
-  version: "3.8.0"
+  version: "3.9.1"
 
 source:
-  fn: autoprotocol-3.8.0.tar.gz
-  url: https://pypi.python.org/packages/source/a/autoprotocol/autoprotocol-3.8.0.tar.gz
-  #md5: 68dd34236440b2922b5d9db984b4257a
+  fn: autoprotocol-3.9.1.tar.gz
+  url: https://pypi.python.org/packages/source/a/autoprotocol/autoprotocol-3.9.1.tar.gz
+  md5: cda1d8a753104f779ee70fbb3196b9a6
 #  patches:
    # List any patch files here
    # - fix.patch
