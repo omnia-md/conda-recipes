@@ -1,0 +1,37 @@
+package:
+  name: corner
+  version: "2.0.0"
+
+source:
+  git_url: https://github.com/dfm/corner.py.git
+  git_tag: v2.0.0
+
+build:
+  number: 0
+
+extra:
+  maintainers:
+   - cxhernandez
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - matplotlib
+    - numpy
+    - scipy
+    - pandas
+
+test:
+  imports:
+    - corner
+
+about:
+  home: https://github.com/dfm/corner.py
+  license: Berkeley Software Distribution (BSD)
+  summary: 'Make some beautiful corner plots.'
+
+# vim: ts=2 sw=2 expandtab
