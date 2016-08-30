@@ -1,4 +1,5 @@
 #!/bin/bash
 
-$PYTHON setup.py install 
+$PYTHON setup.py bdist_wheel --universal
+$PYTHON -m wheel install dist/*
 
