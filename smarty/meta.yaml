@@ -9,9 +9,7 @@ source:
 build:
   preserve_egg_dir: True
   number: 0
-  skip:
-    - [win]
-    - [py34 or py35] # current version isn't py3.x ready
+  skip: True # [win or (py34 or py35)]
 
 requirements:
   build:
@@ -28,10 +26,10 @@ test:
   requires:
     - nose
     - nose-timer
-  imports:
-    - smarty
-  commands:
-    - smarty
+#  imports:
+#    - smarty
+#  commands:
+#    - smarty
 
 about:
   home: https://github.com/open-forcefield-group/smarty

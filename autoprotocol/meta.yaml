@@ -1,11 +1,11 @@
 package:
   name: autoprotocol
-  version: "3.1.0"
+  version: "3.9.1"
 
 source:
-  fn: autoprotocol-3.1.0.tar.gz
-  url: https://pypi.python.org/packages/source/a/autoprotocol/autoprotocol-3.1.0.tar.gz
-  md5: 68dd34236440b2922b5d9db984b4257a
+  fn: autoprotocol-3.9.1.tar.gz
+  url: https://pypi.python.org/packages/51/ee/09cba820b17810daea8479541f03304e7098a3cce63e73071176ce2e7c46/autoprotocol-3.9.1.tar.gz
+  md5: cda1d8a753104f779ee70fbb3196b9a6
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -20,7 +20,6 @@ source:
     # - autoprotocol = autoprotocol:main
     #
     # Would create an entry point called autoprotocol that calls autoprotocol.main()
-
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
@@ -40,18 +39,6 @@ test:
   # Python imports
   imports:
     - autoprotocol
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
 
 about:
   home: http://github.com/autoprotocol/autoprotocol-python
