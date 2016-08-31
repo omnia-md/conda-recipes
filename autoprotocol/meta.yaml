@@ -4,7 +4,7 @@ package:
 
 source:
   fn: autoprotocol-3.9.1.tar.gz
-  url: https://pypi.python.org/packages/source/a/autoprotocol/autoprotocol-3.9.1.tar.gz
+  url: https://pypi.python.org/packages/51/ee/09cba820b17810daea8479541f03304e7098a3cce63e73071176ce2e7c46/autoprotocol-3.9.1.tar.gz
   md5: cda1d8a753104f779ee70fbb3196b9a6
 #  patches:
    # List any patch files here
@@ -49,7 +49,9 @@ test:
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  # requires:
+  requires:
+    - coverage >=4.0.3
+    - tox >=2.3.1
     # Put any additional test requirements here.  For example
     # - nose
 
