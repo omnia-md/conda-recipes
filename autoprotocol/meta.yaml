@@ -41,20 +41,6 @@ test:
   imports:
     - autoprotocol
 
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  requires:
-    - coverage >=4.0.3
-    - tox >=2.3.1
-    # Put any additional test requirements here.  For example
-    # - nose
-
 about:
   home: http://github.com/autoprotocol/autoprotocol-python
   license: UNKNOWN
