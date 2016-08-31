@@ -10,7 +10,6 @@ source:
    # List any patch files here
    # - fix.patch
 
-
 # build:
   # noarch_python: True
   # preserve_egg_dir: True
