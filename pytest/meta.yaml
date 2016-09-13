@@ -28,13 +28,6 @@ requirements:
     - colorama # [win]
 
 test:
-  # Python imports
-  imports:
-    - _pytest
-    - _pytest._code
-    - _pytest.assertion
-    - _pytest.vendored_packages
-
   commands:
     - pytest --help
     - py.test --help
