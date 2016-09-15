@@ -1,15 +1,11 @@
 package:
   name: schema
-  version: !!str 0.5.0
+  version: !!str 0.6.2
 
 source:
-  fn: schema-0.5.0.tar.gz
-  url: https://pypi.python.org/packages/4b/eb/fadd6bc4967fded31495ea70aebd3bdc90b83e3944d08bfd841039062f83/schema-0.5.0.tar.gz
-  md5: cee375ebfa54f1c4a218438b3b1c6803
-
-build:
-  skip:
-    - [py3k]
+  fn: schema-0.6.2.tar.gz
+  url: https://pypi.python.org/packages/9b/3c/5924163d693f156684e1502df0b408512e18c70d7fa80244496fafdb5988/schema-0.6.2.tar.gz
+  mdf: ac1b359c31e9b37fbe9333902f6bdf76
 
 requirements:
   build:
