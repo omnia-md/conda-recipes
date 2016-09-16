@@ -1,11 +1,11 @@
 package:
   name: msmbuilder
-  version: "3.5.0"
+  version: "3.6.0"
 
 source:
-    fn: msmbuilder-3.5.0.tar.gz
-    url: https://pypi.python.org/packages/58/59/b492a806a899f28609d4333e009e89be8558ca8dd9c61146e5f562e761c2/msmbuilder-3.5.0.tar.gz#md5=0fdf47eac1fd423b3edb1c2a84dfb2e9
-    md5: 0fdf47eac1fd423b3edb1c2a84dfb2e9
+    fn: msmbuilder-3.6.0.tar.gz
+    url: https://pypi.python.org/packages/33/3d/ea24e33ec9f4a8dd39f92b52c6d334737f00b558029d5342fa2d8dbdf046/msmbuilder-3.6.0.tar.gz#md5=221f5774b6b94d9d08be1aafdad6cfab
+    md5: 221f5774b6b94d9d08be1aafdad6cfab
 
 extra:
   upload: rc
@@ -40,6 +40,9 @@ requirements:
     - numpydoc
     - pytables
     - pyhmc
+    - pyyaml
+    - jinja2
+    - fastcluster
 
 test:
   imports:
