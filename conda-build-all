@@ -35,7 +35,10 @@ try:
     from conda_build.config import Config as CondaBuildConfig
     from conda.utils import url_path
     BUILD_DIRECTORY = CondaBuildConfig.short_build_prefix
-except ImportError:
+except ImportError as e:
+    print('ImportError encountered:')
+    print(str(e))
+    pritn('')
     print('''This script requires conda-build and anaconda-client and
 must run in the root conda environment.
 
