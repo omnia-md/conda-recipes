@@ -27,8 +27,8 @@ try:
     import conda_build.build as conda_build_build
     import conda.api
     import conda_build.index as conda_build_index
-    from conda.config import hide_binstar_tokens
-    # from conda_build.config import config as conda_build_config
+    # from conda.config import hide_binstar_tokens
+    from conda_build.config import config as conda_build_config
     from conda.config import subdir as platform
     assert platform in ('osx-64', 'linux-32', 'linux-64', 'win-32', 'win-64')
     from conda_build.metadata import MetaData
