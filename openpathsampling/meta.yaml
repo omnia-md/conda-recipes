@@ -11,7 +11,7 @@ build:
   number: 0
   skip:
     - [py3k]
-    
+
 requirements:
   build:
     - python
@@ -30,6 +30,7 @@ requirements:
     - mdtraj
     - svgwrite
     - networkx
+    - pyqt 4*    
     - matplotlib
 
 test:
