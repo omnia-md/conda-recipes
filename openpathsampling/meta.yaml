@@ -30,18 +30,10 @@ requirements:
     - mdtraj
     - svgwrite
     - networkx
-    - pyqt 4*    
+    - pyqt 4*
     - matplotlib
 
 test:
-  requires:
-    - nose
-    - nose-timer
-    - python-coveralls
-    - msmbuilder
-    - pyemma
-    - ipynbtest
-
   imports:
     - openpathsampling
 
