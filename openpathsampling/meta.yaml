@@ -11,6 +11,7 @@ build:
   number: 0
   skip:
     - [py3k]
+    - [win and py27]
 
 requirements:
   build:
