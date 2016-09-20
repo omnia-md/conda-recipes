@@ -1,9 +1,9 @@
 package:
   name: pyemma
-  version: 2.2.3
+  version: 2.2.4
 source:
-  fn: pyEMMA-2.2.3.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v2.2.3.tar.gz
+  fn: pyEMMA-2.2.4.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v2.2.4.tar.gz
 
 build:
   preserve_egg_dir: True
@@ -20,6 +20,7 @@ requirements:
     - matplotlib
     - mdtraj >=1.7
     - mock
+    - funcsigs
     - msmtools
     - thermotools >=0.2
     - nose
@@ -29,6 +30,7 @@ requirements:
     - six
     - psutil >=3.1.1
     - decorator >=4.0.0
+    - progress_reporter
 
   run:
     - python
@@ -38,6 +40,7 @@ requirements:
     - matplotlib
     - mdtraj >=1.7 
     - mock
+    - funcsigs
     - msmtools
     - thermotools >=0.2
     - numpy x.x
@@ -46,6 +49,7 @@ requirements:
     - six
     - psutil >=3.1.1
     - decorator >=4.0.0
+    - progress_reporter
 
 test:
   imports:
