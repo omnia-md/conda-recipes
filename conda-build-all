@@ -27,14 +27,14 @@ try:
     import conda_build.build as conda_build_build
     import conda.api
     import conda_build.index as conda_build_index
-    # from conda.config import hide_binstar_tokens
-    from conda_build.config import config as conda_build_config
     from conda.config import subdir as platform
     assert platform in ('osx-64', 'linux-32', 'linux-64', 'win-32', 'win-64')
     from conda_build.metadata import MetaData
-    from conda_build.config import Config as CondaBuildConfig
+    from conda_build.config import Config as _CondaBuildConfig
     from conda.utils import url_path
-    BUILD_DIRECTORY = CondaBuildConfig.short_build_prefix
+    # default config instance
+    CondaBuildConfig = _CondaBuildConfig()
+    BUILD_DIRECTORY = CondaBuildConfig.build_prefix
 except ImportError as e:
     print('ImportError encountered:')
     print(str(e))
@@ -161,10 +161,11 @@ def sort_recipes(recipe_paths):
                 meta_yaml_filename = os.path.join(r, 'meta.yaml')
                 if not os.path.exists(meta_yaml_filename):
                     print("Skipping '%s' because no meta.yaml file found..." % r)
+                    continue
 
                 try:
                     m = MetaData(r)
-                except RuntimeError:
+                except (RuntimeError, IOError):
                     print('Failed to load %s' % r)
                     raise
                 metadatas.append(m)
@@ -212,18 +213,19 @@ def conda_build_cmd():
 
 
 def get_bldpkg_path(m, python, numpy):
-    # globals used by conda-build to communicate python/numpy
-    # setting :(
-    conda_build_config.CONDA_PY = int(python.replace('.', ''))
-    conda_build_config.CONDA_NPY = int(numpy.replace('.', ''))
+    cfg = _CondaBuildConfig()
+    cfg.CONDA_PY = int(python.replace('.', ''))
+    cfg.CONDA_NPY = int(numpy.replace('.', ''))
+
+    m.config = cfg
     if m.info_index()['subdir'] == 'noarch':
-        conda_build_config.noarch = True
+        cfg.noarch = True
     else:
-        conda_build_config.noarch = False
+        cfg.noarch = False
     # need to re-parse jinja2 in light of changing config vars.
     # (esp. for skip() to work)
     m.parse_again()
-    return conda_build_build.bldpkg_path(m)
+    return conda_build_build.bldpkg_path(m, cfg)
 
 
 def list_package_contents(m, python, numpy):
@@ -298,11 +300,11 @@ class VersionIter(object):
 
 def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
                     force=False):
-    if not os.path.isdir(conda_build_config.bldpkgs_dir):
-        os.makedirs(conda_build_config.bldpkgs_dir)
-    conda_build_index.update_index(conda_build_config.bldpkgs_dir)
+    if not os.path.isdir(CondaBuildConfig.bldpkgs_dir):
+        os.makedirs(CondaBuildConfig.bldpkgs_dir)
+    conda_build_index.update_index(CondaBuildConfig.bldpkgs_dir, CondaBuildConfig)
     index = conda.api.get_index(
-        channel_urls=[url_path(conda_build_config.croot)] + list(channel_urls),
+        channel_urls=[url_path(CondaBuildConfig.croot)] + list(channel_urls),
         prepend=False)
     index_by_pkgname = defaultdict(dict)
     for k, v in index.items():
