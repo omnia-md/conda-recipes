@@ -31,10 +31,9 @@ try:
     assert platform in ('osx-64', 'linux-32', 'linux-64', 'win-32', 'win-64')
     from conda_build.metadata import MetaData
     from conda_build.config import Config as _CondaBuildConfig
+    from conda.utils import url_path
     # default config instance
     CondaBuildConfig = _CondaBuildConfig()
-    conda_build_config = CondaBuildConfig
-    from conda.utils import url_path
     BUILD_DIRECTORY = CondaBuildConfig.build_prefix
 except ImportError as e:
     print('ImportError encountered:')
@@ -300,11 +299,11 @@ class VersionIter(object):
 
 def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
                     force=False):
-    if not os.path.isdir(conda_build_config.bldpkgs_dir):
-        os.makedirs(conda_build_config.bldpkgs_dir)
-    conda_build_index.update_index(conda_build_config.bldpkgs_dir, conda_build_config)
+    if not os.path.isdir(CondaBuildConfig.bldpkgs_dir):
+        os.makedirs(CondaBuildConfig.bldpkgs_dir)
+    conda_build_index.update_index(CondaBuildConfig.bldpkgs_dir, CondaBuildConfig)
     index = conda.api.get_index(
-        channel_urls=[url_path(conda_build_config.croot)] + list(channel_urls),
+        channel_urls=[url_path(CondaBuildConfig.croot)] + list(channel_urls),
         prepend=False)
     index_by_pkgname = defaultdict(dict)
     for k, v in index.items():
