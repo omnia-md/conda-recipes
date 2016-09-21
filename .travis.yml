@@ -11,7 +11,7 @@ services:
 env:
   global:
     - CONDA_BUILD: "2.0.1"
-    secure: "GjbAskNQDToMpTQ87p2TcG+JPdr+TIyWxarkzwd/KCQLuJqTKVVinWtKZwB+uaEnz2mmnXT7jFgbUU2Vuq0Dv78SOgTnqeh+ObP60imN4z8TB88PAFihv7JDJ45Nfbe7viKrWLWDYRebkObbJduc7xms0YEb9vs4e1+knTojiEc="
+    - secure: "GjbAskNQDToMpTQ87p2TcG+JPdr+TIyWxarkzwd/KCQLuJqTKVVinWtKZwB+uaEnz2mmnXT7jFgbUU2Vuq0Dv78SOgTnqeh+ObP60imN4z8TB88PAFihv7JDJ45Nfbe7viKrWLWDYRebkObbJduc7xms0YEb9vs4e1+knTojiEc="
     # The Dockerfile that defines the image that for the build environment is
 # available in this repo at devtools/centos5-build-box/Dockerfile
 install:
