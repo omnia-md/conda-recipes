@@ -164,7 +164,7 @@ def sort_recipes(recipe_paths):
 
                 try:
                     m = MetaData(r)
-                except RuntimeError:
+                except (RuntimeError, IOError):
                     print('Failed to load %s' % r)
                     raise
                 metadatas.append(m)
