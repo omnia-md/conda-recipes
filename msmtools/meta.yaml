@@ -1,28 +1,28 @@
+{% set name = "msmtools" %}
+{% set version = "1.1.4" %}
+{% set sha256 = "ce4690748358f9b62dbebca1917426ecd6b6c298f436b90480012b245765de53" %}
+
 package:
-  name: msmtools 
-  version: !!str 1.1.3
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: v1.1.3.zip
-  url: https://github.com/markovmodel/msmtools/archive/v1.1.3.zip 
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
-    - cython >=0.20
+    - cython >=0.24
     - numpy x.x
-    - scipy 
-    - nose
-    - six
-    - decorator
-
   run:
     - python
-    - setuptools
     - numpy x.x
     - scipy
     - six
@@ -33,6 +33,14 @@ test:
     - msmtools 
 
 about:
-  home: http://emma-project.org
-  license: LGPLv3+ 
-  summary: "MSMTools"
+  home: http://github.com/markovmodel/msmtools
+  license: LGPL-3 
+  license_file: LICENSE.txt
+  summary: 'Tools for estimating and analyzing Markov state models'
+  description: |
+    'msmtools is an open source collection of algorithms for the estimation
+     and analysis of discrete state space Markov chains via Markov state models (MSM)'
+
+extra:
+  recipe-maintainers:
+    - marscher 
