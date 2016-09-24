@@ -10,8 +10,6 @@ build:
   number: 1
   skip:
     - [win32 or (win and py2k)]
-    # TODO no openmm py35 win
-    - [win and py35]
 
 requirements:
   build:
@@ -36,12 +34,8 @@ requirements:
     - parmed
 
 test:
-  requires:
-    - nose
   imports:
     - openmmtools
-  #commands:
-  #  - nosetests openmmtools --with-doctest --verbosity=2 --nocapture
 
 about:
   home: https://github.com/choderalab/openmmtools
