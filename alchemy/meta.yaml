@@ -8,6 +8,8 @@ source:
 
 build:
   number: 0
+  skip:
+    - [win and py27]
 
 requirements:
   build:
