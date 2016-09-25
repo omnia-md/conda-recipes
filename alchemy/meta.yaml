@@ -10,6 +10,7 @@ build:
   number: 0
   skip:
     - [win and py27]
+    - [win32]
 
 requirements:
   build:
