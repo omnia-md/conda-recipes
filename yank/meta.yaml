@@ -11,7 +11,7 @@ build:
   skip:
   skip:
     - [win32 or (win and py2k)]
-    
+
 requirements:
   build:
     - python
@@ -47,7 +47,7 @@ requirements:
     - ambermini >=15.0.4
     - docopt
     - openmoltools
-    - mpi4py
+    - mpi4py # [not win]
     - pyyaml
     - clusterutils
     - sphinxcontrib-bibtex
