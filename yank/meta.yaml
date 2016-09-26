@@ -8,7 +8,10 @@ source:
 
 build:
   number: 0
-
+  skip:
+  skip:
+    - [win32 or (win and py2k)]
+    
 requirements:
   build:
     - python
@@ -25,7 +28,7 @@ requirements:
     - docopt
     - openmoltools
     - sphinxcontrib-bibtex
-    - alchemy
+    - alchemy >=1.2.1
     - schema >=0.5.0
     #- gcc 4.8.2 # [linux]
     #- gcc 4.8.2 # [osx]
@@ -48,7 +51,7 @@ requirements:
     - pyyaml
     - clusterutils
     - sphinxcontrib-bibtex
-    - alchemy
+    - alchemy >=1.2.1
     - schema >=0.5.0
     #- libgcc
 
