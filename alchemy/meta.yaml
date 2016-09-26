@@ -1,26 +1,27 @@
 package:
   name: alchemy
-  version: 1.2.0
+  version: 1.2.1
 
 source:
-  url: https://github.com/choderalab/alchemy/archive/1.2.0.zip
-  fn: 1.2.0.zip
+  url: https://github.com/choderalab/alchemy/archive/1.2.1.zip
+  fn: 1.2.1.zip
 
 build:
   number: 0
   skip:
-    - [win]
+    - [win and py27]
+    - [win32]
 
 requirements:
   build:
     - python
     - setuptools
-    - openmm >=6.3
+    - openmm >=7.0.1
     - numpy
 
   run:
     - python
-    - openmm >=6.3
+    - openmm >=7.0.1
     - numpy
 
 test:
