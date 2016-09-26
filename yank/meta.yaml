@@ -10,7 +10,7 @@ build:
   number: 0
   skip:
   skip:
-    - [win32 or (win and py2k)]
+    - [win]
 
 requirements:
   build:
