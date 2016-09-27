@@ -1,17 +1,16 @@
 package:
   name: yank
-  version: 0.9.0
+  version: 0.10.0
 
 source:
     git_url: https://github.com/choderalab/yank.git
-    git_tag: 0.9.0
+    git_tag: 0.10.0
 
 build:
   number: 0
   skip:
+  skip:
     - [win]
-    - [osx and py3k]
-    - [unix and py3k]
 
 requirements:
   build:
@@ -21,15 +20,15 @@ requirements:
     - scipy
     - setuptools
     - netcdf4
-    - openmm ==7.0.1
-    - mdtraj ==1.5.1 # TODO the segment_id bug should be fixed: update version with next release
-    - openmmtools ==0.7.5
-    - pymbar ==2.1beta0
-    - ambermini ==15.0.4
+    - openmm >=7.0.1
+    - mdtraj >=1.7.2
+    - openmmtools
+    - pymbar
+    - ambermini >=15.0.4
     - docopt
-    - openmoltools ==0.7.1
+    - openmoltools
     - sphinxcontrib-bibtex
-    - alchemy ==1.2.0
+    - alchemy >=1.2.1
     - schema >=0.5.0
     #- gcc 4.8.2 # [linux]
     #- gcc 4.8.2 # [osx]
@@ -41,18 +40,18 @@ requirements:
     - scipy
     - cython
     - netcdf4
-    - openmm ==7.0.1
-    - mdtraj ==1.5.1 # TODO the segment_id bug should be fixed: update version with next release
-    - openmmtools ==0.7.5
-    - pymbar ==2.1beta0
-    - ambermini ==15.0.4
+    - openmm >=7.0.1
+    - mdtraj >=1.7.2
+    - openmmtools
+    - pymbar
+    - ambermini >=15.0.4
     - docopt
-    - openmoltools ==0.7.1
-    - mpi4py
+    - openmoltools
+    - mpi4py # [not win]
     - pyyaml
     - clusterutils
     - sphinxcontrib-bibtex
-    - alchemy ==1.2.0
+    - alchemy >=1.2.1
     - schema >=0.5.0
     #- libgcc
 
@@ -64,7 +63,6 @@ test:
     - yank
   commands:
     - yank --help
-    - yank selftest
 
 about:
   home: https://github.com/choderalab/yank
