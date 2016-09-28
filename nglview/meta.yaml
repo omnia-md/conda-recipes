@@ -1,13 +1,13 @@
 package:
   name: nglview
-  version: "0.4"
+  version: "v0.5.2"
 
 source:
-  fn: nglview-0.4.tar.gz
-  url: https://github.com/arose/nglview/archive/v0.4.tar.gz
+  git_url: https://github.com/arose/nglview.git
+  git_tag: v0.5.2
 
 build:
-  number: 1
+  number: 0
   noarch_python: True
 
 requirements:
@@ -15,19 +15,22 @@ requirements:
     - python
     - setuptools
     - jupyter
+    - ipywidgets <=4.1.1
+    - traitlets
 
   run:
     - python
+    - numpy
+    - ipywidgets <=4.1.1
     - jupyter
-    - ipywidgets
+    - traitlets
+    - notebook
 
 test:
   imports:
     - nglview
-    - nglview.html
 
 about:
   home: https://github.com/arose/nglview
   license: MIT License
-  summary: 'IPython widget to interactively view molecular structures and trajectories.'
-
+  summary: 'An IPython widget to interactively view molecular structures and trajectories. Utilizes the embeddable NGL Viewer for rendering.'
