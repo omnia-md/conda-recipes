@@ -1,9 +1,9 @@
 package:
   name: nglview
-  version: "v0.5.1"
+  version: "v0.5.2"
 
 source:
-  fn: msmbuilder-0.5.dev.tar.gz
+  fn: nglview-0.5.dev.tar.gz
   git_url: https://github.com/arose/nglview.git
   git_tag: v0.5.2
 
