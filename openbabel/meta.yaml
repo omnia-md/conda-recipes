@@ -1,10 +1,10 @@
 package:
   name: openbabel
-  version: 2015.09
+  version: "2.4.0"
 
 source:
-  url: https://github.com/openbabel/openbabel/archive/2d45874928002488b3e9f72b0d489c3062add716.zip
-  fn: 2d45874928002488b3e9f72b0d489c3062add716.zip
+  url: https://github.com/openbabel/openbabel/archive/openbabel-2-4-0.zip 
+  fn: openbabel-2-4-0.zip 
 
   patches:
     - include-dirs.patch
