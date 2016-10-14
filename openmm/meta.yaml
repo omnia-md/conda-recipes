@@ -7,7 +7,7 @@ source:
   git_rev: 064a781
 
 build:
-  number: 0
+  number: 1 # needed to override 'dev' build
   skip: True # [win]
 
 # by default upload binaries to 'rc' channel on anaconda.org
