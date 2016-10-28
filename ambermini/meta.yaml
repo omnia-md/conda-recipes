@@ -1,14 +1,15 @@
 package:
   name: ambermini
-  version: 15.0.4
+  version: 16.16.0
 
 source:
-  fn: 15.0.4.zip
-  url: https://github.com/choderalab/ambermini/archive/15.0.4.zip
-  md5: 5c72ad3ff91d05b3e10f7610b2149107
+  fn: 16.16.0.zip
+  url: https://github.com/choderalab/ambermini/archive/16.16.0.zip
+  md5: 2969b5b042a0ebd83ead860a9a8c4d2e
 
 build:
   number: 5
+  skip: True [win]
 
 requirements:
   build:
@@ -31,4 +32,4 @@ test:
 about:
   home: https://github.com/choderalab/ambermini/
   license: LGPL
-  summary: A stripped-down version of AmberTools 14 containing antechamber, sqm, tleap, and parmchk2
+  summary: A stripped-down version of AmberTools 16 containing antechamber, sqm, tleap, parmchk2, and paramfit
