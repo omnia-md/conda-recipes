@@ -2,10 +2,9 @@ os:
   - linux
   - osx
 
-# This image will expire on 31 Oct 2016, at which point we need to change to xcode6.4
-# https://blog.travis-ci.com/2016-10-04-osx-73-default-image-live/
-# Supported versions: https://docs.travis-ci.com/user/languages/objective-c/#Supported-Xcode-versions
-osx_image: beta-xcode6.1
+# Supported osx/xcode versions: https://docs.travis-ci.com/user/languages/objective-c/#Supported-Xcode-versions
+# See also: https://blog.travis-ci.com/2016-10-04-osx-73-default-image-live/
+osx_image: xcode6.4
 
 language: c
 sudo: required
