@@ -9,7 +9,7 @@ source:
 build:
   number: 0
   skip:
-    - [py27]
+    - [py27 or py34 or py35]
 
 extra:
   maintainers:
