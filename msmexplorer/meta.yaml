@@ -35,12 +35,6 @@ requirements:
     - corner
     - six
 
-test:
-  imports:
-    - msmexplorer
-    - msmexplorer.tests
-    - matplotlib
-
 about:
   home: https://github.com/msmexplorer/msmexplorer
   license: MIT
