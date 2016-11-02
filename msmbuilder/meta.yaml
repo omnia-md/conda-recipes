@@ -1,11 +1,11 @@
 package:
   name: msmbuilder
-  version: "3.6.0"
+  version: "3.6.1"
 
 source:
-    fn: msmbuilder-3.6.0.tar.gz
-    url: https://pypi.python.org/packages/33/3d/ea24e33ec9f4a8dd39f92b52c6d334737f00b558029d5342fa2d8dbdf046/msmbuilder-3.6.0.tar.gz#md5=221f5774b6b94d9d08be1aafdad6cfab
-    md5: 221f5774b6b94d9d08be1aafdad6cfab
+    fn: msmbuilder-3.6.1.tar.gz
+    url: https://pypi.python.org/packages/75/c9/806c06d13a032e20d12c6ccbd318de783b18a99e0c49f0c497007ca2f796/msmbuilder-3.6.1.tar.gz#md5=0659b50d7f736dae2547c0ce4e74724d
+    md5: 0659b50d7f736dae2547c0ce4e74724d
 
 extra:
   upload: rc

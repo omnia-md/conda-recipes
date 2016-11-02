@@ -1,4 +1,4 @@
-{% set version = "2.2.6" %}
+{% set version = "2.2.7" %}
 
 package:
   name: pyemma
@@ -30,7 +30,7 @@ requirements:
     - mdtraj >=1.7 
     - mock
     - funcsigs
-    - msmtools
+    - msmtools >=1.1.4
     - thermotools >=0.2
     - numpy x.x
     - pyyaml
