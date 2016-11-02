@@ -18,11 +18,13 @@ requirements:
     - setuptools
     - openmm >=7.0.1
     - numpy
+    - openmmtools
 
   run:
     - python
     - openmm >=7.0.1
     - numpy
+    - openmmtools
 
 test:
   imports:
