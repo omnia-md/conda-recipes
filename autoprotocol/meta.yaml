@@ -5,7 +5,7 @@ package:
 source:
   fn: autoprotocol-3.10.0.tar.gz
   url: https://pypi.python.org/packages/5e/58/3243643eb5aecf9ec45c7fe59a254615068cdc1fb648d4ccab043a0fca4e/autoprotocol-3.10.0.tar.gz
-  md5: 7c0ec219116d41e0e26271c29ba6352
+  md5: 7c0ec219116d41e0e26271c29ba6352e
 #  patches:
    # List any patch files here
    # - fix.patch
