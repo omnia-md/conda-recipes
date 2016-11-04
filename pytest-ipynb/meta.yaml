@@ -1,0 +1,67 @@
+package:
+  name: pytest-ipynb
+  version: "1.1.0"
+
+source:
+  fn: pytest-ipynb-1.1.0.tar.gz
+  url: https://pypi.python.org/packages/d2/7b/cbbf7f113a05245d6fec7197091a8696bb62e1f29c9452c36fbd6d3acec1/pytest-ipynb-1.1.0.tar.gz
+  md5: bc71c5dcea87cf800ca3658fd4494538
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # noarch_python: True
+  preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - pytest-ipynb = pytest-ipynb:main
+    #
+    # Would create an entry point called pytest-ipynb that calls pytest-ipynb.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest
+    - runipy
+
+  run:
+    - python
+    - setuptools
+    - pytest
+    - runipy
+
+test:
+  # Python imports
+  imports:
+    - pytest_ipynb
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://github.com/zonca/pytest-ipynb
+  license: MIT License
+  summary: "Use pytest's runner to discover and execute tests as cells of IPython notebooks"
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
