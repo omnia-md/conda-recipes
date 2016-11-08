@@ -15,12 +15,15 @@ services:
 env:
   global:
     - CONDA_BUILD: "2.0.1"
-    - secure: "GjbAskNQDToMpTQ87p2TcG+JPdr+TIyWxarkzwd/KCQLuJqTKVVinWtKZwB+uaEnz2mmnXT7jFgbUU2Vuq0Dv78SOgTnqeh+ObP60imN4z8TB88PAFihv7JDJ45Nfbe7viKrWLWDYRebkObbJduc7xms0YEb9vs4e1+knTojiEc="
+    - CUDA_VERSION: "7.5"
+    - CUDA_SHORT_VERSION: "75"
+  secure:
+    - "GjbAskNQDToMpTQ87p2TcG+JPdr+TIyWxarkzwd/KCQLuJqTKVVinWtKZwB+uaEnz2mmnXT7jFgbUU2Vuq0Dv78SOgTnqeh+ObP60imN4z8TB88PAFihv7JDJ45Nfbe7viKrWLWDYRebkObbJduc7xms0YEb9vs4e1+knTojiEc="
     # The Dockerfile that defines the image that for the build environment is
 # available in this repo at devtools/centos5-build-box/Dockerfile
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      docker pull jchodera/omnia-build-box:cuda75-amd30;
+      docker pull jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30;
     fi
 
 script:
@@ -34,7 +37,7 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
         docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST -e CONDA_BUILD
-            -t -i --rm -v `pwd`:/io jchodera/omnia-build-box:cuda75-amd30
+            -t -i --rm -v `pwd`:/io jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30
             bash /io/devtools/docker-build.sh;
 
     elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
