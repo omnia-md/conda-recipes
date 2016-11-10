@@ -18,9 +18,9 @@ env:
     - CUDA_VERSION: "7.5"
     - CUDA_SHORT_VERSION: "75"
   secure:
-    - "GjbAskNQDToMpTQ87p2TcG+JPdr+TIyWxarkzwd/KCQLuJqTKVVinWtKZwB+uaEnz2mmnXT7jFgbUU2Vuq0Dv78SOgTnqeh+ObP60imN4z8TB88PAFihv7JDJ45Nfbe7viKrWLWDYRebkObbJduc7xms0YEb9vs4e1+knTojiEc="
+    - "KonnWbOMhn8F1C6n+GnXgrCTyE5vZIZ7X0/ATLsI9JD8mD2Du2V7K+D+1ZDy8LILwDwfcW/ft7mJnpWqKylWjnaBZnjZDMq7oAevchFDPshU7B8JjpGJC9VWwkxZe47eOitYlVgnyqcWzRHe2yrSHBgCQRxrBHqSvsYXqQt+BgM="
     # The Dockerfile that defines the image that for the build environment is
-# available in this repo at devtools/centos5-build-box/Dockerfile
+    # available in this repo at devtools/centos5-build-box/Dockerfile
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       docker pull jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30;
