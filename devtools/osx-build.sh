@@ -23,8 +23,8 @@ if ! ./conda-build-all --dry-run -- openmm* ; then
 fi;
 
 # Install latex.
-brew tap -y --quiet Caskroom/cask;
-brew cask install -y --quiet basictex
+brew tap -y caskroom/cask
+brew cask install -y basictex
 export PATH="/usr/texbin:${PATH}:/usr/bin"
 sudo tlmgr update --self
 sudo tlmgr install titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring
