@@ -3,6 +3,10 @@ set -e -x
 
 # Update homebrew
 brew update -y --quiet
+brew uninstall -y brew-cask
+brew untap -y caskroom/cask
+brew tap -y caskroom/cask
+brew install -y brew-cask
 
 # Install Miniconda
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
@@ -23,8 +27,6 @@ if ! ./conda-build-all --dry-run -- openmm* ; then
 fi;
 
 # Install latex.
-#brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
-#brew tap -y caskroom/cask
 brew cask install -y basictex
 export PATH="/usr/texbin:${PATH}:/usr/bin"
 sudo tlmgr update --self
