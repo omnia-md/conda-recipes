@@ -23,6 +23,10 @@ if ! ./conda-build-all --dry-run -- openmm* ; then
 fi;
 
 # Install latex.
+brew tap # list taps
+brew list
+brew install brew-cask
+brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
 brew tap -y caskroom/cask
 brew cask install -y basictex
 export PATH="/usr/texbin:${PATH}:/usr/bin"
