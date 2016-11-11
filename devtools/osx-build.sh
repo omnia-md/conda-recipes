@@ -3,9 +3,6 @@ set -e -x
 
 # Update homebrew
 brew update -y --quiet
-brew uninstall -y brew-cask
-brew untap -y caskroom/cask
-brew tap -y caskroom/cask
 brew install -y brew-cask
 
 # Install Miniconda
