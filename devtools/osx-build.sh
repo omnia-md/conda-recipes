@@ -3,7 +3,7 @@ set -e -x
 
 # Update homebrew
 brew update -y --quiet
-brew install -y brew-cask
+brew uninstall -y brew-cask || brew untap -y caskroom/cask || brew tap -y caskroom/cask
 
 # Install Miniconda
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
