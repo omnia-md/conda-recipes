@@ -25,7 +25,6 @@ if ! ./conda-build-all --dry-run -- openmm* ; then
 fi;
 
 # Install latex.
-brew list
 brew cask install -y basictex
 export PATH="/usr/texbin:${PATH}:/usr/bin"
 sudo tlmgr update --self
