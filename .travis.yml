@@ -17,6 +17,9 @@ env:
     - CONDA_BUILD: "2.0.1"
     - CUDA_VERSION: "7.5"
     - CUDA_SHORT_VERSION: "75"
+  secure: 
+    - "BcRfQLNt/OfEF0CQskS8jir2HukujNaWjBZKMHMHjQkL7ULwXBdbBQBdGmzSuQ8xt9D1adhCmesfXLsUwKC/tDNbl7YV/wQkhTOcuSAIXUEjj8RkiO4uiTA4pqFT81c5a53dLvlYEYxJ3gjo6MSjo1Sx3QFGT8yUvGCpgk/YavQ="
+
 install:
   # The Dockerfile that defines the image that for the build environment is
   # available in this repo at devtools/omnia-build-box/Dockerfile
