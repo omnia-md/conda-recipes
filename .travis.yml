@@ -18,7 +18,7 @@ env:
     - CUDA_VERSION: "7.5"
     - CUDA_SHORT_VERSION: "75"
   secure: 
-    - "Bn7+i0qCzcm7XUWY9nMgB1L7KC5VCsJgsSMwSHlAOXs3HjVJerxTHQohq6OMafyPCfnzRyY4dca1Wl3uRA2eXLJTB8uCyAgWoT/oIepVeplyVeWLPkQzRoiCSDMTeFTZY9imgh/Qkap+6mZ34fXh/Q4XBxZ7jGrpooq2TUst9Ac="
+    - "aJ7F8bLDjc0I6gDtbsGYzwfvUFI2DiZcOTeA8U94Cj5sMFJjC02cptZDSjIqx7vYH/BkG6Kr0ETE6CCqC7qkub90+9mZBlvNgZ5BnbCxXoiKaS/Qg5aFd22D1SB0eBvm+zFy4KBTUw53Vc2BX61mJ4KAgsSkx5zEqqJgcJqYxfA="
 
 install:
   # The Dockerfile that defines the image that for the build environment is

@@ -11,7 +11,7 @@ environment:
     # See: http://stackoverflow.com/a/13751649/163740
     CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\devtools\\appveyor\\run_with_env.cmd"
     BINSTAR_TOKEN:
-      secure: ie9qx0X/NMqZ4zTodC0WqOasZHz4i09JytViqxxcKo7ojmKTiigUE8rQIUettO59
+      secure: gseoZQcKcNhwmxUa8QCSfqPrMda9GMur/K24BZlp+I7BasK4igU2vg40+r7QyolZuLHWazznNQPIYk/Gf5dMgX4ZxRuuhV03dj9qZHttLyhyDQ6sIMvoW0GQ9QXwVAbzt6zRnfGK+aeTc2ZDYC2PlQ9+NxBaZj4nnMotj6iYygtB9s54hQNqHt5trMJrpe1SIZWeY5p4KFY6HohiSFohtPDugKeMPzn1EkAGQfsvpD8=
     CONDA_BUILD: "2.0.1"
 
   matrix:
