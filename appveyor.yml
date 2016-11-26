@@ -10,6 +10,7 @@ environment:
     # /E:ON and /V:ON options are not enabled in the batch script intepreter
     # See: http://stackoverflow.com/a/13751649/163740
     CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\devtools\\appveyor\\run_with_env.cmd"
+    PYTHONUNBUFFERED: 1
     BINSTAR_TOKEN:
       secure: gseoZQcKcNhwmxUa8QCSfqPrMda9GMur/K24BZlp+I7BasK4igU2vg40+r7QyolZuLHWazznNQPIYk/Gf5dMgX4ZxRuuhV03dj9qZHttLyhyDQ6sIMvoW0GQ9QXwVAbzt6zRnfGK+aeTc2ZDYC2PlQ9+NxBaZj4nnMotj6iYygtB9s54hQNqHt5trMJrpe1SIZWeY5p4KFY6HohiSFohtPDugKeMPzn1EkAGQfsvpD8=
     CONDA_BUILD: "2.0.1"
@@ -67,4 +68,3 @@ build: false
 test_script:
   - ps: if (($env:APPVEYOR_PULL_REQUEST_NUMBER -eq $null) -and ($env:APPVEYOR_REPO_BRANCH -eq "master")) { $env:UPLOAD = "--upload omnia" } else { $env:UPLOAD = " " }
   - "%CMD_IN_ENV% python conda-build-all %UPLOAD% --python %CONDA_PY% *"
-
