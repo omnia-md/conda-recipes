@@ -1,4 +1,4 @@
-#os: Visual Studio 2015
+os: Visual Studio 2015
 
 branches:
   only:
@@ -47,11 +47,9 @@ environment:
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - set PATH=C:\MinGW\msys\1.0\bin;%PATH%
-  - set PYTHONPATH=""
   - conda config --add channels omnia
-  - conda config --add channels salilab # for MODELLER
+  - conda config --add channels salilab
   - conda update -yq --all
-  - conda info -a
   - conda install -yq conda-build="%CONDA_BUILD%" jinja2 anaconda-client
   - powershell .\\devtools\\appveyor\\missing-headers.ps1
   # conda-build for some inane reason, effectively puts C:\cygwin\bin at the
