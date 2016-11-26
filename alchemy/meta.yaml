@@ -1,10 +1,10 @@
 package:
   name: alchemy
-  version: 1.2.2
+  version: 1.2.3
 
 source:
-  url: https://github.com/choderalab/alchemy/archive/1.2.2.zip
-  fn: 1.2.2.zip
+  url: https://github.com/choderalab/alchemy/archive/1.2.3.zip
+  fn: 1.2.3.zip
 
 build:
   number: 0
@@ -32,5 +32,5 @@ test:
 
 about:
   home: https://github.com/choderalab/alchemy
-  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  license: MIT License
   summary: Alchemical tools for OpenMM
