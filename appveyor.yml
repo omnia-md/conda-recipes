@@ -1,4 +1,4 @@
-os: Visual Studio 2015
+#os: Visual Studio 2015
 
 branches:
   only:
@@ -51,9 +51,7 @@ install:
   - conda config --add channels omnia
   - conda config --add channels salilab # for MODELLER
   - conda update -yq --all
-  - conda info -a # DEBUG
-  - pip install -U requests # DEBUG
-  - conda info -a # DEBUG
+  - conda info -a
   - conda install -yq conda-build="%CONDA_BUILD%" jinja2 anaconda-client
   - powershell .\\devtools\\appveyor\\missing-headers.ps1
   # conda-build for some inane reason, effectively puts C:\cygwin\bin at the
