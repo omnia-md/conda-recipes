@@ -1,0 +1,36 @@
+package:
+  name: progress_reporter
+  version: "1.2"
+
+source:
+  git_url: https://github.com/marscher/progress_reporter
+  git_rev: v1.2
+
+build:
+  noarch_python: True
+  number: 1
+  skip:
+    - [osx or win]
+
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - progress_reporter
+    - progress_reporter.bar
+
+about:
+  home: https://github.com/marscher/progress_reporter
+  license: MIT License
+  summary: 'interface for progress reporting'
+
+extra:
+  maintainers: Martin Scherer

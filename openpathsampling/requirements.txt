@@ -1,0 +1,13 @@
+python
+numpy
+scipy
+pandas
+netcdf4
+openmm
+openmmtools
+pyyaml
+mdtraj
+svgwrite
+networkx
+matplotlib
+ujson

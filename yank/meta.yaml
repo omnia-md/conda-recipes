@@ -1,17 +1,15 @@
 package:
   name: yank
-  version: 0.8.0
+  version: "0.12.0"
 
 source:
     git_url: https://github.com/choderalab/yank.git
-    git_tag: 0.8.0
+    git_tag: "0.12.0"
 
 build:
   number: 0
   skip:
     - [win]
-    - [osx and py3k]
-    - [unix and py3k]
 
 requirements:
   build:
@@ -21,15 +19,16 @@ requirements:
     - scipy
     - setuptools
     - netcdf4
-    - openmm ==7.0rc1 # temporarily test against stable version
-    - mdtraj 1.5.1 # TODO remove me when segment_id bug is fixed (this is installed through openmoltools)
-    - openmmtools ==0.7.5 # temporarily test against stable version
-    - pymbar ==2.1beta0 # temporarily test against stable version
-    - ambermini ==14.0.1 # temporarily test against stable version
+    - openmm >=7.0.1
+    - mdtraj >=1.7.2
+    - openmmtools
+    - pymbar
+    - ambermini >=15.0.4
     - docopt
-    - openmoltools ==0.7.0 # temporarily test against stable version
+    - openmoltools
     - sphinxcontrib-bibtex
-    - alchemy ==1.2.0
+    - alchemy >=1.2.1
+    - schema >=0.6.2
     #- gcc 4.8.2 # [linux]
     #- gcc 4.8.2 # [osx]
 
@@ -40,18 +39,19 @@ requirements:
     - scipy
     - cython
     - netcdf4
-    - openmm ==7.0rc1 # temporarily test against stable version
-    - mdtraj 1.5.1 # TODO remove me when segment_id bug is fixed (this is installed through openmoltools)
-    - openmmtools ==0.7.5 # temporarily test against stable version
-    - pymbar ==2.1beta0 # temporarily test against stable version
-    - ambermini
+    - openmm >=7.0.1
+    - mdtraj >=1.7.2
+    - openmmtools
+    - pymbar
+    - ambermini >=15.0.4
     - docopt
-    - openmoltools ==0.7.0 # temporarily test against stable version
-    - mpi4py
+    - openmoltools
+    - mpi4py # [not win]
     - pyyaml
     - clusterutils
     - sphinxcontrib-bibtex
-    - alchemy ==1.2.0
+    - alchemy >=1.2.1
+    - schema >=0.6.2
     #- libgcc
 
 test:
@@ -62,7 +62,6 @@ test:
     - yank
   commands:
     - yank --help
-    - yank selftest
 
 about:
   home: https://github.com/choderalab/yank

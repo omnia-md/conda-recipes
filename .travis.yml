@@ -2,6 +2,10 @@ os:
   - linux
   - osx
 
+# Supported osx/xcode versions: https://docs.travis-ci.com/user/languages/objective-c/#Supported-Xcode-versions
+# See also: https://blog.travis-ci.com/2016-10-04-osx-73-default-image-live/
+osx_image: xcode6.4
+
 language: c
 sudo: required
 
@@ -10,13 +14,17 @@ services:
 
 env:
   global:
-    secure: "GjbAskNQDToMpTQ87p2TcG+JPdr+TIyWxarkzwd/KCQLuJqTKVVinWtKZwB+uaEnz2mmnXT7jFgbUU2Vuq0Dv78SOgTnqeh+ObP60imN4z8TB88PAFihv7JDJ45Nfbe7viKrWLWDYRebkObbJduc7xms0YEb9vs4e1+knTojiEc="
+    - CONDA_BUILD: "2.0.1"
+    - CUDA_VERSION: "7.5"
+    - CUDA_SHORT_VERSION: "75"
+  secure: 
+    - "aJ7F8bLDjc0I6gDtbsGYzwfvUFI2DiZcOTeA8U94Cj5sMFJjC02cptZDSjIqx7vYH/BkG6Kr0ETE6CCqC7qkub90+9mZBlvNgZ5BnbCxXoiKaS/Qg5aFd22D1SB0eBvm+zFy4KBTUw53Vc2BX61mJ4KAgsSkx5zEqqJgcJqYxfA="
 
-# The Dockerfile that defines the image that for the build environment is
-# available in this repo at devtools/centos5-build-box/Dockerfile
 install:
+  # The Dockerfile that defines the image that for the build environment is
+  # available in this repo at devtools/omnia-build-box/Dockerfile
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      docker pull jchodera/omnia-build-box;
+      docker pull jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30;
     fi
 
 script:
@@ -29,8 +37,8 @@ script:
 
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
-        docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST
-            -t -i --rm -v `pwd`:/io jchodera/omnia-build-box:latest
+        docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST -e CONDA_BUILD
+            -t -i --rm -v `pwd`:/io jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30
             bash /io/devtools/docker-build.sh;
 
     elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then

@@ -1,10 +1,10 @@
 package:
   name: pdbfixer
-  version: 1.3
+  version: 1.3.1
 
 source:
-  fn: v1.3.tar.gz
-  url: https://github.com/pandegroup/pdbfixer/archive/v1.3.tar.gz
+  fn: v1.3.1.tar.gz
+  url: https://github.com/pandegroup/pdbfixer/archive/v1.3.1.tar.gz
 
 build:
   number: 1
@@ -12,19 +12,17 @@ build:
     - pdbfixer = pdbfixer.pdbfixer:main
   skip:
     - [win32 or (win and py2k)]
-    # TODO no openmm py35 win
-    - [win and py35]
 
 requirements:
   build:
     - python
     - setuptools
-    - openmm >=7.0rc1
+    - openmm >=7.0.1
     - numpy
 
   run:
     - python
-    - openmm >=7.0rc1
+    - openmm >=7.0.1
     - numpy
 
 test:

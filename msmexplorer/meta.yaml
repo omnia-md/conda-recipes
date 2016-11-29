@@ -1,0 +1,43 @@
+package:
+  name: msmexplorer
+  version: "0.3.0"
+
+source:
+  git_url: https://github.com/msmexplorer/msmexplorer.git
+  git_tag: 0.3.0
+
+build:
+  number: 0
+  skip:
+    - [py27]
+
+extra:
+  maintainers:
+   - cxhernandez
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+    - numpy
+
+  run:
+    - python
+    - numpy
+    - pandas
+    - msmbuilder
+    - mdtraj
+    - matplotlib
+    - seaborn
+    - statsmodels
+    - networkx
+    - corner
+    - six
+
+about:
+  home: https://github.com/msmexplorer/msmexplorer
+  license: MIT
+  summary: 'Data visualizations for biomolecular dynamics'
+
+# vim: ts=2 sw=2 et

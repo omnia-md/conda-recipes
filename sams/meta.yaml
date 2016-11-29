@@ -1,0 +1,59 @@
+package:
+  name: sams
+  version: 0.1.1
+
+source:
+  git_url: https://github.com/choderalab/sams.git
+  git_tag: 0.1.1
+
+build:
+  preserve_egg_dir: True
+  number: 0
+  skip:
+    - [win]
+    
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+    - pymbar
+    - openmm
+    - netcdf4
+    - parmed
+    - openmoltools
+    - alchemy >=1.2.1
+    - openmmtools
+    - matplotlib
+    - seaborn
+    - mdtraj
+
+  run:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+    - pymbar
+    - openmm
+    - netcdf4
+    - parmed
+    - openmoltools
+    - alchemy >=1.2.1
+    - openmmtools
+    - matplotlib
+    - seaborn
+    - mdtraj
+
+test:
+  requires:
+    - nose
+    - nose-timer
+  imports:
+    - sams
+
+about:
+  home: https://github.com/choderalab/sams
+  license: MIT
+  license_file: LICENSE
+  summary: Self-adjusted mixture sampling toolkit for molecular simulations

@@ -1,13 +1,15 @@
+{% set version = "2.2.7" %}
+
 package:
   name: pyemma
-  version: 2.2
+  version: {{ version }}
 source:
-  fn: pyEMMA-2.2.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v2.2.tar.gz
+  fn: pyEMMA-{{ version }}.tar.gz
+  url: https://github.com/markovmodel/PyEMMA/archive/v{{ version }}.tar.gz
 
 build:
-  preserve_egg_dir: True
   number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
@@ -15,20 +17,9 @@ requirements:
     - setuptools
     - cython >=0.20
 
-    - bhmm >=0.6,<0.7
-    - joblib >0.8.4
-    - matplotlib
-    - mdtraj >=1.6
-    - mock
-    - msmtools
-    - thermotools >=0.2
+    - mdtraj >=1.7
     - nose
     - numpy x.x
-    - pyyaml
-    - scipy
-    - six
-    - psutil >=3.1.1
-    - decorator >=4.0.0
 
   run:
     - python
@@ -36,9 +27,10 @@ requirements:
     - bhmm >=0.6,<0.7
     - joblib >0.8.4
     - matplotlib
-    - mdtraj >=1.6 
+    - mdtraj >=1.7 
     - mock
-    - msmtools
+    - funcsigs
+    - msmtools >=1.1.4
     - thermotools >=0.2
     - numpy x.x
     - pyyaml
@@ -46,6 +38,7 @@ requirements:
     - six
     - psutil >=3.1.1
     - decorator >=4.0.0
+    - progress_reporter
 
 test:
   imports:
