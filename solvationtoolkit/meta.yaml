@@ -52,11 +52,11 @@ test:
     - nose
     - openmmtools
     - openmoltools
-  imports:
-    - solvationtoolkit
-    - openmoltools
-  commands:
-    - nosetests solvationtoolkit -v 
+#  imports:
+#  - solvationtoolkit
+#  - openmoltools
+#  commands:
+#    - nosetests solvationtoolkit -v 
 
 about:
   home: https://github.com/mobleylab/solvationtoolkit
