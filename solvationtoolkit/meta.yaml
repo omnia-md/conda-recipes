@@ -9,10 +9,7 @@ source:
 build:
   preserve_egg_dir: True
   number: 0
-  skip:
-    - [win32 or (win and py2k)]
-    # TODO no openmm py35 win
-    - [win and py35]
+  skip: True # [win or (py34 or py35)]
 
 requirements:
   build:
