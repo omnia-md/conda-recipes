@@ -1,13 +1,14 @@
 package:
   name: solvationtoolkit
-  version: 0.4.1
+  version: 0.4.2
 
 source:
     git_url: https://github.com/MobleyLab/SolvationToolkit.git
-    git_tag: v0.4.1
+    git_tag: v0.4.2
 
 build:
-  number: 1
+  preserve_egg_dir: True
+  number: 0
   skip:
     - [win32 or (win and py2k)]
     # TODO no openmm py35 win
@@ -50,6 +51,7 @@ test:
   requires:
     - nose
     - openmmtools
+    - openmoltools
   imports:
     - solvationtoolkit
     - openmoltools
@@ -58,4 +60,4 @@ test:
 
 about:
   home: https://github.com/mobleylab/solvationtoolkit
-  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  license: MIT
