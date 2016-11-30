@@ -19,7 +19,7 @@ requirements:
     - numpydoc
     - scipy
     - ambermini
-    - parmed-dev
+    - parmed
     - openmoltools
     - mdtraj
     - packmol
@@ -34,7 +34,7 @@ requirements:
     - numpydoc
     - scipy
     - ambermini
-    - parmed-dev
+    - parmed
     - libgfortran 1.* # [linux and np == 19]
     - openmoltools
     - mdtraj
@@ -48,7 +48,6 @@ test:
   requires:
     - nose
     - openmmtools
-    - openmoltools
 #  imports:
 #  - solvationtoolkit
 #  - openmoltools
