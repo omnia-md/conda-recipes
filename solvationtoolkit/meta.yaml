@@ -1,0 +1,59 @@
+package:
+  name: solvationtoolkit
+  version: 0.4.2
+
+source:
+    git_url: https://github.com/MobleyLab/SolvationToolkit.git
+    git_tag: v0.4.2
+
+build:
+  preserve_egg_dir: True
+  number: 0
+  skip: True # [win or (py34 or py35)]
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - numpydoc
+    - scipy
+    - ambermini
+    - parmed
+    - openmoltools
+    - mdtraj
+    - packmol
+    - netcdf4
+    - pandas
+    - openmm
+    - pytables
+  run:
+    - python
+    - setuptools
+    - numpy
+    - numpydoc
+    - scipy
+    - ambermini
+    - parmed
+    - libgfortran 1.* # [linux and np == 19]
+    - openmoltools
+    - mdtraj
+    - packmol
+    - netcdf4
+    - pandas
+    - openmm
+    - pytables
+
+test:
+  requires:
+    - nose
+    - openmmtools
+#  imports:
+#  - solvationtoolkit
+#  - openmoltools
+#  commands:
+#    - nosetests solvationtoolkit -v 
+
+about:
+  home: https://github.com/mobleylab/solvationtoolkit
+  license: MIT
