@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import subprocess
+
+os.environ['AMBERHOME'] = sys.prefix
+if sys.platform.startswith('linux'):
+    os.environ['LD_LIBRARY_PATH'] = os.getenv('LD_LIBRARY_PATH', '') + ':' + sys.prefix + '/lib'
+print(os.environ['LD_LIBRARY_PATH'])
+nab_exe = os.path.join(sys.prefix, 'bin', 'nab')
+print(commands)
+try:
+    subprocess.call(commands)
+except KeyboardInterrupt:
+    pass

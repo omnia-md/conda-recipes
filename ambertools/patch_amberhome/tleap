@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import subprocess
+
+tleap_paths = ['prep', 'lib', 'parm', 'cmd']
+include_paths = ['-I' + os.path.join(sys.prefix, 'dat', 'leap', path)
+                 for path in tleap_paths]
+tleap_exe = os.path.join(sys.prefix, 'bin', 'teLeap')
+commands = [tleap_exe,] + include_paths + sys.argv[1:]
+try:
+    subprocess.call(commands)
+except KeyboardInterrupt:
+    pass
