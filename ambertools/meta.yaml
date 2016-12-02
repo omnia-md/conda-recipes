@@ -25,9 +25,11 @@ requirements:
   build:
     - zlib
     - bzip2
+    - gfortran
   run:
     - zlib
     - bzip2
+    - gfortran
     - python
 
 about:
