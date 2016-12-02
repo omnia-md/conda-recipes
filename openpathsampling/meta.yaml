@@ -36,9 +36,9 @@ requirements:
     - matplotlib
     - ujson
 
-test:
-  imports:
-    - openpathsampling
+#test:
+  #imports:
+    #- openpathsampling
 
 about:
   home: http://github.com/openpathsampling/openpathsampling
