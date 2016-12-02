@@ -25,11 +25,11 @@ requirements:
   build:
     - zlib
     - bzip2
-    - gfortran
+    - gcc  [unix]
   run:
     - zlib
     - bzip2
-    - gfortran
+    - libgcc  [unix]
     - python
 
 about:
