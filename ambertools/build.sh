@@ -1,14 +1,16 @@
 #!/bin/sh
 
 isosx=`python -c "import sys; print(sys.platform.startswith('darwin'))"`
-if [ "$isosx" == "True" ]; then
-    compiler='clang'
-else
-    compiler='gnu'
-fi
 
 export AMBERHOME=`pwd`
-yes | ./configure -noX11 --with-python `which python` $compiler
+./update_amber --show-applied-patches
+./update_amber --update
+./update_amber --show-applied-patches
+if [ "$isosx" == "True" ]; then
+    ./configure -noX11 --with-python `which python` -macAccelerate clang
+else
+    ./configure -noX11 --with-python `which python` gnu
+fi
 source amber.sh
 
 # build whole ambertools
