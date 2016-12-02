@@ -1,5 +1,7 @@
 #!/bin/sh
 
+python -c "import sys; print(sys.getdefaultencoding())"
+
 isosx=`python -c "import sys; print(sys.platform.startswith('darwin'))"`
 if [ "$isosx" == "True" ]; then
     compiler='clang'
