@@ -25,7 +25,7 @@ requirements:
   build:
     - zlib
     - bzip2
-    - gcc  [unix]
+    - gcc
   run:
     - zlib
     - bzip2
