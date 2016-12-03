@@ -25,11 +25,12 @@ requirements:
   build:
     - zlib
     - bzip2
-    - gcc
+    - python
+    - mingwpy [win]
+    - gcc [osx]
   run:
     - zlib
     - bzip2
-    - libgcc  [unix]
     - python
 
 about:
