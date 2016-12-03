@@ -30,6 +30,9 @@ export PATH="/usr/texbin:${PATH}:/usr/bin"
 sudo tlmgr update --self
 sudo tlmgr install titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring
 
+# gfortran
+brew install gcc
+
 # Build packages
 if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
     ./conda-build-all -vvv $UPLOAD  -- * || true;
