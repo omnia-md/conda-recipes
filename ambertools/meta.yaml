@@ -27,7 +27,7 @@ requirements:
     - bzip2
     - python
     - mingwpy [win]
-    - gcc [osx]
+  
   run:
     - zlib
     - bzip2
