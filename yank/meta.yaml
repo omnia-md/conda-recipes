@@ -23,7 +23,7 @@ requirements:
     - mdtraj >=1.7.2
     - openmmtools
     - pymbar
-    - ambermini >= 16.16.0
+    - ambermini >=16.16.0
     - docopt
     - openmoltools
     - sphinxcontrib-bibtex
