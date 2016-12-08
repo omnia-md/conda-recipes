@@ -8,8 +8,7 @@ source:
 
 build:
   number: 1
-  skip:
-    - [osx or win]
+  skip: True  # [osx or win]
 
 requirements:
     build:

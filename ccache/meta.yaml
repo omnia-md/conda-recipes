@@ -8,8 +8,7 @@ source:
 
 build:
   number: 0
-  skip:
-    - [not unix]
+  skip: True  # [not unix]
 
 test:
   commands:

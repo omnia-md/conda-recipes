@@ -8,8 +8,7 @@ source:
   git_rev: v0.1.2
 
 build:
-  skip:
-    - [not linux]
+  skip: True  # [not linux]
     
 requirements:
   build:

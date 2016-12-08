@@ -9,8 +9,7 @@ source:
 
 build:
   number: 1
-  skip:
-    - [win and py35 and np == 19]
+  skip: True  # [win and py35 and np == 19]
 
 requirements:
   build:

@@ -10,8 +10,7 @@ build:
   number: 1
   entry_points:
     - pdbfixer = pdbfixer.pdbfixer:main
-  skip:
-    - [win32 or (win and py2k)]
+  skip: True  # [win32 or (win and py2k)]
 
 requirements:
   build:

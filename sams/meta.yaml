@@ -9,8 +9,7 @@ source:
 build:
   preserve_egg_dir: True
   number: 0
-  skip:
-    - [win]
+  skip: True  # [win]
     
 requirements:
   build:

@@ -10,8 +10,7 @@ source:
 build:
   entry_points:
     - coveralls = coveralls:wear
-  skip:
-    - [win]
+  skip: True  # [win]
 
 requirements:
   build:

@@ -10,8 +10,7 @@ build:
   number: 0
   entry_points:
     - osprey = osprey.cli.main:main
-  skip:
-    - [win]
+  skip: True  # [win]
 
 extra:
   maintainers:
