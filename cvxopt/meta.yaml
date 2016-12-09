@@ -12,9 +12,8 @@ source:
     - 0001-setup.patch
 
 build:
-  skip:
-    # TODO no mingwpy py35
-    - [win and py35]
+  # TODO: no mingwpy on py35
+  skip: True  # [win and py35]
 
 requirements:
   build:

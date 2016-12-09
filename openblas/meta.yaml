@@ -12,8 +12,7 @@ source:
   md5: d340dc3d8a03f549ae29488d737b9c30                   [not win]
 
 build:
-  skip:
-    - [linux]
+  skip: True  # [linux]
 
 requirements:
   build:

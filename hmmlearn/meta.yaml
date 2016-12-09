@@ -8,9 +8,8 @@ source:
   md5: 6db6ea730c849e2bc3b3f322e35ee65c
 
 build:
-  skip:
-    # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
-    - [win32 and py35 and np == 19]
+  # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
+  skip: True  # [win32 and py35 and np == 19]
 
 requirements:
   build:

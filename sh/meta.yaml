@@ -8,8 +8,7 @@ source:
   md5: 7af8df6c92d29ff927b6db0146bddec3
 
 build:
-  skip:
-    - [win]
+  skip: True  # [win]
 
 requirements:
   build:

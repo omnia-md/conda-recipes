@@ -8,8 +8,7 @@ source:
   md5: 754c5ab9f533e764f931136974b618f1
 
 build:
-  skip:
-    - [win or py3k]
+  skip: True  # [win or py3k]
 
 requirements:
   build:

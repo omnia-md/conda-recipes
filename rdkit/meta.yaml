@@ -12,8 +12,7 @@ source:
 
 build:
   number: 2
-  skip:
-    - [win]
+  skip: True  # [win]
 
 requirements:
   build:

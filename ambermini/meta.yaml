@@ -8,7 +8,7 @@ source:
 
 build:
   number: 6
-  skip: True [win]
+  skip: True  # [win]
 
 requirements:
   build:

@@ -11,8 +11,7 @@ source:
     - 0003-Fix-rb-for-Python-3.patch
 
 build:
-  skip:
-    - [win and py34]
+  skip: True  # [win and py34]
 
 extra:
   maintainers:

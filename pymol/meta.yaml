@@ -9,7 +9,7 @@ source:
       - fix_tests.patch
 
 build:
-  skip: True # [not (linux and py2k)]
+  skip: True  # [not (linux and py2k)]
 
 requirements:
     build:

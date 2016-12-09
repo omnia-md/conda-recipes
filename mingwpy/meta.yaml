@@ -18,8 +18,7 @@ source:                                                                         
 
 build:
   number: 3
-  skip:
-    - [unix or py35]
+  skip: True  # [unix or py35]
 
 requirements:
   run:

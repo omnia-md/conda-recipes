@@ -3,8 +3,7 @@ package:
   version: 1.11.0
 
 build:
-  skip:
-    - [osx or win]
+  skip: True  # [not linux]
 
 source:
   fn: glew-1.11.0.tgz

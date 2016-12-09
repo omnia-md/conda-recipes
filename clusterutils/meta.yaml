@@ -9,8 +9,7 @@ source:
 build:
   entry_points:
     - build_mpirun_configfile = clusterutils.build_mpirun_configfile:main
-  skip:
-    - [not unix]
+  skip: True  # [not unix]
     
 requirements:
   build:

@@ -9,8 +9,7 @@ source:
 build:
   noarch_python: True
   number: 0
-  skip:
-    - [win]
+  skip: True  # [win]
 
 requirements:
   build:

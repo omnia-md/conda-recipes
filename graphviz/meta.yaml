@@ -12,9 +12,7 @@ source:
 build:
   number: 3
   binary_relocation: true
-  skip:
-    - [not unix]
-    - [py3k]
+  skip: True  # [win or py3k]
 
 requirements:
   build:

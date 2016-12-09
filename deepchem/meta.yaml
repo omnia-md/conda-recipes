@@ -8,9 +8,7 @@ source:
 
 build:
   number: 0
-  skip:
-    - [osx or win]
-    - [py3k]
+  skip: True  # [osx or win or py3k]
 
 
 requirements:
