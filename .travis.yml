@@ -15,9 +15,9 @@ services:
 env:
   global:
     - CONDA_BUILD: "2.0.1"
-    - CUDA_VERSION: "7.5"
-    - CUDA_SHORT_VERSION: "75"
-  secure: 
+    - CUDA_VERSION: "8.0"
+    - CUDA_SHORT_VERSION: "80"
+  secure:
     - "aJ7F8bLDjc0I6gDtbsGYzwfvUFI2DiZcOTeA8U94Cj5sMFJjC02cptZDSjIqx7vYH/BkG6Kr0ETE6CCqC7qkub90+9mZBlvNgZ5BnbCxXoiKaS/Qg5aFd22D1SB0eBvm+zFy4KBTUw53Vc2BX61mJ4KAgsSkx5zEqqJgcJqYxfA="
 
 install:
