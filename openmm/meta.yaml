@@ -1,18 +1,18 @@
 package:
   name: openmm
-  version: 7.0.1
+  version: 7.1.0
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_rev: 5e86c4f
+  git_tag: 1e5b258
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: True # [win]
 
-# by default upload binaries to 'rc' channel on anaconda.org
+# by default upload binaries to 'beta' channel on anaconda.org
 extra:
-  upload: rc
+  upload: beta
 
 requirements:
   build:
@@ -23,8 +23,8 @@ requirements:
     # Pin fftw3f to 3.3.3 to work around OSX py34 issues
     - fftw3f ==3.3.3 [not win]
     - fftw3f ==3.3.4 [win]
-    # swig is pinned to use omnia swig 3.0.7
-    - swig ==3.0.7
+    # swig is pinned to use omnia swig 3.0.8
+    - swig ==3.0.8
     # on osx, need to install doxygen manually
     - doxygen   [not osx]
     # for building docs
