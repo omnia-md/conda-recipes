@@ -322,6 +322,10 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
             for numpy in VersionIter('numpy', m, numpys):
                 bldpkg_path = get_bldpkg_path(m, python, numpy)
 
+                # Allow package recipe to force rebuild and upload in recipe.
+                if (m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload'])):
+                    yield m, python, numpy, base_bldpkg_path
+
                 if verbose > 2:
                     print('')
                     print('Evaluating whether to build package %s' % bldpkg_path)
