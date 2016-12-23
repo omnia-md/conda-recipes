@@ -20,6 +20,7 @@ BINSTAR_TOKEN = os.environ.pop('BINSTAR_TOKEN', None)
 STANDARD_LABELS = ('main',
                    'dev',
                    'rc',
+                   'beta',
                    )
 
 try:
@@ -254,6 +255,9 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
         cmd.extend(['-t', BINSTAR_TOKEN])
     cmd.extend(['upload', '--no-progress', '-u', username, filename])
     if force:
+        cmd.extend(['--force'])
+    # Force upload if extra: force_upload: True is specfied
+    elif (m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload'])):
         cmd.extend(['--force'])
     if not pre_black_listed(m) and is_prerelease(m):
         cmd.extend(['--label', 'dev'])
