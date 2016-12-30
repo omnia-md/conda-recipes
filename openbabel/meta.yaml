@@ -1,10 +1,10 @@
 package:
   name: openbabel
-  version: "2.4.0"
+  version: "2.4.1"
 
 source:
-  url: https://github.com/openbabel/openbabel/archive/openbabel-2-4-0.zip 
-  fn: openbabel-2-4-0.zip 
+  url: https://github.com/openbabel/openbabel/archive/openbabel-2-4-1.zip 
+  fn: openbabel-2-4-1.zip 
 
   patches:
     - include-dirs.patch
@@ -36,9 +36,16 @@ test:
     - pybel
   commands:
     - cd $SRC_DIR/test ; python test_pybel.py
-    - cd $SRC_DIR/test ; python testkekule.py
+    - cd $SRC_DIR/test ; python testbabel.py
     - cd $SRC_DIR/test ; python testbindings.py
     - cd $SRC_DIR/test ; python testexample.py
+    - cd $SRC_DIR/test ; python testfastsearch.py
+    - cd $SRC_DIR/test ; python testkekule.py
+    - cd $SRC_DIR/test ; python testpdbformat.py
+    - cd $SRC_DIR/test ; python testsmartssym.py
+    - cd $SRC_DIR/test ; python testsym.py
+    - cd $SRC_DIR/test ; python testunique.py
+    - python import_test.py
 
 about:
     home: http://www.openbabel.org/
