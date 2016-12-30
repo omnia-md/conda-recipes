@@ -13,7 +13,7 @@ build:
 # by default upload binaries to 'beta' channel on anaconda.org
 extra:
   upload: beta
-  force_upload: True
+  force_upload: False
 
 requirements:
   build:
