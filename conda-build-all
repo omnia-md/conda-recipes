@@ -256,7 +256,7 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
     cmd.extend(['upload', '--no-progress', '-u', username, filename])
     if force:
         cmd.extend(['--force'])
-    elif m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload'] == True):
+    elif m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload']):
         cmd.extend(['--force'])
     if not pre_black_listed(m) and is_prerelease(m):
         cmd.extend(['--label', 'dev'])
@@ -320,16 +320,16 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
         for python in VersionIter('python', m, pythons):
             for numpy in VersionIter('numpy', m, numpys):
                 bldpkg_path = get_bldpkg_path(m, python, numpy)
+                base_bldpkg_path = os.path.basename(bldpkg_path)
 
                 # Allow package recipe to force rebuild and upload in recipe.
-                if (m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload'])):
+                if m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload']):
                     yield m, python, numpy, base_bldpkg_path
 
                 if verbose > 2:
                     print('')
                     print('Evaluating whether to build package %s' % bldpkg_path)
 
-                base_bldpkg_path = os.path.basename(bldpkg_path)
                 if base_bldpkg_path == last_base_bldpkg_path:
                     if verbose > 1:
                         print('base_bldpkg_path == last_base_bldpkg_path for %s' % bldpkg_path)
