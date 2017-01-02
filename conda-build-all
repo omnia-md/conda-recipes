@@ -256,7 +256,7 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
     cmd.extend(['upload', '--no-progress', '-u', username, filename])
     if force:
         cmd.extend(['--force'])
-    elif m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload']):
+    elif m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload']=='True'):
         cmd.extend(['--force'])
     if not pre_black_listed(m) and is_prerelease(m):
         cmd.extend(['--label', 'dev'])
@@ -322,8 +322,19 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
                 bldpkg_path = get_bldpkg_path(m, python, numpy)
                 base_bldpkg_path = os.path.basename(bldpkg_path)
 
+                # DEBUG
+                if m.get_section('extra') and ('force_upload' in m.get_section('extra')):
+                    print('force_upload = %s' % str(m.get_section('extra')['force_upload']))
+
+
                 # Allow package recipe to force rebuild and upload in recipe.
-                if m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload']):
+                if m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload']=='True'):
+                    if verbose > 1:
+                        print('Scheduling package due to force_upload=%s: %s' % (str(m.get_section('extra')['force_upload']), m.name()))
+                        print('  full_name: %s' % base_bldpkg_path)
+                        print('  python: %s' % python)
+                        print('  numpy: %s' % numpy)
+
                     yield m, python, numpy, base_bldpkg_path
 
                 if verbose > 2:
