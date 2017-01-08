@@ -7,9 +7,7 @@ source:
   git_rev: v1.3.1
 
 build:
-  #noarch_python: True # Causes problems
   number: 0
-  skip: True  # [osx or win]
 
 requirements:
   build:
