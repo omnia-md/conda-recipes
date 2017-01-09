@@ -12,15 +12,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # For Docker build
     #
 
-    # Fix hbb issues.
-    # If statements needed because multiple Python versions are built in same docker image.
-    if [ ! -e /opt/rh/devtoolset-2/root/usr/lib/gcc/x86_64-redhat-linux ]; then
-        ln -s /opt/rh/devtoolset-2/root/usr/lib/gcc/x86_64-CentOS-linux/ /opt/rh/devtoolset-2/root/usr/lib/gcc/x86_64-redhat-linux
-    fi
-    if [ ! -e /opt/rh/devtoolset-2/root/usr/include/c++/4.8.2/x86_64-redhat-linux ]; then
-        ln -s /opt/rh/devtoolset-2/root/usr/include/c++/4.8.2/x86_64-CentOS-linux/ /opt/rh/devtoolset-2/root/usr/include/c++/4.8.2/x86_64-redhat-linux
-    fi
-
     # Clang paths
     export CLANG_PREFIX="/opt/clang"
     export PATH=$PATH:$CLANG_PREFIX/bin
