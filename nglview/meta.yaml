@@ -10,6 +10,9 @@ build:
   number: 0
   #noarch_python: True
 
+  # 2017-01-08 jupyter not available on py36
+  skip: True  # [py36]
+
 requirements:
   build:
     - python
