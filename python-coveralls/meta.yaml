@@ -10,7 +10,8 @@ source:
 build:
   entry_points:
     - coveralls = coveralls:wear
-  skip: True  # [win]
+  # 2018-01-08 coverage missing for py36
+  skip: True  # [win or py36]
 
 requirements:
   build:
