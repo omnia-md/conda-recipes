@@ -8,7 +8,8 @@ source:
 
 build:
   number: 0
-  skip: True  # [win]
+  # 2017-01-08 "coverage" not available for py36
+  skip: True  # [win or py36]
 
 requirements:
   build:
