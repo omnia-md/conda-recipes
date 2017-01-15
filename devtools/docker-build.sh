@@ -14,7 +14,7 @@ conda config --add channels omnia
 conda install -yq conda-build jinja2 anaconda-client
 
 if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
-    /io/conda-build-all $UPLOAD -- /io/* || true
+    /io/conda-build-all -vvv $UPLOAD -- /io/* || true
 else
     /io/conda-build-all -vvv $UPLOAD -- /io/*
 fi

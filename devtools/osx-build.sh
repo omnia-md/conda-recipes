@@ -30,7 +30,8 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     brew cask install -y basictex
     export PATH="/usr/texbin:${PATH}:/usr/bin"
     sudo tlmgr update --self
-    sudo tlmgr install titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring
+    sleep 5
+    sudo tlmgr --persistent-downloads install titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring
 fi;
 
 # Build packages
