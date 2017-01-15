@@ -11,7 +11,7 @@ curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.s
 bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/anaconda;
 export PATH=$HOME/anaconda/bin:$PATH;
 conda config --add channels omnia;
-conda install -yq conda-build=$CONDA_BUILD jinja2 anaconda-client;
+conda install -yq conda-build jinja2 anaconda-client;
 
 if ! ./conda-build-all --dry-run -- openmm* ; then
     # Install OpenMM dependencies that can't be installed through

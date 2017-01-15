@@ -14,7 +14,6 @@ services:
 
 env:
   global:
-    - CONDA_BUILD: "2.0.1"
     - CUDA_VERSION: "8.0"
     - CUDA_SHORT_VERSION: "80"
   secure:
@@ -37,7 +36,7 @@ script:
 
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
-        docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST -e CONDA_BUILD
+        docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST
             -t -i --rm -v `pwd`:/io jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30-clang38
             bash /io/devtools/docker-build.sh;
 
