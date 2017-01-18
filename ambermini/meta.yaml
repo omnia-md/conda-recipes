@@ -7,7 +7,7 @@ source:
   url: https://github.com/choderalab/ambermini/archive/16.16.0.zip
 
 build:
-  number: 6
+  number: 7
   skip: True  # [win]
 
 requirements:
