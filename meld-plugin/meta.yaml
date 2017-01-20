@@ -12,15 +12,14 @@ build:
     
 requirements:
   build:
-    - openmm-dev
+    - openmm
     - cmake
     - python
-    - swig ==3.0.7
     - eigen3
 
   run:
     - python
-    - openmm-dev
+    - openmm
 
 test:
   imports:
