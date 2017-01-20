@@ -7,7 +7,7 @@ source:
     git_tag: 0.0.4
 
 build:
-  number: 0
+  number: 1
   skip: True  # [osx or win or py3k]
 
 
