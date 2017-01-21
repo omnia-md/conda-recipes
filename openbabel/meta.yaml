@@ -34,11 +34,16 @@ test:
   imports:
     - openbabel
     - pybel
+  source_files:
+    - test/test_pybel.py
+    - test/testkekule.py
+    - test/testbindings.py
+    - test/testexample.py
   commands:
-    - cd $SRC_DIR/test ; python test_pybel.py
-    - cd $SRC_DIR/test ; python testkekule.py
-    - cd $SRC_DIR/test ; python testbindings.py
-    - cd $SRC_DIR/test ; python testexample.py
+    - python test_pybel.py
+    - python testkekule.py
+    - python testbindings.py
+    - python testexample.py
 
 about:
     home: http://www.openbabel.org/
