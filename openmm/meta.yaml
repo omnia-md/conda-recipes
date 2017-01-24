@@ -1,10 +1,10 @@
 package:
   name: openmm
-  version: 7.1.0
+  version: 7.1rc1
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: 1e5b258
+  git_tag: 9567ddb
 
 build:
   number: 0
