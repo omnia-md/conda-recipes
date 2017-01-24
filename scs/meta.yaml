@@ -9,12 +9,8 @@ source:
 
 build:
   number: 1
-  skip:
-    # no mingwpy py35
-    - [win and py35]
-    # mingwpy doesn't work with py3k for numpy < 1.10
-    # https://github.com/numpy/numpy/issues/3557
-    - [win and np == 19 and py3k]
+  # no mingwpy py35 and bad py3 support for np < 1.10 (https://github.com/numpy/numpy/issues/3557)
+  skip: True  # [(win and py35) or (win and np == 19 and py3k)]
 
 
 requirements:

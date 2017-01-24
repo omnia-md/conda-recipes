@@ -1,17 +1,15 @@
 package:
   name: openpathsampling
-  version: 0.9.1
+  version: 0.9.2
 
 source:
   git_url: https://github.com/openpathsampling/openpathsampling.git
-  git_tag: v0.9.1
+  git_tag: v0.9.2
 
 build:
   preserve_egg_dir: True
   number: 0
-  skip:
-    - [py3k]
-    - [win and py27]
+  skip: True  # [(win and py27) or py3k]
 
 requirements:
   build:
@@ -27,17 +25,18 @@ requirements:
     - netcdf4
     - openmm
     - openmmtools
+    - jupyter
     - pyyaml
     - mdtraj
     - svgwrite
     - networkx
-    - pyqt 4*
+    - pyqt 4.11.4 py27_3
     - matplotlib
     - ujson
 
-test:
-  imports:
-    - openpathsampling
+#test:
+  #imports:
+    #- openpathsampling
 
 about:
   home: http://github.com/openpathsampling/openpathsampling

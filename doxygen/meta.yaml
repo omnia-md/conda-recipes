@@ -11,8 +11,7 @@ source:
   fn: doxygen-1.8.10.src.tar.gz                                                  [not win]
 
 build:
-  skip:
-    - [ osx ]
+  skip: True  # [ osx ]
 
 requirements:  [not win]
   build:       [not win]

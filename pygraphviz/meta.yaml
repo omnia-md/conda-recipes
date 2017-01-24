@@ -8,8 +8,7 @@ source:
   md5: 7f690295dfe77edaa9e552d09d98d279
 
 build:
-  skip:
-    - [not unix]
+  skip: True  # [not unix]
 
 requirements:
   build:

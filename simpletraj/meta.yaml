@@ -7,8 +7,7 @@ source:
   url: https://github.com/arose/simpletraj/archive/v0.3.tar.gz
 
 build:
-  skip:
-    - [win]
+  skip: True  # [win]
 
   # noarch_python: True
   # preserve_egg_dir: True

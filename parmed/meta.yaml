@@ -1,11 +1,11 @@
 package:
   name: parmed
-  version: !!str 2.6.1
+  version: !!str 2.7.1
 
 source:
-  fn: ParmEd-2.6.1.tar.gz
-  url: https://github.com/ParmEd/ParmEd/archive/2.6.1.tar.gz
-  md5: e66ef98b34358f0fab3d3c6ee7bab775
+  fn: ParmEd-2.7.1.tar.gz
+  url: https://github.com/ParmEd/ParmEd/archive/2.7.1.tar.gz
+  md5: f8387c2dc16ba627d2a3fcbf1909b48f
 
 build:
   number: 0

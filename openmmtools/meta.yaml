@@ -1,15 +1,14 @@
 package:
   name: openmmtools
-  version: 0.8.2
+  version: 0.8.3
 
 source:
-    fn: 0.8.2.tar.gz
-    url: https://github.com/choderalab/openmmtools/archive/0.8.2.tar.gz
+    fn: 0.8.3.tar.gz
+    url: https://github.com/choderalab/openmmtools/archive/0.8.3.tar.gz
 
 build:
   number: 1
-  skip:
-    - [win32 or (win and py2k)]
+  skip: True  # [win32 or (win and py2k)]
 
 requirements:
   build:
