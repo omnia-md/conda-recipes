@@ -1,48 +1,22 @@
-:: Use python version to select which Visual Studio to use
-:: For win-64, we'll need more, since those are separate compilers
-:: Build in subdirectory.
 mkdir build
 cd build
 
-set CMAKE_FLAGS=-DCMAKE_INSTALL_PREFIX=%PREFIX%
-set CMAKE_FLAGS=%CMAKE_FLAGS% -DCMAKE_BUILD_TYPE=Release
-set CMAKE_FLAGS=%CMAKE_FLAGS% -DOPENMM_BUILD_PME_PLUGIN=ON
-set CMAKE_FLAGS=%CMAKE_FLAGS% -DFFTW_LIBRARY=%LIBRARY_LIB%\libfftwf-3.3.lib
-set CMAKE_FLAGS=%CMAKE_FLAGS% -DFFTW_INCLUDES=%LIBRARY_INC%
-set CMAKE_FLAGS=%CMAKE_FLAGS% -DCMAKE_BUILD_TYPE=Release
-#set CMAKE_FLAGS=%CMAKE_FLAGS% -DOPENCL_INCLUDE_DIR="C:/Program Files (x86)/AMD APP SDK/3.0/include"
-#set CMAKE_FLAGS=%CMAKE_FLAGS% -DOPENCL_LIBRARY="C:/Program Files (x86)/AMD APP SDK/3.0/lib/x86_64/OpenCL.lib"
+set FFTW=C:\Miniconda3\pkgs\fftw3f-3.3.4-vc14_2\Library
+set APPSDK=C:\Program Files (x86)\AMD APP SDK\2.9-1
+"C:\Program Files\CMake\bin\cmake.exe" .. -G "NMake Makefiles JOM" -DCMAKE_INSTALL_PREFIX=%PREFIX% -DCMAKE_BUILD_TYPE=Release -DOPENMM_GENERATE_API_DOCS=ON ^
+    -DOPENCL_INCLUDE_DIR="%APPSDK%\include" -DOPENCL_LIBRARY="%APPSDK%\lib\x86_64\OpenCL.lib" ^
+    -DFFTW_INCLUDES="%FFTW%/include" -DFFTW_LIBRARY="%FFTW%/lib/libfftw3f-3.lib"
 
-cmake -G "NMake Makefiles" %CMAKE_FLAGS% ..
-
-:: jom all DoxygenApiDocs :: sphinxpdf
 jom install
-if errorlevel 1 exit 1
+jom PythonInstall
+jom C++ApiDocs
+jom PythonApiDocs
+REM jom sphinxpdf
+jom install
 
-
-set OPENMM_INCLUDE_PATH=%PREFIX%\include
-set OPENMM_LIB_PATH=%PREFIX%\lib
-cd python
-%PYTHON% setup.py install
-cd ..
-
-:: Build manuals
 mkdir openmm-docs
-move %PREFIX%\docs\* openmm-docs
+robocopy %PREFIX%\docs openmm-docs * /e /move
+mkdir %PREFIX%\docs
 move openmm-docs %PREFIX%\docs\openmm
-jom sphinxpdf
-move sphinx-docs\userguide\latex\*.pdf %PREFIX%\docs\openmm
-move sphinx-docs\developerguide\latex\*.pdf %PREFIX%\docs\openmm
-
-:: Put examples into an appropriate subdirectory.
 mkdir %PREFIX%\share\openmm
 move %PREFIX%\examples %PREFIX%\share\openmm
-
-:: Put docs into a subdirectory.
-:: cd %PREFIX%\docs
-:: mkdir openmm
-:: move *.html openmm
-:: move *.pdf openmm
-:: move api-* openmm
-
-if errorlevel 1 exit 1
