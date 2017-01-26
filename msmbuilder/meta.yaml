@@ -1,10 +1,10 @@
 package:
   name: msmbuilder
-  version: "3.6.1"
+  version: "3.7.0"
 
 source:
     fn: msmbuilder-3.7.0.zip
-    url : https://pypi.python.org/packages/db/7a/51e932e3b7cc19350db9b71b12aa595273050c57c7ef1e5fda9f546d192f/msmbuilder-3.7.0.zip#md5=4497f766b66e02b2088d7ee3f1864e5f
+    url: https://pypi.python.org/packages/db/7a/51e932e3b7cc19350db9b71b12aa595273050c57c7ef1e5fda9f546d192f/msmbuilder-3.7.0.zip#md5=4497f766b66e02b2088d7ee3f1864e5f
     md5: 4497f766b66e02b2088d7ee3f1864e5f
 
 extra:
