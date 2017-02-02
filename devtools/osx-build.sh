@@ -35,8 +35,4 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
 fi;
 
 # Build packages
-if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
-    ./conda-build-all -vvv $UPLOAD  -- * || true;
-else
-    ./conda-build-all -vvv $UPLOAD -- *;
-fi;
+./conda-build-all -vvv $UPLOAD -- *
