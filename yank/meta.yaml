@@ -18,6 +18,7 @@ requirements:
     - scipy
     - setuptools
     - netcdf4
+    - hdf4 >=4.2.12 # Remove this line when netcdf4 moves up to at least this version
     - openmm >=7.0.1
     - mdtraj >=1.7.2
     - openmmtools
@@ -38,6 +39,7 @@ requirements:
     - scipy
     - cython
     - netcdf4
+    - hdf4 >=4.2.12 # Remove this line when netcdf4 moves up to at least this version
     - openmm >=7.0.1
     - mdtraj >=1.7.2
     - openmmtools
