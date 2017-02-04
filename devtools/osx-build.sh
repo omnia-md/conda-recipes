@@ -13,9 +13,9 @@ export PATH=$HOME/anaconda/bin:$PATH;
 conda config --add channels omnia;
 conda config --show;
 conda install -yq conda-build jinja2 anaconda-client;
-# DEBUG
-conda config --show-sources
-env
+
+# Force install of a known working version
+conda install --yes conda==4.2.16
 
 #export INSTALL_CUDA=`./conda-build-all --dry-run -- openmm`
 export INSTALL_OPENMM_PREREQUISITES=true
