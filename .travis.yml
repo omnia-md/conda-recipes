@@ -33,6 +33,9 @@ script:
         export UPLOAD=" ";
     fi
   - echo $UPLOAD
+  # DEBUG
+  - conda config --show-sources
+  - env
 
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
