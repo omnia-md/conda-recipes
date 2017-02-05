@@ -14,9 +14,6 @@ conda config --add channels omnia;
 conda config --show;
 conda install -yq conda-build jinja2 anaconda-client;
 
-# Force install of a known working version
-conda install --yes conda==4.2.16
-
 #export INSTALL_CUDA=`./conda-build-all --dry-run -- openmm`
 export INSTALL_OPENMM_PREREQUISITES=true
 if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
