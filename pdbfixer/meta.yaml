@@ -3,8 +3,8 @@ package:
   version: 1.4
 
 source:
-  fn: v1.4.tar.gz
-  url: https://github.com/pandegroup/pdbfixer/archive/v1.4.tar.gz
+  fn: 1.4.tar.gz
+  url: https://github.com/pandegroup/pdbfixer/archive/1.4.tar.gz
 
 build:
   number: 0
