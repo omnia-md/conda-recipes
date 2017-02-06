@@ -308,7 +308,7 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
     noarch_path = os.path.join(CondaBuildConfig.croot, 'noarch')
     if not os.path.isdir(noarch_path):
         os.makedirs(noarch_path)
-    conda_build_index.update_index(noarch_path, conda_build_index, force=True)
+    conda_build_index.update_index(noarch_path, CondaBuildConfig, force=True)
     index = conda.api.get_index(
         channel_urls=[url_path(CondaBuildConfig.croot)] + list(channel_urls),
         prepend=False)
