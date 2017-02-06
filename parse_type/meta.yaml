@@ -13,13 +13,13 @@ requirements:
     - setuptools
     - parse >=1.6
     - six
-    - enum34 # [not (py34 or py35)]
+    - enum34 # [py27]
 
   run:
     - python
     - parse >=1.6
     - six
-    - enum34 # [not (py34 or py35)]
+    - enum34 # [py27]
 
 test:
   # Python imports

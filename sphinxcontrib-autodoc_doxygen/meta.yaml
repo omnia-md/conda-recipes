@@ -8,7 +8,6 @@ source:
   md5: fcfbc77a810900865b143b7aa9409e2f
 
 build:
-  noarch_python: True
   number: 0
   skip: True  # [win]
 
@@ -16,7 +15,7 @@ requirements:
   build:
     - setuptools
     - python
-    - sphinx ==1.3.1
+    - sphinx >=1.3.1
     - docutils >=0.11
     - jinja2 >=2.3
     - lxml
@@ -25,7 +24,7 @@ requirements:
 
   run:
     - python
-    - sphinx ==1.3.1
+    - sphinx >=1.3.1
     - docutils >=0.11
     - jinja2 >=2.3
     - lxml

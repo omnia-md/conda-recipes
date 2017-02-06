@@ -5,7 +5,7 @@ package:
 source:
   fn: ParmEd-2.7.1.tar.gz
   url: https://github.com/ParmEd/ParmEd/archive/2.7.1.tar.gz
-  md5: f8387c2dc16ba627d2a3fcbf1909b48f
+  md5: d19c063087de4d06652cf0ee3fcd5014
 
 build:
   number: 0
