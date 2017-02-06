@@ -53,7 +53,7 @@ about:
   summary: "PyEMMA (EMMA = Emma's Markov Model Algorithms) is an open source Python/C package for analysis of extensive molecular dynamics simulations"
 
   description: |
-    PyEMMA (EMMA = Emma’s Markov Model Algorithms) is an open source Python/C package
+    PyEMMA (EMMA = Emma's Markov Model Algorithms) is an open source Python/C package
     for analysis of extensive molecular dynamics simulations.
     In particular, it includes algorithms for estimation, validation and analysis of:
       * Clustering and Featurization
