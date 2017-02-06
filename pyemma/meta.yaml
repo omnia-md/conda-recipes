@@ -1,51 +1,71 @@
-{% set version = "2.2.7" %}
+{% set conda_name = "pyemma" %}
+{% set name = "pyEMMA" %} 
+{% set version = "2.3.1" %}
+{% set sha256 = "32fec1c969b3946954fdd79f2a9f5b4c8219328b0a710aaa41c0bace449b45f3" %}
 
 package:
-  name: pyemma
+  name: {{ conda_name|lower }}
   version: {{ version }}
+
 source:
-  fn: pyEMMA-{{ version }}.tar.gz
-  url: https://github.com/markovmodel/PyEMMA/archive/v{{ version }}.tar.gz
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: python -B setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
-    - python
-    - setuptools
-    - cython >=0.20
-
-    - mdtraj >=1.7
-    - nose
+    - cython
+    - mdtraj >=1.8
     - numpy x.x
-
-  run:
     - python
     - setuptools
+  run:
     - bhmm >=0.6,<0.7
+    - decorator >=4.0.0
+    - funcsigs
     - joblib >0.8.4
     - matplotlib
-    - mdtraj >=1.7 
+    - mdtraj >=1.8
     - mock
-    - funcsigs
-    - msmtools >=1.1.4
-    - thermotools >=0.2
+    - msmtools >=1.2
     - numpy x.x
+    - progress_reporter >=1.3.1
+    - psutil >=3.1.1
+    - python
     - pyyaml
     - scipy
-    - six
-    - psutil >=3.1.1
-    - decorator >=4.0.0
-    - progress_reporter
+    - setuptools
+    - six >=1.1.0
+    - thermotools >=0.2.3
 
 test:
   imports:
     - pyemma
 
 about:
-  home: http://emma-project.org
-  license: GNU Lesser Public License v3+
-  summary: "EMMA: Emma's Markov Model Algorithms"
+  home: http://github.com/markovmodel/pyemma
+  license: LGPLv3+ 
+  license_file: LICENSE.txt
+  summary: 'PyEMMA (EMMA = Emma’s Markov Model Algorithms) is an open source Python/C package for analysis of extensive molecular dynamics simulations'
 
+  description: |
+    PyEMMA (EMMA = Emma’s Markov Model Algorithms) is an open source Python/C package
+    for analysis of extensive molecular dynamics simulations.
+    In particular, it includes algorithms for estimation, validation and analysis of:
+      * Clustering and Featurization
+      * Markov state models (MSMs)
+      * Hidden Markov models (HMMs)
+      * Multi-ensemble Markov models (MEMMs)
+      * Time-lagged independent component analysis (TICA)
+      * Transition Path Theory (TPT)
+  doc_url: http://emma-project.org
+  dev_url: https://github.com/markovmodel/pyemma
+
+extra:
+  recipe-maintainers:
+    - franknoe
+    - marscher
