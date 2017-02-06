@@ -13,7 +13,6 @@ environment:
     PYTHONUNBUFFERED: 1
     BINSTAR_TOKEN:
       secure: gseoZQcKcNhwmxUa8QCSfqPrMda9GMur/K24BZlp+I7BasK4igU2vg40+r7QyolZuLHWazznNQPIYk/Gf5dMgX4ZxRuuhV03dj9qZHttLyhyDQ6sIMvoW0GQ9QXwVAbzt6zRnfGK+aeTc2ZDYC2PlQ9+NxBaZj4nnMotj6iYygtB9s54hQNqHt5trMJrpe1SIZWeY5p4KFY6HohiSFohtPDugKeMPzn1EkAGQfsvpD8=
-    CONDA_BUILD: "2.1.0"
 
   matrix:
     - PYTHON: "C:\\Miniconda"
@@ -50,7 +49,7 @@ install:
   - conda config --add channels omnia
   - conda config --add channels salilab
   - conda update -yq --all
-  - conda install -yq conda-build="%CONDA_BUILD%" jinja2 anaconda-client
+  - conda install -yq conda-build jinja2 anaconda-client
   - powershell .\\devtools\\appveyor\\missing-headers.ps1
   # conda-build for some inane reason, effectively puts C:\cygwin\bin at the
   # front of the PATH, ahead of everything else, regardless. See
