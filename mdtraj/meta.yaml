@@ -15,6 +15,7 @@ build:
   patches:
     # Necessary for building 1.8.0, should be fixed by next version
     - 1208-find-zlib.patch
+    - tngio.patch
 
 requirements:
   build:
