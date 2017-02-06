@@ -33,5 +33,5 @@ test:
 
 about:
   home: http://github.com/simtk/pdbfixer
-  license: free
+  license: MIT
   summary: PDBFixer fixes problems in PDB files to prepare them for molecular simulation.
