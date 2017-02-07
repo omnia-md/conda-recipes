@@ -52,3 +52,8 @@ To build a package yourself, run `conda build <package_name>`, or `./conda-build
 8. When you're sure the binaries are ready for a full release, comment on the
    original pull request and a maintainer will move the package from the `rc`
    label to the main label.
+
+### FAQ
+
+Q: Should I include an `md5` hash in my `source:` section if using a Github compressed archive `url:`?  
+A: No. Github compressed archives are frequently regenerated with different compression settings, etc., so `md5` hashes cannot be trusted to be invariant. (#699)
