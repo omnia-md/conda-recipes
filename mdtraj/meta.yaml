@@ -6,15 +6,17 @@ source:
   fn: mdtraj-1.8.0.tar.gz
   url: https://pypi.python.org/packages/cd/9f/027fa58d4e93dd3d700e22d5766961c970f6882c2bffd33daef55219d078/mdtraj-1.8.0.tar.gz#md5=b350f3ce5deba70d824e9420ae53b00a
   md5: b350f3ce5deba70d824e9420ae53b00a
+  patches:
+    # Necessary for building 1.8.0, should be fixed by next version
+    - 1208-find-zlib.patch
+    - declare_init_order.patch
+    - math.patch #  [py27 and win]
 
 build:
   number: 1
   entry_points:
     - mdconvert = mdtraj.scripts.mdconvert:entry_point
     - mdinspect = mdtraj.scripts.mdinspect:entry_point
-  patches:
-    # Necessary for building 1.8.0, should be fixed by next version
-    - 1208-find-zlib.patch
 
 requirements:
   build:
