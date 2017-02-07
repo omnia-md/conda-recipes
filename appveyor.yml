@@ -14,6 +14,7 @@ environment:
     BINSTAR_TOKEN:
       secure: SZHgfJd7yeEspBHogEx78Bb9rrQ5atuIalqY8J/V/uGeBNOi6yGYWtFsnI6/0dPx
 
+
   matrix:
     - PYTHON: "C:\\Miniconda"
       CONDA_PY: "27"
