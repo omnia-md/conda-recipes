@@ -1,14 +1,23 @@
 diff --git a/mdtraj/geometry/include/math_patch.h b/mdtraj/geometry/include/math_patch.h
-index 742770f5..6a04151a 100644
+index 742770f5..e91ba82a 100644
 --- a/mdtraj/geometry/include/math_patch.h
 +++ b/mdtraj/geometry/include/math_patch.h
-@@ -17,4 +17,6 @@ double cbrt(double x) {
+@@ -1,5 +1,6 @@
+ // Math functions for old versions of visual studio
+-
++#ifndef __MATH_PATH_H_
++#define __MATH_PATH_H_
+ #ifdef _MSC_VER
+ #if _MSC_VER < 1900 // prior to vs2015
+ float roundf(float x) {
+@@ -17,4 +18,7 @@ double cbrt(double x) {
  #define isnan(x) ((x)!=(x))
  #endif // isnan
  
 +#else // use C99 compliant header.
 +#include <math.h>
  #endif // _MSC_VER
++#endif // __MATH_PATH_H_
 diff --git a/mdtraj/geometry/src/_geometry.pyx b/mdtraj/geometry/src/_geometry.pyx
 index 0369510b..52cbc5fb 100644
 --- a/mdtraj/geometry/src/_geometry.pyx
