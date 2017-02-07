@@ -43,6 +43,16 @@ environment:
       PYTHON_VERSION: "3.5.x"
       PYTHON_ARCH: "64"
 
+    - PYTHON: "C:\\Miniconda3"
+      CONDA_PY: "36"
+      PYTHON_VERSION: "3.6.x"
+      PYTHON_ARCH: "32"
+
+    - PYTHON: "C:\\Miniconda3-x64"
+      CONDA_PY: "36"
+      PYTHON_VERSION: "3.6.x"
+      PYTHON_ARCH: "64"
+
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - set PATH=C:\MinGW\msys\1.0\bin;%PATH%
