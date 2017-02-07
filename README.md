@@ -41,9 +41,14 @@ supported Python/Numpy configurations.
 3. Open a pull request to merge your branch into this master repo.
 4. It will automatically be tested to make sure it compiles.
 5. We will discuss the recipe and give suggestions about how to fix any issues.
-6. The recipe will be merged and our automated build framework will build 
+6. The recipe will be merged and our automated build framework will build
    and deploy the packages to the `omnia` anaconda channel under the `rc` label.
 7. Test the binaries by using `conda install -c omnia/label/rc packagename`
 8. When you're sure the binaries are ready for a full release, comment on the
    original pull request and a maintainer will move the package from the `rc`
-   label to the main label. 
+   label to the main label.
+
+### FAQ
+
+Q: Should I include an `md5` hash in my `source:` section if using a Github compressed archive `url:`?  
+A: No. Github compressed archives are frequently regenerated with different compression settings, etc., so `md5` hashes cannot be trusted to be invariant. (#699)
