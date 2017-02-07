@@ -12,7 +12,7 @@ environment:
     CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\devtools\\appveyor\\run_with_env.cmd"
     PYTHONUNBUFFERED: 1
     BINSTAR_TOKEN:
-      secure: b0/sQYOtCfm/5Sf4qor0jtiJ5tqLegTEopP2CESd6R80/WtVjqmP0fvko1j+0/Sk
+      secure: SZHgfJd7yeEspBHogEx78Bb9rrQ5atuIalqY8J/V/uGeBNOi6yGYWtFsnI6/0dPx
 
   matrix:
     - PYTHON: "C:\\Miniconda"
