@@ -1,0 +1,32 @@
+package:
+  name: openmm-setup
+  version: 1.0
+
+source:
+  git_url: https://github.com/pandegroup/openmm-setup.git
+  git_tag: 0a96f1a
+
+build:
+  number: 0
+  entry_points:
+    - openmm-setup = openmmsetup.openmmsetup:main
+  skip: True  # [win32 or (win64 and not py35)]
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - flask
+    - openmm
+    - pdbfixer
+
+  run:
+    - python
+    - flask
+    - openmm
+    - pdbfixer
+
+about:
+  home: http://github.com/pandegroup/openmm-setup
+  license: MIT
+  summary: An application for configuring and running simulations with OpenMM
