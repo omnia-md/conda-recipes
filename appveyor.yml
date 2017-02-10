@@ -12,7 +12,8 @@ environment:
     CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\devtools\\appveyor\\run_with_env.cmd"
     PYTHONUNBUFFERED: 1
     BINSTAR_TOKEN:
-      secure: gseoZQcKcNhwmxUa8QCSfqPrMda9GMur/K24BZlp+I7BasK4igU2vg40+r7QyolZuLHWazznNQPIYk/Gf5dMgX4ZxRuuhV03dj9qZHttLyhyDQ6sIMvoW0GQ9QXwVAbzt6zRnfGK+aeTc2ZDYC2PlQ9+NxBaZj4nnMotj6iYygtB9s54hQNqHt5trMJrpe1SIZWeY5p4KFY6HohiSFohtPDugKeMPzn1EkAGQfsvpD8=
+      secure: SZHgfJd7yeEspBHogEx78Bb9rrQ5atuIalqY8J/V/uGeBNOi6yGYWtFsnI6/0dPx
+
 
   matrix:
     - PYTHON: "C:\\Miniconda"
@@ -41,6 +42,16 @@ environment:
     - PYTHON: "C:\\Miniconda3-x64"
       CONDA_PY: "35"
       PYTHON_VERSION: "3.5.x"
+      PYTHON_ARCH: "64"
+
+    - PYTHON: "C:\\Miniconda3"
+      CONDA_PY: "36"
+      PYTHON_VERSION: "3.6.x"
+      PYTHON_ARCH: "32"
+
+    - PYTHON: "C:\\Miniconda3-x64"
+      CONDA_PY: "36"
+      PYTHON_VERSION: "3.6.x"
       PYTHON_ARCH: "64"
 
 install:
