@@ -10,7 +10,7 @@ source:
     # Necessary for building 1.8.0, should be fixed by next version
     - 1208-find-zlib.patch
     - declare_init_order.patch
-    - math.patch #  [py27 and win]
+    - math.patch #  [win]
 
 build:
   number: 1
