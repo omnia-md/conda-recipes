@@ -4,6 +4,8 @@ package:
 source:
   fn: thermotools-0.2.4.tar.gz
   url: https://github.com/markovmodel/thermotools/archive/0.2.4.tar.gz
+  patches:
+    - inline.patch
 
 build:
   number: 0
