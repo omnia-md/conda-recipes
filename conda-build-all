@@ -95,7 +95,7 @@ def main():
         '--python',
         help="Set the Python version used by conda build",
         metavar="PYTHON_VER",
-        default='27,34,35',
+        default='27,34,35,36',
     )
     p.add_argument(
         '--numpy',
@@ -316,7 +316,7 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
         last_base_bldpkg_path = None
         for python in VersionIter('python', m, pythons):
             for numpy in VersionIter('numpy', m, numpys):
-                if python == "3.6" and numpy == "110":
+                if python == "36" and numpy == "1.10":
                     if verbose > 1:
                         print("skipping python 3.6 and numpy 1.10")
                     continue

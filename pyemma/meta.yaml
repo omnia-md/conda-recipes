@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: python -B setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -23,10 +23,10 @@ requirements:
     - numpy x.x
     - python
     - setuptools
+
   run:
     - bhmm >=0.6,<0.7
     - decorator >=4.0.0
-    - funcsigs
     - joblib >0.8.4
     - matplotlib
     - mdtraj >=1.8
