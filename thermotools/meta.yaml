@@ -5,7 +5,7 @@ source:
   fn: thermotools-0.2.4.tar.gz
   url: https://github.com/markovmodel/thermotools/archive/0.2.4.tar.gz
   patches:
-    - inline.patch
+    - inline+msvc_c99_compat.patch
 
 build:
   number: 0
