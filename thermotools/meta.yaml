@@ -1,11 +1,9 @@
 package:
   name: thermotools
-  version: 0.2.4
+  version: 0.2.5
 source:
-  fn: thermotools-0.2.4.tar.gz
-  url: https://github.com/markovmodel/thermotools/archive/0.2.4.tar.gz
-  patches:
-    - inline+msvc_c99_compat.patch
+  fn: thermotools-0.2.5.tar.gz
+  url: https://github.com/markovmodel/thermotools/archive/0.2.5.tar.gz
 
 build:
   number: 0
