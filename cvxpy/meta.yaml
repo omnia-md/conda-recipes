@@ -54,12 +54,6 @@ test:
     - cvxpy.tests
     - cvxpy.utilities
 
-  commands:
-    - nosetests cvxpy
-
-  requires:
-    - nose
-
 about:
   home: http://github.com/cvxgrp/cvxpy/
   license: GPLv3
