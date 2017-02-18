@@ -1,9 +1,9 @@
 package:
   name: thermotools
-  version: 0.2.3
+  version: 0.2.5
 source:
-  fn: thermotools-0.2.3.tar.gz
-  url: https://github.com/markovmodel/thermotools/archive/0.2.3.tar.gz
+  fn: thermotools-0.2.5.tar.gz
+  url: https://github.com/markovmodel/thermotools/archive/0.2.5.tar.gz
 
 build:
   number: 0
