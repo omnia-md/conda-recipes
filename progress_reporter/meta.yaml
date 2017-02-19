@@ -14,7 +14,8 @@ requirements:
   build:
     - python
     - setuptools
-
+     # np required for py36 and VersionIter skipping, https://github.com/omnia-md/conda-recipes/issues/712
+    - numpy x.x
   run:
     - python
 
