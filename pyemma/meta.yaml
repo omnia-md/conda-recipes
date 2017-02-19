@@ -40,7 +40,7 @@ requirements:
     - scipy
     - setuptools
     - six >=1.1.0
-    - thermotools >=0.2.3
+    - thermotools >=0.2.5
 
 test:
   imports:
