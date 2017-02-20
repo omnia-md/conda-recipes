@@ -101,7 +101,7 @@ def main():
         '--numpy',
         help="Set the NumPy version used by conda build",
         metavar="NUMPY_VER",
-        default='1.10,1.11',
+        default='1.10,1.11,1.12',
     )
     p.add_argument(
         '-v', '--verbose',
@@ -293,6 +293,7 @@ class VersionIter(object):
     def __iter__(self):
         reqs = self.metadata.get_value('requirements/build')
         reqs = [r.split(' ')[0] if ' ' in r else r for r in reqs]
+        # build only required versions
         if self.pkg in reqs:
             for v in self.versions:
                 yield v
@@ -316,9 +317,15 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
         last_base_bldpkg_path = None
         for python in VersionIter('python', m, pythons):
             for numpy in VersionIter('numpy', m, numpys):
+                # TODO: this might cause trouble, if numpy is not a build requirement, because VersionIter skips unneeded Numpy versions,
+                # fix this workaround more elegantly
                 if python == "36" and numpy == "1.10":
                     if verbose > 1:
-                        print("skipping python 3.6 and numpy 1.10")
+                        print("skipping {pkgname} python 3.6 and numpy 1.10".format(pkgname=pkgname))
+                    continue
+                if python == "34" and numpy == "1.12":
+                    if verbose > 1:
+                        print("skipping {pkgname} python 3.4 and numpy 1.12".format(pkgname=pkgname))
                     continue
 
                 bldpkg_path = get_bldpkg_path(m, python, numpy)
