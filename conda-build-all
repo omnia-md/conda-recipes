@@ -326,6 +326,7 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
                 if python == "34" and numpy == "1.12":
                     if verbose > 1:
                         print("skipping {pkgname} python 3.4 and numpy 1.12".format(pkgname=pkgname))
+                    continue
 
                 bldpkg_path = get_bldpkg_path(m, python, numpy)
                 base_bldpkg_path = os.path.basename(bldpkg_path)
