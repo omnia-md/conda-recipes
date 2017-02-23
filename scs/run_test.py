@@ -140,13 +140,13 @@ def getConeDims(K):
     l = l + K['ep'] * 3;
     l = l + K['ed'] * 3;
     l = l + len(K['p']) * 3;
-    return l
+    return int(l)
 
 def proj_dual_cone(z, c):
     return z + proj_cone(-z, c)
 
 def get_sd_cone_size(n):
-    return (n * (n + 1)) / 2
+    return int((n * (n + 1)) / 2)
 
 def proj_cone(z, c):
     z = copy(z)
