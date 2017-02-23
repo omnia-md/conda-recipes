@@ -32,7 +32,7 @@ about:
     home: http://www.mpich.org/
     license: MPICH
     license_file: COPYRIGHT
-    license_family: Other
+    license_family: OTHER
     summary: 'A high performance widely portable implementation of the MPI standard.'
     description: |
       MPICH is a high performance and widely portable implementation of the
