@@ -1,4 +1,4 @@
-{% set version="2.0.0" %}
+{% set version = "2.0.0" %}
 
 package:
   name: mpi4py
@@ -10,9 +10,8 @@ source:
   md5: 4f7d8126d7367c239fd67615680990e3
 
 build:
-  number: 0
+  number: 2
   script: pip install --no-deps .
-  detect_binary_files_with_prefix: true
   # TODO: build with msmpi when it works
   skip: true  # [win]
 
@@ -33,6 +32,8 @@ test:
 about:
   home: http://pythonhosted.org/mpi4py/
   license: BSD 2-clause
+  license_family: BSD
+  license_file: LICENSE.rst
   summary: Provides bindings of the MPI standard for Python
   description: |
      MPI for Python provides bindings of the Message Passing Interface (MPI)
@@ -43,8 +44,9 @@ about:
 
 extra:
   recipe-maintainers:
+    - dalcinl
     - minrk
     - msarahan
     - ocefpaf
   citaton:
-    - This repo is a clone of the conda-forge repo
+    - This repo is a clone of the conda-forge feedstock
