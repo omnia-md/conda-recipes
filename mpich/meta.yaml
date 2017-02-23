@@ -28,18 +28,6 @@ test:
         - conda inspect objects mpich  # [osx]
         - conda inspect linkages mpich  # [not win]
 
-about:
-    home: http://www.mpich.org/
-    license: MPICH
-    license_file: COPYRIGHT
-    license_family: OTHER
-    summary: 'A high performance widely portable implementation of the MPI standard.'
-    description: |
-      MPICH is a high performance and widely portable implementation of the
-      Message Passing Interface (MPI) standard.
-    doc_url: http://www.mpich.org/documentation/guides
-    dev_url: https://wiki.mpich.org/mpich/index.php/Main_Page
-
 extra:
     recipe-maintainers:
         - astrofrog
@@ -50,3 +38,14 @@ extra:
         - ocefpaf
     copywrtie:
         - This repo is a clone of the conda-forge feedstock (without tests)
+        - The about section was moved to extra to avoid bug in conda-build
+    home: http://www.mpich.org/
+    license: MPICH
+    license_file: COPYRIGHT
+    license_family: Other
+    summary: 'A high performance widely portable implementation of the MPI standard.'
+    description: |
+      MPICH is a high performance and widely portable implementation of the
+      Message Passing Interface (MPI) standard.
+    doc_url: http://www.mpich.org/documentation/guides
+    dev_url: https://wiki.mpich.org/mpich/index.php/Main_Page
