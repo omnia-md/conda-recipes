@@ -1,14 +1,10 @@
 package:
   name: gpy
-  version: 0.8.8.post1
+  version: 1.5.6
 
 source:
   git_url: https://github.com/SheffieldML/GPy.git
-  git_tag: 6ca841f35be5dc3f03aff20b250127047b70351f
-  patches:
-    - 0001-Add-basesetup.py.patch
-    - 0002-Add-compiler-detection-code-for-OpenMP.patch
-    - 0003-Fix-rb-for-Python-3.patch
+  git_tag: v1.5.6
 
 build:
   skip: True  # [win and py34]
