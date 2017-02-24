@@ -33,7 +33,6 @@ test:
   requires:
     - nose
     - nose-timer
-    - fahmunge-dev
   imports:
     - fahmunge
   commands:
