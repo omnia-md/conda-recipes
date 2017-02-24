@@ -8,8 +8,8 @@ source:
   md5: fcfbc77a810900865b143b7aa9409e2f
 
 build:
-  noarch_python: True
-  number: 0
+  #noarch_python: True # this causes problems
+  number: 1
   skip: True  # [win]
 
 requirements:
