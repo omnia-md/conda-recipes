@@ -8,7 +8,7 @@ source:
 
 build:
   number: 0
-  skip: True # [win and py36]
+  skip: True # [win or py36]
 
 extra:
   upload: rc
