@@ -347,8 +347,6 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
                             print("Attempting to build {pkgname} on Python 3.6 and NumPy {numpy}".format(
                                 pkgname=base_bldpkg_path, numpy=numpy))
                         rebuild_paths = True
-                        bldpkg_path = get_bldpkg_path(m, python, numpy)
-                        base_bldpkg_path = os.path.basename(bldpkg_path)
                 if python == "34" and numpy == "1.12":
                     if verbose > 1:
                         print("{pkgname} will not build on Python 3.4 and NumPy 1.12".format(pkgname=base_bldpkg_path))
