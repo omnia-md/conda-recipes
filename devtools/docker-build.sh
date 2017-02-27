@@ -13,7 +13,7 @@ PATH=/opt/rh/devtoolset-2/root/usr/bin:/anaconda/bin:$PATH
 conda config --add channels omnia
 conda install -yq conda-build jinja2 anaconda-client
 # Install missing LaTeX docs
-tlmgr install fncychap tabulary capt-of eqparbox
+tlmgr install fncychap tabulary capt-of eqparbox environ
 
 /io/conda-build-all -vvv $UPLOAD -- /io/*
 
