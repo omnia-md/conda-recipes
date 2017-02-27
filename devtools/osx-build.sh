@@ -31,7 +31,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     export PATH="/usr/texbin:${PATH}:/usr/bin"
     sudo tlmgr update --self
     sleep 5
-    sudo tlmgr --persistent-downloads install titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring fncychap tabulary capt-of
+    sudo tlmgr --persistent-downloads install titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring fncychap tabulary capt-of eqparbox
 fi;
 
 # Build packages
