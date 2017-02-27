@@ -1,11 +1,11 @@
 package:
   name: paramz
-  version: "0.1.5"
+  version: "0.7.3"
 
 source:
-  fn: paramz-0.1.5.tar.gz
-  url: https://pypi.python.org/packages/source/p/paramz/paramz-0.1.5.tar.gz
-  md5: d3f39bc64cf8de37c7df85efd41333d9
+  fn: paramz-0.7.3.tar.gz
+  url: https://pypi.python.org/packages/8b/9f/a1ecbbe343e35e6342b005b443e7d8fb6dbbf0a2a6843a155b9edcb2242b/paramz-0.7.3.tar.gz
+  md5: 0bc6acc4b819c15d216b206c91e1aecd
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -29,10 +29,10 @@ source:
 requirements:
   build:
     - python
-    - setuptools
     - numpy >=1.7
     - scipy
     - six
+    - decorator >=4.0.10
 
   run:
     - python
