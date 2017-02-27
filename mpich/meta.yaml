@@ -16,7 +16,7 @@ build:
 requirements:
     build:
         - gcc  # [not win]
-        - toolchain
+        # - toolchain
     run:
         - libgcc  # [linux]
         - libgfortran  # [osx]
@@ -39,6 +39,7 @@ extra:
     copywrtie:
         - This repo is a clone of the conda-forge feedstock (without tests)
         - The about section was moved to extra to avoid bug in conda-build
+        - Toolchain was commented out
     home: http://www.mpich.org/
     license: MPICH
     license_file: COPYRIGHT
