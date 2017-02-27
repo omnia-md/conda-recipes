@@ -12,7 +12,7 @@ bash Miniconda3-latest-Linux-x86_64.sh -b -p /anaconda
 PATH=/opt/rh/devtoolset-2/root/usr/bin:/anaconda/bin:$PATH
 conda config --add channels omnia
 conda install -yq conda-build jinja2 anaconda-client
-tlmgr install fncychap tabulary
+tlmgr install fncychap tabulary capt-of
 
 /io/conda-build-all -vvv $UPLOAD -- /io/*
 
