@@ -1,10 +1,10 @@
 package:
   name: nglview
-  version: "v0.5.2"
+  version: "v0.6.2.2"
 
 source:
   git_url: https://github.com/arose/nglview.git
-  git_tag: v0.5.2
+  git_tag: v0.6.2.2
 
 build:
   number: 0
@@ -13,18 +13,18 @@ build:
 requirements:
   build:
     - python
-    - setuptools
     - jupyter
-    - ipywidgets <=4.1.1
+    - ipywidgets >5.1.0
+    - notebook >4.1
     - traitlets
 
   run:
     - python
     - numpy
-    - ipywidgets <=4.1.1
+    - ipywidgets >5.1.0
     - jupyter
     - traitlets
-    - notebook
+    - notebook >4.1
 
 test:
   imports:
