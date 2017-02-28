@@ -1,29 +1,21 @@
 package:
   name: cvxopt
-  version: 1.1.8
+  version: "1.1.9"
 
 source:
-  fn: cvxopt-1.1.8.tar.gz
-  url: https://pypi.python.org/packages/source/c/cvxopt/cvxopt-1.1.8.tar.gz
-  md5: d4ff0a0e51aba93f838a70302a088eea
-
-  patches:
-    - win-setup.patch  [win]
-    - 0001-setup.patch
-
-build:
-  # TODO: no mingwpy on py35
-  skip: True  # [win and py35]
+  fn: cvxopt-1.1.9.tar.gz
+  url: https://pypi.python.org/packages/ef/90/38ccadcf77c8002ffd607fe1c14c67a4bf1041c990e8ba7aa4b8a2287350/cvxopt-1.1.9.tar.gz
+  md5: a56e7b23d76c2b5aaf3bea2a7c245ea7
 
 requirements:
   build:
     - python
-    - mingwpy    [win]
+    - mingwpy # [win]
     - openblas
 
   run:
     - python
-    - openblas   [not win]
+    - openblas
 
 test:
   imports:

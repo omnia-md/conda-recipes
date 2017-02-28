@@ -1,60 +1,42 @@
 package:
   name: cvxpy
-  version: !!str 0.3.1
-
-source:
-  fn: cvxpy-0.3.1.tar.gz
-  url: https://pypi.python.org/packages/source/c/cvxpy/cvxpy-0.3.1.tar.gz
-  md5: 5d4c2a6862bbdd1cefb234786696900a
+  version: 0.4.8
 
 build:
-  # TODO: no cvxopt on win py35 and win64 bug (https://github.com/cvxgrp/cvxpy/issues/236)
-  skip: True  # [(win and py35) or win64]
+  number: 0
+
+source:
+  git_url: https://github.com/cvxgrp/cvxpy
 
 requirements:
   build:
     - python
-    - setuptools
-    - cvxopt
-    - ecos
-    - scs
-    - toolz
     - numpy
     - scipy
+    - multiprocess
+    - toolz
+    - scs
+    - ecos
+    - cvxopt
+    - setuptools
     - cvxcanon
-
   run:
     - python
-    - cvxopt
-    - ecos
-    - scs
-    - toolz
     - numpy
     - scipy
+    - multiprocess
+    - toolz
+    - scs
+    - ecos
+    - cvxopt
     - cvxcanon
-
 test:
-  # Python imports
+  requires:
+    - setuptools
   imports:
     - cvxpy
-    - cvxpy.atoms
-    - cvxpy.atoms.affine
-    - cvxpy.atoms.elementwise
-    - cvxpy.constraints
-    - cvxpy.expressions
-    - cvxpy.expressions.constants
-    - cvxpy.expressions.variables
-    - cvxpy.interface
-    - cvxpy.interface.cvxopt_interface
-    - cvxpy.interface.numpy_interface
-    - cvxpy.lin_ops
-    - cvxpy.problems
-    - cvxpy.problems.problem_data
-    - cvxpy.problems.solvers
-    - cvxpy.tests
-    - cvxpy.utilities
 
 about:
-  home: http://github.com/cvxgrp/cvxpy/
-  license: GPLv3
-  summary: 'A domain-specific language for modeling convex optimization problems in Python.'
+  home: http://www.cvxpy.org/en/latest/
+  license: Apache2.0
+  summary: 'A Python-embedded modeling language for convex optimization.'
