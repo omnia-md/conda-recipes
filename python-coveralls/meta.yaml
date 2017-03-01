@@ -3,7 +3,7 @@ package:
   version: "2.9.0"
 
 source:
-  fn: python-coveralls-2.5.0.tar.gz
+  fn: python-coveralls-2.9.0.tar.gz
   url: https://pypi.python.org/packages/a7/75/c07d88092ad2eeab254abd86c526c5577365be22f8927e9215970973ed6e/python-coveralls-2.9.0.tar.gz
   md5: 959adccf213412fd851b24e44176521c
 
