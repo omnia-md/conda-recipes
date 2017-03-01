@@ -10,7 +10,7 @@ build:
   number: 1
   entry_points:
     - ensembler = ensembler.cli:main
-  skip: True  # [win or py3k]
+  skip: True  # [win]
 
 requirements:
   build:
