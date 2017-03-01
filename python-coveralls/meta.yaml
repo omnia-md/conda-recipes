@@ -1,11 +1,11 @@
 package:
   name: python-coveralls
-  version: !!str 2.5.0
+  version: "2.9.0"
 
 source:
   fn: python-coveralls-2.5.0.tar.gz
-  url: https://pypi.python.org/packages/source/p/python-coveralls/python-coveralls-2.5.0.tar.gz
-  md5: e66878a926b9d5dd04250e1a05080fbd
+  url: https://pypi.python.org/packages/a7/75/c07d88092ad2eeab254abd86c526c5577365be22f8927e9215970973ed6e/python-coveralls-2.9.0.tar.gz
+  md5: 959adccf213412fd851b24e44176521c
 
 build:
   entry_points:
@@ -18,17 +18,15 @@ requirements:
     - setuptools
     - pyyaml
     - requests
-    - coverage ==3.7.1
+    - coverage ==4.0.3
     - six
-    - sh
 
   run:
     - python
     - pyyaml
     - requests
-    - coverage ==3.7.1
+    - coverage ==4.0.3
     - six
-    - sh
 
 test:
   # Python imports
@@ -40,5 +38,5 @@ test:
 
 about:
   home: http://github.com/z4r/python-coveralls
-  license: Apache Software License
+  license: Apache License 2.0
   summary: 'Python interface to coveralls.io API'
