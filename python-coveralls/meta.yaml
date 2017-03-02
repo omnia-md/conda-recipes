@@ -18,14 +18,14 @@ requirements:
     - setuptools
     - pyyaml
     - requests
-    - coverage ==4.0.3
+    - coverage >=4.0.3
     - six
 
   run:
     - python
     - pyyaml
     - requests
-    - coverage ==4.0.3
+    - coverage >=4.0.3
     - six
 
 test:
