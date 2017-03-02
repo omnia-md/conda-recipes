@@ -1,11 +1,10 @@
 package:
   name: cvxcanon
-  version: "0.0.21"
+  version: "0.0.22"
 
 source:
-  fn: CVXcanon-0.0.21.tar.gz
-  url: https://pypi.python.org/packages/source/C/CVXcanon/CVXcanon-0.0.21.tar.gz
-  md5: 815fe7a87455d1e17cae63046bffa12c
+  git_url: https://github.com/cvxgrp/CVXcanon.git
+  git_tag: "0.0.23"
 
 requirements:
   build:
@@ -24,7 +23,7 @@ test:
 
 about:
   home: https://github.com/cvxgrp/CVXcanon
-  license: GPLv3
-  summary: 'A low-level library to perform the matrix building step in cvxpy, a convex optimization modeling software.'
+  license: Apache2.0
+  summary: "A low-level library to perform the matrix building step in cvxpy, a convex optimization modeling software."
 
 
