@@ -20,6 +20,8 @@ requirements:
     - cvxopt
     - setuptools
     - cvxcanon >=0.0.22
+    - six
+
   run:
     - python
     - numpy
@@ -30,6 +32,8 @@ requirements:
     - ecos
     - cvxopt
     - cvxcanon >=0.0.22
+    - six
+
 test:
   requires:
     - setuptools
