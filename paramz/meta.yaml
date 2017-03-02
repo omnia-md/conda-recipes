@@ -39,6 +39,7 @@ requirements:
     - numpy >=1.7
     - scipy
     - six
+    - decorator >=4.0.10
 
 test:
   # Python imports

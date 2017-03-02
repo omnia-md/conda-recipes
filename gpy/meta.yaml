@@ -22,7 +22,6 @@ requirements:
     - nose
     - paramz
     - cython
-    - decorator >=4.0.10 # This might be able to be removed once paramz is published
 
   run:
     - python
@@ -31,6 +30,7 @@ requirements:
     - cython
     - six
     - paramz
+    - matplotlib
 
 test:
   imports:
