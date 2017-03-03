@@ -21,6 +21,7 @@ requirements:
     - setuptools
     - cvxcanon >=0.0.22
     - six
+    - fastcache
 
   run:
     - python
@@ -33,6 +34,7 @@ requirements:
     - cvxopt
     - cvxcanon >=0.0.22
     - six
+    - fastcache
 
 test:
   requires:
