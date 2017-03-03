@@ -36,7 +36,7 @@ extra:
         - minrk
         - msarahan
         - ocefpaf
-    copywrtie:
+    copyright:
         - This repo is a clone of the conda-forge feedstock (without tests)
         - The about section was moved to extra to avoid bug in conda-build
         - Toolchain was commented out
