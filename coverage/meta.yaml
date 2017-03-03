@@ -18,7 +18,6 @@ build:
 
 requirements:
   build:
-    - toolchain # [not osx or win]
     - python
     - setuptools
   run:
