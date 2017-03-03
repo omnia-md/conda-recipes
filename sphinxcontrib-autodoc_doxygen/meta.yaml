@@ -1,31 +1,29 @@
 package:
   name: sphinxcontrib-autodoc_doxygen
-  version: "0.3.1"
+  version: "0.3.2"
 
 source:
-  fn: sphinxcontrib-autodoc_doxygen-0.3.1.tar.gz
-  url: https://pypi.python.org/packages/source/s/sphinxcontrib-autodoc_doxygen/sphinxcontrib-autodoc_doxygen-0.3.1.tar.gz
-  md5: fcfbc77a810900865b143b7aa9409e2f
+  fn: sphinxcontrib-autodoc_doxygen-0.3.2.tar.gz
+  url: https://pypi.python.org/packages/c0/4c/adf0ede4585e51b4810c4b649f46781d8550792167bb4873ed9b76d3bfcb/sphinxcontrib-autodoc_doxygen-0.3.2.tar.gz
+  md5: 14c07fb345ba0d57e57236b5b484d13a
 
 build:
-  noarch_python: True
+  #noarch_python: True # this causes problems
   number: 0
   skip: True  # [win]
 
 requirements:
   build:
-    - setuptools
     - python
-    - sphinx ==1.3.1
+    - sphinx ==1.5.1
     - docutils >=0.11
     - jinja2 >=2.3
     - lxml
     - mock
-    - pbr
 
   run:
     - python
-    - sphinx ==1.3.1
+    - sphinx ==1.5.1
     - docutils >=0.11
     - jinja2 >=2.3
     - lxml

@@ -9,12 +9,13 @@ source:
 
 build:
   skip: True  # [(not unix) or py3k]
+  number: 1
 
 requirements:
   build:
     - python
     - setuptools
-    - boost ==1.59
+    - boost ==1.61
     - rdkit
     - matplotlib
     - pyqt
@@ -25,7 +26,7 @@ requirements:
 
   run:
     - python
-    - boost ==1.59
+    - boost ==1.61
     - rdkit 
     - matplotlib
     - pyqt

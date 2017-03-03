@@ -11,14 +11,14 @@ source:
     - rdconfig.patch [win]
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win]
 
 requirements:
   build:
     - cmake [unix]
     - requests
-    - boost ==1.59
+    - boost ==1.61
     - python
     - numpy
     - pillow
@@ -27,7 +27,7 @@ requirements:
   run:
     - python
     - numpy
-    - boost ==1.59 [linux]
+    - boost ==1.61 [linux]
 
 test:
   imports:

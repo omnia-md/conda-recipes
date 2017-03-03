@@ -17,6 +17,8 @@ requirements:
   build:
     - python
     - setuptools
+    - numpy
+    - matplotlib
 
   run:
     - python
@@ -25,9 +27,13 @@ requirements:
     - scipy
     - pandas
 
-test:
-  imports:
-    - corner
+#test:
+  #imports:
+  #  - corner
+  # Run "run_test.py" to force Matplotlib to use the PyQt5 instead of 4 (matplotlib issue)
+  # See ongoing issue (https://github.com/ContinuumIO/anaconda-issues/issues/1068)
+
+
 
 about:
   home: https://github.com/dfm/corner.py

@@ -289,16 +289,25 @@ class VersionIter(object):
         self.versions = versions
         self.metadata = metadata
         self.pkg = pkg
+        reqs = self.metadata.get_value('requirements/build')
+        self.reqs = [r.split(' ')[0] if ' ' in r else r for r in reqs]
 
     def __iter__(self):
-        reqs = self.metadata.get_value('requirements/build')
-        reqs = [r.split(' ')[0] if ' ' in r else r for r in reqs]
         # build only required versions
-        if self.pkg in reqs:
+        if self.pkg in self.reqs:
             for v in self.versions:
                 yield v
         else:
             yield self.versions[0]
+
+    def __getitem__(self, item):
+        return self.versions[item]
+
+    def __len__(self):
+        if self.pkg in self.reqs:
+            return len(self.versions)
+        else:
+            return 1
 
 
 def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
@@ -315,21 +324,45 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
     for m in metadatas:
 
         last_base_bldpkg_path = None
-        for python in VersionIter('python', m, pythons):
-            for numpy in VersionIter('numpy', m, numpys):
-                # TODO: this might cause trouble, if numpy is not a build requirement, because VersionIter skips unneeded Numpy versions,
-                # fix this workaround more elegantly
-                if python == "36" and numpy == "1.10":
-                    if verbose > 1:
-                        print("skipping {pkgname} python 3.6 and numpy 1.10".format(pkgname=pkgname))
-                    continue
-                if python == "34" and numpy == "1.12":
-                    if verbose > 1:
-                        print("skipping {pkgname} python 3.4 and numpy 1.12".format(pkgname=pkgname))
-                    continue
+        python_iter = VersionIter('python', m, pythons)
+        numpy_iter = VersionIter('numpy', m, numpys)
+        for python in python_iter:
+            for numpy in numpy_iter:
 
                 bldpkg_path = get_bldpkg_path(m, python, numpy)
                 base_bldpkg_path = os.path.basename(bldpkg_path)
+                rebuild_paths = False
+
+                # TODO: Fix this workaround more elegantly
+                if python == "36" and numpy == "1.10":
+                    if verbose > 1:
+                        print("{pkgname} will not build on Python 3.6 and NumPy 1.10".format(pkgname=base_bldpkg_path))
+                    # Check if there are more numpy versions coming:
+                    if len(numpy_iter) == len(numpy_iter.versions):
+                        continue
+                    else:
+                        # Try a higher numpy version
+                        numpy = numpy_iter[1]
+                        if verbose > 1:
+                            print("Attempting to build {pkgname} on Python 3.6 and NumPy {numpy}".format(
+                                pkgname=base_bldpkg_path, numpy=numpy))
+                        rebuild_paths = True
+                if python == "34" and numpy == "1.12":
+                    if verbose > 1:
+                        print("{pkgname} will not build on Python 3.4 and NumPy 1.12".format(pkgname=base_bldpkg_path))
+                    # Check if there are more numpy versions coming:
+                    if len(numpy_iter) == len(numpy_iter.versions):
+                        continue
+                    else:
+                        # Try a lower numpy version
+                        numpy = numpy_iter[-2]
+                        if verbose > 1:
+                            print("Attempting to build {pkgname} on Python 3.4 and NumPy {numpy}".format(
+                                pkgname=base_bldpkg_path, numpy=numpy))
+                        rebuild_paths = True
+                if rebuild_paths:
+                    bldpkg_path = get_bldpkg_path(m, python, numpy)
+                    base_bldpkg_path = os.path.basename(bldpkg_path)
 
                 # Allow package recipe to force rebuild and upload in recipe.
                 if m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload']=='True'):
