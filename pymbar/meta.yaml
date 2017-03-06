@@ -1,10 +1,10 @@
 package:
   name: pymbar
-  version: 3.0.0.beta2
+  version: "3.0.1.beta0"
 
 source:
-  url: https://github.com/choderalab/pymbar/archive/3.0.0.beta2.zip
-  fn: 3.0.0.beta2.zip
+  git_url: https://github.com/choderalab/pymbar.git
+  git_tag: "3.0.1.beta0"
 
 build:
   number: 0
@@ -16,12 +16,14 @@ requirements:
     - numpy x.x
     - scipy
     - six
+    - numexpr
 
   run:
     - python
     - numpy x.x
     - scipy
     - six
+    - numexpr
 
 test:
   commands:
