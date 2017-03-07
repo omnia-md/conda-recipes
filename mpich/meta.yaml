@@ -24,9 +24,11 @@ requirements:
 test:
     requires:
         - gcc  # [not win]
-    commands:
-        - conda inspect objects mpich  # [osx]
-        - conda inspect linkages mpich  # [not win]
+    files:
+        - tests/helloworld.c
+        - tests/helloworld.cxx
+        - tests/helloworld.f
+        - tests/helloworld.f90
 
 extra:
     recipe-maintainers:
@@ -37,7 +39,7 @@ extra:
         - msarahan
         - ocefpaf
     copyright:
-        - This repo is a clone of the conda-forge feedstock (without tests)
+        - This repo is a clone of the conda-forge feedstock (without `commands` tests)
         - The about section was moved to extra to avoid bug in conda-build
         - Toolchain was commented out
     home: http://www.mpich.org/

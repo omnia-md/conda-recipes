@@ -20,6 +20,7 @@ requirements:
     - python
     - pip
     - mpich          # [unix]
+    - libgfortran # needed for compiling missing libs
   run:
     - python
     - mpich          # [unix]
@@ -50,3 +51,4 @@ extra:
     - ocefpaf
   citaton:
     - This repo is a clone of the conda-forge feedstock
+    - libgfortran has been added to the build deps.
