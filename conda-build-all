@@ -219,10 +219,10 @@ def get_bldpkg_path(m, python, numpy):
     cfg.CONDA_NPY = int(numpy.replace('.', ''))
 
     m.config = cfg
-    if m.info_index()['subdir'] == 'noarch':
-        cfg.noarch = True
+    if m.info_index()['platform'] == 'noarch':
+        cfg.platform = 'noarch'
     else:
-        cfg.noarch = False
+        cfg.platform = m.info_index()['platform']
     # need to re-parse jinja2 in light of changing config vars.
     # (esp. for skip() to work)
     m.parse_again()
