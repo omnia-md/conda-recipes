@@ -1,0 +1,19 @@
+--- libsrc\dim.c.orig	2016-08-10 14:20:07.878295000 +1000
++++ libsrc\dim.c	2016-08-10 14:20:17.221986100 +1000
+@@ -444,6 +444,7 @@
+ 	int existid;
+ 	NC_dim *dimp;
+ 	char *newname;		/* normalized */
++    NC_string *old;
+
+ 	status = NC_check_id(ncid, &nc);
+ 	if(status != NC_NOERR)
+@@ -465,7 +466,7 @@
+ 	if(dimp == NULL)
+ 		return NC_EBADDIM;
+
+-	NC_string *old = dimp->name;
++	old = dimp->name;
+ 	newname = (char *)utf8proc_NFC((const unsigned char *)unewname);
+ 	if(newname == NULL)
+ 	    return NC_ENOMEM;

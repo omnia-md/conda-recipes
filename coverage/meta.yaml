@@ -36,6 +36,8 @@ about:
   summary: 'Code coverage measurement for Python'
 
 extra:
+  omnia-md-recipe-maintainer:
+    - lnaden # Note: Not author of the recipe or source code
   recipe-maintainers:
     - ericmjl
     - jakirkham
