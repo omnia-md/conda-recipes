@@ -214,12 +214,7 @@ def conda_build_cmd():
 
 
 def get_bldpkg_path(m, python, numpy):
-    if 'noarch_python' in m.meta['build'].keys() and m.meta['build']['noarch_python'] == 'True':
-        args = {'noarch_python':True}
-    else:
-        args = {}
-    # pattern from conda_build.skeleton.pypi
-    cfg = _CondaBuildConfig(**args)
+    cfg = _CondaBuildConfig()
     cfg.CONDA_PY = int(python.replace('.', ''))
     cfg.CONDA_NPY = int(numpy.replace('.', ''))
     m.config = cfg
