@@ -27,12 +27,12 @@ try:
     from conda.utils import memoized
     from conda_build.api import get_output_file_path
     import conda.api
-    import conda_build.index as conda_build_index
+    #import conda_build.index as conda_build_index
     from conda.config import subdir as platform
     assert platform in ('osx-64', 'linux-32', 'linux-64', 'win-32', 'win-64')
     from conda_build.metadata import MetaData
     from conda_build.config import Config as _CondaBuildConfig
-    from conda.utils import url_path
+    #from conda.utils import url_path
     # default config instance
     CondaBuildConfig = _CondaBuildConfig()
     BUILD_DIRECTORY = CondaBuildConfig.build_prefix
@@ -221,7 +221,8 @@ def get_bldpkg_path(m, python, numpy):
     m.config = cfg
     platform = m.info_index()['platform']
     if platform is None:
-        platform = 'noarch'
+        # TODO: None indicates noarch already?
+        platform = None#'noarch'
     cfg.platform = platform
     # need to re-parse jinja2 in light of changing config vars.
     # (esp. for skip() to work)
@@ -317,8 +318,8 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
         prepend=False)
     index_by_pkgname = defaultdict(dict)
     for k, v in index.items():
-        channel = k.channel
-        pkgname = k.to_filename()
+        channel = v['channel']
+        pkgname = v['fn']
         index_by_pkgname[pkgname][channel] = v
 
     for m in metadatas:
