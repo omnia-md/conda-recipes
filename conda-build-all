@@ -217,9 +217,9 @@ def get_bldpkg_path(m, python, numpy):
     cfg = _CondaBuildConfig()
     cfg.CONDA_PY = int(python.replace('.', ''))
     cfg.CONDA_NPY = int(numpy.replace('.', ''))
+
     m.config = cfg
     platform = m.info_index()['platform']
-    print("get_bldpkg_path for %s: platform is %s" %(m.meta_path, platform))
     if platform is None:
         platform = 'noarch'
     cfg.platform = platform
@@ -317,8 +317,8 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
         prepend=False)
     index_by_pkgname = defaultdict(dict)
     for k, v in index.items():
-        channel = v['channel']
-        pkgname = v['fn']
+        channel = k.channel
+        pkgname = k.to_filename()
         index_by_pkgname[pkgname][channel] = v
 
     for m in metadatas:
