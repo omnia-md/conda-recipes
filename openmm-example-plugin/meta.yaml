@@ -9,14 +9,16 @@ source:
 
 build:
   skip: True  # [win]
-    
+
 requirements:
   build:
-    - openmm
-    - cmake
+    # on windows, need to install cmake manually
+    - cmake     [not win]
+    - jom       [win]
     - python
-    - swig ==3.0.7
-
+    # swig is pinned to use omnia swig 3.0.8
+    - swig ==3.0.8
+        
   run:
     - python
     - openmm
