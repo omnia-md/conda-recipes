@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 set -x
+conda config --set channel_priority false
 conda config --add channels omnia
 conda install -yq conda-build jinja2 anaconda-client
 

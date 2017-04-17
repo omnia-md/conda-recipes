@@ -10,6 +10,8 @@ brew tap -y caskroom/cask
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
 bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/anaconda;
 export PATH=$HOME/anaconda/bin:$PATH;
+conda config --set channel_priority false;
+conda config --add channels conda-forge;
 conda config --add channels omnia;
 conda config --show;
 conda install -yq conda-build=2.1.5 jinja2 anaconda-client;
