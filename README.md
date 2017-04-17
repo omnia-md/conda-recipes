@@ -8,6 +8,17 @@ omnia-md/conda-recipes
 The recipes here create conda packages for scientific and numerical software components associated with the [`omnia`](http://omnia.md) project.
 The packages built from these recipes are shared with the community on [anaconda.org](https://anaconda.org/omnia).
 
+Migration to conda-forge
+------------------------
+The Omnia project has now started migrating to [`conda-forge`](https://conda-forge.github.io/). This repository can still 
+serve as a development and testing grounds for your recipes as we have a custom 
+[conda-forge anvil](https://hub.docker.com/r/jchodera/omnia-linux-anvil/) which has additional support for TexLive, 
+AMD SDK, and CUDA 8.0.
+
+We *strongly* recommend following the 
+[conda forge guidelines](http://conda-forge.github.io/docs/guidelines.html#transferring-to-conda-forge)
+for your recipes.
+
 ### Installing packages from omnia
 
 To install a package
