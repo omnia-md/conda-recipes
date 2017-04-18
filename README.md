@@ -22,12 +22,17 @@ versions will instead appear on `conda-forge`.
     `conda-forge` anvil, with some [custom addons](https://hub.docker.com/r/jchodera/omnia-linux-anvil/~/dockerfile/) 
     to include things like the AMD SDK, TexLive, and CUDA for GPU builds. The updated version will ensure packages 
     can work on the `conda-forge` platform which is CentOS 6 based.
-     
-1. Migrate non-OpenMM packages to `conda-forge`
 
-    Packages which do not depend on OpenMM and can be run on CPUs only should start migrating over to `conda-forge` 
-    in preparation for the total migration. *We highly encourage devs of individual packages to start migrating now.
-    
+1. Begin migration of "nearly-pure Python" and non-OpenMM dependent packages
+
+   * Packages which do not depend on OpenMM and can be run on CPUs only should start migrating over to `conda-forge` 
+   in preparation for the total migration. 
+   * Packages which can compile with just the `conda-forge` linux-anvil should also start migrating.
+   * *We highly encourage devs of individual packages to start migrating now.*
+
+1. Determine the apropriate way to build packages which require more than the `conda-forge` linux-anvil can provide
+
+   * The `conda-forge` linux-anvil does not support some things such  
 1. Move OpenMM to `conda-forge`
 1. Move packages which depend on OpenMM to `conda-forge`
 1. Move all packages to `conda-forge`

@@ -4,6 +4,8 @@ package:
 
 build:
   number: 0
+  # No mingwpy on python 3.5+ which is needed by cvxp[t
+  skip: True # [win and (py35 or py36)]
 
 source:
   git_url: https://github.com/cvxgrp/cvxpy
