@@ -1,0 +1,32 @@
+diff --git a/setup.py b/setup.py
+index 0432cba..2fe42ce 100644
+--- a/setup.py
++++ b/setup.py
+@@ -4,6 +4,7 @@ from __future__ import print_function
+ import os
+ import sys
+ from setuptools import setup, Extension
++from basesetup import CompilerDetection
+ import numpy as np
+
+
+@@ -33,13 +34,16 @@ if ismac():
+     compile_flags = [ '-O3', ]
+     link_args = []
+ else:
+-    compile_flags = [ '-fopenmp', '-O3', ]
+-    link_args = ['-lgomp']
++    compiler = CompilerDetection(False)
++    compiler.initialize()
++    compile_flags = (compiler.compiler_args_sse2 + compiler.compiler_args_sse3 +
++                     compiler.compiler_args_opt + compiler.compiler_args_warn)
++
+
+ ext_mods = [Extension(name='GPy.kern._src.stationary_cython',
+                       sources=['GPy/kern/_src/stationary_cython.c','GPy/kern/_src/stationary_utils.c'],
+                       include_dirs=[np.get_include()],
+-                      extra_compile_args=compile_flags,
++                      extra_compile_args=compile_flags + compiler.compiler_args_openmp,
+                       extra_link_args = link_args),
+             Extension(name='GPy.util.choleskies_cython',
+                       sources=['GPy/util/choleskies_cython.c'],
