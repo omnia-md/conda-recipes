@@ -17,25 +17,23 @@ versions will instead appear on `conda-forge`.
 ### Planed Migration Stages
 
 1. (**Current**) Update build image to CentOS 6 from CentOS 5
-
     The base Docker image for linux builds will be updated to CentOS 6 with its new glibc. The base image is the 
     `conda-forge` anvil, with some [custom addons](https://hub.docker.com/r/jchodera/omnia-linux-anvil/~/dockerfile/) 
     to include things like the AMD SDK, TexLive, and CUDA for GPU builds. The updated version will ensure packages 
     can work on the `conda-forge` platform which is CentOS 6 based.
-
 1. Begin migration of "nearly-pure Python" and non-OpenMM dependent packages
-
    * Packages which do not depend on OpenMM and can be run on CPUs only should start migrating over to `conda-forge` 
    in preparation for the total migration. 
    * Packages which can compile with just the `conda-forge` linux-anvil should also start migrating.
    * *We highly encourage devs of individual packages to start migrating now.*
-
-1. Determine the apropriate way to build packages which require more than the `conda-forge` linux-anvil can provide
-
-   * The `conda-forge` linux-anvil does not support some things such  
+1. Determine the appropriate way to build packages which require more than the `conda-forge` linux-anvil can provide
+   * The `conda-forge` linux-anvil does not support some things such as some LaTeX packages, AMD SDK, and CUDA files. 
+   * We will need to reach out to the conda-forge people to see what the best course of action is
 1. Move OpenMM to `conda-forge`
+    * This will highly depend on the previous point. If we cannot get the CUDA and AMD packages as part of the build 
+      process, then we will strongly need to reconsider this step.
 1. Move packages which depend on OpenMM to `conda-forge`
-1. Move all packages to `conda-forge`
+1. Finish the move of all packages to `conda-forge`
 
 
 ### Installing packages from omnia
@@ -49,7 +47,7 @@ To install a package (`mdtraj` for example)
 ```bash
 # Set the channel priority behavior
 conda config --set channel_priority false
-# Add conda-forge as the lower priority (FILO format)
+# Add conda-forge as the lower priority (FILO format for priority)
 conda config --add channels conda-forge
 # Add the omnia channel
 conda config --add channels omnia
@@ -76,16 +74,18 @@ Packages which have a binary dependency on [numpy](http://www.numpy.org/) are bu
 
 The recipes here are automatically built using [Travis-CI](https://travis-ci.org/) for `linux` and `osx` and [Appveyor-CI](http://www.appveyor.com/) for `win`.
 
-For `linux` builds, we use a modified version of the [Holy Build Box](http://phusion.github.io/holy-build-box/), available [here](https://github.com/omnia-md/omnia-build-box), to ensure that the packages are fully compatible across multiple linux distributions and versions.
+For `linux` builds, we use a modified version of the 
+[conda-forge linux-anvil](https://github.com/omnia-md/omnia-linux-anvil/blob/master/Dockerfile), 
+to ensure that the packages are fully compatible across multiple linux distributions and versions.
 This build image contains the additional tools:
-* [clang](http://clang.llvm.org/) 3.8.1
+* [clang](http://clang.llvm.org/) 3.8.1 
 * [TeXLive](https://www.tug.org/texlive/) 2015
 * The [CUDA](https://developer.nvidia.com/cuda-toolkit) Toolkit version 8.0
 * The [AMD APP SDK](http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/) 3.0
 
 To build a package yourself, run `conda build <package_name>`, or `./conda-build-all ./*` to build multiple packages across each of the supported python/numpy configurations.
 
-### Contributing a recipe
+### Contributing a recipe (this has not been updated to reflect the conda-forge changes)
 
 1. Fork this repo
 2. Add your `conda` recipe for building your package `packagename` in a subdirectory called `packagename`. Feel free to use other recipes here as examples.
