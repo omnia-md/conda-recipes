@@ -14,10 +14,8 @@ source:
     - durole.patch
 
 build:
-  number: 1 # TODO: LOWER THIS BACK TO 0
+  number: 0
   # skip: True # [win]
-  # TODO: REMOVE TEMP LINE HERE TO FORCE BULDING ON JUST 1 VERSION FOR TESTING
-  skip: True # [not (linux and py35)]
 
 
 extra:

@@ -8,7 +8,7 @@ source:
   git_rev: f1e12743d7c5403bb6d7ad8da69af6a2f27e1b26
 
 build:
-  skip: True
+  skip: True # [win]
     
 requirements:
   build:

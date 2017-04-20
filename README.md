@@ -17,10 +17,18 @@ versions will instead appear on `conda-forge`.
 ### Planed Migration Stages
 
 1. (**Current**) Update build image to CentOS 6 from CentOS 5
+
     The base Docker image for linux builds will be updated to CentOS 6 with its new glibc. The base image is the 
     `conda-forge` anvil, with some [custom addons](https://hub.docker.com/r/jchodera/omnia-linux-anvil/~/dockerfile/) 
     to include things like the AMD SDK, TexLive, and CUDA for GPU builds. The updated version will ensure packages 
     can work on the `conda-forge` platform which is CentOS 6 based.
+    
+1. Stop building packages that appear in `conda-forge`
+
+    We want to minimize tha amount of work we have to do as maintainers. To that end, we will stop building things 
+    which freely appear on `conda-forge` and maintained by someone other than us!
+    For reproducibility purposes, we will keep our compiled versions, but they will not longer be updated.  
+     
 1. Begin migration of "nearly-pure Python" and non-OpenMM dependent packages
    * Packages which do not depend on OpenMM and can be run on CPUs only should start migrating over to `conda-forge` 
    in preparation for the total migration. 
@@ -35,10 +43,13 @@ versions will instead appear on `conda-forge`.
 1. Move packages which depend on OpenMM to `conda-forge`
 1. Finish the move of all packages to `conda-forge`
 
+### How to migrate to `conda-forge` (for existing packages)
 
-### Installing packages from omnia
+PLACEHOLDER
 
-    Important! Important! Important! Important! Important! Important! Important! Important!
+## Installing packages from omnia
+
+    Important!
     We highly recommend using the old style of conda channel priority until omnia is entierly on conda-forge!
     The instructions below enforce the old channel priority format, please visit https://conda.io/docs/channels.html 
     for more information on channel priority
@@ -58,7 +69,7 @@ conda install mdtraj
 The `channel_priority` behavior we configure gives priority to the highest version of the package over all channels.
  
 The default behavior (`channel_priority true`) pulls packages from the highest priority chanel, independent of package 
-version numbers. e.g. an older version package on a higher priority channel will be installed over a newer version 
+version numbers. i.e. an older version package on a higher priority channel will be installed over a newer version 
 of the same package on a lower priority channel.
 
 ### Supported versions
@@ -78,10 +89,11 @@ For `linux` builds, we use a modified version of the
 [conda-forge linux-anvil](https://github.com/omnia-md/omnia-linux-anvil/blob/master/Dockerfile), 
 to ensure that the packages are fully compatible across multiple linux distributions and versions.
 This build image contains the additional tools:
-* [clang](http://clang.llvm.org/) 3.8.1 
-* [TeXLive](https://www.tug.org/texlive/) 2015
+* [TeXLive](https://www.tug.org/texlive/) 2016
 * The [CUDA](https://developer.nvidia.com/cuda-toolkit) Toolkit version 8.0
 * The [AMD APP SDK](http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/) 3.0
+
+There is an additional image which has [clang](http://clang.llvm.org/) 3.8.1 
 
 To build a package yourself, run `conda build <package_name>`, or `./conda-build-all ./*` to build multiple packages across each of the supported python/numpy configurations.
 

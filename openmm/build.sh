@@ -14,18 +14,12 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
     export LD_LIBRARY_PATH="/opt/rh/devtoolset-2/root/usr/lib64:/opt/rh/devtoolset-2/root/usr/lib:$LD_LIBRARY_PATH"
 
-    # Clang paths
-    #export CLANG_PREFIX="/opt/clang"
-    #export PATH=$PATH:$CLANG_PREFIX/bin
-
     # CFLAGS
     export MINIMAL_CFLAGS="-g -O3"
     export CFLAGS="$MINIMAL_CFLAGS"
     export CXXFLAGS="$MINIMAL_CFLAGS"
     export LDFLAGS="$LDPATHFLAGS"
 
-    # Use clang 3.8.1 inside omnia-build-box docker image
-    #CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=$CLANG_PREFIX/bin/clang -DCMAKE_CXX_COMPILER=$CLANG_PREFIX/bin/clang++"
     # Use clang 3.8.1 from conda-forge and the clangdev package, should be in path as highest priority already
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
 
