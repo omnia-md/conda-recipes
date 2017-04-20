@@ -2,57 +2,13 @@
 * Appveyor-CI `win` builds [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/fyjgl66t943tf2yg/branch/master?svg=true)](https://ci.appveyor.com/project/jchodera/conda-recipes/branch/master)
 
 
-omnia-md/conda-recipes
-----------------------
+# omnia-md/conda-recipes
 
 The recipes here create conda packages for scientific and numerical software components associated with the [`omnia`](http://omnia.md) project.
-The packages built from these recipes are shared with the community on [anaconda.org](https://anaconda.org/omnia).
-
-## Migration to conda-forge
-The Omnia project has now started migrating to [`conda-forge`](https://conda-forge.github.io/). We encourage all new 
-packages to be developed on `conda-forge` now instead of here, and we will be slowly phasing out packages from being 
-deployed on the `omnia` channel. Don't worry though, the packages that are here are not going anywhere, but the newer 
-versions will instead appear on `conda-forge`.
-
-### Planed Migration Stages
-
-1. (**Current**) Update build image to CentOS 6 from CentOS 5
-
-    The base Docker image for linux builds will be updated to CentOS 6 with its new glibc. The base image is the 
-    `conda-forge` anvil, with some [custom addons](https://hub.docker.com/r/jchodera/omnia-linux-anvil/~/dockerfile/) 
-    to include things like the AMD SDK, TexLive, and CUDA for GPU builds. The updated version will ensure packages 
-    can work on the `conda-forge` platform which is CentOS 6 based.
-    
-1. Stop building packages that appear in `conda-forge`
-
-    We want to minimize tha amount of work we have to do as maintainers. To that end, we will stop building things 
-    which freely appear on `conda-forge` and maintained by someone other than us!
-    For reproducibility purposes, we will keep our compiled versions, but they will not longer be updated.  
-     
-1. Begin migration of "nearly-pure Python" and non-OpenMM dependent packages
-   * Packages which do not depend on OpenMM and can be run on CPUs only should start migrating over to `conda-forge` 
-   in preparation for the total migration. 
-   * Packages which can compile with just the `conda-forge` linux-anvil should also start migrating.
-   * *We highly encourage devs of individual packages to start migrating now.*
-1. Determine the appropriate way to build packages which require more than the `conda-forge` linux-anvil can provide
-   * The `conda-forge` linux-anvil does not support some things such as some LaTeX packages, AMD SDK, and CUDA files. 
-   * We will need to reach out to the conda-forge people to see what the best course of action is
-1. Move OpenMM to `conda-forge`
-    * This will highly depend on the previous point. If we cannot get the CUDA and AMD packages as part of the build 
-      process, then we will strongly need to reconsider this step.
-1. Move packages which depend on OpenMM to `conda-forge`
-1. Finish the move of all packages to `conda-forge`
-
-### How to migrate to `conda-forge` (for existing packages)
-
-PLACEHOLDER
+The packages built from these recipes are shared with the community on [anaconda.org](https://anaconda.org/omnia). 
+These packages also depend on the `conda-forge` conda channel.
 
 ## Installing packages from omnia
-
-    Important!
-    We highly recommend using the old style of conda channel priority until omnia is entierly on conda-forge!
-    The instructions below enforce the old channel priority format, please visit https://conda.io/docs/channels.html 
-    for more information on channel priority
 
 To install a package (`mdtraj` for example)
 ```bash
@@ -71,6 +27,66 @@ The `channel_priority` behavior we configure gives priority to the highest versi
 The default behavior (`channel_priority true`) pulls packages from the highest priority chanel, independent of package 
 version numbers. i.e. an older version package on a higher priority channel will be installed over a newer version 
 of the same package on a lower priority channel.
+
+### Important!
+
+These packages must use the old style of conda channel priority until omnia is entierly on conda-forge!
+The instructions below enforce the old channel priority format, please visit 
+[the conda documentations on channel priority](https://conda.io/docs/channels.html) 
+for more information.
+
+## Migration to conda-forge
+The Omnia project has started migrating to [`conda-forge`](https://conda-forge.github.io/). New packages that 
+ do not depend on OpenMM should be developed on `conda-forge` and exiting packages which do not depend on OpenMM 
+ should start migrating if possible.
+
+### Planed Migration Stages
+
+1. (**Current**) Update build image to CentOS 6 from CentOS 5
+
+    The base Docker image for linux builds will be updated to CentOS 6 with its new glibc. The base image is the 
+    `conda-forge` anvil, with some [custom addons](https://hub.docker.com/r/jchodera/omnia-linux-anvil/~/dockerfile/) 
+    to include things like the AMD SDK, TexLive, and CUDA for GPU builds. The updated version will ensure packages 
+    can work on the `conda-forge` platform which is CentOS 6 based.
+    
+1. Stop building packages that appear in `conda-forge`
+
+    We want to minimize the amount of work we have to do as maintainers. To that end, we will stop building things 
+    which freely appear on `conda-forge` and maintained by someone other than us!
+    For reproducibility purposes, we will keep our previously compiled versions, but they will not longer be updated.  
+     
+1. Begin migration of "nearly-pure Python" and non-OpenMM dependent packages
+
+   * Packages which do not depend on OpenMM and can be run on CPUs only should start migrating over to `conda-forge` 
+   in preparation for the total migration. 
+   * Packages which can compile with just the `conda-forge` linux-anvil should also start migrating.
+   * *We highly encourage devs of individual packages to start migrating now.* 
+   * **Once a package is on conda-forge, it should no longer depend packages from omnia!**
+   
+1. Begin migration of `omnia` dependent (but not OpenMM dependent) packages to `conda-forge`
+
+   * As more of the `omnia` dependencies appear on `conda-forge`, more packages can start moving over.
+   * This stage can 
+
+1. Determine the appropriate way to build packages which require more than the `conda-forge` linux-anvil can provide
+
+   * The `conda-forge` linux-anvil does not support some things such as some LaTeX packages, AMD SDK, and CUDA files. 
+   * We will need to reach out to the conda-forge people to see what the best course of action is
+   
+1. Move OpenMM to `conda-forge`
+
+    * This will highly depend on the previous point and will probably have the longest time frame.
+      
+1. Move packages which depend on OpenMM to `conda-forge`
+
+1. Finish the move of all packages to `conda-forge`
+   * Also ensure that all former omnia packages can be installed without the `omnia` conda channel  
+
+1. Change this repo into an archive for reproducibility.
+
+### How to migrate to `conda-forge` (for existing packages)
+
+PLACEHOLDER
 
 ### Supported versions
 
