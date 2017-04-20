@@ -19,6 +19,3 @@ about:
   home: http://eigen.tuxfamily.org/
   license: MPL2
   summary: 'C++ template library for linear algebra'
-
-build:
-  number: 1 # CHECK LINE, remove section when done

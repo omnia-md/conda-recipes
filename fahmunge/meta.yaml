@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 1 # CHECK LINE, reduce to 0 when done
+  number: 0
   skip: True  # [not linux]
 
 requirements:

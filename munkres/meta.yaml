@@ -24,6 +24,3 @@ about:
   home: http://software.clapper.org/munkres/
   license:  BSD License
   summary: 'munkres algorithm for the Assignment Problem'
-
-build:
-  number: 1 # CHECK LINE, remove section when done

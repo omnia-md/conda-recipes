@@ -7,7 +7,7 @@ source:
     git_tag: "0.15.2"
 
 build:
-  number: 1 # CHECK LINE, reduce to 0 when done
+  number: 0
   skip: True  # [win]
 
 requirements:

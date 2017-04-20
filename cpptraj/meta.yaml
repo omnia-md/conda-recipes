@@ -10,7 +10,7 @@ source:
 
 
 build:
-  number: 1 # CHECK LINE, reduce to 0
+  number: 0
   skip: True  # [not unix]
 
 requirements:
