@@ -95,7 +95,8 @@ def main():
         '--python',
         help="Set the Python version used by conda build",
         metavar="PYTHON_VER",
-        default='27,34,35,36',
+        default='35', #default='27,34,35,36', # CHECK LINE, return original line when done
+
     )
     p.add_argument(
         '--numpy',

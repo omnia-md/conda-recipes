@@ -9,6 +9,7 @@ source:
 
 build:
   skip: True  # [not unix]
+  number: 1 # CHECK LINE, remove when done
 
 requirements:
   build:
