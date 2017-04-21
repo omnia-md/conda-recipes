@@ -35,5 +35,8 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
         fncychap tabulary capt-of eqparbox environ trimspaces
 fi;
 
+# gfortran
+brew install gcc
+
 # Build packages
 ./conda-build-all -vvv $UPLOAD -- *
