@@ -13,7 +13,9 @@ export PATH=$HOME/anaconda/bin:$PATH;
 conda config --add channels conda-forge;
 conda config --add channels omnia;
 conda config --show;
-conda install -yq conda-build jinja2 anaconda-client;
+conda update -n root --yes --quiet conda conda-env conda-build
+conda install -n root --yes --quiet conda-build jinja2 anaconda-client
+#conda install -yq conda-build jinja2 anaconda-client;
 # Do this step last to make sure conda-build, conda-env, and conda updates come from the same channel first
 conda config --set channel_priority false;
 
