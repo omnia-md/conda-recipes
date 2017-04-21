@@ -41,8 +41,8 @@ requirements:
     - sphinxcontrib-lunrsearch
     - sphinxcontrib-autodoc_doxygen
     - lxml
-    # Get clang from conda-forge
-    - clangdev ==3.8.1
+    # Get clang from conda-forge for linux only
+    - clangdev ==3.8.1 [linux]
 
   run:
     - python
