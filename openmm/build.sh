@@ -111,7 +111,8 @@ mv $PREFIX/docs/* openmm-docs
 mv openmm-docs $PREFIX/docs/openmm
 
 # Build PDF manuals
-make -j$CPU_COUNT sphinxpdf
+#make -j$CPU_COUNT sphinxpdf
+make sphinxpdf
 mv sphinx-docs/userguide/latex/*.pdf $PREFIX/docs/openmm/
 mv sphinx-docs/developerguide/latex/*.pdf $PREFIX/docs/openmm/
 
