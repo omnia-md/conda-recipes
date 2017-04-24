@@ -14,8 +14,8 @@ source:
     - durole.patch
 
 build:
-  number: 1 # LNN Debug: reduce back to 0 when done, remove the "or not py35" from below
-  skip: True # [win or not py35]
+  number: 0
+  skip: True # [win]
 
 
 extra:
