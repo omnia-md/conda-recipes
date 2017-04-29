@@ -7,7 +7,7 @@ source:
   url: https://github.com/ParmEd/ParmEd/archive/2.7.3.tar.gz
   
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
