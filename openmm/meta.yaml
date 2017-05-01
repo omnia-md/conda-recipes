@@ -1,22 +1,14 @@
 package:
   name: openmm
-  version: 7.1.0rc1
+  version: 7.1.1
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: 9567ddb
-  # TODO: FOR NEXT RELEASE
-  # TODO: Change OpenMM release to use new function (cant change already released version)
-  # TODO: Reactivate test checking git hash since the patch's change the hash (run_test.py)
-  # Patch DUspan -> DUpatch since Sphinx 1.5.1 changed this function so renew command does not work
-  # This is purely a documentation compiler version patch and NOT a change to the functional code
-  patches:
-    - durole.patch
+  git_tag: 4b6fad2
 
 build:
   number: 0
   skip: True # [win]
-
 
 extra:
   upload: rc
