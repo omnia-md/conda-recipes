@@ -45,7 +45,7 @@ test:
     - simtk
     - simtk.openmm
   commands:
-    - python -m simtk.testInstallation
+    - env OPENMM_CPU_THREADS=1 python -m simtk.testInstallation
 
 about:
   home: http://openmm.org
