@@ -1,0 +1,37 @@
+package:
+  name: gpflow
+  version: 0.3.5
+
+source:
+  git_url: https://github.com/GPflow/GPflow.git
+  git_tag: 0.3.5
+
+build:
+  skip: True  # [win or osx]
+
+extra:
+  maintainers:
+   - cxhernandez
+
+requirements:
+  build:
+    - python
+    - scipy
+    - numpy >1.10
+    - pandas
+    - tensorflow
+
+  run:
+    - python
+    - scipy
+    - numpy >1.10
+    - pandas
+    - tensorflow
+
+test:
+  imports:
+    - GPflow
+
+about:
+    home: https://github.com/GPflow/GPflow/
+    license: ALv2
