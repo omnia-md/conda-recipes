@@ -13,6 +13,11 @@ ADD texlive.profile .
 # The other TeX packages installed with `tlmgr install` are required for OpenMM's sphinx docs
 # libXext libSM libXrender are required for matplotlib to work
 
+# Update yum repositories to point to vault.centos.org
+RUN sed -i 's/enabled=1/enabled=0/' /etc/yum/pluginconf.d/fastestmirror.conf
+RUN sed -i 's/mirrorlist/#mirrorlist/' /etc/yum.repos.d/*.repo
+RUN sed -i 's/#\(baseurl.*\)mirror.centos.org/\1vault.centos.org/' /etc/yum.repos.d/*.repo
+
 RUN rpm -i --quiet epel-release-5-4.noarch.rpm && \
     rm -rf epel-release-5-4.noarch.rpm && \
     yum install -y --quiet dkms libvdpau git wget libXext libSM libXrender &&  \
@@ -35,6 +40,7 @@ RUN rpm -i --quiet epel-release-5-4.noarch.rpm && \
     ./AMD-APP-SDK-v2.9-1.599.381-GA-linux64.sh -- -s -a yes && \
     rm -rf  /AMD-APP-SDK-v2.9-1.599.381-GA-linux64.sh /AMD-APP-SDK-linux-v2.9-1.599.381-GA-x64.tar.bz2 && \
     rm -rf /opt/AMDAPPSDK-2.9-1/samples/
+    yum install -y groff
 
 ENV PATH=/usr/local/texlive/2015/bin/x86_64-linux:$PATH
 ENV OPENCL_HOME=/opt/AMDAPPSDK-2.9-1 OPENCL_LIBPATH=/opt/AMDAPPSDK-2.9-1/lib/x86_64
