@@ -4,7 +4,8 @@ package:
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: 4b6fad2
+  git_tag: c1a64aa
+
 
 build:
   number: 0
