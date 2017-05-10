@@ -42,4 +42,4 @@ test:
 about:
   home: https://github.com/choderalab/openmmtools
   license: MIT
-  summary: An OpenMM toolkit: test systems, integrators, and alchemical support
+  summary: "An OpenMM toolkit: test systems, integrators, and alchemical support"
