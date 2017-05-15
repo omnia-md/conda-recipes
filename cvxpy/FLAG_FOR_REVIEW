@@ -1,0 +1,4 @@
+the cvxgrp channel has the more recent versions and maintains their own package. However, this package does not appear
+on the conda-forge channel. Omnia should NOT be the ones to make that migration.
+
+No packages within omnia directly use cvxpy, yet there are ~5000 downloads of the package.
