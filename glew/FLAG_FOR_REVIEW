@@ -1,0 +1,5 @@
+conda-forge version is 2.0.0, making it a full major revision ahead.
+
+Need to confirm that 1.X.X -> 2.X.X will not break anything, remove from omnia if all ok
+
+pymol is the only omnia packages which appears to use this.
