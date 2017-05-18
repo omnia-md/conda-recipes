@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e -x
-export MACOSX_DEPLOYMENT_TARGET=10.7
+export MACOSX_DEPLOYMENT_TARGET="10.9"
 # Update homebrew
 brew uninstall -y brew-cask || brew untap -y caskroom/cask || 1
 brew update -y --quiet
