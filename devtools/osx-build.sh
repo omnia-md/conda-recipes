@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e -x
-
+export MACOSX_DEPLOYMENT_TARGET="10.9"
 # Update homebrew
 brew uninstall -y brew-cask || brew untap -y caskroom/cask || 1
 brew update -y --quiet
@@ -41,4 +41,4 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
 fi;
 
 # Build packages
-./conda-build-all -vvv $UPLOAD -- *
+./conda-build-all -v $UPLOAD -- *
