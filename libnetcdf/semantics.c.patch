@@ -1,0 +1,18 @@
+--- ncgen\semantics.c.orig	2016-11-23 16:47:45.538386400 +1000
++++ ncgen\semantics.c	2016-11-23 17:00:40.896820500 +1000
+@@ -601,6 +601,7 @@
+     int i;
+     int offset = 0;
+     unsigned long totaldimsize;
++    int largealign = 1;
+     if(tsym->touched) return;
+     tsym->touched=1;
+     switch (tsym->subclass) {
+@@ -637,7 +638,6 @@
+ 	    /* now compute the size of the compound based on*/
+ 	    /* what user specified*/
+ 	    offset = 0;
+-            int largealign = 1;
+             for(i=0;i<listlength(tsym->subnodes);i++) {
+               Symbol* field = (Symbol*)listget(tsym->subnodes,i);
+               /* only support 'c' alignment for now*/

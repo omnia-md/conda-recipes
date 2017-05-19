@@ -1,0 +1,18 @@
+--- libdispatch\dfile.c.orig	2016-08-10 14:06:27.315735800 +1000
++++ libdispatch\dfile.c	2016-08-10 14:06:36.097008200 +1000
+@@ -166,6 +166,7 @@
+ 	{
+ 	    FILE *fp;
+ 	    size_t i;
++        __int64 file_len = 0;
+ #ifdef HAVE_SYS_STAT_H
+ 	    struct stat st;
+ #endif
+@@ -182,7 +183,6 @@
+
+         /* Windows and fstat have some issues, this will work around that. */
+ #ifdef HAVE_FILE_LENGTH_I64
+-        __int64 file_len = 0;
+         if((file_len = _filelengthi64(fileno(fp))) < 0) {
+           fclose(fp);
+           status = errno;

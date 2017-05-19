@@ -1,0 +1,67 @@
+{% set version = "4.4.1.1" %}
+
+package:
+  name: libnetcdf
+  version: {{ version }}
+
+source:
+  fn: v{{ version }}.tar.gz
+  url: https://github.com/Unidata/netcdf-c/archive/v{{ version }}.tar.gz
+  sha256: 7f040a0542ed3f6d27f3002b074e509614e18d6c515b2005d1537fec01b24909
+  patches:
+    - dfile.c.patch  # [win]
+    - dim.c.patch  # [win]
+    - semantics.c.patch  # [win]
+
+build:
+  number: 2
+  features:
+    - vc9  # [win and py27]
+    - vc10  # [win and py34]
+    - vc14  # [win and py35]
+
+requirements:
+  build:
+    - python  # [win]
+    - cmake
+    - pkg-config  # [unix]
+    - msinttypes  # [win]
+    - curl
+    - zlib 1.2.*
+    - hdf4
+    - hdf5 1.8.17|1.8.17.*
+    - vc 9  # [win and py27]
+    - vc 10  # [win and py34]
+    - vc 14  # [win and py35]
+  run:
+    - curl
+    - zlib 1.2.*
+    - hdf4
+    - hdf5 1.8.17|1.8.17.*
+    - vc 9  # [win and py27]
+    - vc 10  # [win and py34]
+    - vc 14  # [win and py35]
+
+test:
+  commands:
+    - nc-config --all  # [unix]
+    - test -f ${PREFIX}/lib/libnetcdf.a  # [unix]
+    - test -f ${PREFIX}/lib/libnetcdf.so  # [linux]
+    - test -f ${PREFIX}/lib/libnetcdf.dylib  # [osx]
+    #- conda inspect linkages -p $PREFIX libnetcdf  # [not win]
+    #- conda inspect objects -p $PREFIX libnetcdf  # [osx]
+
+about:
+  home: http://www.unidata.ucar.edu/software/netcdf/
+  license: MIT
+  summary: 'Libraries and data formats that support array-oriented scientific data.'
+
+extra:
+  omnia-md-recipe-maintainer:
+    - lnaden # Note: Not author of the recipe or source code
+  recipe-maintainers:
+    - groutr
+    - ocefpaf
+    - kmuehlbauer
+  copyright:
+    - This is a copy of the conda-forge meta.yaml file. This package can be removed when we move to conda-forge

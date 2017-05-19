@@ -31,6 +31,8 @@ test:
         - tests/helloworld.f90
 
 extra:
+    omnia-md-recipe-maintainer:
+      - lnaden # Note: Not author of the recipe or source code
     recipe-maintainers:
         - astrofrog
         - bekozi
