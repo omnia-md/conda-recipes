@@ -20,6 +20,7 @@ requirements:
     - numpy x.x
     - scipy
     - mingwpy [win]
+    - coverage
 
   run:
     - python

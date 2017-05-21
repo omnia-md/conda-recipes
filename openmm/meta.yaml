@@ -1,22 +1,15 @@
 package:
   name: openmm
-  version: 7.1.0rc1
+  version: 7.1.1
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: 9567ddb
-  # TODO: FOR NEXT RELEASE
-  # TODO: Change OpenMM release to use new function (cant change already released version)
-  # TODO: Reactivate test checking git hash since the patch's change the hash (run_test.py)
-  # Patch DUspan -> DUpatch since Sphinx 1.5.1 changed this function so renew command does not work
-  # This is purely a documentation compiler version patch and NOT a change to the functional code
-  patches:
-    - durole.patch
+  git_tag: c1a64aa
+
 
 build:
   number: 0
   skip: True # [win]
-
 
 extra:
   upload: rc
@@ -29,8 +22,8 @@ requirements:
     - jom       [win]
     - python
     # Pin fftw3f to 3.3.3 to work around OSX py34 issues
-    - fftw3f ==3.3.3 [not win]
-    - fftw3f ==3.3.4 [win]
+    - fftw3f ==3.3.3 [osx]
+    - fftw3f ==3.3.4 [win or linux]
     # swig is pinned to use omnia swig 3.0.8
     - swig ==3.0.8
     # on osx, need to install doxygen manually
@@ -41,6 +34,8 @@ requirements:
     - sphinxcontrib-lunrsearch
     - sphinxcontrib-autodoc_doxygen
     - lxml
+    # Get clang from conda-forge for linux only
+    - clangdev ==3.8.1 [linux]
 
   run:
     - python

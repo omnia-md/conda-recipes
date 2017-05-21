@@ -1,13 +1,13 @@
 package:
   name: openmmtools
-  version: 0.8.3
+  version: 0.9.4
 
 source:
-    fn: 0.8.3.tar.gz
-    url: https://github.com/choderalab/openmmtools/archive/0.8.3.tar.gz
+    fn: 0.9.4.tar.gz
+    url: https://github.com/choderalab/openmmtools/archive/0.9.4.tar.gz
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win32 or (win and py2k)]
 
 requirements:
@@ -33,10 +33,13 @@ requirements:
     - parmed
 
 test:
+  requires:
+    - pymbar
   imports:
     - openmmtools
 
+
 about:
   home: https://github.com/choderalab/openmmtools
-  license: GNU Lesser General Public License v2 or later (LGPLv2+)
-  summary: Test systems for OpenMM
+  license: MIT
+  summary: "An OpenMM toolkit: test systems, integrators, and alchemical support"

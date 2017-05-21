@@ -1,0 +1,24 @@
+diff --git a/msmtools/__init__.py b/msmtools/__init__.py
+index 729a073..14a5891 100644
+--- a/msmtools/__init__.py
++++ b/msmtools/__init__.py
+@@ -36,7 +36,7 @@ Low-level functions for estimation and analysis of transition matrices and io.
+ 
+ 
+ """
+-from __future__ import absolute_import
++from __future__ import absolute_import, print_function
+ 
+ from . import analysis
+ from . import estimation
+@@ -47,3 +47,10 @@ from . import flux
+ from ._version import get_versions
+ __version__ = get_versions()['version']
+ del get_versions
++
++print("You are still using {name} from the deprecated Omnia channel. Please "
++"switch to conda-forge to catch future updates.\nIn order to do so please set"
++" conda-forge channel to highest priority by:\n\n"
++"    conda config --add channels conda-forge\n\nand update this package by:\n\n"
++"    conda update {name}\n\n".format(name=__name__))
++

@@ -23,7 +23,7 @@ install:
   # The Dockerfile that defines the image that for the build environment is
   # available in this repo at devtools/omnia-build-box/Dockerfile
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      docker pull jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30-clang38;
+      docker pull jchodera/omnia-linux-anvil:texlive-amd30-cuda${CUDA_SHORT_VERSION};
     fi
 
 script:
@@ -37,7 +37,7 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
         docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST
-            -t -i --rm -v `pwd`:/io jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30-clang38
+            -t -i --rm -v `pwd`:/io jchodera/omnia-linux-anvil:texlive-amd30-cuda${CUDA_SHORT_VERSION}
             bash /io/devtools/docker-build.sh;
 
     elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
