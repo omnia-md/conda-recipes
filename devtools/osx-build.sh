@@ -10,10 +10,9 @@ brew tap -y caskroom/cask
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
 bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/anaconda;
 export PATH=$HOME/anaconda/bin:$PATH;
-conda install -yq conda conda-env conda-build jinja2 anaconda-client;
-conda config --set channel_priority false;
-conda config --add channels conda-forge;
 conda config --add channels omnia;
+conda config --add channels conda-forge;
+conda install -yq conda\>=4.3 conda-env conda-build jinja2 anaconda-client;
 conda config --show;
 
 # Do this step last to make sure conda-build, conda-env, and conda updates come from the same channel first

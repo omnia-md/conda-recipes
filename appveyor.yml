@@ -26,15 +26,6 @@ environment:
       PYTHON_ARCH: "64"
 
     - PYTHON: "C:\\Miniconda3"
-      CONDA_PY: "34"
-      PYTHON_VERSION: "3.4.x"
-      PYTHON_ARCH: "32"
-    - PYTHON: "C:\\Miniconda3-x64"
-      CONDA_PY: "34"
-      PYTHON_VERSION: "3.4.x"
-      PYTHON_ARCH: "64"
-
-    - PYTHON: "C:\\Miniconda3"
       CONDA_PY: "35"
       PYTHON_VERSION: "3.5.x"
       PYTHON_ARCH: "32"
@@ -58,10 +49,9 @@ install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - set PATH=C:\MinGW\msys\1.0\bin;%PATH%
   - conda update -yq --all
-  - conda config --set channel_priority false
-  - conda config --add channels conda-forge
-  - conda config --add channels omnia
   - conda install -yq conda-build jinja2 anaconda-client
+  - conda config --add channels omnia
+  - conda config --add channels conda-forge
   - powershell .\\devtools\\appveyor\\missing-headers.ps1
   # conda-build for some inane reason, effectively puts C:\cygwin\bin at the
   # front of the PATH, ahead of everything else, regardless. See
