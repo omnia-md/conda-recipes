@@ -12,26 +12,24 @@ These packages also depend on the `conda-forge` conda channel.
 
 To install a package (`mdtraj` for example)
 ```bash
-# Set the channel priority behavior
-conda config --set channel_priority false
-# Add conda-forge and omnia to your channel list
-conda config --add channels conda-forge --add channels omnia
+# Add conda-forge and omnia to your channel list, one time action
+conda config --add channels omnia --add channels conda-forge
 # Install the 'mdtraj' a package
 conda install mdtraj
 ```
 
-The `channel_priority` behavior we configure gives priority to the highest version of the package over all channels.
- 
-The default behavior (`channel_priority true`) pulls packages from the highest priority chanel, independent of package 
-version numbers. An older version package on a higher priority channel will be installed over a newer version 
-of the same package on a lower priority channel.
+To install a package in one line:
+```bash
+# channels searched in order they are added here
+conda install -c conda-forge -c omnia mdtraj
+``` 
 
-### Important: Channel priority behavior must be disabled for `omnia` to work!
+When setting up the configuration through `conda config`, the channels are added to the top of the search priority 
+sequentially. So `conda config --add channels omnia --add channels conda-forge` first adds `omnia` to the top of the 
+list, then adds `conda-forge` on top of that, giving `conda-forge` the highest priority.
 
-These packages must use the old style of conda channel priority until omnia is entirely on conda-forge!
-The instructions below enforce the old channel priority format, please visit 
-[the conda documentations on channel priority](https://conda.io/docs/channels.html) 
-for more information.
+When temporarily searching through channels with `conda install`, the channels are prioritized in the order they 
+are provided. So `conda install -c conda-forge -c omnia` prioritizes `conda-forge` first, then `omnia`. 
 
 ## Migration to conda-forge
 The Omnia project has started migrating to [`conda-forge`](https://conda-forge.github.io/). New packages that 
@@ -40,18 +38,19 @@ The Omnia project has started migrating to [`conda-forge`](https://conda-forge.g
 
 ### Planed Migration Stages
 
-1. (**Current**) Update build image to CentOS 6 from CentOS 5
+1. Update build image to CentOS 6 from CentOS 5
 
     The base Docker image for linux builds will be updated to CentOS 6 with its new glibc. The base image is the 
     `conda-forge` anvil, with some [custom addons](https://hub.docker.com/r/jchodera/omnia-linux-anvil/~/dockerfile/) 
     to include things like the AMD SDK, TexLive, and CUDA for GPU builds. The updated version will ensure packages 
     can work on the `conda-forge` platform which is CentOS 6 based.
     
-1. For packages that appear in `conda-forge`, remove the corresponding recipes in `omnia`
+1. (**Current**) For packages that appear in `conda-forge`, remove the corresponding recipes in `omnia`
 
     We want to minimize the amount of work we have to do as maintainers. To that end, we will stop building things 
     which freely appear on `conda-forge` and maintained by someone other than us!
-    For reproducibility purposes, we will keep our previously compiled versions, but they will not longer be updated.  
+    For reproducibility purposes, we will keep our previously compiled versions, but they will not longer be updated.
+    * Developers: if you want users to still exclusivley use the `omnia` conda channel, please see the **Copying from conda-forge** section below 
      
 1. Allow recipes that do not depend on OpenMM to migrate from omnia to conda-forge
 
@@ -80,12 +79,41 @@ The Omnia project has started migrating to [`conda-forge`](https://conda-forge.g
 
 PLACEHOLDER
 
+### Copying from Conda Forge
+
+It can be a bit confusing to rely on two conda channels where the order they are specified in changes which version of 
+packages are installed. During the migration to `conda-forge`, developers can copy their binary tarballs from 
+`conda-forge` to the `omnia` channel using the Anaconda Cloud API, allowing users to rely only on the `omnia` channel. 
+There are a couple conditions for this though:
+
+* Packages still built in `omnia` will search for dependencies in `conda-forge` then `omnia`, in that order
+* Your package should **not** depend on packages which only exist in `omnia` 
+* You the developer will be responsible for also copying any dependencies from `conda-forge` to `omnia` that you need and are not on the default channel
+
+To copy packages:
+
+**If you have write access to the `omnia` cloud**
+1. **Open an Issue**
+    * This is important so we can track changes made to the cloud in a public space
+    * Note which package, version, and any dependencies you are bringing over
+1. Get the [Anaconda CLI Tool](https://docs.continuum.io/anaconda-cloud/using#packages)
+1. Copy the package [with the CLI](https://docs.continuum.io/anaconda-cloud/cli) 
+    * `anaconda copy conda-forge/{PACKAGE}/{VERSION} --to-owner omnia`
+    * Replace `{PACKAGE}` and `{VERSION}` accordingly
+1. Copy any dependencies you need in the same way 
+1. Close the issue
+
+**If you do NOT have cloud write access**
+1. Open an issue, request which package and dependencies
+1. Request a maintainer who has cloud write access follow the steps above.
+
+Eventually, all packages will be on `conda-forge` and we won't have to worry about the multiple channels any more, until 
+then, we thank you for your patience as we go through this transition.
+
 ### Supported versions
 
 Python packages are built against latest two releases of python (3.5 and 3.6) and python 2.7.
 Packages which have a binary dependency on [numpy](http://www.numpy.org/) are built against the latest two releases of numpy (1.10 and 1.11).
-
-**WARNING: Python 3.4 support will be phased out now that python 3.6 has been released.**
 
 **WARNING: Numpy 1.09 support will be phased out now that numpy 1.11 has been released.**
 

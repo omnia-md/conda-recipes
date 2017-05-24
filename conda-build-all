@@ -95,7 +95,7 @@ def main():
         '--python',
         help="Set the Python version used by conda build",
         metavar="PYTHON_VER",
-        default='27,34,35,36',
+        default='27,35,36',
 
     )
     p.add_argument(
@@ -346,19 +346,6 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
                         numpy = numpy_iter[1]
                         if verbose > 1:
                             print("Attempting to build {pkgname} on Python 3.6 and NumPy {numpy}".format(
-                                pkgname=base_bldpkg_path, numpy=numpy))
-                        rebuild_paths = True
-                if python == "34" and numpy == "1.12":
-                    if verbose > 1:
-                        print("{pkgname} will not build on Python 3.4 and NumPy 1.12".format(pkgname=base_bldpkg_path))
-                    # Check if there are more numpy versions coming:
-                    if len(numpy_iter) == len(numpy_iter.versions):
-                        continue
-                    else:
-                        # Try a lower numpy version
-                        numpy = numpy_iter[-2]
-                        if verbose > 1:
-                            print("Attempting to build {pkgname} on Python 3.4 and NumPy {numpy}".format(
                                 pkgname=base_bldpkg_path, numpy=numpy))
                         rebuild_paths = True
                 if rebuild_paths:
