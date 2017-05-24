@@ -115,8 +115,6 @@ then, we thank you for your patience as we go through this transition.
 Python packages are built against latest two releases of python (3.5 and 3.6) and python 2.7.
 Packages which have a binary dependency on [numpy](http://www.numpy.org/) are built against the latest two releases of numpy (1.10 and 1.11).
 
-**WARNING: Python 3.4 support will be phased out now that python 3.6 has been released.**
-
 **WARNING: Numpy 1.09 support will be phased out now that numpy 1.11 has been released.**
 
 ### Building the packages
