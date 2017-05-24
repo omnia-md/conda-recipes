@@ -19,14 +19,14 @@ requirements:
     - scipy
     - numpy >1.10
     - pandas
-    - tensorflow
+    - tensorflow >=1.1.0
 
   run:
     - python
     - scipy
     - numpy >1.10
     - pandas
-    - tensorflow
+    - tensorflow >=1.1.0
 
 test:
   imports:
