@@ -17,6 +17,7 @@ requirements:
     - setuptools
     - numpy
     - scipy
+    - pbr
 
   run:
     - pandas
@@ -29,7 +30,6 @@ requirements:
     - mdtraj
     - pdbfixer
     - joblib
-    - pbr
     - h5py
     - dill
 
