@@ -16,7 +16,6 @@ requirements:
     - cython
     - numpy
     - scipy
-    - nose
     - setuptools
     - openmm
     - jinja2
@@ -26,7 +25,6 @@ requirements:
     - python
     - scipy
     - openmm
-    - nose
     - setuptools
     - jinja2
     - six
@@ -34,6 +32,7 @@ requirements:
 
 test:
   requires:
+    - nose
     - pymbar
   imports:
     - openmmtools
