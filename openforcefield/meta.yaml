@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 0
+  number: 1
   skip: True # [win]
 
 requirements:
@@ -22,6 +22,7 @@ requirements:
     - numpy
     - networkx
     - lxml
+    - icu 58*  # This is a lxml dependency but sometimes conda installs version 56
     - openmoltools >=0.7.3
     - parmed
     - matplotlib
