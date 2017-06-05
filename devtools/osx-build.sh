@@ -31,7 +31,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     rm -f cuda_mac_installer_tk.tar.gz cuda_mac_installer_drv.tar.gz
 
     # Install latex.
-    brew cask install -y basictex
+    brew cask install -y basictex || brew cask install basictex
     export PATH="/usr/texbin:${PATH}:/usr/bin"
     sudo tlmgr update --self
     sleep 5
