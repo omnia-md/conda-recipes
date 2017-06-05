@@ -1,3 +1,0 @@
-This package only exists on the cvxgrp channel. We should not be the ones to move it
-
-cvxpy uses this package, which is also under review. If cvxpy goes, this package can probably be removed as well
