@@ -39,6 +39,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     else
         # Trap the error and install using new version
         brew cask install basictex
+        mkdir -p /usr/texbin
         # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
         # .../texlive/{YEAR}basic/bin/{ARCH}/{Location of actual binaries}
         # Sym link them to the /usr/texbin folder in the path
