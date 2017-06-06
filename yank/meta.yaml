@@ -1,10 +1,10 @@
 package:
   name: yank
-  version: "0.15.2"
+  version: "0.16.0"
 
 source:
     git_url: https://github.com/choderalab/yank.git
-    git_tag: "0.15.2"
+    git_tag: "0.16.0"
 
 build:
   number: 0
@@ -18,16 +18,14 @@ requirements:
     - scipy
     - setuptools
     - netcdf4
-    - hdf4 >=4.2.12 # Remove this line when netcdf4 moves up to at least this version
-    - openmm >=7.0.1
+    - openmm >=7.1
     - mdtraj >=1.7.2
-    - openmmtools
+    - openmmtools >=0.10.0
     - pymbar
     - ambermini >=16.16.0
     - docopt
     - openmoltools
     - sphinxcontrib-bibtex
-    - alchemy
     - schema >=0.6.2
     #- gcc 4.8.2 # [linux]
     #- gcc 4.8.2 # [osx]
@@ -39,19 +37,17 @@ requirements:
     - scipy
     - cython
     - netcdf4
-    - hdf4 >=4.2.12 # Remove this line when netcdf4 moves up to at least this version
-    - openmm >=7.0.1
+    - openmm >=7.1
     - mdtraj >=1.7.2
-    - openmmtools
+    - openmmtools >=0.10.0
     - pymbar
     - ambermini >=16.16.0
     - docopt
     - openmoltools
-    - mpi4py # [not win]
+    - mpi4py
     - pyyaml
     - clusterutils
     - sphinxcontrib-bibtex
-    - alchemy
     - schema >=0.6.2
     #- libgcc
 

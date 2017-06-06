@@ -1,13 +1,13 @@
 package:
   name: deepchem
-  version: "0.0.4"
+  version: "1.1.0"
 
 source:
-    git_url: https://github.com/pandegroup/deepchem.git
-    git_tag: 0.0.4
+    git_url: https://github.com/deepchem/deepchem.git
+    git_tag: 1.1.0
 
 build:
-  number: 1
+  number: 0
   skip: True  # [osx or win or py3k]
 
 
@@ -17,41 +17,29 @@ requirements:
     - setuptools
     - numpy
     - scipy
-    - pandas
-    - scikit-learn
-    - keras
-    - theano ==0.7.2
-    - rdkit
-    - openbabel 
-    - joblib
     - pbr
-    - h5py
+
   run:
-    - python
-    - setuptools
-    - numpy
-    - scipy
     - pandas
     - scikit-learn
+    - networkx
+    - tensorflow >=1.1.0
+    - py-xgboost
     - keras
-    - theano ==0.7.2
     - rdkit
-    - openbabel 
+    - mdtraj
+    - pdbfixer
     - joblib
-    - pbr
     - h5py
+    - dill
 
 test:
-  requires:
-    - nose
 
   imports:
     - deepchem
 
-  commands:
-    #- nosetests -v deepchem
 
 about:
-  home: https://github.com/pandegroup/deepchem
-  license: LGPLv2.1+
-  summary: 'deepchem: Deep-learning models for drug discovery and quantum chemistry'
+  home: https://github.com/deepchem/deepchem
+  license: MIT
+  summary: 'Deep-learning models for Drug Discovery and Quantum Chemistry '

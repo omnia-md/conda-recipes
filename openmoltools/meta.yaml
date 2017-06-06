@@ -1,10 +1,10 @@
 package:
   name: openmoltools
-  version: 0.7.5
+  version: 0.8.1
 
 source:
     git_url: https://github.com/choderalab/openmoltools.git
-    git_tag: 0.7.5
+    git_tag: 0.8.1
 
 build:
   number: 0

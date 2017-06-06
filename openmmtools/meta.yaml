@@ -1,10 +1,10 @@
 package:
   name: openmmtools
-  version: 0.9.4
+  version: 0.10.0
 
 source:
-    fn: 0.9.4.tar.gz
-    url: https://github.com/choderalab/openmmtools/archive/0.9.4.tar.gz
+    fn: 0.10.0.tar.gz
+    url: https://github.com/choderalab/openmmtools/archive/0.10.0.tar.gz
 
 build:
   number: 0
@@ -16,7 +16,6 @@ requirements:
     - cython
     - numpy
     - scipy
-    - nose
     - setuptools
     - openmm
     - jinja2
@@ -26,7 +25,6 @@ requirements:
     - python
     - scipy
     - openmm
-    - nose
     - setuptools
     - jinja2
     - six
@@ -34,6 +32,7 @@ requirements:
 
 test:
   requires:
+    - nose
     - pymbar
   imports:
     - openmmtools
