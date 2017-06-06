@@ -40,7 +40,9 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
         # Trap the error and install using new version
         brew cask install basictex
         # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
-        export PATH="/usr/local/texlive/*basic/bin/*/:${PATH}"
+        # .../texlive/{YEAR}basic/bin/{ARCH}/{Location of actual binaries}
+        # Sym link them to the /usr/texbin folder in the path
+        ln -s /usr/local/texlive/*basic/bin/*/* /usr/texbin/
     fi
     sudo tlmgr update --self
     sleep 5
