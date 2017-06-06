@@ -1,10 +1,10 @@
 package:
   name: yank
-  version: "0.16.0"
+  version: "0.16.1"
 
 source:
     git_url: https://github.com/choderalab/yank.git
-    git_tag: "0.16.0"
+    git_tag: "0.16.1"
 
 build:
   number: 0
