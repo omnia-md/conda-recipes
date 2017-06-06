@@ -31,8 +31,17 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     rm -f cuda_mac_installer_tk.tar.gz cuda_mac_installer_drv.tar.gz
 
     # Install latex.
-    brew cask install -y basictex || brew cask install basictex
     export PATH="/usr/texbin:${PATH}:/usr/bin"
+    if brew cask install -y basictex
+    then
+        # Do nothing if the command completed
+        true
+    else
+        # Trap the error and install using new version
+        brew cask install basictex
+        # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
+        export PATH="/usr/local/texlive/*basic/bin/*/:${PATH}"
+    fi
     sudo tlmgr update --self
     sleep 5
     sudo tlmgr --persistent-downloads install titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring \
