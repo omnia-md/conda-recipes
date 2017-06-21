@@ -32,22 +32,16 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
 
     # Install latex.
     export PATH="/usr/texbin:${PATH}:/usr/bin"
-    if brew cask install -y basictex
-    then
-        # Do nothing if the command completed
-        true
-    else
-        # Trap the error and install using new version
-        brew cask install basictex
-        mkdir -p /usr/texbin
-        # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
-        # .../texlive/{YEAR}basic/bin/{ARCH}/{Location of actual binaries}
-        # Sym link them to the /usr/texbin folder in the path
-        ln -s /usr/local/texlive/*basic/bin/*/* /usr/texbin/
-    fi
+    brew cask install basictex
+    mkdir -p /usr/texbin
+    # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
+    # .../texlive/{YEAR}basic/bin/{ARCH}/{Location of actual binaries}
+    # Sym link them to the /usr/texbin folder in the path
+    ln -s /usr/local/texlive/*basic/bin/*/* /usr/texbin/
     sudo tlmgr update --self
     sleep 5
-    sudo tlmgr --persistent-downloads install titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring \
+    sudo tlmgr --persistent-downloads --repository=http://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet install \
+        titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring \
         fncychap tabulary capt-of eqparbox environ trimspaces
 fi;
 
