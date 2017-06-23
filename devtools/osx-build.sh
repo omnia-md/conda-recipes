@@ -37,10 +37,11 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
     # .../texlive/{YEAR}basic/bin/{ARCH}/{Location of actual binaries}
     # Sym link them to the /usr/texbin folder in the path
+    export TLREPO=http://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
     ln -s /usr/local/texlive/*basic/bin/*/* /usr/texbin/
-    sudo tlmgr update --self
+    sudo tlmgr --repository=$TLREPO update --self
     sleep 5
-    sudo tlmgr --persistent-downloads --repository=http://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet install \
+    sudo tlmgr --persistent-downloads --repository=$TLREPO install \
         titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring \
         fncychap tabulary capt-of eqparbox environ trimspaces
 fi;
