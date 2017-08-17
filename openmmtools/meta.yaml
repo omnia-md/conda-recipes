@@ -1,10 +1,10 @@
 package:
   name: openmmtools
-  version: 0.12.1
+  version: 0.13.0
 
 source:
-    fn: 0.12.1.tar.gz
-    url: https://github.com/choderalab/openmmtools/archive/0.12.1.tar.gz
+    fn: 0.13.0.tar.gz
+    url: https://github.com/choderalab/openmmtools/archive/0.13.0.tar.gz
 
 build:
   number: 0
@@ -21,6 +21,8 @@ requirements:
     - jinja2
     - parmed
     - mdtraj
+    - netcdf4
+    - pyyaml
 
   run:
     - python
@@ -33,6 +35,8 @@ requirements:
     - six
     - parmed
     - mdtraj
+    - netcdf4
+    - pyyaml
 
 test:
   requires:
