@@ -3,9 +3,8 @@ package:
   version: "0.1.1"
 
 source:
-  fn: hmmlearn-0.1.1.tar.gz
-  url: https://pypi.python.org/packages/source/h/hmmlearn/hmmlearn-0.1.1.tar.gz
-  md5: 6db6ea730c849e2bc3b3f322e35ee65c
+  git_url: https://github.com/hmmlearn/hmmlearn.git
+  git_tag: 0.2.0
 
 build:
   # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
