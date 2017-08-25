@@ -1,10 +1,10 @@
 package:
   name: hmmlearn
-  version: "0.2.0"
+  version: "0.3.0b"
 
 source:
   git_url: https://github.com/hmmlearn/hmmlearn.git
-  git_tag: 0.2.0
+  git_tag: 86003c9999b2b36796198a918cf7c5258a56411c
 
 build:
   # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
