@@ -8,7 +8,7 @@ source:
 
 build:
   # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
-  skip: True  # [win32 and py35 and np == 19]
+  skip: True  # [win32 and py35 and np == 19 or osx]
 
 requirements:
   build:
