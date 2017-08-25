@@ -18,6 +18,7 @@ requirements:
     - nose
     - scipy
     - scikit-learn
+    - pytest
 
   run:
     - python
