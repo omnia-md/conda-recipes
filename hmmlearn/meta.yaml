@@ -4,7 +4,7 @@ package:
 
 source:
   git_url: https://github.com/hmmlearn/hmmlearn.git
-  git_tag: 86003c9999b2b36796198a918cf7c5258a56411c
+  git_tag: be90c5924c8c3f488bc08a9d109e43e2c0a803a7
 
 build:
   # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
