@@ -1,15 +1,15 @@
 package:
   name: packmol
-  version: 2016.06.09
+  version: "1!17.221"
 
 source:
   fn: packmol.tar.gz
-  url: http://www.ime.unicamp.br/~martinez/packmol/packmol.tar.gz
+  url: https://github.com/mcubeg/packmol/archive/17.221.tar.gz
 
 build:
   number: 1
   # no mingwpy support for py35 on win
-  skip: True  # [win and py35] 
+  skip: True  # [win and py35]
 
 requirements:
   build:
