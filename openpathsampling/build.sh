@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # this step is done automatically by conda build
-$PYTHON setup.py install
+$PYTHON setup.py install --single-version-externally-managed --record=record.txt
 
 # Add more build steps here, if they are necessary.
 
