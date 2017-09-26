@@ -30,7 +30,6 @@ requirements:
     - ujson
     - pyemma
 
-
   run:
     - python
     - numpy
