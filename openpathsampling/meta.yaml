@@ -14,9 +14,22 @@ build:
 requirements:
   build:
     - python
-    - future
     - setuptools
     - numpy
+    - scipy
+    - future
+    - pandas
+    - netcdf4
+    - openmm
+    - openmmtools
+    - jupyter
+    - mdtraj
+    - svgwrite
+    - networkx
+    - matplotlib
+    - ujson
+    - pyemma
+
 
   run:
     - python
