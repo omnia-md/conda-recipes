@@ -1,15 +1,14 @@
 package:
   name: openmmtools
-  version: 0.8.2
+  version: 0.13.1
 
 source:
-    fn: 0.8.2.tar.gz
-    url: https://github.com/choderalab/openmmtools/archive/0.8.2.tar.gz
+    fn: 0.13.1.tar.gz
+    url: https://github.com/choderalab/openmmtools/archive/0.13.1.tar.gz
 
 build:
-  number: 1
-  skip:
-    - [win32 or (win and py2k)]
+  number: 0
+  skip: True  # [win32 or (win and py2k)]
 
 requirements:
   build:
@@ -17,27 +16,37 @@ requirements:
     - cython
     - numpy
     - scipy
-    - nose
     - setuptools
     - openmm
     - jinja2
     - parmed
+    - mdtraj
+    - netcdf4
+    - pyyaml
 
   run:
     - python
+    - cython
+    - numpy
     - scipy
     - openmm
-    - nose
     - setuptools
     - jinja2
     - six
     - parmed
+    - mdtraj
+    - netcdf4
+    - pyyaml
 
 test:
+  requires:
+    - nose
+    - pymbar
   imports:
     - openmmtools
 
+
 about:
   home: https://github.com/choderalab/openmmtools
-  license: GNU Lesser General Public License v2 or later (LGPLv2+)
-  summary: Test systems for OpenMM
+  license: MIT
+  summary: "An OpenMM toolkit: test systems, integrators, and alchemical support"

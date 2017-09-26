@@ -8,9 +8,7 @@ source:
 
 build:
   number: 0
-  skip:
-    - [win and py27]
-    - [win32]
+  skip: True  # [win32 or (win and py27)]
 
 requirements:
   build:

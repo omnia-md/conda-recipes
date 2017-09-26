@@ -5,8 +5,26 @@ CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_TESTING=OFF"
 # Ensure we build a release
 CMAKE_FLAGS+=" -DCMAKE_BUILD_TYPE=Release"
 
+CUDA_VERSION="8.0"
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    CUDA_PATH="/usr/local/cuda-7.5"
+    #
+    # For Docker build
+    #
+
+    export LD_LIBRARY_PATH="/opt/rh/devtoolset-2/root/usr/lib64:/opt/rh/devtoolset-2/root/usr/lib:$LD_LIBRARY_PATH"
+
+    # CFLAGS
+    export MINIMAL_CFLAGS="-g -O3"
+    export CFLAGS="$MINIMAL_CFLAGS"
+    export CXXFLAGS="$MINIMAL_CFLAGS"
+    export LDFLAGS="$LDPATHFLAGS"
+
+    # Use clang 3.8.1 from conda-forge and the clangdev package, should be in path as highest priority already
+    CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
+
+    # OpenMM build configuration
+    CUDA_PATH="/usr/local/cuda-${CUDA_VERSION}"
     CMAKE_FLAGS+=" -DCUDA_CUDART_LIBRARY=${CUDA_PATH}/lib64/libcudart.so"
     CMAKE_FLAGS+=" -DCUDA_NVCC_EXECUTABLE=${CUDA_PATH}/bin/nvcc"
     CMAKE_FLAGS+=" -DCUDA_SDK_ROOT_DIR=${CUDA_PATH}/"
@@ -20,11 +38,14 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     #CMAKE_FLAGS+=" -DOPENCL_INCLUDE_DUR=${CUDA_PATH}/include/"
     #CMAKE_FLAGS+=" -DOPENCL_LIBRARY=${CUDA_PATH}/lib64/libOpenCL.so"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # conda-build MACOSX_DEPLOYMENT_TARGET must be exported as an environment variable to override 10.7 default
+    # cc: https://github.com/conda/conda-build/pull/1561
+    export MACOSX_DEPLOYMENT_TARGET="10.9"
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
-    CMAKE_FLAGS+=" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9"
-    CMAKE_FLAGS+=" -DCUDA_SDK_ROOT_DIR=/Developer/NVIDIA/CUDA-7.5"
-    CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=/Developer/NVIDIA/CUDA-7.5"
-    CMAKE_FLAGS+=" -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk"
+    CMAKE_FLAGS+=" -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
+    CMAKE_FLAGS+=" -DCUDA_SDK_ROOT_DIR=/Developer/NVIDIA/CUDA-${CUDA_VERSION}"
+    CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=/Developer/NVIDIA/CUDA-${CUDA_VERSION}"
+    CMAKE_FLAGS+=" -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX${MACOSX_DEPLOYMENT_TARGET}.sdk"
 fi
 
 # Generate API docs
@@ -45,6 +66,12 @@ mkdir build
 cd build
 cmake .. $CMAKE_FLAGS
 make -j$CPU_COUNT all
+
+# PythonInstall uses the gcc/g++ 4.2.1 that anaconda was built with, so we can't add extraneous unrecognized compiler arguments.
+export CXXFLAGS="$MINIMAL_CFLAGS"
+export LDFLAGS="$LDPATHFLAGS"
+export SHLIB_LDFLAGS="$LDPATHFLAGS"
+
 make -j$CPU_COUNT install PythonInstall
 
 # Clean up paths for API docs.

@@ -1,15 +1,14 @@
 package:
   name: msmexplorer
-  version: "0.3.0"
+  version: "1.0.0"
 
 source:
   git_url: https://github.com/msmexplorer/msmexplorer.git
-  git_tag: 0.3.0
+  git_tag: 1.0.0
 
 build:
   number: 0
-  skip:
-    - [py27]
+  skip: True  # [py27]
 
 extra:
   maintainers:
@@ -19,8 +18,6 @@ requirements:
   build:
     - python
     - setuptools
-    - cython
-    - numpy
 
   run:
     - python
@@ -33,7 +30,6 @@ requirements:
     - statsmodels
     - networkx
     - corner
-    - six
 
 about:
   home: https://github.com/msmexplorer/msmexplorer

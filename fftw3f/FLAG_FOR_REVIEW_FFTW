@@ -1,0 +1,6 @@
+So this one may have a name collision with FFTW on conda-forge. It appears to be the same thing.
+
+Packages will probably need to rename their dependencies
+
+3.3.4 (omnia) and 3.3.6 exist for conda-forge on UNIX based systems
+There is no Windows version of this on conda-forge (omnia has one)

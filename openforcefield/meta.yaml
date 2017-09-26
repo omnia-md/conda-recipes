@@ -1,0 +1,40 @@
+package:
+  name: openforcefield
+  version: 0.0.2
+
+source:
+    git_url: https://github.com/open-forcefield-group/openforcefield.git
+    git_tag: 0.0.2
+
+build:
+  preserve_egg_dir: True
+  number: 1
+  skip: True # [win]
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pandas
+
+  run:
+    - python
+    - numpy
+    - networkx
+    - lxml
+    - icu 58*  # This is a lxml dependency but sometimes conda installs version 56
+    - openmoltools >=0.7.3
+    - parmed
+    - matplotlib
+    - pandas
+
+test:
+  requires:
+    - nose
+    - nose-timer
+  imports:
+    - openforcefield
+
+about:
+  home: https://github.com/open-forcefield-group/openforcefield
+  license: MIT

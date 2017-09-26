@@ -20,11 +20,12 @@ BINSTAR_TOKEN = os.environ.pop('BINSTAR_TOKEN', None)
 STANDARD_LABELS = ('main',
                    'dev',
                    'rc',
+                   'beta',
                    )
 
 try:
     from conda.utils import memoized
-    import conda_build.build as conda_build_build
+    from conda_build.api import get_output_file_path
     import conda.api
     import conda_build.index as conda_build_index
     from conda.config import subdir as platform
@@ -94,13 +95,14 @@ def main():
         '--python',
         help="Set the Python version used by conda build",
         metavar="PYTHON_VER",
-        default='27,34,35',
+        default='27,35,36',
+
     )
     p.add_argument(
         '--numpy',
         help="Set the NumPy version used by conda build",
         metavar="NUMPY_VER",
-        default='1.10,1.11',
+        default='1.10,1.11,1.12',
     )
     p.add_argument(
         '-v', '--verbose',
@@ -218,15 +220,14 @@ def get_bldpkg_path(m, python, numpy):
     cfg.CONDA_NPY = int(numpy.replace('.', ''))
 
     m.config = cfg
-    if m.info_index()['subdir'] == 'noarch':
-        cfg.noarch = True
-    else:
-        cfg.noarch = False
+    platform = m.info_index()['platform']
+    if platform is None:
+        platform = 'noarch'
+    cfg.platform = platform
     # need to re-parse jinja2 in light of changing config vars.
     # (esp. for skip() to work)
     m.parse_again()
-    return conda_build_build.bldpkg_path(m, cfg)
-
+    return get_output_file_path(m, config=cfg)
 
 def list_package_contents(m, python, numpy):
     filename = get_bldpkg_path(m, python, numpy)
@@ -254,6 +255,8 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
         cmd.extend(['-t', BINSTAR_TOKEN])
     cmd.extend(['upload', '--no-progress', '-u', username, filename])
     if force:
+        cmd.extend(['--force'])
+    elif m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload']=='True'):
         cmd.extend(['--force'])
     if not pre_black_listed(m) and is_prerelease(m):
         cmd.extend(['--label', 'dev'])
@@ -287,42 +290,82 @@ class VersionIter(object):
         self.versions = versions
         self.metadata = metadata
         self.pkg = pkg
+        reqs = self.metadata.get_value('requirements/build')
+        self.reqs = [r.split(' ')[0] if ' ' in r else r for r in reqs]
 
     def __iter__(self):
-        reqs = self.metadata.get_value('requirements/build')
-        reqs = [r.split(' ')[0] if ' ' in r else r for r in reqs]
-        if self.pkg in reqs:
+        # build only required versions
+        if self.pkg in self.reqs:
             for v in self.versions:
                 yield v
         else:
             yield self.versions[0]
 
+    def __getitem__(self, item):
+        return self.versions[item]
+
+    def __len__(self):
+        if self.pkg in self.reqs:
+            return len(self.versions)
+        else:
+            return 1
+
 
 def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
                     force=False):
-    if not os.path.isdir(CondaBuildConfig.bldpkgs_dir):
-        os.makedirs(CondaBuildConfig.bldpkgs_dir)
-    conda_build_index.update_index(CondaBuildConfig.bldpkgs_dir, CondaBuildConfig)
     index = conda.api.get_index(
-        channel_urls=[url_path(CondaBuildConfig.croot)] + list(channel_urls),
+        channel_urls=list(channel_urls),
         prepend=False)
     index_by_pkgname = defaultdict(dict)
     for k, v in index.items():
-        channel, pkgname = k.split('::')
+        channel = k.channel
+        pkgname = k.to_filename()
         index_by_pkgname[pkgname][channel] = v
 
     for m in metadatas:
 
         last_base_bldpkg_path = None
-        for python in VersionIter('python', m, pythons):
-            for numpy in VersionIter('numpy', m, numpys):
+        python_iter = VersionIter('python', m, pythons)
+        numpy_iter = VersionIter('numpy', m, numpys)
+        for python in python_iter:
+            for numpy in numpy_iter:
+
                 bldpkg_path = get_bldpkg_path(m, python, numpy)
+                base_bldpkg_path = os.path.basename(bldpkg_path)
+                rebuild_paths = False
+
+                # TODO: Fix this workaround more elegantly
+                if python == "36" and numpy == "1.10":
+                    if verbose > 1:
+                        print("{pkgname} will not build on Python 3.6 and NumPy 1.10".format(pkgname=base_bldpkg_path))
+                    # Check if there are more numpy versions coming:
+                    if len(numpy_iter) == len(numpy_iter.versions):
+                        continue
+                    else:
+                        # Try a higher numpy version
+                        numpy = numpy_iter[1]
+                        if verbose > 1:
+                            print("Attempting to build {pkgname} on Python 3.6 and NumPy {numpy}".format(
+                                pkgname=base_bldpkg_path, numpy=numpy))
+                        rebuild_paths = True
+                if rebuild_paths:
+                    bldpkg_path = get_bldpkg_path(m, python, numpy)
+                    base_bldpkg_path = os.path.basename(bldpkg_path)
+
+                # Allow package recipe to force rebuild and upload in recipe.
+                if m.get_section('extra') and ('force_upload' in m.get_section('extra')) and (m.get_section('extra')['force_upload']=='True'):
+                    if verbose > 1:
+                        print('Scheduling package due to force_upload=%s: %s' % (str(m.get_section('extra')['force_upload']), m.name()))
+                        print('  full_name: %s' % base_bldpkg_path)
+                        print('  python: %s' % python)
+                        print('  numpy: %s' % numpy)
+
+                    yield m, python, numpy, base_bldpkg_path
 
                 if verbose > 2:
                     print('')
                     print('Evaluating whether to build package %s' % bldpkg_path)
 
-                base_bldpkg_path = os.path.basename(bldpkg_path)
                 if base_bldpkg_path == last_base_bldpkg_path:
                     if verbose > 1:
                         print('base_bldpkg_path == last_base_bldpkg_path for %s' % bldpkg_path)

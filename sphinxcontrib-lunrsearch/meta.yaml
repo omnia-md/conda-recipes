@@ -7,10 +7,9 @@ source:
   url: https://pypi.python.org/packages/source/s/sphinxcontrib-lunrsearch/sphinxcontrib-lunrsearch-0.2.tar.gz
 
 build:
-  noarch_python: True
-  number: 0
-  skip:
-    - [win]
+  #noarch_python: True # this causes problems
+  number: 1
+  # skip: True  # [win]
 
 requirements:
   build:

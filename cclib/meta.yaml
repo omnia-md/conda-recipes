@@ -1,11 +1,11 @@
 package:
   name: cclib
-  version: "1.3.1"
+  version: "1.5"
 
 source:
-  fn: cclib-1.3.1.tar.gz
-  url: https://github.com/cclib/cclib/releases/download/v1.3.1/cclib-1.3.1.tar.gz
-  md5: c86394f79834a729737295dc15ddbe72
+  fn: cclib-1.5.post1.tar.gz
+  url: https://github.com/cclib/cclib/releases/download/v1.5/cclib-1.5.post1.tar.gz
+  md5: 1a50be48e4597b1a6dabe943da82a43c
 
 
 requirements:

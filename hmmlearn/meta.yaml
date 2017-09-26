@@ -1,16 +1,14 @@
 package:
   name: hmmlearn
-  version: "0.1.1"
+  version: "0.3.0b"
 
 source:
-  fn: hmmlearn-0.1.1.tar.gz
-  url: https://pypi.python.org/packages/source/h/hmmlearn/hmmlearn-0.1.1.tar.gz
-  md5: 6db6ea730c849e2bc3b3f322e35ee65c
+  git_url: https://github.com/cxhernandez/hmmlearn.git
+  git_tag: modify
 
 build:
-  skip:
-    # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
-    - [win32 and py35 and np == 19]
+  # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
+  skip: True  # [win32 and py35 and np == 19 or osx]
 
 requirements:
   build:
@@ -20,6 +18,7 @@ requirements:
     - nose
     - scipy
     - scikit-learn
+    - pytest
 
   run:
     - python

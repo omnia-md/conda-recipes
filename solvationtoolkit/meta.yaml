@@ -9,7 +9,7 @@ source:
 build:
   preserve_egg_dir: True
   number: 0
-  skip: True # [win or (py34 or py35)]
+  skip: True # [win]
 
 requirements:
   build:
@@ -52,7 +52,7 @@ test:
 #  - solvationtoolkit
 #  - openmoltools
 #  commands:
-#    - nosetests solvationtoolkit -v 
+#    - nosetests solvationtoolkit -v
 
 about:
   home: https://github.com/mobleylab/solvationtoolkit

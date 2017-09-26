@@ -1,14 +1,13 @@
 package:
   name: parmed
-  version: !!str 2.6.1
+  version: !!str 2.7.3
 
 source:
-  fn: ParmEd-2.6.1.tar.gz
-  url: https://github.com/ParmEd/ParmEd/archive/2.6.1.tar.gz
-  md5: e66ef98b34358f0fab3d3c6ee7bab775
-
+  fn: ParmEd-2.7.3.tar.gz
+  url: https://github.com/ParmEd/ParmEd/archive/2.7.3.tar.gz
+  
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,7 +19,6 @@ requirements:
     - python
     - numpy
     - pandas
-    - openmm
 
 about:
   home: http://parmed.github.io/ParmEd

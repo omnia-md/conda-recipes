@@ -4,22 +4,21 @@ package:
 
 source:
   git_rev: 0.0.0
-  git_url: https://github.com/nividic/Lomap.git
+  git_url: https://github.com/MobleyLab/Lomap.git
 
 
 build:
-  skip:
-    - [not unix]
-    - [py3k]
+  skip: True  # [(not unix) or py3k]
+  number: 1
 
 requirements:
   build:
     - python
     - setuptools
-    - boost ==1.59
+    - boost ==1.61
     - rdkit
     - matplotlib
-    - pyqt
+    - pyqt ==4.11.4
     - networkx >=1.11
     - graphviz
     - pygraphviz
@@ -27,10 +26,10 @@ requirements:
 
   run:
     - python
-    - boost ==1.59
+    - boost ==1.61
     - rdkit 
     - matplotlib
-    - pyqt
+    - pyqt ==4.11.4
     - networkx
     - graphviz
     - pygraphviz

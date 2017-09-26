@@ -1,18 +1,17 @@
 package:
   name: shiftx2
-  version: "1.09A"
+  version: "1.10"
 
 source:
-  fn: shiftx2-v109A-linux-20150821.tgz
-  url: http://www.shiftx2.ca/download/shiftx2-v109A-linux-20150821.tgz
-  md5: c425b4fd5b520b517f948ca18af2b19f
+  fn: shiftx2-v110-linux-20160912.tgz
+  url: http://www.shiftx2.ca/download/shiftx2-v110-linux-20160912.tgz
+  md5: be650b7cbc76034e2c4e77373e389fbc
   patches:
     - gcc.patch
 
 build:
   number: 0
-  skip:
-    - [win]
+  skip: True  # [not (py2k and linuex)]
 
 requirements:
   build:

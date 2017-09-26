@@ -1,0 +1,5 @@
+RDKit's publishers make this available in their own channel, but not conda-forge
+
+We should NOT be the ones to move this to conda-forge
+
+`Deepchem` and `lomap` use this.

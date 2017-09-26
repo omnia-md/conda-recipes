@@ -1,16 +1,15 @@
 package:
   name: fahmunge
-  version: 0.1.2
+  version: 0.2.0
 
 source:
-   url: https://github.com/choderalab/fahmunge/archive/0.1.2.tar.gz
-   fn: 0.1.2.tar.gz
+   url: https://github.com/choderalab/fahmunge/archive/0.2.0.tar.gz
+   fn: 0.2.0.tar.gz
 
 build:
   preserve_egg_dir: True
   number: 0
-  skip:
-    - [not linux]
+  skip: True  # [not linux]
 
 requirements:
   build:
@@ -34,7 +33,6 @@ test:
   requires:
     - nose
     - nose-timer
-    - fahmunge-dev
   imports:
     - fahmunge
   commands:
@@ -44,4 +42,4 @@ test:
 
 about:
   home: https://github.com/choderalab/fahmunge
-  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  license: MIT License

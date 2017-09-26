@@ -14,17 +14,16 @@ services:
 
 env:
   global:
-    - CONDA_BUILD: "2.0.1"
-    - CUDA_VERSION: "7.5"
-    - CUDA_SHORT_VERSION: "75"
-  secure: 
+    - CUDA_VERSION: "8.0"
+    - CUDA_SHORT_VERSION: "80"
+  secure:
     - "aJ7F8bLDjc0I6gDtbsGYzwfvUFI2DiZcOTeA8U94Cj5sMFJjC02cptZDSjIqx7vYH/BkG6Kr0ETE6CCqC7qkub90+9mZBlvNgZ5BnbCxXoiKaS/Qg5aFd22D1SB0eBvm+zFy4KBTUw53Vc2BX61mJ4KAgsSkx5zEqqJgcJqYxfA="
 
 install:
   # The Dockerfile that defines the image that for the build environment is
   # available in this repo at devtools/omnia-build-box/Dockerfile
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      docker pull jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30;
+      docker pull jchodera/omnia-linux-anvil:texlive-amd30-cuda${CUDA_SHORT_VERSION};
     fi
 
 script:
@@ -37,8 +36,8 @@ script:
 
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
-        docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST -e CONDA_BUILD
-            -t -i --rm -v `pwd`:/io jchodera/omnia-build-box:cuda${CUDA_SHORT_VERSION}-amd30
+        docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST
+            -t -i --rm -v `pwd`:/io jchodera/omnia-linux-anvil:texlive-amd30-cuda${CUDA_SHORT_VERSION}
             bash /io/devtools/docker-build.sh;
 
     elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then

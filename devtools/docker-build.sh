@@ -1,22 +1,13 @@
 #!/bin/bash
 set -e
-# Activate Holy Build Box environment.
-source /hbb_exe/activate
-
-# Disable PYTHONPATH
-unset PYTHONPATH
-
 set -x
-curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh -b -p /anaconda
-PATH=/opt/rh/devtoolset-2/root/usr/bin:/opt/rh/autotools-latest/root/usr/bin:/anaconda/bin:$PATH
 conda config --add channels omnia
-conda install -yq conda-build=$CONDA_BUILD jinja2 anaconda-client
+# Move the conda-forge channel to the top
+# Cannot just append omnia otherwise default would have higher priority
+conda config --add channels conda-forge
+conda update -yq conda
+conda install -yq conda-build==2.1.17 jinja2 anaconda-client
 
-if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
-    /io/conda-build-all $UPLOAD -- /io/* || true
-else
-    /io/conda-build-all -vvv $UPLOAD -- /io/*
-fi
+/io/conda-build-all -vvv $UPLOAD -- /io/*
 
 #mv /anaconda/conda-bld/linux-64/*tar.bz2 /io/ || true

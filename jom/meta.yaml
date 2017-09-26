@@ -3,8 +3,7 @@ package:
   version: 1.0.16
 
 build:
-  skip:
-    - [unix]
+  skip: True  # [unix]
 
 source:                                                              [win]
   fn: jom_1_0_16.zip                                                 [win]
