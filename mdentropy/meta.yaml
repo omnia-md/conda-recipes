@@ -1,0 +1,36 @@
+package:
+  name: mdentropy
+  version: "0.2.0"
+
+source:
+  git_url: https://github.com/msmbuilder/mdentropy.git
+  git_tag: 0.2
+
+build:
+  number: 0
+  skip: True  # [(not unix) or py27]
+
+extra:
+  maintainers:
+   - cxhernandez
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - numpy
+    - scipy
+    - scikit-learn
+    - pandas
+    - mdtraj
+    - msmbuilder
+
+about:
+  home: https://github.com/msmbuilder/mdentropy
+  license: MIT
+  summary: 'Analyze correlated motions in MD trajectories with only a few lines of Python.'
+
+# vim: ts=2 sw=2 et
