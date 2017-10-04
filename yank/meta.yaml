@@ -1,14 +1,14 @@
 package:
   name: yank
-  version: "0.17.0"
+  version: "0.18.0"
 
 source:
     git_url: https://github.com/choderalab/yank.git
-    git_tag: "0.17.0"
+    git_tag: "0.18.0"
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: True  # [win or py2k]
 
 requirements:
   build:
@@ -20,7 +20,7 @@ requirements:
     - netcdf4
     - openmm >=7.1
     - mdtraj >=1.7.2
-    - openmmtools >=0.13.0
+    - openmmtools >=0.13.1
     - pymbar
     - ambermini >=16.16.0
     - docopt
@@ -41,11 +41,11 @@ requirements:
     - netcdf4
     - openmm >=7.1
     - mdtraj >=1.7.2
-    - openmmtools >=0.13.0
+    - openmmtools >=0.13.1
     - pymbar
     - ambermini >=16.16.0
     - docopt
-    - openmoltools
+    - openmoltools >=0.7.5
     - mpi4py
     - pyyaml
     - clusterutils
