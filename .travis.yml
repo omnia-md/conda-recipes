@@ -13,6 +13,10 @@ services:
   - docker
 
 env:
+  matrix:
+    - PY_BUILD_VERSION="27"
+    - PY_BUILD_VERSION="35"
+    - PY_BUILD_VERSION="36"
   global:
     - CUDA_VERSION: "8.0"
     - CUDA_SHORT_VERSION: "80"
@@ -36,7 +40,7 @@ script:
 
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
 
-        docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST
+        docker run -e UPLOAD -e BINSTAR_TOKEN -e TRAVIS_PULL_REQUEST -e PY_BUILD_VERSION
             -t -i --rm -v `pwd`:/io jchodera/omnia-linux-anvil:texlive-amd30-cuda${CUDA_SHORT_VERSION}
             bash /io/devtools/docker-build.sh;
 
