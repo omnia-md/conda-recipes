@@ -34,9 +34,8 @@ test:
     - thermopyl
   commands:
     - nosetests thermopyl --nocapture --verbosity=2 --with-doctest
-    - thermoml-update-mirror
+    - thermoml-update-mirror --help
     - thermoml-build-pandas --help
-    - thermoml-build-pandas --journalprefix=acs
 
 about:
   home: https://github.com/choderalab/thermopyl
