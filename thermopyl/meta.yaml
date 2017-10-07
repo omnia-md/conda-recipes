@@ -34,7 +34,6 @@ test:
     - thermopyl
   commands:
     - nosetests thermopyl --nocapture --verbosity=2 --with-doctest
-    - thermoml-update-mirror --help
     - thermoml-build-pandas --help
 
 about:
