@@ -1,0 +1,43 @@
+package:
+  name: thermopyl
+  version: 1.0.1
+
+source:
+    git_url: https://github.com/choderalab/thermopyl.git
+    git_tag: 1.0.1
+
+build:
+  preserve_egg_dir: True
+  number: 0
+
+requirements:
+  build:
+    - python
+    - six
+    - pandas
+    - pyxb ==1.2.4
+    - feedparser
+    - pytables
+
+  run:
+    - python
+    - six
+    - pandas
+    - pyxb ==1.2.4
+    - feedparser
+    - pytables
+
+test:
+  requires:
+    - nose
+  imports:
+    - thermopyl
+  commands:
+    - nosetests thermopyl --nocapture --verbosity=2 --with-doctest
+    - thermoml-update-mirror
+    - thermoml-build-pandas --help
+    - thermoml-build-pandas --journalprefix=acs
+
+about:
+  home: https://github.com/choderalab/thermopyl
+  license: GNU Lesser General Public License v2 or later (LGPLv2+)
