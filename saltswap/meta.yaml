@@ -1,10 +1,10 @@
 package:
   name: saltswap
-  version: 0.5.1
+  version: 0.5.2
 
 source:
   git_url: https://github.com/choderalab/saltswap.git
-  git_tag: "v0.5.1"
+  git_tag: "v0.5.2"
 
 build:
   preserve_egg_dir: True
