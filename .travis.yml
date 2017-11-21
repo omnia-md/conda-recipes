@@ -17,7 +17,7 @@ env:
     - CUDA_VERSION: "8.0"
     - CUDA_SHORT_VERSION: "80"
   secure:
-    - "aJ7F8bLDjc0I6gDtbsGYzwfvUFI2DiZcOTeA8U94Cj5sMFJjC02cptZDSjIqx7vYH/BkG6Kr0ETE6CCqC7qkub90+9mZBlvNgZ5BnbCxXoiKaS/Qg5aFd22D1SB0eBvm+zFy4KBTUw53Vc2BX61mJ4KAgsSkx5zEqqJgcJqYxfA="
+    - "K3LSjERPC+kKtF3qeE0i6r0LNvmliJcZIgFCS2jJv24KBYRLhRQit+WD0KgyuSOlEgW80zU1qbqxWWLRkVhUGtaZvKEnQHLS8ww1akYLBoWbEjJv4p2B+MiHo2fa7G8AYw5L28Ahmb4C6+/3/KjapX2K0xd5w7bSWVF1+iZPnts="
 
 install:
   # The Dockerfile that defines the image that for the build environment is

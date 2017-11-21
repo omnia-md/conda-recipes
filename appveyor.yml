@@ -12,7 +12,7 @@ environment:
     CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\devtools\\appveyor\\run_with_env.cmd"
     PYTHONUNBUFFERED: 1
     BINSTAR_TOKEN:
-      secure: SZHgfJd7yeEspBHogEx78Bb9rrQ5atuIalqY8J/V/uGeBNOi6yGYWtFsnI6/0dPx
+      secure: o/EWH4+tTwLwru5Oq6dXH2rnmxzkQR9FkAsWXeMQDOdaznl6loYZ3fUW9fDyh3Hg
 
 
   matrix:
