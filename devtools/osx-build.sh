@@ -32,6 +32,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
         cd $NVIDIA_CACHE
         curl -O -# http://developer.download.nvidia.com/compute/cuda/${CUDA_VERSION}/Prod/network_installers/mac/x86_64/cuda_mac_installer_tk.tar.gz
         curl -O -# http://developer.download.nvidia.com/compute/cuda/${CUDA_VERSION}/Prod/network_installers/mac/x86_64/cuda_mac_installer_drv.tar.gz
+    fi
     sudo tar -zxf cuda_mac_installer_tk.tar.gz -C /;
     sudo tar -zxf cuda_mac_installer_drv.tar.gz -C /;
     # Don't delete the tarballs for now because the N
