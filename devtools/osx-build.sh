@@ -25,11 +25,19 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     # Install OpenMM dependencies that can't be installed through
     # conda package manager (doxygen + CUDA)
     brew install -y https://raw.githubusercontent.com/Homebrew/homebrew-core/5b680fb58fedfb00cd07a7f69f5a621bb9240f3b/Formula/doxygen.rb
-    curl -O -# http://developer.download.nvidia.com/compute/cuda/${CUDA_VERSION}/Prod/network_installers/mac/x86_64/cuda_mac_installer_tk.tar.gz
-    curl -O -# http://developer.download.nvidia.com/compute/cuda/${CUDA_VERSION}/Prod/network_installers/mac/x86_64/cuda_mac_installer_drv.tar.gz
+    if [ -d "$NVIDIA_CACHE" ]; then
+        cd $NVIDIA_CACHE
+    else
+        mkdir -p $NVIDIA_CACHE
+        cd $NVIDIA_CACHE
+        curl -O -# http://developer.download.nvidia.com/compute/cuda/${CUDA_VERSION}/Prod/network_installers/mac/x86_64/cuda_mac_installer_tk.tar.gz
+        curl -O -# http://developer.download.nvidia.com/compute/cuda/${CUDA_VERSION}/Prod/network_installers/mac/x86_64/cuda_mac_installer_drv.tar.gz
     sudo tar -zxf cuda_mac_installer_tk.tar.gz -C /;
     sudo tar -zxf cuda_mac_installer_drv.tar.gz -C /;
-    rm -f cuda_mac_installer_tk.tar.gz cuda_mac_installer_drv.tar.gz
+    # Don't delete the tarballs for now because the N
+    # rm -f cuda_mac_installer_tk.tar.gz cuda_mac_installer_drv.tar.gz
+    # Now head back to work directory
+    cd $TRAVIS_BUILD_DIR
 
     # Install latex.
     export PATH="/usr/texbin:${PATH}:/usr/bin"

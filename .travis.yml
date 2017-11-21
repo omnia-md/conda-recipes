@@ -6,6 +6,11 @@ os:
 # See also: https://blog.travis-ci.com/2016-10-04-osx-73-default-image-live/
 osx_image: xcode6.4
 
+cache:
+  directories:
+    - $HOME/Library/Caches/Homebrew/
+    - $HOME/nvidia_cache
+
 language: c
 sudo: required
 
@@ -42,5 +47,6 @@ script:
 
     elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
         echo "Building osx...";
+        export NVIDIA_CACHE=$HOME/nvidia_cache;
         bash devtools/osx-build.sh;
     fi
