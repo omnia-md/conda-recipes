@@ -1,10 +1,10 @@
 package:
   name: yank
-  version: "0.18.0"
+  version: "0.19.0"
 
 source:
     git_url: https://github.com/choderalab/yank.git
-    git_tag: "0.18.0"
+    git_tag: "0.19.0"
 
 build:
   number: 0
@@ -20,13 +20,13 @@ requirements:
     - netcdf4
     - openmm >=7.1
     - mdtraj >=1.7.2
-    - openmmtools >=0.13.1
+    - openmmtools >=0.13.3
     - pymbar
     - ambermini >=16.16.0
     - docopt
     - openmoltools
     - sphinxcontrib-bibtex
-    - schema >=0.6.2
+    - cerberus
     - matplotlib
     - jupyter
     #- gcc 4.8.2 # [linux]
@@ -41,7 +41,7 @@ requirements:
     - netcdf4
     - openmm >=7.1
     - mdtraj >=1.7.2
-    - openmmtools >=0.13.1
+    - openmmtools >=0.13.3
     - pymbar
     - ambermini >=16.16.0
     - docopt
@@ -50,7 +50,7 @@ requirements:
     - pyyaml
     - clusterutils
     - sphinxcontrib-bibtex
-    - schema >=0.6.2
+    - cerberus
     - matplotlib
     - jupyter
     #- libgcc
