@@ -1,10 +1,10 @@
 package:
   name: openforcefield
-  version: 0.0.2
+  version: 0.0.3
 
 source:
-    git_url: https://github.com/open-forcefield-group/openforcefield.git
-    git_tag: 0.0.2
+    git_url: https://github.com/openforcefield/openforcefield.git
+    git_tag: 0.0.3
 
 build:
   preserve_egg_dir: True
@@ -20,7 +20,7 @@ requirements:
   run:
     - python
     - numpy
-    - networkx ==1.11
+    - networkx
     - lxml
     - icu 58*  # This is a lxml dependency but sometimes conda installs version 56
     - openmoltools >=0.7.3
@@ -36,5 +36,5 @@ test:
     - openforcefield
 
 about:
-  home: https://github.com/open-forcefield-group/openforcefield
+  home: https://github.com/openforcefield/openforcefield
   license: MIT
