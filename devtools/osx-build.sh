@@ -1,13 +1,10 @@
 #!/bin/bash
 set -e -x
 export MACOSX_DEPLOYMENT_TARGET="10.9"
-# Update homebrew
 # Clear existing locks
 rm -rf /usr/local/var/homebrew/locks
 # Update homebrew (uses cache if available)
-#brew uninstall -y brew-cask || brew untap -y caskroom/cask || 1
 brew update -y --quiet
-#brew tap -y caskroom/cask
 
 # Install Miniconda
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
