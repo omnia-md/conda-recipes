@@ -2,6 +2,9 @@
 set -e -x
 export MACOSX_DEPLOYMENT_TARGET="10.9"
 # Update homebrew
+# Clear existing locks
+rm -rf /usr/local/var/homebrew/locks
+# Update homebrew (uses cache if available)
 brew uninstall -y brew-cask || brew untap -y caskroom/cask || 1
 brew update -y --quiet
 brew tap -y caskroom/cask
@@ -35,7 +38,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     fi
     sudo tar -zxf cuda_mac_installer_tk.tar.gz -C /;
     sudo tar -zxf cuda_mac_installer_drv.tar.gz -C /;
-    # Don't delete the tarballs for now because the N
+    # Don't delete the tarballs to cache the package
     # rm -f cuda_mac_installer_tk.tar.gz cuda_mac_installer_drv.tar.gz
     # Now head back to work directory
     cd $TRAVIS_BUILD_DIR

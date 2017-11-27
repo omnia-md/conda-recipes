@@ -8,7 +8,7 @@ osx_image: xcode6.4
 
 cache:
   directories:
-    - $HOME/Library/Caches/Homebrew/
+    - $HOME/Library/Caches/Homebrew
     - $HOME/nvidia_cache
 
 language: c
