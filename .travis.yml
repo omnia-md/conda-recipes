@@ -8,7 +8,8 @@ osx_image: xcode6.4
 
 cache:
   directories:
-    - $HOME/Library/Caches/Homebrew
+    # Disabled homebrew cache, did not appear to do anything
+    #- $HOME/Library/Caches/Homebrew
     - $HOME/nvidia_cache
   # https://docs.travis-ci.com/user/caching/#Setting-the-timeout
   timeout: 900  # seconds: 15 min cache upload time (default is 3 min)
