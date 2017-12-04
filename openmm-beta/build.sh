@@ -5,14 +5,12 @@ CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_TESTING=OFF"
 # Ensure we build a release
 CMAKE_FLAGS+=" -DCMAKE_BUILD_TYPE=Release"
 
-CUDA_VERSION="8.0"
+CUDA_VERSION="9.0"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     #
     # For Docker build
     #
-
-    export LD_LIBRARY_PATH="/opt/rh/devtoolset-2/root/usr/lib64:/opt/rh/devtoolset-2/root/usr/lib:$LD_LIBRARY_PATH"
 
     # CFLAGS
     export MINIMAL_CFLAGS="-g -O3"
@@ -20,7 +18,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     export CXXFLAGS="$MINIMAL_CFLAGS"
     export LDFLAGS="$LDPATHFLAGS"
 
-    # Use clang 3.8.1 from conda-forge and the clangdev package, should be in path as highest priority already
+    # Use clang 3.8.1 from the clangdev package on conda-forge
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
 
     # OpenMM build configuration
@@ -32,6 +30,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # CUDA OpenCL
     #CMAKE_FLAGS+=" -DOPENCL_INCLUDE_DUR=${CUDA_PATH}/include/"
     #CMAKE_FLAGS+=" -DOPENCL_LIBRARY=${CUDA_PATH}/lib64/libOpenCL.so"
+    # gcc from devtoolset-2
+    #CMAKE_FLAGS+=" -DCMAKE_CXX_LINK_FLAGS=-Wl,-rpath,/opt/rh/devtoolset-2/root/usr/lib64"
+    CMAKE_FLAGS+=" -DCMAKE_CXX_FLAGS=--gcc-toolchain=/opt/rh/devtoolset-2/root/usr/"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # conda-build MACOSX_DEPLOYMENT_TARGET must be exported as an environment variable to override 10.7 default
     # cc: https://github.com/conda/conda-build/pull/1561
@@ -62,9 +63,9 @@ cmake .. $CMAKE_FLAGS
 make -j$CPU_COUNT all
 
 # PythonInstall uses the gcc/g++ 4.2.1 that anaconda was built with, so we can't add extraneous unrecognized compiler arguments.
-export CXXFLAGS="$MINIMAL_CFLAGS"
-export LDFLAGS="$LDPATHFLAGS"
-export SHLIB_LDFLAGS="$LDPATHFLAGS"
+#export CXXFLAGS="$MINIMAL_CFLAGS"
+#export LDFLAGS="$LDPATHFLAGS"
+#export SHLIB_LDFLAGS="$LDPATHFLAGS"
 
 make -j$CPU_COUNT install PythonInstall
 
