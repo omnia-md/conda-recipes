@@ -1,10 +1,10 @@
 package:
   name: openmm
-  version: 7.1.1
+  version: 7.2.0
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: c1a64aa
+  git_tag: 07c1b86
 
 
 build:
@@ -12,7 +12,7 @@ build:
   skip: True # [win]
 
 extra:
-  upload: rc
+  upload: main
   force_upload: False
 
 requirements:
@@ -34,12 +34,14 @@ requirements:
     - sphinxcontrib-lunrsearch
     - sphinxcontrib-autodoc_doxygen
     - lxml
-    # Get clang from conda-forge for linux only
+    - numpy
+    # Get clang from conda-forge
     - clangdev ==3.8.1 [linux]
 
   run:
     - python
     - fftw3f
+    - numpy
 
 test:
   requires:
