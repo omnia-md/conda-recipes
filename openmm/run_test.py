@@ -4,7 +4,7 @@ from simtk import openmm
 
 # Check major version number
 # If Z=0 for version X.Y.Z, out put is "X.Y"
-assert openmm.Platform.getOpenMMVersion() == '7.1.1', "openmm.Platform.getOpenMMVersion() = %s" % openmm.Platform.getOpenMMVersion()
+assert openmm.Platform.getOpenMMVersion() == '7.2', "openmm.Platform.getOpenMMVersion() = %s" % openmm.Platform.getOpenMMVersion()
 
 # Check git hash
-assert openmm.version.git_revision == 'c1a64aaa3b4b71f8dd9648fa724d2548a99d4ced', "openmm.version.git_revision = %s" % openmm.version.git_revision
+assert openmm.version.git_revision == '07c1b86c905870afac97bd54dd776433c1b602c2', "openmm.version.git_revision = %s" % openmm.version.git_revision
