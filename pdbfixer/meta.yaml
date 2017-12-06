@@ -1,10 +1,10 @@
 package:
   name: pdbfixer
-  version: 1.4
+  version: 1.5
 
 source:
-  fn: 1.4.tar.gz
-  url: https://github.com/pandegroup/pdbfixer/archive/1.4.tar.gz
+  git_url: https://github.com/pandegroup/pdbfixer.git
+  git_tag: 733dc3a
 
 build:
   number: 0
@@ -12,16 +12,21 @@ build:
     - pdbfixer = pdbfixer.pdbfixer:main
   skip: True  # [win32 or (win and py2k)]
 
+extra:
+  upload: beta
+  force_upload: False
+  include_omnia_label: beta
+
 requirements:
   build:
     - python
     - setuptools
-    - openmm >=7.1.0rc1
+    - openmm >=7.2.0
     - numpy
 
   run:
     - python
-    - openmm >=7.1.0rc1
+    - openmm >=7.2.0
     - numpy
 
 test:
