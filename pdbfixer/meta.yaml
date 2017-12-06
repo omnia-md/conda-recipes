@@ -15,6 +15,7 @@ build:
 extra:
   upload: beta
   force_upload: False
+  include_omnia_label: beta
 
 requirements:
   build:
