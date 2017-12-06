@@ -403,6 +403,17 @@ def build_package(m, python, numpy, args):
     cmd = [conda_build_cmd(), '-q', '--python', python, '--numpy', numpy, '--quiet']
     if args.notest:
         cmd.append('--no-test')
+    # Check if there is an omnia label to build against
+    if m.get_section('extra') and 'include_omnia_label' in m.get_section('extra'):
+        omnia_label = m.get_section('extra')['include_omnia_label']
+        if omnia_label not in STANDARD_LABELS:
+            print('Cannot build package {} against label "{}", must be one of the standard labels: {}.\n'
+                  'Falling back to using "main" only.'.format(m.path, omnia_label, STANDARD_LABELS))
+        else:
+            # Add conda forge to search AHEAD of omnia/label/LABEL otherwise the omnia channel will be higher
+            # priority than the conda-forge channel, which may grab very old build which we still have on the
+            # omnia channel. Its an edge case, but a critical one.
+            cmd.extend(['-c', 'conda-forge', '-c', 'omnia/label/{}'.format(omnia_label)])
     cmd.append(m.path)
     retcode = call(cmd)
     list_package_contents(m, python, numpy)
