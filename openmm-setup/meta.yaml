@@ -22,6 +22,7 @@ requirements:
     - python
     - setuptools
     - flask
+    - itsdangerous
     - openmm
     - pdbfixer >=1.5
 
