@@ -23,13 +23,13 @@ requirements:
     - setuptools
     - flask
     - openmm
-    - pdbfixer >= 1.5
+    - pdbfixer >=1.5
 
   run:
     - python
     - flask
     - openmm
-    - pdbfixer >= 1.5
+    - pdbfixer >=1.5
 
 about:
   home: http://github.com/pandegroup/openmm-setup
