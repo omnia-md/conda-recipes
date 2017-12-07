@@ -15,7 +15,7 @@ build:
   number: 0
   entry_points:
     - openmm-setup = openmmsetup.openmmsetup:main
-  skip: True  # [win32 or (win64 and not py35)]
+  skip: True  # [win32 or (win and py2k)]
 
 requirements:
   build:
