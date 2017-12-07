@@ -22,10 +22,12 @@ requirements:
     - python
     - setuptools
     - flask
-    - itsdangerous
     - openmm
     - pdbfixer >=1.5
-
+    - itsdangerous 0.24 py27_1  # [py27]
+    - itsdangerous 0.24 py35_1  # [py35]
+    - werkzeug 0.12.2 py35_0  # [py35]
+    - werkzeug 0.12.2 py27_0  # [py27]
   run:
     - python
     - flask
