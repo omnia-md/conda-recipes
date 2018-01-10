@@ -4,7 +4,7 @@ package:
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: 07c1b86
+  git_tag: 7164109
 
 
 build:
@@ -12,7 +12,7 @@ build:
   skip: True # [win]
 
 extra:
-  upload: beta
+  upload: rc
   force_upload: False
 
 requirements:
