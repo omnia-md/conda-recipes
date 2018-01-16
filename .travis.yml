@@ -1,3 +1,7 @@
+# Use old trusty image since new one breaks our builds
+# See: https://blog.travis-ci.com/2017-12-12-new-trusty-images-q4-launch
+group: deprecated-2017Q4
+
 os:
   - linux
   - osx
