@@ -1,0 +1,53 @@
+package:
+  name: forcebalance-dev
+  version: "1.5.1"
+
+source:
+  url: https://github.com/leeping/forcebalance/archive/v1.5.1.tar.gz
+  fn: v1.5.1.tar.gz
+
+build:
+  number: 0
+  skip: True # [py2k]
+
+extra:
+  maintainers:
+   - leeping
+
+requirements:
+  build:
+    - python
+    - numpy
+    - scipy
+    - setuptools
+    - pymbar
+    - future
+    - networkx
+    - lxml
+    - gcc
+
+  run:
+    - python
+    - numpy
+    - scipy
+    - setuptools
+    - pymbar
+    - future
+    - networkx
+    - lxml
+
+# Testing will be done on Travis as well
+# as manually before each release.
+#test:
+#  requires:
+#  imports:
+#    - forcebalance
+#  source_files:
+#    - test
+#  commands:
+#    - pwd; python test
+
+about:
+  home: https://github.com/leeping/forcebalance
+  license: BSD 3-Clause License
+  summary: Systematic force field optimization
