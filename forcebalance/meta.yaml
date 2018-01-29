@@ -1,5 +1,5 @@
 package:
-  name: forcebalance-dev
+  name: forcebalance
   version: "1.5.1"
 
 source:
@@ -8,7 +8,7 @@ source:
 
 build:
   number: 0
-  skip: True # [py2k]
+  skip: False
 
 extra:
   maintainers:
