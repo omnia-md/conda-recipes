@@ -1,10 +1,10 @@
 package:
   name: openmoltools
-  version: 0.8.1
+  version: 0.8.2
 
 source:
-    git_url: https://github.com/choderalab/openmoltools.git
-    git_tag: 0.8.1
+    url: https://github.com/choderalab/openmoltools/archive/0.8.2.tar.gz
+    fn: 0.8.2.tar.gz
 
 build:
   number: 0
@@ -39,7 +39,7 @@ requirements:
     - ambermini
     - pytables
     - parmed
-    - libgfortran 1.* # [linux and np == 19]
+    - libgfortran 1.* # [linux]
 #    - rdkit    # rdkit is an optional dependency, may want to comment this out for the release version.
 
 test:
@@ -53,4 +53,4 @@ test:
 
 about:
   home: https://github.com/choderalab/openmoltools
-  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  license: MIT License
