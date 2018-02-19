@@ -4,11 +4,11 @@ package:
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: f481bd0
+  git_tag: 89d08a9
 
 
 build:
-  number: 2
+  number: 3
   skip: True # [win]
 
 extra:
