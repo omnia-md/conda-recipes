@@ -385,9 +385,9 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
                 if (base_bldpkg_path in index_by_pkgname) and not force:
                     if verbose > 2:
                         print('Package exists on anaconda.org: %s' % m.name())
-                        print('  full_name: %s' % base_bldpkg_path)
-                        print('  channel:   %s' % tuple(index_by_pkgname[base_bldpkg_path].keys()))
-                        print('  md5:       %s' % tuple([v['md5'] for v in index_by_pkgname[base_bldpkg_path].values()]))
+                        print('  full_name:  {}'.format(base_bldpkg_path))
+                        print('  channel(s): {}'.format(tuple(index_by_pkgname[base_bldpkg_path].keys())))
+                        print('  md5:        {}'.format(tuple([v['md5'] for v in index_by_pkgname[base_bldpkg_path].values()])))
                     continue
 
                 if verbose > 1:
