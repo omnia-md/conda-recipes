@@ -8,7 +8,7 @@ source:
 
 build:
   number: 0
-  skip: True # [win32 or (win and py2k)]
+  skip: True # [win32 or py2k]
 
 requirements:
   build:
