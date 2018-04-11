@@ -12,7 +12,7 @@ bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/anaconda;
 export PATH=$HOME/anaconda/bin:$PATH;
 conda config --add channels omnia;
 conda config --add channels conda-forge;
-conda update -yq conda;
+conda install conda\<=4.3.34;
 conda install -yq conda-env conda-build==2.1.7 jinja2 anaconda-client;
 conda config --show;
 
