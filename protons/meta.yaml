@@ -24,7 +24,7 @@ requirements:
     - hdf4 >4.2.11 # Pinned because of issue with netcdf4
     - joblib
     - lxml
-    - parmed
+    - parmed <=2.7.3 # Pinned due to bug
     - pytest
     - pytest-runner
     - pymbar
@@ -48,7 +48,7 @@ requirements:
     - ambermini >=15.0.4
     - joblib
     - lxml
-    - parmed
+    - parmed <=2.7.3 # Pinned due to bug
     - pymbar
     - seaborn
     - matplotlib
