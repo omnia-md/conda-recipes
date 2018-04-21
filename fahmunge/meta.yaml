@@ -1,10 +1,10 @@
 package:
   name: fahmunge
-  version: 0.2.0
+  version: 0.3.0
 
 source:
-   url: https://github.com/choderalab/fahmunge/archive/0.2.0.tar.gz
-   fn: 0.2.0.tar.gz
+   url: https://github.com/choderalab/fahmunge/archive/0.3.0.tar.gz
+   fn: 0.3.0.tar.gz
 
 build:
   preserve_egg_dir: True
