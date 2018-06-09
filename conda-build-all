@@ -243,6 +243,11 @@ def list_package_contents(m, python, numpy):
             print('...')
             break
 
+def clean_builds():
+    cmd = ['conda', 'clean', '--source-cache', '--yes']
+    print("Cleaning up source builds...")
+    retcode = call(cmd)
+
 def upload_to_binstar(m, python, numpy, username, max_retries=5,
                       force=False, dev=False):
     filename = get_bldpkg_path(m, python, numpy)
@@ -424,6 +429,9 @@ def build_package(m, python, numpy, args):
                               force=args.force, dev=args.dev)
         else:
             print('Package failed to build (return code %s); will not upload.' % str(retcode))
+
+    clean_builds()
+    
     sys.stdout.flush()
     return retcode
 
