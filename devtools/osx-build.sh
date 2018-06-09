@@ -16,6 +16,9 @@ conda install -yq conda\<=4.3.34;
 conda install -yq conda-env conda-build==2.1.7 jinja2 anaconda-client;
 conda config --show;
 
+# Clean up packages to reduce disk space usage.
+conda clean -pltis --yes;
+
 # Do this step last to make sure conda-build, conda-env, and conda updates come from the same channel first
 
 
@@ -25,10 +28,12 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     # Install OpenMM dependencies that can't be installed through
     # conda package manager (doxygen + CUDA)
     brew install -y https://raw.githubusercontent.com/Homebrew/homebrew-core/5b680fb58fedfb00cd07a7f69f5a621bb9240f3b/Formula/doxygen.rb
+    # Clean up after brew to save space
+    brew cleanup -y
     # Make the nvidia-cache if not there
     mkdir -p $NVIDIA_CACHE
     cd $NVIDIA_CACHE
-    # Download missing nvidia installers
+    # Download missing nvidia installers if not cached
     if ! [ -f cuda_mac_installer_tk.tar.gz ]; then
         curl -O -# http://developer.download.nvidia.com/compute/cuda/${CUDA_VERSION}/Prod/network_installers/mac/x86_64/cuda_mac_installer_tk.tar.gz
     fi
@@ -37,8 +42,8 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     fi
     sudo tar -zxf cuda_mac_installer_tk.tar.gz -C /;
     sudo tar -zxf cuda_mac_installer_drv.tar.gz -C /;
-    # Don't delete the tarballs to cache the package
-    # rm -f cuda_mac_installer_tk.tar.gz cuda_mac_installer_drv.tar.gz
+    # Don't delete the tarballs so we can cache them
+    #rm -f cuda_mac_installer_tk.tar.gz cuda_mac_installer_drv.tar.gz
     # Now head back to work directory
     cd $TRAVIS_BUILD_DIR
 
@@ -56,6 +61,8 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     sudo tlmgr --persistent-downloads --repository=$TLREPO install \
         titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring \
         fncychap tabulary capt-of eqparbox environ trimspaces
+    # Clean up after brew to save space
+    brew cleanup -y
 fi;
 
 # Build packages
