@@ -1,10 +1,10 @@
 package:
   name: yank
-  version: "0.22.2"
+  version: "0.22.3"
 
 source:
-    url: https://github.com/choderalab/yank/archive/0.22.2.tar.gz
-    fn: 0.22.2.tar.gz
+    url: https://github.com/choderalab/yank/archive/0.22.3.tar.gz
+    fn: 0.22.3.tar.gz
 
 build:
   number: 0
