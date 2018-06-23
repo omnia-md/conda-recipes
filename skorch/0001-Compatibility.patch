@@ -1,0 +1,83 @@
+diff --git setup.py setup.py
+index e21ebd0..d663a7b 100644
+--- setup.py
++++ setup.py
+@@ -7,24 +7,24 @@ with open('VERSION', 'r') as f:
+     version = f.read().rstrip()
+ # TODO: read from requirements.txt
+-install_requires = [-    'numpy',
+-    'scikit-learn>=0.18',
+-    'scipy',
+-    'tabulate',
+-    'tqdm',
+-]
+-
+-tests_require = [
+-    'pytest',
+-    'pytest-cov',
+-]
+-
+-docs_require = [
+-    'Sphinx',
+-    'sphinx_rtd_theme',
+-    'numpydoc',
+-]
++#install_requires = [
++#    'numpy',
++#    'scikit-learn>=0.18',
++#    'scipy',
++#    'tabulate',
++#    'tqdm',
++#]
++
++#tests_require = [
++#    'pytest',
++#    'pytest-cov',
++#]
++
++#docs_require = [
++#    'Sphinx',
++#    'sphinx_rtd_theme',
++#    'numpydoc',
++#]
+
+ here = os.path.abspath(os.path.dirname(__file__))
+ try:
+@@ -47,9 +47,9 @@ setup(
+     include_package_data=True,
+     url="https://github.com/dnouri/skorch",
+     zip_safe=False,
+-    install_requires=install_requires,
+-    extras_require={
+-        'testing': tests_require,
+-        'docs': docs_require,
+-    },
++#    install_requires=install_requires,
++#    extras_require={
++#        'testing': tests_require,
++#        'docs': docs_require,
++#    },
+ )
+diff --git skorch/net.py skorch/net.py
+index 677b7ed..fe463ec 100644
+--- skorch/net.py
++++ skorch/net.py
+@@ -41,7 +41,7 @@ def valid_loss_score(net, X=None, y=None):
+
+
+ # pylint: disable=too-many-instance-attributes
+-class NeuralNet(object):
++class NeuralNet(BaseEstimator):
+     # pylint: disable=anomalous-backslash-in-string
+     """NeuralNet base class.
+
+@@ -943,6 +943,10 @@ class NeuralNet(object):
+         if is_dataset(X):
+             return X
+
++        X = X.astype(np.float32)
++        if y is not None:
++            y = y.astype(np.int64)
++
+         dataset = self.dataset
+         is_initialized = not callable(dataset)
