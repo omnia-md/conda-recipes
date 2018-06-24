@@ -4,8 +4,10 @@ index e21ebd0..d663a7b 100644
 +++ setup.py
 @@ -7,24 +7,24 @@ with open('VERSION', 'r') as f:
      version = f.read().rstrip()
+
  # TODO: read from requirements.txt
--install_requires = [-    'numpy',
+-install_requires = [
+-    'numpy',
 -    'scikit-learn>=0.18',
 -    'scipy',
 -    'tabulate',
