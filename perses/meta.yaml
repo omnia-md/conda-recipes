@@ -59,7 +59,6 @@ requirements:
     - pdbfixer
     - lxml
     - networkx >=2.0
-    - openeye-toolkits
     - dask
     - distributed
     - progressbar2
