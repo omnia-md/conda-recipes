@@ -3,5 +3,6 @@ package:
   version: 1.0
 
 build:
+  noarch: python
   track_features:
       - cuda90
