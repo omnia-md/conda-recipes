@@ -5,3 +5,7 @@ package:
 build:
   track_features:
       - cuda75
+
+extra:
+  maintainers:
+   - jchodera

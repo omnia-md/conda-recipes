@@ -6,3 +6,7 @@ build:
   noarch: python
   track_features:
       - cuda91
+
+extra:
+  maintainers:
+   - jchodera
