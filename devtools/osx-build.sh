@@ -42,8 +42,8 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     fi
     sudo tar -zxf cuda_mac_installer_tk.tar.gz -C /;
     sudo tar -zxf cuda_mac_installer_drv.tar.gz -C /;
-    # Don't delete the tarballs so we can cache them
-    #rm -f cuda_mac_installer_tk.tar.gz cuda_mac_installer_drv.tar.gz
+    # TODO: Don't delete the tarballs so we can cache them, provided we have the space
+    rm -f cuda_mac_installer_tk.tar.gz cuda_mac_installer_drv.tar.gz
     # Now head back to work directory
     cd $TRAVIS_BUILD_DIR
 
