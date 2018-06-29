@@ -430,8 +430,8 @@ def build_package(m, python, numpy, args):
         else:
             print('Package failed to build (return code %s); will not upload.' % str(retcode))
 
-    clean_builds()
-    
+    #clean_builds()
+
     sys.stdout.flush()
     return retcode
 
