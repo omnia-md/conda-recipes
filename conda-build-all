@@ -425,12 +425,13 @@ def build_package(m, python, numpy, args):
 
     if args.upload is not None:
         if (retcode == 0):
+            print('Package build succeeded. Uploading to anaconda for user "%s".' % str(args.upload))
             upload_to_binstar(m, python, numpy, username=args.upload,
                               force=args.force, dev=args.dev)
         else:
             print('Package failed to build (return code %s); will not upload.' % str(retcode))
 
-    #clean_builds()
+    clean_builds()
 
     sys.stdout.flush()
     return retcode
