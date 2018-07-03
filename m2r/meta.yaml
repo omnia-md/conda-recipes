@@ -1,0 +1,22 @@
+package:
+  name: m2r
+  version: 0.1.15
+
+source:
+  git_url: https://github.com/miyakogi/m2r.git
+  git_tag: v0.1.15
+
+build:
+  noarch: python
+  number: 0
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+
+about:
+  home: https://github.com/miyakogi/m2r
+  license: The MIT License (MIT)
