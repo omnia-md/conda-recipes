@@ -7,7 +7,6 @@ source:
   git_tag: v0.1.15
 
 build:
-  noarch: python
   number: 0
 
 requirements:
