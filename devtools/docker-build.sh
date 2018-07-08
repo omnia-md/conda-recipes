@@ -2,6 +2,7 @@
 set -e
 set -x
 conda config --add channels omnia
+conda config --add channels omnia/label/dev
 # Move the conda-forge channel to the top
 # Cannot just append omnia otherwise default would have higher priority
 conda config --add channels conda-forge
