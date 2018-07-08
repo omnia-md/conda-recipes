@@ -269,8 +269,9 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
         assert force, "Dev packages require forced uploads."
         cmd.extend(['--label', 'dev'])
     elif m.get_section('extra') and 'upload' in m.get_section('extra'):
-        label = m.get_section('extra')['upload']
-        cmd.extend(['--label', label])
+        labels = m.get_section('extra')['upload']
+        for label in labels.split(','):
+            cmd.extend(['--label', label])
     else:
         cmd.extend(['--label', 'main'])
 
