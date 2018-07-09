@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 0
+  number: 1
   skip: True  # [win or py2k]
 
 requirements:
@@ -35,7 +35,7 @@ requirements:
     - pdbfixer
     - lxml
     - networkx >=2.0
-    - yank
+    - yank >=0.23.0
 
   run:
     - python
@@ -63,7 +63,7 @@ requirements:
     - dask
     - distributed
     - progressbar2
-    - yank
+    - yank >=0.23.0
 
 test:
   requires:
