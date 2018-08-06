@@ -1,10 +1,10 @@
 package:
   name: skorch
-  version: 0.2.0
+  version: 0.3.0
 
 source:
   git_url: https://github.com/dnouri/skorch.git 
-  git_tag: v0.2.0
+  git_tag: v0.3.0
   patches:
     - 0001-Compatibility.patch
 
