@@ -40,9 +40,9 @@ install:
 
 script:
   - if [[ "${TRAVIS_PULL_REQUEST}" == "false" && "${TRAVIS_BRANCH}" == "master" ]]; then
-        export UPLOAD="--upload omnia";
+        export UPLOAD="--check-against omnia --check-against omnia/label/beta --check-against omnia/label/dev --upload omnia";
     else
-        export UPLOAD=" ";
+        export UPLOAD="--check-against omnia --check-against omnia/label/beta --check-against omnia/label/dev ";
     fi
   - echo $UPLOAD
 
