@@ -63,7 +63,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
         titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring \
         fncychap tabulary capt-of eqparbox environ trimspaces
     # Clean up after brew to save space
-    brew cleanup -y
+    brew cleanup
 fi;
 
 # Build packages
