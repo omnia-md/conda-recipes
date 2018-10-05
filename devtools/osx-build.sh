@@ -30,7 +30,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     # conda package manager (doxygen + CUDA)
     brew install -y https://raw.githubusercontent.com/Homebrew/homebrew-core/5b680fb58fedfb00cd07a7f69f5a621bb9240f3b/Formula/doxygen.rb
     # Clean up after brew to save space
-    brew cleanup -y
+    brew cleanup
     # Make the nvidia-cache if not there
     mkdir -p $NVIDIA_CACHE
     cd $NVIDIA_CACHE
