@@ -1,10 +1,10 @@
 package:
   name: openmm
-  version: 7.2.2
+  version: 7.3.0
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: 32bc79a
+  git_tag: 10aba26
 
 
 build:
@@ -12,7 +12,7 @@ build:
   skip: True # [win]
 
 extra:
-  upload: rc
+  upload: beta
   force_upload: False
 
 requirements:
@@ -23,13 +23,14 @@ requirements:
     - python
     # Pin fftw3f to 3.3.3 to work around OSX py34 issues
     - fftw3f ==3.3.3 [osx]
-    - fftw3f ==3.3.4 [win or linux]
+    - fftw3f ==3.3.4 [linux]
+    - fftw3f ==3.3.4=vc14_2 [win]
     # swig is pinned to use omnia swig 3.0.8
     - swig ==3.0.8
     # on osx, need to install doxygen manually
     - doxygen   [not osx]
     # for building docs
-    - sphinx ==1.5.6
+    - sphinx
     - sphinxcontrib-bibtex
     - sphinxcontrib-lunrsearch
     - sphinxcontrib-autodoc_doxygen
