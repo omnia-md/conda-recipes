@@ -3,11 +3,11 @@ package:
   # The version epoch format of E!X.Y.Z must be applied since OpenBabel started with YEAR.MO format.
   # Version epoch allows newer X.Y.Z format to take priority as later packages than the YEAR.MO format
   # See PEP 440 and conda-build VersionOrder class
-  version: "1!2.4.0"
+  version: "1!2.4.1"
 
 source:
-  url: https://github.com/openbabel/openbabel/archive/openbabel-2-4-0.zip 
-  fn: openbabel-2-4-0.zip 
+  url: https://github.com/openbabel/openbabel/archive/openbabel-2-4-1.zip
+  fn: openbabel-2-4-1.zip 
 
   patches:
     - include-dirs.patch
