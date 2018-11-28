@@ -22,12 +22,12 @@ requirements:
     - python
     - setuptools
     - openmm >=7.2.0
-    - numpy
+    - numpy >=1.14
 
   run:
     - python
     - openmm >=7.2.0
-    - numpy
+    - numpy >=1.14
 
 test:
   commands:
