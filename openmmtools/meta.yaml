@@ -14,7 +14,7 @@ requirements:
   build:
     - python
     - cython
-    - numpy
+    - numpy >=1.14
     - scipy
     - setuptools
     - openmm >=7.2
@@ -27,7 +27,7 @@ requirements:
   run:
     - python
     - cython
-    - numpy
+    - numpy >=1.14
     - scipy
     - openmm >=7.2
     - setuptools
