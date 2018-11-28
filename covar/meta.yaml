@@ -15,12 +15,12 @@ requirements:
     - python
     - setuptools
     - cython
-    - numpy
+    - numpy >=1.14
     - scipy >=0.16
   run:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
     - scipy >=0.16
 
 test:
