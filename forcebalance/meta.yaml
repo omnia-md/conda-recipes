@@ -4,7 +4,7 @@ package:
 
 source:
   url: https://github.com/leeping/forcebalance/archive/1.5.5.zip
-  fn: 1.5.5.tar.gz
+  fn: 1.5.5.zip
 
 build:
   number: 0
