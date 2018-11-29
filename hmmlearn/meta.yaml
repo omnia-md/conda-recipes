@@ -8,12 +8,12 @@ source:
 
 build:
   # TODO: https://github.com/ContinuumIO/anaconda-issues/issues/557
-  skip: True  # [win32 and py35 and np == 19 or osx or py37]
+  skip: True  # [win32 and py35 and np == 19 or osx]
 
 requirements:
   build:
     - python
-    - numpy x.x
+    - numpy >=1.14
     - cython
     - nose
     - scipy
@@ -22,7 +22,7 @@ requirements:
 
   run:
     - python
-    - numpy x.x
+    - numpy >=1.14
     - scikit-learn
 
 test:
