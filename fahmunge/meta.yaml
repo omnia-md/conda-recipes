@@ -15,7 +15,7 @@ requirements:
   build:
     - setuptools
     - python
-    - numpy
+    - numpy >=1.14
     - pandas
     - pytables
     - natsort
@@ -23,7 +23,7 @@ requirements:
 
   run:
     - python
-    - numpy
+    - numpy >=1.14
     - pandas
     - pytables
     - natsort
