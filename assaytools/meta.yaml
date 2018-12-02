@@ -14,11 +14,11 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
 
   run:
     - python
-    - numpy
+    - numpy >=1.14
     - pint
     - pandas
     - scipy
