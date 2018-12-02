@@ -15,7 +15,7 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
     - scipy
     - numexpr
     - autograd
@@ -40,7 +40,7 @@ requirements:
   run:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
     - scipy
     - numexpr
     - autograd

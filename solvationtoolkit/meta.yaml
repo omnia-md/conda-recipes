@@ -15,7 +15,7 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
     - numpydoc
     - scipy
     - ambermini
@@ -30,7 +30,7 @@ requirements:
   run:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
     - numpydoc
     - scipy
     - ambermini
