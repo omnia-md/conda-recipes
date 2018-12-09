@@ -1,13 +1,13 @@
 package:
   name: parmed
-  version: !!str 3.0.1
+  version: !!str 3.1.0
 
 source:
-  fn: ParmEd-3.0.1.tar.gz
-  url: https://github.com/ParmEd/ParmEd/archive/3.0.1.tar.gz
+  fn: ParmEd-3.1.0.tar.gz
+  url: https://github.com/ParmEd/ParmEd/archive/3.1.0.tar.gz
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -22,5 +22,6 @@ requirements:
 
 about:
   home: http://parmed.github.io/ParmEd
-  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  license: LGPL
+  license_file: GNU_LGPL_v2
   summary: A package for parsing, interconverting, manipulating, and simulating biomolecular simulations with many packages
