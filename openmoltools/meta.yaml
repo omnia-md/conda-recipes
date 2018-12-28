@@ -17,7 +17,7 @@ requirements:
     - pandas
     - six
     - mdtraj
-    - numpy
+    - numpy >=1.14
     - numpydoc
     - scipy
     - pandas
@@ -32,7 +32,7 @@ requirements:
     - pandas
     - six
     - mdtraj
-    - numpy
+    - numpy >=1.14
     - numpydoc
     - scipy
     - openmm >=7.0.1

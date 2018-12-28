@@ -5,19 +5,19 @@ package:
 source:
   fn: ParmEd-3.0.1.tar.gz
   url: https://github.com/ParmEd/ParmEd/archive/3.0.1.tar.gz
-  
+
 build:
   number: 1
 
 requirements:
   build:
     - python
-    - numpy
+    - numpy >=1.14
     - setuptools
 
   run:
     - python
-    - numpy
+    - numpy >=1.14
     - pandas
 
 about:
