@@ -66,3 +66,5 @@ script:
         echo "Building osx...";
         export NVIDIA_CACHE=$HOME/nvidia_cache;
         bash devtools/osx-build.sh;
+
+    fi
