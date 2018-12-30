@@ -220,6 +220,8 @@ def get_bldpkg_path(m, python, numpy):
     cfg.CONDA_NPY = int(numpy.replace('.', ''))
 
     m.config = cfg
+    print(m) # DEBUG
+    print(m.name()) # DEBUG
     platform = m.info_index()['platform']
     if platform is None:
         platform = 'noarch'
