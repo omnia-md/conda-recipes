@@ -220,9 +220,12 @@ def get_bldpkg_path(m, python, numpy):
     cfg.CONDA_NPY = int(numpy.replace('.', ''))
 
     m.config = cfg
-    print(m) # DEBUG
-    print(m.name()) # DEBUG
-    platform = m.info_index()['platform']
+    try:
+        platform = m.info_index()['platform']
+    except conda.exceptions.InvalidSpecError as e:
+        print('Error processing package: %s' % m.name())
+        raise e
+
     if platform is None:
         platform = 'noarch'
     cfg.platform = platform

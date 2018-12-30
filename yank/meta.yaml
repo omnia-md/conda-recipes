@@ -23,7 +23,7 @@ requirements:
     - numpy >=1.14
     - scipy
     - cython
-    - netcdf4 >= 1.4.2
+    - netcdf4 >=1.4.2
     - openmm >=7.1
     - mdtraj >=1.7.2
     - openmmtools >=0.15.0
