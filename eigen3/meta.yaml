@@ -1,11 +1,11 @@
 package:
   name: eigen3
-  version: "3.2.1"
+  version: "3.3.7"
 
 source:
-  fn: eigen3-3.2.1.tar.gz
-  url: http://bitbucket.org/eigen/eigen/get/3.2.1.tar.gz
-  sha1: 96709ff139c80861e7b2cf65a9dfca8a8cc46eeb
+  fn: eigen3-3.3.7.tar.gz
+  url: http://bitbucket.org/eigen/eigen/get/3.3.7.tar.gz
+  sha1: f2a417d083fe8ca4b8ed2bc613d20f07
 
 requirements:
   build:

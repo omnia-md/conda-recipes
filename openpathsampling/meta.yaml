@@ -15,7 +15,7 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
     - scipy
     - future
     - pandas
@@ -32,7 +32,7 @@ requirements:
 
   run:
     - python
-    - numpy
+    - numpy >=1.14
     - scipy
     - future
     - pandas
