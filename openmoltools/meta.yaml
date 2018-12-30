@@ -7,7 +7,7 @@ source:
     fn: 0.8.3.tar.gz
 
 build:
-  number: 0
+  number: 1
   skip: True # [win32 or (win and py2k)]
 
 requirements:
@@ -25,7 +25,7 @@ requirements:
     - ambermini
     - pytables
     - parmed
-#    - rdkit    # rdkit is an optional dependency, may want to comment this out for the release version.
+
   run:
     - python
     - setuptools
@@ -39,7 +39,6 @@ requirements:
     - ambermini
     - pytables
     - parmed
-#    - rdkit    # rdkit is an optional dependency, may want to comment this out for the release version.
 
 test:
   requires:
