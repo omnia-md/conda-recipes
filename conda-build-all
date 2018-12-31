@@ -9,7 +9,7 @@ import time
 import tarfile
 import os.path
 import argparse
-from subprocess import call, check_call, CalledProcessError
+from subprocess import call, check_call, check_output, CalledProcessError
 from functools import reduce
 from collections import defaultdict
 from distutils.spawn import find_executable
@@ -284,14 +284,15 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
     for i in range(max_retries):
         try:
             print("Uploading package '%s' to anaconda user '%s'..." % (filename, username))
-            check_call(cmd, capture_output=True)
+            #check_call(cmd)
+            check_output(cmd)
             return
         except CalledProcessError as e:
             err = e
             err.cmd = '[not shown]'
             print(' stdout:\n%s' % err.stdout)
             print(' stderr:\n%s' % err.stderr)
-            if ('Distribution already exists' in err.stdout) or ('Distribution already exists' in err.stderr):
+            if (type(err.output) is str) and ('Distribution already exists' in err.output)) or (b'Distribution already exists' in err.output):
                 # Flag in output but don't kill build for all packages
                 print('*** DISTRIBUTION ALREADY EXISTS FOR PACKAGE %s' % m.name())
                 return
