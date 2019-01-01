@@ -61,12 +61,9 @@ def main():
     )
     p.add_argument(
         '--check-against',
-        dest='check_against',
-        action='append',
         nargs="+",
         metavar='ANACONDA_USER/label/$name',
-        #default=['omnia/label/%s' % label for label in STANDARD_LABELS],
-        default=[],
+        default=['omnia/label/%s' % label for label in STANDARD_LABELS],
     )
     p.add_argument(
         '--dry-run',
