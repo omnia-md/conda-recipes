@@ -45,7 +45,7 @@ script:
   #- wget -O conda-build-all --quiet https://raw.githubusercontent.com/omnia-md/conda-recipes/master/conda-build-all
   - chmod +x conda-build-all
   # Select upload destination
-  - export CHECK_AGAINST="--check-against omnia,omnia/label/cuda${CUDA_SHORT_VERSION},omnia/label/rc,omnia/label/rccuda${CUDA_SHORT_VERSION}"
+  - export CHECK_AGAINST="--check-against omnia omnia/label/cuda${CUDA_SHORT_VERSION} omnia/label/rc omnia/label/rccuda${CUDA_SHORT_VERSION}"
   - if [[ "${TRAVIS_PULL_REQUEST}" == "false" && "${TRAVIS_BRANCH}" == "master" ]]; then
         export UPLOAD="$CHECK_AGAINST --upload omnia";
     else
