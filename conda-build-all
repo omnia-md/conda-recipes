@@ -61,9 +61,12 @@ def main():
     )
     p.add_argument(
         '--check-against',
+        dest='check_against',
+        action='append',
         nargs="+",
         metavar='ANACONDA_USER/label/$name',
-        default=['omnia/label/%s' % label for label in STANDARD_LABELS],
+        #default=['omnia/label/%s' % label for label in STANDARD_LABELS],
+        default=[],
     )
     p.add_argument(
         '--dry-run',
@@ -470,8 +473,11 @@ def pre_black_listed(pkg_meta):
 
 def execute(args, p):
     pythons = re.split(',\s*|\s+', args.python)
+    print('pythons: %s' % str(pythons)) # DEBUG
     numpys = re.split(',\s*|\s+', args.numpy)
+    print('numpys: %s' % str(numpys)) # DEBUG
     channel_urls = tuple(args.check_against) if args.check_against else ()
+    print('channel_urls: %s' % str(channel_urls)) # DEBUG
 
     if args.verbose > 0:
         print('EXECUTE:')
