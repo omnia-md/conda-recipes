@@ -46,8 +46,10 @@ conda config --add channels omnia/label/rccuda${CUDA_SHORT_VERSION};
 #conda config --add channels omnia/label/dev
 #conda config --add channels omnia/label/devcuda${CUDA_SHORT_VERSION};
 
-for PY_BUILD_VERSION in "37" "36" "35" "27" ; do
-    /io/conda-build-all -vvv --python $PY_BUILD_VERSION --check-against omnia --check-against omnia/label/cuda${CUDA_SHORT_VERSION} --check-against omnia/label/beta --check-against omnia/label/betacuda${CUDA_SHORT_VERSION} --numpy "1.15" $UPLOAD -- /io/*
-done
+#for PY_BUILD_VERSION in "37" "36" "35" "27" ; do
+#    /io/conda-build-all -vvv --python $PY_BUILD_VERSION --numpy "1.15" $UPLOAD -- /io/*
+#done
+    
+/io/conda-build-all -vvv --python "37,36,35,27" --numpy "1.15" $UPLOAD -- /io/*
 
 #mv /anaconda/conda-bld/linux-64/*tar.bz2 /io/ || true
