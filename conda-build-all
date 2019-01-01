@@ -281,11 +281,12 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
         cmd.extend(['--label', 'main'])
 
     err = None
+    import subprocess
     for i in range(max_retries):
         try:
             print("Uploading package '%s' to anaconda user '%s'..." % (filename, username))
             #check_call(cmd)
-            check_output(cmd)
+            check_output(cmd, stderr=subprocess.STDOUT)
             return
         except CalledProcessError as e:
             err = e
