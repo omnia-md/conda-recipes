@@ -336,13 +336,11 @@ def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
     index = conda.api.get_index(
         channel_urls=list(channel_urls),
         prepend=False)
-    print(index) # DEBUG
     index_by_pkgname = defaultdict(dict)
     for k, v in index.items():
         channel = k.channel
         pkgname = k.to_filename()
         index_by_pkgname[pkgname][channel] = v
-    print(index_by_pkgname) # DEBUG
 
     for m in metadatas:
 
@@ -470,11 +468,8 @@ def pre_black_listed(pkg_meta):
 
 def execute(args, p):
     pythons = re.split(',\s*|\s+', args.python)
-    print('pythons: %s' % str(pythons)) # DEBUG
     numpys = re.split(',\s*|\s+', args.numpy)
-    print('numpys: %s' % str(numpys)) # DEBUG
     channel_urls = tuple(args.check_against) if args.check_against else ()
-    print('channel_urls: %s' % str(channel_urls)) # DEBUG
 
     if args.verbose > 0:
         print('EXECUTE:')
