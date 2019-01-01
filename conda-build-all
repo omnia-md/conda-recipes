@@ -332,14 +332,17 @@ class VersionIter(object):
 
 def required_builds(metadatas, pythons, numpys, channel_urls, verbose,
                     force=False):
+    print('Getting package index from urls: %s' % list(channel_urls)) # DEBUG
     index = conda.api.get_index(
         channel_urls=list(channel_urls),
         prepend=False)
+    print(index) # DEBUG
     index_by_pkgname = defaultdict(dict)
     for k, v in index.items():
         channel = k.channel
         pkgname = k.to_filename()
         index_by_pkgname[pkgname][channel] = v
+    print(index_by_pkgname) # DEBUG
 
     for m in metadatas:
 
