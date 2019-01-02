@@ -5,11 +5,13 @@ package:
 source:
   git_url: https://github.com/pandegroup/openmm-setup.git
   git_tag: v1.1
+  patches:
+    - remove-requirements.patch
 
 extra:
-  upload: beta
+  #upload: beta
   force_upload: False
-  include_omnia_label: beta
+  #include_omnia_label: beta
 
 build:
   number: 1
