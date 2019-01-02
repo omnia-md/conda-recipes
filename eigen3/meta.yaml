@@ -3,7 +3,7 @@ package:
   version: "3.3.7"
 
 source:
-  fn: eigen3-3.3.7.tar.gz
+  fn: 3.3.7.tar.gz
   url: http://bitbucket.org/eigen/eigen/get/3.3.7.tar.gz
   sha1: f2a417d083fe8ca4b8ed2bc613d20f07
 
@@ -18,4 +18,5 @@ test:
 about:
   home: http://eigen.tuxfamily.org/
   license: MPL2
+  license_file: COPYING.MPL2
   summary: 'C++ template library for linear algebra'
