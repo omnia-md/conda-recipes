@@ -5,7 +5,7 @@ package:
 source:
   fn: 3.3.7.tar.gz
   url: http://bitbucket.org/eigen/eigen/get/3.3.7.tar.gz
-  sha1: f2a417d083fe8ca4b8ed2bc613d20f07
+  md5: f2a417d083fe8ca4b8ed2bc613d20f07
 
 requirements:
   build:
