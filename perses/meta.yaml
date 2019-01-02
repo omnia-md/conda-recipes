@@ -20,7 +20,7 @@ requirements:
     - numexpr
     - autograd
     - pymbar
-    - openmm ==7.3.0
+    - openmm >=7.3.0
     - parmed
     - openmoltools
     - alchemy >=1.2.3
@@ -45,7 +45,7 @@ requirements:
     - numexpr
     - autograd
     - pymbar
-    - openmm ==7.3.0
+    - openmm >=7.3.0
     - parmed
     - openmoltools
     - alchemy >=1.2.3
@@ -74,4 +74,6 @@ test:
 
 about:
   home: https://github.com/choderalab/perses
-  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  license: MIT
+  license_file: LICENSE
+  summary: Experiments with expanded ensemble simulation to explore chemical and mutational space

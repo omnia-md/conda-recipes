@@ -24,7 +24,6 @@ requirements:
     - future
     - networkx
     - lxml
-    - gcc
 
   run:
     - python
