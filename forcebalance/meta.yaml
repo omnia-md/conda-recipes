@@ -25,6 +25,7 @@ requirements:
     - networkx
     - lxml
     - gcc
+    - libgcc
 
   run:
     - python
@@ -35,6 +36,7 @@ requirements:
     - future
     - networkx
     - lxml
+    - libgcc
 
 # Testing will be done on Travis as well
 # as manually before each release.
