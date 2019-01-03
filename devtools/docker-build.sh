@@ -49,7 +49,7 @@ conda config --add channels omnia/label/rccuda${CUDA_SHORT_VERSION};
 #for PY_BUILD_VERSION in "37" "36" "35" "27" ; do
 #    /io/conda-build-all -vvv --python $PY_BUILD_VERSION --numpy "1.15" $UPLOAD -- /io/*
 #done
-    
-/io/conda-build-all -vvv --python "37,36,35,27" --numpy "1.15" $UPLOAD -- /io/*
+
+/io/conda-build-all -vvv --python "37,36,27" --numpy "1.14,1.15" $UPLOAD -- /io/*
 
 #mv /anaconda/conda-bld/linux-64/*tar.bz2 /io/ || true
