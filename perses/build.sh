@@ -1,3 +1,2 @@
 #!/bin/bash
-
 pip install .

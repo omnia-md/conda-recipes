@@ -1,10 +1,10 @@
 package:
   name: solvationtoolkit
-  version: 0.4.2
+  version: 0.4.3
 
 source:
     git_url: https://github.com/MobleyLab/SolvationToolkit.git
-    git_tag: v0.4.2
+    git_tag: v0.4.3
 
 build:
   preserve_egg_dir: True
@@ -15,7 +15,7 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
     - numpydoc
     - scipy
     - ambermini
@@ -27,15 +27,15 @@ requirements:
     - pandas
     - openmm
     - pytables
+
   run:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
     - numpydoc
     - scipy
     - ambermini
     - parmed
-    - libgfortran 1.* # [linux and np == 19]
     - openmoltools
     - mdtraj
     - packmol
@@ -48,11 +48,8 @@ test:
   requires:
     - nose
     - openmmtools
-#  imports:
-#  - solvationtoolkit
-#  - openmoltools
-#  commands:
-#    - nosetests solvationtoolkit -v
+  imports:
+    - solvationtoolkit
 
 about:
   home: https://github.com/mobleylab/solvationtoolkit

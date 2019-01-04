@@ -1,0 +1,33 @@
+package:
+  name: iapetus
+  version: 0.1.0
+
+source:
+    url: https://github.com/choderalab/iapetus/archive/0.1.0.tar.gz
+    fn: 0.1.0.tar.gz
+
+build:
+  number: 0
+  skip: True  # [win or py2k]
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - openmmtools
+    - yank
+    - mdtraj
+    - progressbar2
+
+test:
+  requires:
+    - pytest
+  imports:
+    - iapetus
+
+about:
+  home: https://github.com/choderalab/iapetus
+  license: MIT License

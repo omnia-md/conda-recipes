@@ -1,0 +1,79 @@
+package:
+  name: perses
+  version: 0.2.0
+
+source:
+  git_url: https://github.com/choderalab/perses.git
+  git_tag: 0.2.0
+
+build:
+  preserve_egg_dir: True
+  number: 0
+  skip: True  # [win or py2k]
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy >=1.14
+    - scipy
+    - numexpr
+    - autograd
+    - pymbar
+    - openmm >=7.3.0
+    - parmed
+    - openmoltools
+    - alchemy >=1.2.3
+    - openmmtools
+    - numba
+    - netcdf4
+    - matplotlib
+    - seaborn
+    - pdbfixer
+    - mdtraj
+    - parmed # for testing/debugging
+    - pdbfixer
+    - lxml
+    - networkx >=2.0
+    - yank
+
+  run:
+    - python
+    - setuptools
+    - numpy >=1.14
+    - scipy
+    - numexpr
+    - autograd
+    - pymbar
+    - openmm >=7.3.0
+    - parmed
+    - openmoltools
+    - alchemy >=1.2.3
+    - openmmtools
+    - numba
+    - netcdf4
+    - matplotlib
+    - seaborn
+    - pdbfixer
+    - mdtraj
+    - parmed # for testing/debugging
+    - pdbfixer
+    - lxml
+    - networkx >=2.0
+    - dask
+    - distributed
+    - progressbar2
+    - yank
+
+test:
+  requires:
+    - nose
+    - nose-timer
+  imports:
+    - perses
+
+about:
+  home: https://github.com/choderalab/perses
+  license: MIT
+  license_file: LICENSE
+  summary: Experiments with expanded ensemble simulation to explore chemical and mutational space

@@ -7,18 +7,18 @@ source:
     git_tag: 0.3.0
 
 build:
-  number: 0
+  number: 1
   skip: True # [win]
 
 requirements:
   build:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
 
   run:
     - python
-    - numpy
+    - numpy >=1.14
     - pint
     - pandas
     - scipy
@@ -42,6 +42,7 @@ test:
     - assaytools
 
 about:
-  home: http://assaytools.choderalab.org
-  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  home: https://github.com/choderalab/assaytools
+  license: LGPL
+  license_file: LICENSE
   summary: A library for the modeling and analysis of plate-based assays (development snapshot)

@@ -17,18 +17,17 @@ extra:
 requirements:
   build:
     - python
-    - numpy
+    - numpy >=1.14
     - scipy
     - setuptools
     - pymbar
     - future
     - networkx
     - lxml
-    - gcc
 
   run:
     - python
-    - numpy
+    - numpy >=1.14
     - scipy
     - setuptools
     - pymbar

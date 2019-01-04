@@ -1,21 +1,21 @@
 package:
   name: openpathsampling
-  version: 0.9.3
+  version: 0.9.6
 
 source:
   git_url: https://github.com/openpathsampling/openpathsampling.git
-  git_tag: v0.9.3
+  git_tag: v0.9.6
 
 build:
   preserve_egg_dir: True
   number: 0
-  skip: True  # [(win and py27) or py3k]
+  skip: True  # [win]
 
 requirements:
   build:
     - python
     - setuptools
-    - numpy
+    - numpy >=1.14
     - scipy
     - future
     - pandas
@@ -32,7 +32,7 @@ requirements:
 
   run:
     - python
-    - numpy
+    - numpy >=1.14
     - scipy
     - future
     - pandas
