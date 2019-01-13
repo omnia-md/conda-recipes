@@ -5,12 +5,11 @@ package:
 source:
   fn: shiftx2-v110-linux-20160912.tgz
   url: http://www.shiftx2.ca/download/shiftx2-v110-linux-20160912.tgz
-  md5: be650b7cbc76034e2c4e77373e389fbc
   patches:
     - gcc.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [not (py2k and linux)]
 
 requirements:
