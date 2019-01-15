@@ -54,7 +54,7 @@ requirements:
     - pdbfixer
     - lxml
     - networkx >=2.0
-    - openeye-toolkits
+    #- openeye-toolkits # not on conda-forge
     - dask
     - distributed
     - progressbar2
