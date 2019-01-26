@@ -1,14 +1,14 @@
 package:
   name: openmmtools
-  version: 0.16.0
+  version: 0.17.0
 
 source:
-    fn: 0.16.0.tar.gz
-    url: https://github.com/choderalab/openmmtools/archive/0.16.0.tar.gz
+    fn: 0.17.0.tar.gz
+    url: https://github.com/choderalab/openmmtools/archive/0.17.0.tar.gz
 
 build:
   number: 0
-  skip: True  # [win32 or (win and py2k)]
+  skip: True  # [py2k or win32]
 
 requirements:
   build:
@@ -17,7 +17,7 @@ requirements:
     - numpy >=1.14
     - scipy
     - setuptools
-    - openmm >=7.2
+    - openmm >=7.3
     - jinja2
     - parmed
     - mdtraj
@@ -29,7 +29,7 @@ requirements:
     - cython
     - numpy >=1.14
     - scipy
-    - openmm >=7.2
+    - openmm >=7.3
     - setuptools
     - jinja2
     - six
