@@ -6,15 +6,19 @@ package:
   name: {{ name|lower }}
   version: {{ version }}
 
+#source:
+#  fn: {{ name }}-{{ version }}.tar.gz
+#  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+#  sha256: {{ sha256 }}
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  fn: 1.1.zip
+  url: https://github.com/pyeve/cerberus/archive/1.1.zip
 
 build:
   noarch: python
   number: 1
-  script: python -m pip install --no-deps --ignore-installed .
+  #script: python -m pip install --no-deps --ignore-installed .
+  script: python setup.py install  
 
 requirements:
   host:
