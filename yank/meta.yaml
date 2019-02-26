@@ -1,10 +1,10 @@
 package:
   name: yank
-  version: "0.23.7"
+  version: "0.24.0"
 
 source:
-    url: https://github.com/choderalab/yank/archive/0.23.7.tar.gz
-    fn: 0.23.7.tar.gz
+    url: https://github.com/choderalab/yank/archive/0.24.0.tar.gz
+    fn: 0.24.0.tar.gz
 
 build:
   number: 0
@@ -23,10 +23,11 @@ requirements:
     - numpy >=1.14
     - scipy
     - cython
-    - netcdf4 >=1.4.2
+    - netcdf4 >=1.4.2 # after bugfix: "always return masked array by default, even if there are no masked values"
+    - libnetcdf >=4.6.2 # workaround for libssl issues (see #1135)
     - openmm >=7.1
     - mdtraj >=1.7.2
-    - openmmtools >=0.15.0
+    - openmmtools >=0.17.0
     - pymbar
     - ambermini >=16.16.0
     - docopt
@@ -35,11 +36,10 @@ requirements:
     - pyyaml
     - clusterutils
     - sphinxcontrib-bibtex
-    - cerberus >=1.1
+    - cerberus ==1.1
     - matplotlib
     - jupyter
     - pdbfixer
-    - libnetcdf >=4.6.0
 
 test:
   requires:
