@@ -19,7 +19,6 @@ requirements:
 
   run:
     - python
-    - cython
     - numpy >=1.14
     - scipy
     - openmm >=7.3
@@ -28,7 +27,6 @@ requirements:
     - six
     - parmed
     - mdtraj
-    - netcdf4
     - netcdf4 >=1.4.2 # after bugfix: "always return masked array by default, even if there are no masked values"
     - libnetcdf >=4.6.2 # workaround for libssl issues
     - sphinxcontrib-bibtex
