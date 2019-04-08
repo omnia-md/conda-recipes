@@ -1,40 +1,42 @@
 package:
   name: openforcefield
-  version: 0.0.4
+  version: 0.2.0
 
 source:
-    git_url: https://github.com/openforcefield/openforcefield.git
-    git_tag: 0.0.4
+  git_url: https://github.com/openforcefield/openforcefield.git
+  git_tag: 0.2.0
 
 build:
   preserve_egg_dir: True
-  number: 1
-  skip: True # [win]
+  number: 0 # Build number and string do not work together.
+  #string: py{{ py }}_a1 # Alpha version 1.
+  skip: True # [py27 or py35]
+
+extra:
+  #force_upload: True
+  upload: main # Upload to anaconda with the "main" label.
 
 requirements:
   build:
     - python
     - setuptools
-    - pandas
 
   run:
     - python
     - numpy
-    - networkx >=2.0
-    - lxml
-    - icu 58*  # This is a lxml dependency but sometimes conda installs version 56
-    - openmoltools >=0.7.3
+    - networkx
     - parmed
-    - matplotlib
-    - pandas
-
-test:
-  requires:
-    - nose
-    - nose-timer
-  imports:
-    - openforcefield
+    - rdkit
+    - ambermini
+    - packaging
+    # Serialization: Should these be optional?
+    - toml
+    - bson
+    - msgpack-python
+    - xmltodict
 
 about:
   home: https://github.com/openforcefield/openforcefield
   license: MIT
+  license_file: LICENSE
+  description: The Open Forcefield Toolkit provides implementations of the SMIRNOFF format, parameterization engine, and other tools.
