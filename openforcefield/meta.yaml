@@ -10,10 +10,10 @@ build:
   preserve_egg_dir: True
   number: 0 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
-  skip: True # [py27 or py35]
+  skip: True # [win or py27 or py35]
 
 extra:
-  #force_upload: True
+  force_upload: True
   upload: main # Upload to anaconda with the "main" label.
 
 requirements:
@@ -24,9 +24,10 @@ requirements:
   run:
     - python
     - numpy
+    - openmm
     - networkx
     - parmed
-    - rdkit
+    - rdkit 
     - ambermini
     - packaging
     # Serialization: Should these be optional?
@@ -34,6 +35,8 @@ requirements:
     - bson
     - msgpack-python
     - xmltodict
+    - pyyaml
+    - cairo ==1.16
 
 about:
   home: https://github.com/openforcefield/openforcefield
