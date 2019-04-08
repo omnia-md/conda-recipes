@@ -13,7 +13,7 @@ build:
   skip: True # [win or py27 or py35]
 
 extra:
-  force_upload: True
+  #force_upload: True
   upload: main # Upload to anaconda with the "main" label.
 
 requirements:
