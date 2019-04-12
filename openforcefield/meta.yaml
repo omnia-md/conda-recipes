@@ -1,10 +1,10 @@
 package:
   name: openforcefield
-  version: 0.2.0
+  version: 0.2.1
 
 source:
   git_url: https://github.com/openforcefield/openforcefield.git
-  git_tag: 0.2.0
+  git_tag: 0.2.1
 
 build:
   preserve_egg_dir: True
@@ -20,6 +20,13 @@ requirements:
   build:
     - python
     - setuptools
+    # For building sphinx docs
+    - sphinx
+    - sphinx_bootstrap_theme
+    - numpydoc
+    - nbsphinx
+    - m2r >=0.2.1
+    - testpath =0.3.1
 
   run:
     - python
@@ -27,7 +34,7 @@ requirements:
     - openmm
     - networkx
     - parmed
-    - rdkit 
+    - rdkit
     - ambermini
     - packaging
     # Serialization: Should these be optional?
