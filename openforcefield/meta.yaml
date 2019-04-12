@@ -27,7 +27,22 @@ requirements:
     - nbsphinx
     - m2r >=0.2.1
     - testpath ==0.3.1
-
+    # Run deps must be installed to build sphinx docs
+    - numpy
+    - openmm
+    - networkx
+    - parmed
+    - rdkit
+    - ambermini
+    - packaging
+    # Serialization: Should these be optional?
+    - toml
+    - bson
+    - msgpack-python
+    - xmltodict
+    - pyyaml
+    - cairo >=1.16
+    
   run:
     - python
     - numpy
