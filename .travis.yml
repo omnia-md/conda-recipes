@@ -5,7 +5,7 @@ os:
 
 # Supported osx/xcode versions: https://docs.travis-ci.com/user/languages/objective-c/#Supported-Xcode-versions
 # See also: https://blog.travis-ci.com/2016-10-04-osx-73-default-image-live/
-osx_image: xcode8.3
+osx_image: osx_image: xcode9
 
 #cache:
 #  directories:
