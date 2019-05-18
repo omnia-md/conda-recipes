@@ -29,7 +29,7 @@ conda clean -tipsy;
 
 
 #export INSTALL_CUDA=`./conda-build-all --dry-run -- openmm`
-export INSTALL_OPENMM_PREREQUISITES=true
+export INSTALL_OPENMM_PREREQUISITES=false
 if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     # Install OpenMM dependencies that can't be installed through
     # conda package manager (doxygen + CUDA)
