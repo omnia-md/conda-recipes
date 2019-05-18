@@ -1,8 +1,3 @@
-
-# Use old trusty image since new one breaks our builds
-# See: https://blog.travis-ci.com/2017-12-12-new-trusty-images-q4-launch
-group: deprecated-2017Q4
-
 os:
   - linux
   - osx
@@ -10,7 +5,7 @@ os:
 
 # Supported osx/xcode versions: https://docs.travis-ci.com/user/languages/objective-c/#Supported-Xcode-versions
 # See also: https://blog.travis-ci.com/2016-10-04-osx-73-default-image-live/
-osx_image: xcode6.4
+osx_image: xcode8.3
 
 #cache:
 #  directories:

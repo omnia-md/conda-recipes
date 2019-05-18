@@ -53,7 +53,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
 
     # Install latex.
     export PATH="/usr/texbin:${PATH}:/usr/bin"
-    brew cask install --no-quarantine https://raw.githubusercontent.com/Homebrew/homebrew-cask/4fd6de716854f263382b2733199d19561f75b0aa/Casks/basictex.rb
+    brew cask install --no-quarantine basictex
     mkdir -p /usr/texbin
     # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
     # .../texlive/{YEAR}basic/bin/{ARCH}/{Location of actual binaries}
