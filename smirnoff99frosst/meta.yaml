@@ -17,7 +17,7 @@ extra:
  include_omnia_label: rc
 
 about:
-  home: https://github.com/openforcefield/smirnoff99Frosst
+  home: https://github.com/openforcefield/smirnoff99frosst
   license: CC-BY
   summary: 'The smirnoff99Frosst line of force fields'
 
