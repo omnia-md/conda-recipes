@@ -1,0 +1,12 @@
+package:
+  name: smirnoff99Frosst
+  version: "1.0.9"
+
+source:
+  git_url: https://github.com/openforcefield/smirnoff99Frosst.git
+  # git_tag: v1.0.9
+
+about:
+  home: https://github.com/openforcefield/smirnoff99Frosst
+  license: CC-BY
+  summary: 'The smirnoff99Frosst line of force fields, used by the Open Force Field Consortium'
