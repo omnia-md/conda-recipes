@@ -20,3 +20,10 @@ about:
   home: https://github.com/openforcefield/smirnoff99Frosst
   license: CC-BY
   summary: 'The smirnoff99Frosst line of force fields, used by the Open Force Field Consortium'
+
+requirements:
+  build:
+    - python
+    - cython
+    - setuptools
+    
