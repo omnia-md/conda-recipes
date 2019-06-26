@@ -13,8 +13,8 @@ build:
   skip: True  # [win32 or (win and py2k)]
 
 extra:
- upload: beta
- include_omnia_label: beta
+ upload: rc
+ include_omnia_label: rc
 
 about:
   home: https://github.com/openforcefield/smirnoff99Frosst
