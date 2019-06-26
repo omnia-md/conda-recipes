@@ -3,13 +3,13 @@ package:
   version: "1.0.9"
 
 source:
-  git_url: https://github.com/openforcefield/smirnoff99Frosst.git
+  git_url: https://github.com/openforcefield/smirnoff99frosst.git
   git_tag: all-versions
 
 build:
   number: 0
   entry_points:
-    - smirnoff99frosst = smirnoff99Frosst.smirnoff99frosst:main
+    - smirnoff99frosst = smirnoff99frosst.smirnoff99frosst:main
   skip: True  # [win32 or (win and py2k)]
 
 extra:
