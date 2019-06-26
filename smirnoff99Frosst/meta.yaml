@@ -1,5 +1,5 @@
 package:
-  name: smirnoff99Frosst
+  name: smirnoff99frosst
   version: "1.0.9"
 
 source:
@@ -9,7 +9,7 @@ source:
 build:
   number: 0
   entry_points:
-    - smirnoff99Frosst = smirnoff99Frosst.smirnoff99Frosst:main
+    - smirnoff99frosst = smirnoff99Frosst.smirnoff99Frosst:main
   skip: True  # [win32 or (win and py2k)]
 
 extra:
