@@ -7,7 +7,7 @@ source:
   git_tag: all-versions
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - smirnoff99frosst = smirnoff99frosst.smirnoff99frosst:main
   skip: True  # [win32 or (win and py2k)]
