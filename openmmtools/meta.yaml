@@ -7,21 +7,20 @@ source:
     url: https://github.com/choderalab/openmmtools/archive/0.18.2.tar.gz
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k or win32]
 
 requirements:
   build:
     - python
     - setuptools
-    - openmm >=7.3
     - cython
 
   run:
     - python
     - numpy >=1.14
     - scipy
-    - openmm >=7.3
+    - openmm >=7.3.1
     - setuptools
     - jinja2
     - six
@@ -33,11 +32,11 @@ requirements:
     - mpiplus
     - cython
     - pyyaml
+    - pymbar
 
 test:
   requires:
     - nose
-    - pymbar
   imports:
     - openmmtools
 
