@@ -4,17 +4,17 @@ package:
 
 source:
   git_url: https://github.com/openforcefield/smirnoff99frosst.git
-  git_tag: all-versions
+  git_tag: master
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - smirnoff99frosst = smirnoff99frosst.smirnoff99frosst:main
   skip: True  # [win32 or (win and py2k)]
 
-extra:
- upload: rc
- include_omnia_label: rc
+#extra:
+# upload: rc
+# include_omnia_label: rc
 
 about:
   home: https://github.com/openforcefield/smirnoff99frosst
