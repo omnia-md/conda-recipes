@@ -1,10 +1,10 @@
 package:
   name: openpathsampling
-  version: 0.9.6
+  version: 1.0
 
 source:
   git_url: https://github.com/openpathsampling/openpathsampling.git
-  git_tag: v0.9.6
+  git_tag: v1.0
 
 build:
   preserve_egg_dir: True
@@ -53,5 +53,5 @@ requirements:
 
 about:
   home: http://github.com/openpathsampling/openpathsampling
-  license: LGPL 2.1 or later
+  license: MIT
   summary: 'OpenPathSampling: A python package to do path sampling simulations'
