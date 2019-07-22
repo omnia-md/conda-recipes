@@ -53,5 +53,5 @@ requirements:
 
 about:
   home: http://github.com/openpathsampling/openpathsampling
-  license: LGPL 2.1 or later
+  license: MIT
   summary: 'OpenPathSampling: A python package to do path sampling simulations'
