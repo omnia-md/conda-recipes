@@ -29,3 +29,5 @@ requirements:
     - setuptools
   run:
     - python
+    - cython
+    - setuptools
