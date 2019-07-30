@@ -8,7 +8,7 @@ source:
 
 build:
   number: 1
-  noarch: python
+  #noarch: python
   entry_points:
     - smirnoff99frosst = smirnoff99frosst.smirnoff99frosst:main
   skip: True  # [win32 or (win and py2k)]
@@ -27,4 +27,5 @@ requirements:
     - python
     - cython
     - setuptools
-    
+  run:
+    - python
