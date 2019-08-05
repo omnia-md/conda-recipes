@@ -7,8 +7,8 @@ source:
   fn: 0.0.3.tar.gz
 
 build:
-  number: 0
-  script: python -m pip install --no-deps --ignore-installed .  
+  number: 1
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
@@ -21,6 +21,7 @@ requirements:
     - openeye-toolkits
     - rdkit
     - pyyaml
+    - cmiles
 
 about:
   home: https://github.com/openforcefield/fragmenter
