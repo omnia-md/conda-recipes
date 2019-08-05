@@ -23,12 +23,6 @@ requirements:
     - python
     - rdkit
 
-test:
-  requires:
-    - pytest
-  imports:
-    - cmiles
-
 about:
   home: https://github.com/openforcefield/cmiles
   license: MIT License
