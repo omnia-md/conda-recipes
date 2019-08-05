@@ -1,0 +1,28 @@
+package:
+  name: fragmenter
+  version: 0.0.3
+
+source:
+  url: https://github.com/openforcefield/fragmenter/archive/0.0.3.tar.gz
+  fn: 0.0.3.tar.gz
+
+build:
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .  
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - setuptools
+    - openeye-toolkits
+    - rdkit
+    - pyyaml
+
+about:
+  home: https://github.com/openforcefield/fragmenter
+  license: MIT License
+  summary: A toolkit to fragment molecules for QM torsion scans and find torsions that need driving.
