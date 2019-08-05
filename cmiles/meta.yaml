@@ -1,0 +1,34 @@
+
+package:
+  name: cmiles
+  version: 0.1.5
+
+source:
+  url: https://github.com/openforcefield/cmiles/archive/v0.1.5.tar.gz
+  fn: v0.1.5.tar.gz
+
+build:
+  number: 0
+
+build:
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  host:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - rdkit
+
+test:
+  requires:
+    - pytest
+  imports:
+    - cmiles
+
+about:
+  home: https://github.com/openforcefield/cmiles
+  license: MIT License
