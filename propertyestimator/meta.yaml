@@ -22,6 +22,7 @@ requirements:
     # For building sphinx docs
     - sphinx
     - sphinx_bootstrap_theme
+    - sphinx_rtd_theme
     - numpydoc
     - nbsphinx
     - m2r >=0.2.1
