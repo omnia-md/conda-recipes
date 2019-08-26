@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 0 # Build number and string do not work together.
+  number: 1 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
   skip: True # [win or py27 or py35]
 
@@ -18,7 +18,9 @@ extra:
 
 requirements:
   build:
-
+    - python
+    - pip
+    
     # For building sphinx docs
     - sphinx
     - sphinx_rtd_theme
