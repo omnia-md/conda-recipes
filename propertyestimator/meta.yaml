@@ -18,7 +18,9 @@ extra:
 
 requirements:
   build:
-
+    - python
+    - pip
+    
     # For building sphinx docs
     - sphinx
     - sphinx_rtd_theme
