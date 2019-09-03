@@ -1,0 +1,33 @@
+package:
+  name: openforcefield_forcefields
+  version: "1.0.0rc1"
+
+source:
+  git_url: https://github.com/openforcefield/openforcefield_forcefields.git
+  git_tag: master
+
+build:
+  number: 1
+  #noarch: python
+  entry_points:
+    - openforcefield_forcefields = openforcefield_forcefields.openforcefield_forcefields:main
+  skip: True  # [win32 or (win and py2k)]
+
+extra:
+ upload: rc
+# include_omnia_label: rc
+
+about:
+  home: https://github.com/openforcefield/openforcefield_forcefields
+  license: CC-BY
+  summary: 'Force fields released by the Open Force Field Initiative'
+
+requirements:
+  build:
+    - python
+    - cython
+    - setuptools
+  run:
+    - python
+    - cython
+    - setuptools
