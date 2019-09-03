@@ -1,6 +1,6 @@
 package:
   name: openforcefield_forcefields
-  version: "1.0.0-RC1"
+  version: "1.0.0rc1"
 
 source:
   git_url: https://github.com/openforcefield/openforcefield_forcefields.git
