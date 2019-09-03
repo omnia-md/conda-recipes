@@ -14,7 +14,7 @@ build:
   skip: True  # [win32 or (win and py2k)]
 
 extra:
- upload: main
+ upload: rc
 # include_omnia_label: rc
 
 about:
