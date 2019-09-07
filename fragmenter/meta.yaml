@@ -1,13 +1,13 @@
 package:
   name: fragmenter
-  version: 0.0.3
+  version: 0.0.4
 
 source:
-  url: https://github.com/openforcefield/fragmenter/archive/0.0.3.tar.gz
-  fn: 0.0.3.tar.gz
+  url: https://github.com/openforcefield/fragmenter/archive/0.0.4.tar.gz
+  fn: 0.0.4.tar.gz
 
 build:
-  number: 2
+  number: 0
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
