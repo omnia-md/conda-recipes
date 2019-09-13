@@ -1,10 +1,10 @@
 package:
   name: openmoltools
-  version: 0.8.3
+  version: 0.8.4
 
 source:
-    url: https://github.com/choderalab/openmoltools/archive/0.8.3.tar.gz
-    fn: 0.8.3.tar.gz
+    url: https://github.com/choderalab/openmoltools/archive/0.8.4.tar.gz
+    fn: 0.8.4.tar.gz
 
 build:
   number: 1
