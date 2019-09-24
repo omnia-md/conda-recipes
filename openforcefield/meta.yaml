@@ -1,10 +1,10 @@
 package:
   name: openforcefield
-  version: 0.5.0
+  version: 0.5.1
 
 source:
   git_url: https://github.com/openforcefield/openforcefield.git
-  git_tag: 0.5.0
+  git_tag: 0.5.1
 
 build:
   preserve_egg_dir: True
@@ -29,6 +29,8 @@ requirements:
     - testpath ==0.3.1
     # Run deps must be installed to build sphinx docs
     - numpy
+    - smirnoff99frosst
+    - openforcefields
     - openmm
     - networkx
     - parmed
@@ -46,6 +48,8 @@ requirements:
   run:
     - python
     - numpy
+    - smirnoff99frosst
+    - openforcefields
     - openmm
     - networkx
     - parmed
