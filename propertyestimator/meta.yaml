@@ -1,10 +1,10 @@
 package:
   name: propertyestimator
-  version: 0.0.4
+  version: 0.0.5
 
 source:
   git_url: https://github.com/openforcefield/propertyestimator.git
-  git_tag: 0.0.4
+  git_tag: 0.0.5
 
 build:
   preserve_egg_dir: True
@@ -39,9 +39,9 @@ requirements:
     - packmol
     - pymbar
     - mdtraj
-    - dask ==2.3.0
-    - distributed ==2.3.2
-    - dask-jobqueue ==0.6.3
+    - dask >=2.5.0
+    - distributed >=2.5.1
+    - dask-jobqueue >=0.6.3
     - tornado <6
     - coverage >=4.4
     - uncertainties
@@ -74,9 +74,9 @@ requirements:
     - packmol
     - pymbar
     - mdtraj
-    - dask ==2.3.0
-    - distributed ==2.3.2
-    - dask-jobqueue ==0.6.3
+    - dask >=2.5.0
+    - distributed >=2.5.1
+    - dask-jobqueue >=0.6.3
     - tornado
     - coverage >=4.4
     - uncertainties
