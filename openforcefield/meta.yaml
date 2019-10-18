@@ -32,7 +32,7 @@ requirements:
     - smirnoff99frosst
     - openforcefields
     - openmm
-    - networkx
+    - networkx==2.3
     - parmed
     - rdkit
     - ambermini
@@ -53,7 +53,7 @@ requirements:
     - smirnoff99frosst
     - openforcefields
     - openmm
-    - networkx
+    - networkx==2.3
     - parmed
     - rdkit
     - ambermini
