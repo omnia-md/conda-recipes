@@ -1,10 +1,10 @@
 package:
   name: propertyestimator
-  version: 0.0.5
+  version: 0.0.6
 
 source:
   git_url: https://github.com/openforcefield/propertyestimator.git
-  git_tag: 0.0.5
+  git_tag: 0.0.6
 
 build:
   preserve_egg_dir: True
@@ -14,7 +14,7 @@ build:
 
 extra:
   #force_upload: True
-  upload: rc # Upload to anaconda with the "main" label.
+  upload: main # Upload to anaconda with the "main" label.
 
 requirements:
   build:
@@ -39,15 +39,17 @@ requirements:
     - packmol
     - pymbar
     - mdtraj
-    - dask >=2.5.0
-    - distributed >=2.5.1
-    - dask-jobqueue >=0.6.3
+    - dask >=2.6.0
+    - distributed >=2.6.0
+    - dask-jobqueue >=0.7.0
     - tornado <6
     - coverage >=4.4
     - uncertainties
     - openmmtools
-    - yank
+    - yank >=0.24.1
     - pyyaml
+    - requests
+    - requests-mock
     - lxml
     - icu 58*  # REQUIRED - DO NOT REMOVE.    
 
@@ -74,15 +76,17 @@ requirements:
     - packmol
     - pymbar
     - mdtraj
-    - dask >=2.5.0
-    - distributed >=2.5.1
-    - dask-jobqueue >=0.6.3
+    - dask >=2.6.0
+    - distributed >=2.6.0
+    - dask-jobqueue >=0.7.0
     - tornado
     - coverage >=4.4
     - uncertainties
     - openmmtools
-    - yank
+    - yank >=0.24.1
     - pyyaml
+    - requests
+    - requests-mock
   
 about:
   home: https://github.com/openforcefield/propertyestimator
