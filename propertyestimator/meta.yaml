@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 0 # Build number and string do not work together.
+  number: 1 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
   skip: True # [win or py27 or py35]
 
@@ -30,7 +30,7 @@ requirements:
     - testpath ==0.3.1
 
       # Standard dependencies
-    - openforcefield ==0.4.0
+    - openforcefield >=0.4.0
     - smirnoff99frosst
     - numpy
     - pandas
@@ -67,7 +67,7 @@ requirements:
     - openeye-toolkits
 
       # Standard dependencies
-    - openforcefield ==0.4.0
+    - openforcefield >=0.4.0
     - smirnoff99frosst
     - numpy
     - pandas
