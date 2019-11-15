@@ -95,7 +95,7 @@ def main():
         '--python',
         help="Set the Python version used by conda build",
         metavar="PYTHON_VER",
-        default='27,35,36,37',
+        default='27,35,36,37,38',
 
     )
     p.add_argument(
