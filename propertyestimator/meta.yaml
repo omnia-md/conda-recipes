@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 1 # Build number and string do not work together.
+  number: 2 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
   skip: True # [win or py27 or py35]
 
@@ -37,8 +37,8 @@ requirements:
     - openmm
     - pint
     - packmol
-    - pymbar
-    - mdtraj
+    - pymbar ==3.0.3
+    - mdtraj >=1.9.3
     - dask >=2.6.0
     - distributed >=2.6.0
     - dask-jobqueue >=0.7.0
@@ -74,8 +74,8 @@ requirements:
     - openmm
     - pint
     - packmol
-    - pymbar
-    - mdtraj
+    - pymbar ==3.0.3
+    - mdtraj >=1.9.3
     - dask >=2.6.0
     - distributed >=2.6.0
     - dask-jobqueue >=0.7.0
