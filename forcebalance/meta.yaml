@@ -1,10 +1,10 @@
 package:
   name: forcebalance
-  version: "1.6.0"
+  version: "1.7.0"
 
 source:
-  url: https://github.com/leeping/forcebalance/archive/v1.6.0.tar.gz
-  fn: v1.6.0.tar.gz
+  url: https://github.com/leeping/forcebalance/archive/v1.7.0.tar.gz
+  fn: v1.7.0.tar.gz
 
 build:
   number: 0
@@ -20,20 +20,24 @@ requirements:
     - numpy >=1.14
     - scipy
     - setuptools
-    - pymbar
+    - pymbar==3.0.3
     - future
     - networkx
     - lxml
+    - zlib
+    - swig
 
   run:
     - python
     - numpy >=1.14
     - scipy
     - setuptools
-    - pymbar
+    - pymbar==3.0.3
     - future
     - networkx
     - lxml
+    - zlib
+    - swig
 
 # Testing will be done on Travis as well
 # as manually before each release.
