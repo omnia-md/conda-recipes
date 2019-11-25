@@ -20,7 +20,7 @@ requirements:
     - numpy >=1.14
     - scipy
     - setuptools
-    - pymbar==3.0.3
+    - pymbar ==3.0.3
     - future
     - networkx
     - lxml
@@ -32,7 +32,7 @@ requirements:
     - numpy >=1.14
     - scipy
     - setuptools
-    - pymbar==3.0.3
+    - pymbar ==3.0.3
     - future
     - networkx
     - lxml
