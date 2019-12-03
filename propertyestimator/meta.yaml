@@ -37,7 +37,7 @@ requirements:
     - openmm
     - pint >=0.9
     - packmol
-    - pymbar ==3.0.3
+    - pymbar >=3.0.5
     - mdtraj >=1.9.3
     - dask >=2.6.0
     - distributed >=2.6.0
@@ -74,7 +74,7 @@ requirements:
     - openmm
     - pint >=0.9
     - packmol
-    - pymbar ==3.0.3
+    - pymbar >=3.0.5
     - mdtraj >=1.9.3
     - dask >=2.6.0
     - distributed >=2.6.0
