@@ -7,7 +7,7 @@ source:
   fn: v1.7.0.tar.gz
 
 build:
-  number: 0
+  number: 1
   skip: True # [win]
 
 extra:
