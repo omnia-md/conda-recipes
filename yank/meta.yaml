@@ -7,7 +7,7 @@ source:
     fn: 0.25.2.tar.gz
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win or py2k]
 
 requirements:
@@ -30,7 +30,7 @@ requirements:
     - pyyaml
     - clusterutils
     - sphinxcontrib-bibtex
-    - cerberus
+    - cerberus >=1.3
     - matplotlib
     - jupyter
     - pdbfixer
