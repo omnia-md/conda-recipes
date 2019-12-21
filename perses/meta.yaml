@@ -1,50 +1,27 @@
 package:
   name: perses
-  version: 0.3.0
-
+  version: 0.4.0
 source:
   git_url: https://github.com/choderalab/perses.git
-  git_tag: 0.3.0
-
+  git_tag: 0.4.0
 build:
   preserve_egg_dir: True
   number: 0
   skip: True  # [win or py2k]
-
 requirements:
   build:
     - python
     - setuptools
     - numpy >=1.14
-    - scipy
-    - numexpr
-    - autograd
-    - pymbar
-    - openmm >=7.3.0
-    - openmoltools
-    - openmmtools
-    - numba
-    - netcdf4
-    - matplotlib
-    - seaborn
-    - mdtraj
-    - pdbfixer
-    - lxml
-    - networkx >=2.0
-    - yank
-    - parmed
-
   run:
     - python
     - setuptools
     - numpy >=1.14
     - scipy
-    - numexpr
-    - autograd
     - pymbar
     - openmm >=7.3.0
     - parmed
-    - openmoltools
+    - openmoltools >=0.8.4
     - openmmtools
     - numba
     - netcdf4
@@ -57,8 +34,8 @@ requirements:
     #- openeye-toolkits # not on conda-forge
     - dask
     - distributed
-    - progressbar2
     - yank
+    - progressbar2
     - parmed
 test:
   requires:
@@ -66,7 +43,6 @@ test:
     - nose-timer
   imports:
     - perses
-
 about:
   home: https://github.com/choderalab/perses
   license: MIT
