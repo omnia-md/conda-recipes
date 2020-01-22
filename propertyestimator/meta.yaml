@@ -1,10 +1,10 @@
 package:
   name: propertyestimator
-  version: 0.0.8
+  version: 0.0.9
 
 source:
   git_url: https://github.com/openforcefield/propertyestimator.git
-  git_tag: 0.0.8
+  git_tag: 0.0.9
 
 build:
   preserve_egg_dir: True
@@ -35,12 +35,12 @@ requirements:
     - numpy
     - pandas
     - openmm
-    - pint >=0.9
+    - pint ==0.9.0
     - packmol
     - pymbar >=3.0.5
     - mdtraj >=1.9.3
-    - dask >=2.6.0
-    - distributed >=2.6.0
+    - dask >=2.7.0
+    - distributed >=2.7.0
     - dask-jobqueue >=0.7.0
     - tornado <6
     - coverage >=4.4
@@ -72,12 +72,12 @@ requirements:
     - numpy
     - pandas
     - openmm
-    - pint >=0.9
+    - pint ==0.9.0
     - packmol
     - pymbar >=3.0.5
     - mdtraj >=1.9.3
-    - dask >=2.6.0
-    - distributed >=2.6.0
+    - dask >=2.7.0
+    - distributed >=2.7.0
     - dask-jobqueue >=0.7.0
     - tornado
     - coverage >=4.4
