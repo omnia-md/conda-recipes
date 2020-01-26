@@ -44,7 +44,7 @@ requirements:
     - openforcefields >=1.0.0
 
     # OpenEye toolkits are only used to speed up testing; they are not required for use
-    - openeye-toolkits
+    #- openeye-toolkits
 
   run:
     # Base depends
@@ -73,7 +73,7 @@ requirements:
     - openforcefields >=1.0.0
 
     # OpenEye toolkits are only used to speed up testing; they are not required for use
-    - openeye-toolkits
+    #- openeye-toolkits
 
 about:
   home: https://github.com/openforcefield/openforcefield
