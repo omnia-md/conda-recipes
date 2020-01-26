@@ -1,0 +1,82 @@
+package:
+  name: openmm-forcefields
+  version: 0.7.1
+
+source:
+  git_url: https://github.com/openforcefield/openforcefield.git
+  git_tag: 0.7.1
+
+build:
+  preserve_egg_dir: True
+  number: 0 # Build number and string do not work together.
+  #string: py{{ py }}_a1 # Alpha version 1.
+  skip: True # [win or py27 or py35]
+
+extra:
+  #force_upload: True
+  upload: main # Upload to anaconda with the "main" label.
+
+requirements:
+  build:
+    # Base depends
+    - python
+    - pip
+
+    # Testing
+    - pytest
+    - pytest-cov
+    - codecov
+
+    # Requirements for converted force field installer
+    - openmm >=7.4.1
+
+    # Requirements for conversion tools
+    - pyyaml
+    - ambertools >=18.0 # contains sufficiently recent ParmEd
+    - lxml
+    - networkx
+
+    # JSON caching of residue templates
+    - tinydb
+
+    # openforcefield toolkit and force fields
+    - openforcefield >=0.6.0
+    - openforcefields >=1.0.0
+
+    # OpenEye toolkits are only used to speed up testing; they are not required for use
+    - openeye-toolkits
+
+  run:
+    # Base depends
+    - python
+    - pip
+
+    # Testing
+    - pytest
+    - pytest-cov
+    - codecov
+
+    # Requirements for converted force field installer
+    - openmm >=7.4.1
+
+    # Requirements for conversion tools
+    - pyyaml
+    - ambertools >=18.0 # contains sufficiently recent ParmEd
+    - lxml
+    - networkx
+
+    # JSON caching of residue templates
+    - tinydb
+
+    # openforcefield toolkit and force fields
+    - openforcefield >=0.6.0
+    - openforcefields >=1.0.0
+
+    # OpenEye toolkits are only used to speed up testing; they are not required for use
+    - openeye-toolkits
+
+about:
+  home: https://github.com/openforcefield/openforcefield
+  license: MIT
+  license_file: LICENSE
+  description: The Open Forcefield Toolkit provides implementations of the SMIRNOFF format, parameterization engine, and other tools.
