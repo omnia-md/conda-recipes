@@ -7,7 +7,7 @@ source:
     fn: 0.8.4.tar.gz
 
 build:
-  number: 1
+  number: 3
   skip: True # [win32 or (win and py2k)]
 
 requirements:
@@ -22,9 +22,8 @@ requirements:
     - scipy
     - pandas
     - openmm >=7.0.1
-    - ambermini
+    - ambertools
     - pytables
-    - parmed
 
   run:
     - python
@@ -36,9 +35,8 @@ requirements:
     - numpydoc
     - scipy
     - openmm >=7.0.1
-    - ambermini
+    - ambertools
     - pytables
-    - parmed
 
 test:
   requires:
