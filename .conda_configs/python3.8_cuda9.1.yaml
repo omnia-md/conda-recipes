@@ -1,0 +1,14 @@
+python:
+  - 3.8
+
+numpy:
+  - 1.14
+
+MACOSX_DEPLOYMENT_TARGET:
+  - 10.9
+
+CUDA_SHORT_VERSION:
+  - 91
+
+CUDA_VERSION:
+  - 9.1
