@@ -1,7 +1,6 @@
 # trigger:
 #   branches:
 #     - master
-#     - conda-build3-v2
 #   pr:
 #     - master
 
@@ -16,4 +15,4 @@ schedules:
 jobs:
   - template: ./.azure-pipelines/azure-pipelines-linux.yml
   - template: ./.azure-pipelines/azure-pipelines-osx.yml
-  # - template: ./.azure-pipelines/azure-pipelines-windows.yml
+  - template: ./.azure-pipelines/azure-pipelines-windows.yml

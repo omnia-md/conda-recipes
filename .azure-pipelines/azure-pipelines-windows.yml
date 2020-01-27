@@ -12,15 +12,15 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
-      windows_python3.6:
-        CONFIG: python3.6
-        EXCLUDE_JINJA: CUDA_STR
+      # windows_python3.6:
+      #   CONFIG: python3.6
+      #   EXCLUDE_JINJA: CUDA_STR
       windows_python3.7:
         CONFIG: python3.7
         EXCLUDE_JINJA: CUDA_STR
-      windows_python3.8:
-        CONFIG: python3.8
-        EXCLUDE_JINJA: CUDA_STR
+      # windows_python3.8:
+      #   CONFIG: python3.8
+      #   EXCLUDE_JINJA: CUDA_STR
 
       # windows_python3.6_cuda8.0:
       #   CONFIG: python3.6_cuda8.0
