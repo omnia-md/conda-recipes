@@ -136,6 +136,9 @@ def upload_to_anaconda(meta, username, max_retries=5,
     FileNotFoundError
         Raised when file does not exist
     """
+    # TODO: Remove this return to re-enable uploads
+    return
+
     # Get file path
     filename = build_api.get_output_file_paths(meta)[0]
     if not os.path.exists(filename):
