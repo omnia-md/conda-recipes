@@ -2,7 +2,7 @@ jobs:
 - job: windows
   pool:
     vmImage: vs2017-win2016
-#  timeoutInMinutes: 360
+  timeoutInMinutes: 360
   variables:
     NVIDIA_CUDA_DIR: $(Pipeline.Workspace)/.nvcuda
     NVIDIA_DRIVER_DIR: $(Pipeline.Workspace)/.nvdriver
