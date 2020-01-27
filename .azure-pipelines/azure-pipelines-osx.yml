@@ -1,0 +1,70 @@
+jobs:
+- job: osx
+  pool:
+    vmImage: macOS-10.13
+#  timeoutInMinutes: 360
+  strategy:
+    maxParallel: 8
+    matrix:
+      osx_python3.6:
+        CONFIG: python3.6
+        # EXCLUDE_JINJA: CUDA_STR
+      osx_python3.7:
+        CONFIG: python3.7
+        # EXCLUDE_JINJA: CUDA_STR
+      osx_python3.8:
+        CONFIG: python3.8
+        # EXCLUDE_JINJA: CUDA_STR
+
+  steps:
+    - script: |
+        echo "##vso[task.setvariable variable=NIGHTLY]true"
+      condition: eq(variables['Build.Reason'], 'Schedule')
+      displayName: Set dev trigger if scheduled
+
+    - bash: |
+        echo "##vso[task.prependpath]$CONDA/bin"
+        sudo chown -R $USER $CONDA
+      displayName: Add conda to PATH
+
+    - script: |
+        source activate base
+        conda install -n base -c conda-forge --quiet --yes conda-build conda anaconda-client
+        conda update --yes --quiet -c conda-forge -c defaults --all
+      displayName: Add and update conda-forge
+
+    - script: |
+        CBA_FLAGS="-vvv --cycle-packages"
+        if [ -n "$INCLUDE_JINJA" ]; then
+          CBA_FLAGS="$CBA_FLAGS --build-only-jinja $INCLUDE_JINJA"
+        fi
+        if [ -n "$EXCLUDE_JINJA" ]; then
+          CBA_FLAGS="$CBA_FLAGS --no-build-jinja $EXCLUDE_JINJA"
+        fi
+        if [ ! -z "$NIGHTLY" ]; then
+          CBA_FLAGS="$CBA_FLAGS --scheduled-only --upload omnia-dev --force"
+        fi
+        export CBA_FLAGS=$CBA_FLAGS
+        echo "##vso[task.setvariable variable=CBA_FLAGS]$CBA_FLAGS"
+      displayName: Assemble Variables
+
+    - script: |
+        source activate base
+        conda config --add channels omnia
+        conda config --add channels conda-forge
+
+        conda config --set show_channel_urls true
+        conda config --set auto_update_conda false
+        conda config --set add_pip_as_python_dependency false
+
+        conda info
+        conda config --show-sources
+        conda list --show-channel-urls
+
+        chmod +x $(Build.SourcesDirectory)/conda-build-all
+
+        which python
+        python $(Build.SourcesDirectory)/conda-build-all $CBA_FLAGS -m $(Build.SourcesDirectory)/.conda_configs/$(CONFIG).yaml -- $(Build.SourcesDirectory)/*/
+      displayName: Run Conda Build
+      env:
+        BINSTAR_TOKEN: $(BINSTAR_TOKEN)

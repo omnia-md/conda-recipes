@@ -1,0 +1,19 @@
+# trigger:
+#   branches:
+#     - master
+#     - conda-build3-v2
+#   pr:
+#     - master
+
+schedules:
+  - cron: 0 2 * * *  # Every night at 2 AM
+    always: True  # Run even without source code changes
+    branches:
+      include:
+        - master
+    displayName: Nightly Dev Builds
+
+jobs:
+  - template: ./.azure-pipelines/azure-pipelines-linux.yml
+  # - template: ./.azure-pipelines/azure-pipelines-windows.yml
+  # - template: ./.azure-pipelines/azure-pipelines-osx.yml
