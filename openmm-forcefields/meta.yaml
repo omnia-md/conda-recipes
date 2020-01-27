@@ -3,7 +3,7 @@ package:
   version: 0.7.1
 
 source:
-  git_url: https://github.com/openforcefield/openforcefield.git
+  git_url: https://github.com/openmm/openmm-forcefields.git
   git_tag: 0.7.1
 
 build:
