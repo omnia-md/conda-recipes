@@ -18,92 +18,92 @@ jobs:
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
         EXCLUDE_JINJA: CUDA_STR
 
-      linux_python3.6_cuda8.0:
-        CONFIG: python3.6_cuda8.0
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:8.0"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.6_cuda9.0:
-        CONFIG: python3.6_cuda9.0
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.0"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.6_cuda9.1:
-        CONFIG: python3.6_cuda9.1
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.1"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.6_cuda9.2:
-        CONFIG: python3.6_cuda9.2
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.2"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.6_cuda10.0:
-        CONFIG: python3.6_cuda10.0
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.0"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.6_cuda10.1:
-        CONFIG: python3.6_cuda10.1
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.1"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.6_cuda10.2:
-        CONFIG: python3.6_cuda10.2
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.2"
-        INCLUDE_JINJA: CUDA_STR
+      # linux_python3.6_cuda8.0:
+      #   CONFIG: python3.6_cuda8.0
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:8.0"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.6_cuda9.0:
+      #   CONFIG: python3.6_cuda9.0
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.0"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.6_cuda9.1:
+      #   CONFIG: python3.6_cuda9.1
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.1"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.6_cuda9.2:
+      #   CONFIG: python3.6_cuda9.2
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.2"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.6_cuda10.0:
+      #   CONFIG: python3.6_cuda10.0
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.0"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.6_cuda10.1:
+      #   CONFIG: python3.6_cuda10.1
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.1"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.6_cuda10.2:
+      #   CONFIG: python3.6_cuda10.2
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.2"
+      #   INCLUDE_JINJA: CUDA_STR
 
-      linux_python3.7_cuda8.0:
-        CONFIG: python3.7_cuda8.0
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:8.0"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.7_cuda9.0:
-        CONFIG: python3.7_cuda9.0
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.0"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.7_cuda9.1:
-        CONFIG: python3.7_cuda9.1
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.1"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.7_cuda9.2:
-        CONFIG: python3.7_cuda9.2
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.2"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.7_cuda10.0:
-        CONFIG: python3.7_cuda10.0
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.0"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.7_cuda10.1:
-        CONFIG: python3.7_cuda10.1
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.1"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.7_cuda10.2:
-        CONFIG: python3.7_cuda10.2
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.2"
-        INCLUDE_JINJA: CUDA_STR
+      # linux_python3.7_cuda8.0:
+      #   CONFIG: python3.7_cuda8.0
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:8.0"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.7_cuda9.0:
+      #   CONFIG: python3.7_cuda9.0
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.0"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.7_cuda9.1:
+      #   CONFIG: python3.7_cuda9.1
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.1"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.7_cuda9.2:
+      #   CONFIG: python3.7_cuda9.2
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.2"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.7_cuda10.0:
+      #   CONFIG: python3.7_cuda10.0
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.0"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.7_cuda10.1:
+      #   CONFIG: python3.7_cuda10.1
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.1"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.7_cuda10.2:
+      #   CONFIG: python3.7_cuda10.2
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.2"
+      #   INCLUDE_JINJA: CUDA_STR
 
-      linux_python3.8_cuda8.0:
-        CONFIG: python3.8_cuda8.0
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:8.0"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.8_cuda9.0:
-        CONFIG: python3.8_cuda9.0
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.0"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.8_cuda9.1:
-        CONFIG: python3.8_cuda9.1
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.1"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.8_cuda9.2:
-        CONFIG: python3.8_cuda9.2
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.2"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.8_cuda10.0:
-        CONFIG: python3.8_cuda10.0
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.0"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.8_cuda10.1:
-        CONFIG: python3.8_cuda10.1
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.1"
-        INCLUDE_JINJA: CUDA_STR
-      linux_python3.8_cuda10.2:
-        CONFIG: python3.8_cuda10.2
-        DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.2"
-        INCLUDE_JINJA: CUDA_STR
+      # linux_python3.8_cuda8.0:
+      #   CONFIG: python3.8_cuda8.0
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:8.0"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.8_cuda9.0:
+      #   CONFIG: python3.8_cuda9.0
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.0"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.8_cuda9.1:
+      #   CONFIG: python3.8_cuda9.1
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.1"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.8_cuda9.2:
+      #   CONFIG: python3.8_cuda9.2
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:9.2"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.8_cuda10.0:
+      #   CONFIG: python3.8_cuda10.0
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.0"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.8_cuda10.1:
+      #   CONFIG: python3.8_cuda10.1
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.1"
+      #   INCLUDE_JINJA: CUDA_STR
+      # linux_python3.8_cuda10.2:
+      #   CONFIG: python3.8_cuda10.2
+      #   DOCKER_IMAGE: "omniamd/linux-anvil-cuda:10.2"
+      #   INCLUDE_JINJA: CUDA_STR
 
   steps:
     - script: |

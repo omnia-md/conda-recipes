@@ -22,113 +22,113 @@ jobs:
         CONFIG: python3.8
         EXCLUDE_JINJA: CUDA_STR
 
-      windows_python3.6_cuda8.0:
-        CONFIG: python3.6_cuda8.0
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 8.0
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/8.0/Prod2/network_installers/cuda_8.0.61_win10_network-exe
-      windows_python3.6_cuda9.0:
-        CONFIG: python3.6_cuda9.0
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 9.0
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe
-      windows_python3.6_cuda9.1:
-        CONFIG: python3.6_cuda9.1
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 9.1
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
-      windows_python3.6_cuda9.2:
-        CONFIG: python3.6_cuda9.2
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 9.2
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/9.2/Prod2/network_installers2/cuda_9.2.148_win10_network
-      windows_python3.6_cuda10.0:
-        CONFIG: python3.6_cuda10.0
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 10.0
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/10.0/Prod/network_installers/cuda_10.0.130_win10_network
-      windows_python3.6_cuda10.1:
-        CONFIG: python3.6_cuda10.1
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 10.1
-        CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/network_installers/cuda_10.1.243_win10_network.exe
-      windows_python3.6_cuda10.2:
-        CONFIG: python3.6_cuda10.2
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 10.2
-        CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
+      # windows_python3.6_cuda8.0:
+      #   CONFIG: python3.6_cuda8.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 8.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/8.0/Prod2/network_installers/cuda_8.0.61_win10_network-exe
+      # windows_python3.6_cuda9.0:
+      #   CONFIG: python3.6_cuda9.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe
+      # windows_python3.6_cuda9.1:
+      #   CONFIG: python3.6_cuda9.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.1
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
+      # windows_python3.6_cuda9.2:
+      #   CONFIG: python3.6_cuda9.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.2
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.2/Prod2/network_installers2/cuda_9.2.148_win10_network
+      # windows_python3.6_cuda10.0:
+      #   CONFIG: python3.6_cuda10.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/10.0/Prod/network_installers/cuda_10.0.130_win10_network
+      # windows_python3.6_cuda10.1:
+      #   CONFIG: python3.6_cuda10.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.1
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/network_installers/cuda_10.1.243_win10_network.exe
+      # windows_python3.6_cuda10.2:
+      #   CONFIG: python3.6_cuda10.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.2
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
 
-      windows_python3.7_cuda8.0:
-        CONFIG: python3.7_cuda8.0
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 8.0
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/8.0/Prod2/network_installers/cuda_8.0.61_win10_network-exe
-      windows_python3.7_cuda9.0:
-        CONFIG: python3.7_cuda9.0
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 9.0
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe
-      windows_python3.7_cuda9.1:
-        CONFIG: python3.7_cuda9.1
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 9.1
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
-      windows_python3.7_cuda9.2:
-        CONFIG: python3.7_cuda9.2
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 9.2
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/9.2/Prod2/network_installers2/cuda_9.2.148_win10_network
-      windows_python3.7_cuda10.0:
-        CONFIG: python3.7_cuda10.0
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 10.0
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/10.0/Prod/network_installers/cuda_10.0.130_win10_network
-      windows_python3.7_cuda10.1:
-        CONFIG: python3.7_cuda10.1
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 10.1
-        CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/network_installers/cuda_10.1.243_win10_network.exe
-      windows_python3.7_cuda10.2:
-        CONFIG: python3.7_cuda10.2
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 10.2
-        CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
+      # windows_python3.7_cuda8.0:
+      #   CONFIG: python3.7_cuda8.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 8.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/8.0/Prod2/network_installers/cuda_8.0.61_win10_network-exe
+      # windows_python3.7_cuda9.0:
+      #   CONFIG: python3.7_cuda9.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe
+      # windows_python3.7_cuda9.1:
+      #   CONFIG: python3.7_cuda9.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.1
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
+      # windows_python3.7_cuda9.2:
+      #   CONFIG: python3.7_cuda9.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.2
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.2/Prod2/network_installers2/cuda_9.2.148_win10_network
+      # windows_python3.7_cuda10.0:
+      #   CONFIG: python3.7_cuda10.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/10.0/Prod/network_installers/cuda_10.0.130_win10_network
+      # windows_python3.7_cuda10.1:
+      #   CONFIG: python3.7_cuda10.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.1
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/network_installers/cuda_10.1.243_win10_network.exe
+      # windows_python3.7_cuda10.2:
+      #   CONFIG: python3.7_cuda10.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.2
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
 
-      windows_python3.8_cuda8.0:
-        CONFIG: python3.8_cuda8.0
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 8.0
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/8.0/Prod2/network_installers/cuda_8.0.61_win10_network-exe
-      windows_python3.8_cuda9.0:
-        CONFIG: python3.8_cuda9.0
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 9.0
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe
-      windows_python3.8_cuda9.1:
-        CONFIG: python3.8_cuda9.1
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 9.1
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
-      windows_python3.8_cuda9.2:
-        CONFIG: python3.8_cuda9.2
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 9.2
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/9.2/Prod2/network_installers2/cuda_9.2.148_win10_network
-      windows_python3.8_cuda10.0:
-        CONFIG: python3.8_cuda10.0
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 10.0
-        CUDA_URL: https://developer.nvidia.com/compute/cuda/10.0/Prod/network_installers/cuda_10.0.130_win10_network
-      windows_python3.8_cuda10.1:
-        CONFIG: python3.8_cuda10.1
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 10.1
-        CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/network_installers/cuda_10.1.243_win10_network.exe
-      windows_python3.8_cuda10.2:
-        CONFIG: python3.8_cuda10.2
-        INCLUDE_JINJA: CUDA_STR
-        CUDA_VER: 10.2
-        CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
+      # windows_python3.8_cuda8.0:
+      #   CONFIG: python3.8_cuda8.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 8.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/8.0/Prod2/network_installers/cuda_8.0.61_win10_network-exe
+      # windows_python3.8_cuda9.0:
+      #   CONFIG: python3.8_cuda9.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe
+      # windows_python3.8_cuda9.1:
+      #   CONFIG: python3.8_cuda9.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.1
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
+      # windows_python3.8_cuda9.2:
+      #   CONFIG: python3.8_cuda9.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.2
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.2/Prod2/network_installers2/cuda_9.2.148_win10_network
+      # windows_python3.8_cuda10.0:
+      #   CONFIG: python3.8_cuda10.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/10.0/Prod/network_installers/cuda_10.0.130_win10_network
+      # windows_python3.8_cuda10.1:
+      #   CONFIG: python3.8_cuda10.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.1
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/network_installers/cuda_10.1.243_win10_network.exe
+      # windows_python3.8_cuda10.2:
+      #   CONFIG: python3.8_cuda10.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.2
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
 
   steps:
     - script: |
