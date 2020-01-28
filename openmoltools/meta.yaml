@@ -7,6 +7,7 @@ source:
   git_tag: 0.8.4
 
 build:
+  preserve_egg_dir: True
   number: 4
   skip: True # [win32 or (win and py2k)]
 
