@@ -1,9 +1,9 @@
 package:
-  name: openmm-forcefields
+  name: openmmforcefields
   version: 0.7.1
 
 source:
-  git_url: https://github.com/openmm/openmm-forcefields.git
+  git_url: https://github.com/openmm/openmmforcefields.git
   git_tag: 0.7.1
 
 build:
@@ -76,7 +76,7 @@ requirements:
     #- openeye-toolkits
 
 about:
-  home: https://github.com/openforcefield/openforcefield
+  home: https://github.com/openmmforcefields/openmmforcefields
   license: MIT
   license_file: LICENSE
-  description: The Open Forcefield Toolkit provides implementations of the SMIRNOFF format, parameterization engine, and other tools.
+  description: Support for AMBER and CHARMM force fields and small molecule parameterization with GAFF and the Open Force Field Toolkit for OpenMM.
