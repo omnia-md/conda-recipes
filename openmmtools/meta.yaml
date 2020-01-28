@@ -7,7 +7,7 @@ source:
     url: https://github.com/choderalab/openmmtools/archive/0.19.0.tar.gz
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k or win32]
 
 requirements:
@@ -24,7 +24,7 @@ requirements:
     - setuptools
     - jinja2
     - six
-    - parmed
+    - ambertools
     - mdtraj
     - netcdf4 >=1.4.2 # after bugfix: "always return masked array by default, even if there are no masked values"
     - libnetcdf >=4.6.2 # workaround for libssl issues
