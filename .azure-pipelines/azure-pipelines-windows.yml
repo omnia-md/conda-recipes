@@ -1,0 +1,209 @@
+jobs:
+- job: windows
+  pool:
+    vmImage: vs2017-win2016
+  timeoutInMinutes: 360
+  variables:
+    NVIDIA_CUDA_DIR: $(Pipeline.Workspace)/.nvcuda
+    NVIDIA_DRIVER_DIR: $(Pipeline.Workspace)/.nvdriver
+    CUDA_10.0_URL:
+    CUDA_10.1_URL:
+    CUDA_10.2_URL:
+  strategy:
+    maxParallel: 8
+    matrix:
+      # windows_python3.6:
+      #   CONFIG: python3.6
+      #   EXCLUDE_JINJA: CUDA_STR
+      windows_python3.7:
+        CONFIG: python3.7
+        EXCLUDE_JINJA: CUDA_STR
+      # windows_python3.8:
+      #   CONFIG: python3.8
+      #   EXCLUDE_JINJA: CUDA_STR
+
+      # windows_python3.6_cuda8.0:
+      #   CONFIG: python3.6_cuda8.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 8.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/8.0/Prod2/network_installers/cuda_8.0.61_win10_network-exe
+      # windows_python3.6_cuda9.0:
+      #   CONFIG: python3.6_cuda9.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe
+      # windows_python3.6_cuda9.1:
+      #   CONFIG: python3.6_cuda9.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.1
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
+      # windows_python3.6_cuda9.2:
+      #   CONFIG: python3.6_cuda9.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.2
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.2/Prod2/network_installers2/cuda_9.2.148_win10_network
+      # windows_python3.6_cuda10.0:
+      #   CONFIG: python3.6_cuda10.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/10.0/Prod/network_installers/cuda_10.0.130_win10_network
+      # windows_python3.6_cuda10.1:
+      #   CONFIG: python3.6_cuda10.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.1
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/network_installers/cuda_10.1.243_win10_network.exe
+      # windows_python3.6_cuda10.2:
+      #   CONFIG: python3.6_cuda10.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.2
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
+
+      # windows_python3.7_cuda8.0:
+      #   CONFIG: python3.7_cuda8.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 8.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/8.0/Prod2/network_installers/cuda_8.0.61_win10_network-exe
+      # windows_python3.7_cuda9.0:
+      #   CONFIG: python3.7_cuda9.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe
+      # windows_python3.7_cuda9.1:
+      #   CONFIG: python3.7_cuda9.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.1
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
+      # windows_python3.7_cuda9.2:
+      #   CONFIG: python3.7_cuda9.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.2
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.2/Prod2/network_installers2/cuda_9.2.148_win10_network
+      # windows_python3.7_cuda10.0:
+      #   CONFIG: python3.7_cuda10.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/10.0/Prod/network_installers/cuda_10.0.130_win10_network
+      # windows_python3.7_cuda10.1:
+      #   CONFIG: python3.7_cuda10.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.1
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/network_installers/cuda_10.1.243_win10_network.exe
+      # windows_python3.7_cuda10.2:
+      #   CONFIG: python3.7_cuda10.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.2
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
+
+      # windows_python3.8_cuda8.0:
+      #   CONFIG: python3.8_cuda8.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 8.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/8.0/Prod2/network_installers/cuda_8.0.61_win10_network-exe
+      # windows_python3.8_cuda9.0:
+      #   CONFIG: python3.8_cuda9.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe
+      # windows_python3.8_cuda9.1:
+      #   CONFIG: python3.8_cuda9.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.1
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
+      # windows_python3.8_cuda9.2:
+      #   CONFIG: python3.8_cuda9.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 9.2
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/9.2/Prod2/network_installers2/cuda_9.2.148_win10_network
+      # windows_python3.8_cuda10.0:
+      #   CONFIG: python3.8_cuda10.0
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.0
+      #   CUDA_URL: https://developer.nvidia.com/compute/cuda/10.0/Prod/network_installers/cuda_10.0.130_win10_network
+      # windows_python3.8_cuda10.1:
+      #   CONFIG: python3.8_cuda10.1
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.1
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/network_installers/cuda_10.1.243_win10_network.exe
+      # windows_python3.8_cuda10.2:
+      #   CONFIG: python3.8_cuda10.2
+      #   INCLUDE_JINJA: CUDA_STR
+      #   CUDA_VER: 10.2
+      #   CUDA_URL: http://developer.download.nvidia.com/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
+
+  steps:
+    - script: |
+        echo "##vso[task.setvariable variable=NIGHTLY]true"
+      condition: eq(variables['Build.Reason'], 'Schedule')
+      displayName: Set dev trigger if scheduled
+
+    - script: |
+        ECHO ON
+#        conda create -c conda-forge --yes -n cb python=3 conda-build
+      displayName: "Echo UP!"
+
+    # Several mixed messages here: https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/package/conda-environment?view=azure-devops
+    # This is supposedly depreciated, but this is still required for Microsoft-hosted agents to use the conda env
+    - task: CondaEnvironment@1
+      inputs:
+        packageSpecs: 'python=3 conda-build conda anaconda-client'
+        installOptions: "-c conda-forge"
+        updateConda: false
+      displayName: Install conda-build and activate environment
+
+    # For some reason, every `conda` command exits the interpreter, so I had to split them up
+    - script: |
+        call C:\Miniconda\Scripts\activate
+        conda config --add channels omnia
+      displayName: Add Omnia to the conda channels
+
+    - script: |
+        call C:\Miniconda\Scripts\activate
+        conda config --add channels conda-forge
+      displayName: Add Conda-forge to the conda channels
+
+    # The condition here for the NVIDIA steps only should trigger if CUDA_VER is set
+    - task: Cache@2
+      inputs:
+        key: 'CUDA | "$(CUDA_VER)" | Network'
+        path: $(NVIDIA_CUDA_DIR)/$(CUDA_VER)
+        cacheHitVar: CUDA_RESTORED
+      displayName: Cache the NVIDIA CUDA installer
+      condition: ne(variables['CUDA_VER'], '')  # Technically Null, but is cast as "To string: '' (the empty string)"
+
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          New-Item -ItemType Directory -Force -Path $(NVIDIA_CUDA_DIR)/$(CUDA_VER)
+          Invoke-WebRequest $(CUDA_URL) -OutFile $(NVIDIA_CUDA_DIR)/$(CUDA_VER)/CUDA_installer.exe
+      displayName: Download CUDA Driver
+      condition: and(ne(variables['CUDA_VER'], ''), ne(variables.CUDA_RESTORED, 'true'))
+
+    - script: |
+        $(NVIDIA_CUDA_DIR)/$(CUDA_VER)/CUDA_installer.exe -s
+      displayName: Install the CUDA Files
+      condition: ne(variables['CUDA_VER'], '') # Technically Null, but is cast as "To string: '' (the empty string)"
+      # Readd this above if needed
+      # echo "##vso[task.prependpath]C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v$(CUDA_VER)\bin"
+
+    # Assembling in Bash because it makes more sense then powershell
+    - bash: |
+        CBA_FLAGS="-vvv --cycle-packages"
+        if [ -n "$INCLUDE_JINJA" ]; then
+          CBA_FLAGS="$CBA_FLAGS --build-only-jinja $INCLUDE_JINJA"
+        fi
+        if [ -n "$EXCLUDE_JINJA" ]; then
+          CBA_FLAGS="$CBA_FLAGS --no-build-jinja $EXCLUDE_JINJA"
+        fi
+        if [ ! -z "$NIGHTLY" ]; then
+          CBA_FLAGS="$CBA_FLAGS --scheduled-only"
+        fi
+        echo "##vso[task.setvariable variable=CBA_FLAGS]$CBA_FLAGS"
+      displayName: Assemble Variables
+
+    - script: |
+        call C:\Miniconda\Scripts\activate
+        python $(Build.SourcesDirectory)/conda-build-all $(CBA_FLAGS) -m $(Build.SourcesDirectory)/.conda_configs/$(CONFIG).yaml $(Build.SourcesDirectory)/*/
+      displayName: Run Conda Builds
+      env:
+        BINSTAR_TOKEN: $(BINSTAR_TOKEN)
