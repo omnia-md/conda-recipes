@@ -29,5 +29,5 @@ conda config --show-sources
 conda list --show-channel-urls
 
 
-/io/conda-build-all $CBA_FLAGS -m ${CONFIG_FILE} -- /io/*/
+/io/conda-build-all $CBA_FLAGS -m ${CONFIG_FILE} -- /io/recipes/*/
 

@@ -203,7 +203,7 @@ jobs:
 
     - script: |
         call C:\Miniconda\Scripts\activate
-        python $(Build.SourcesDirectory)/conda-build-all $(CBA_FLAGS) -m $(Build.SourcesDirectory)/.conda_configs/$(CONFIG).yaml $(Build.SourcesDirectory)/*/
+        python $(Build.SourcesDirectory)/conda-build-all $(CBA_FLAGS) -m $(Build.SourcesDirectory)/.conda_configs/$(CONFIG).yaml $(Build.SourcesDirectory)/recipes/*/
       displayName: Run Conda Builds
       env:
         BINSTAR_TOKEN: $(BINSTAR_TOKEN)
