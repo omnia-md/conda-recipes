@@ -276,6 +276,8 @@ def render_metadatas(paths, variant_config_files=(), channel_urls=(), cycle_pack
                 continue
             # Recreate the temp directory for each package because the act of cleaning up from the package removes
             # the placeholder work directory
+            if verbose > 2:
+                print(f"Pre-rendering metadata for {possible_recipe} at {time.time()}") 
             meta_lookup[possible_recipe] = []
             with temporary_directory() as temp_dir:  # Make a faux `croot` temporary directory
                 build_id = "placeholder"  # Make a faux build_ID
