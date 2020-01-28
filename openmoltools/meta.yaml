@@ -3,11 +3,11 @@ package:
   version: 0.8.4
 
 source:
-    url: https://github.com/choderalab/openmoltools/archive/0.8.4.tar.gz
-    fn: 0.8.4.tar.gz
+  git_url: https://github.com/choderalab/openmoltools.git
+  git_tag: 0.8.4
 
 build:
-  number: 3
+  number: 4
   skip: True # [win32 or (win and py2k)]
 
 requirements:
@@ -38,12 +38,9 @@ requirements:
     - ambertools
     - pytables
 
-test:
-  requires:
-    - nose
-    - openmmtools
-  imports:
-    - openmoltools
+#test:
+#  imports:
+#    - openmoltools
   #commands:
   #  - nosetests openmoltools -v -a '!slow'
 
