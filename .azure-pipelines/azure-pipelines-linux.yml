@@ -113,7 +113,7 @@ jobs:
       displayName: Set dev trigger if scheduled
 
     - script: |
-        CBA_FLAGS="-vvv"
+        CBA_FLAGS="-vvv --force --rebuild"
         if [ -n "$INCLUDE_JINJA" ]; then
           CBA_FLAGS="$CBA_FLAGS --build-only-jinja $INCLUDE_JINJA"
         fi
