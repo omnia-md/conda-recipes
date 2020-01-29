@@ -277,7 +277,7 @@ def render_metadatas(paths, variant_config_files=(), channel_urls=(), cycle_pack
             # Recreate the temp directory for each package because the act of cleaning up from the package removes
             # the placeholder work directory
             if verbose > 2:
-                print(f"Pre-rendering metadata for {possible_recipe} at {time.time()}") 
+                print(f"Pre-rendering metadata for {possible_recipe} at {time.time()}")
             meta_lookup[possible_recipe] = []
             with temporary_directory() as temp_dir:  # Make a faux `croot` temporary directory
                 build_id = "placeholder"  # Make a faux build_ID
@@ -521,8 +521,9 @@ def build_package(meta, args):
 
     if args.upload is not None:
         if len(build_paths):  # Length 1 or larger is good
-            upload_to_anaconda(meta, username=args.upload,
-                               force=args.force, dev=args.dev)
+            print(f"Package {meta.dist()} should be uploaded but it won't because we are only testing now.")
+            # upload_to_anaconda(meta, username=args.upload,
+            #                    force=args.force, dev=args.dev)
         else:
             print('Package {} failed to build; will not upload.'.format(meta.dist()))
 
