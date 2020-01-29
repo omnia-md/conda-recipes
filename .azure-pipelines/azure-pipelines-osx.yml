@@ -34,7 +34,7 @@ jobs:
       displayName: Add and update conda-forge
 
     - script: |
-        CBA_FLAGS="-vvv --cycle-packages"
+        CBA_FLAGS="-vvv"
         if [ -n "$INCLUDE_JINJA" ]; then
           CBA_FLAGS="$CBA_FLAGS --build-only-jinja $INCLUDE_JINJA"
         fi

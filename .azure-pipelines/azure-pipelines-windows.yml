@@ -188,7 +188,7 @@ jobs:
 
     # Assembling in Bash because it makes more sense then powershell
     - bash: |
-        CBA_FLAGS="-vvv --cycle-packages"
+        CBA_FLAGS="-vvv"
         if [ -n "$INCLUDE_JINJA" ]; then
           CBA_FLAGS="$CBA_FLAGS --build-only-jinja $INCLUDE_JINJA"
         fi
