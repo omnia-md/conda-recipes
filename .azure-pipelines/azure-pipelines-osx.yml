@@ -2,7 +2,7 @@ jobs:
 - job: osx
   pool:
     vmImage: macOS-10.13
-  timeoutInMinutes: 360
+  timeoutInMinutes: 90
   strategy:
     maxParallel: 8
     matrix:
