@@ -1,10 +1,10 @@
 package:
   name: openmoltools
-  version: 0.8.5
+  version: 0.8.6
 
 source:
   git_url: https://github.com/choderalab/openmoltools.git
-  git_tag: v0.8.5
+  git_tag: 0.8.6
 
 build:
   preserve_egg_dir: True
@@ -23,7 +23,7 @@ requirements:
     - scipy
     - pandas
     - openmm >=7.0.1
-    - ambertools
+    - ambertools >=19
     - pytables
 
   run:
@@ -36,7 +36,7 @@ requirements:
     - numpydoc
     - scipy
     - openmm >=7.0.1
-    - ambertools
+    - ambertools >=19
     - pytables
 
 #test:
