@@ -4,11 +4,11 @@ package:
 
 source:
   git_url: https://github.com/openforcefield/openff-evaluator.git
-  git_tag: 0.1.0-beta.1
+  git_tag: 0.1.0-beta.2
 
 build:
   preserve_egg_dir: True
-  number: 0 # Build number and string do not work together.
+  number: 1 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
   skip: True # [win or py27 or py35]
 
