@@ -39,6 +39,7 @@ requirements:
     - tqdm
     - dask-jobqueue
     - openmmforcefields
+    - openeye-toolkits
 test:
   requires:
     - nose

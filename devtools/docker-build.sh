@@ -5,6 +5,7 @@ echo "PATH: $PATH"
 set -e
 set -x
 
+conda config --add channels openeye
 conda config --add channels conda-forge
 conda config --add channels omnia
 
