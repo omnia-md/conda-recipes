@@ -6,7 +6,7 @@ source:
   git_tag: 0.5.0
 build:
   preserve_egg_dir: True
-  number: 0
+  number: 1
   skip: True  # [win or py2k]
 requirements:
   build:
@@ -16,11 +16,11 @@ requirements:
   run:
     - python
     - setuptools
+    - ambertools >=19.11
     - numpy >=1.14
     - scipy
     - pymbar
-    - openmm >=7.3.0
-    - parmed
+    - openmm >=7.3.1
     - openmoltools >=0.8.4
     - openmmtools
     - numba
@@ -31,12 +31,15 @@ requirements:
     - pdbfixer
     - lxml
     - networkx >=2.0
-    #- openeye-toolkits # not on conda-forge
+    - openeye-toolkits
     - dask
     - distributed
     - yank
     - progressbar2
-    - parmed
+    - tqdm
+    - dask-jobqueue
+    - openmmforcefields
+    - openeye-toolkits
 test:
   requires:
     - nose
