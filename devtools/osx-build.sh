@@ -10,6 +10,7 @@ export MACOSX_DEPLOYMENT_TARGET="10.10"
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
 bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $HOME/anaconda;
 export PATH=$HOME/anaconda/bin:$PATH;
+conda config --add channels openeye
 conda config --add channels conda-forge;
 conda config --add channels omnia;
 conda install -yq conda\<=4.3.34 python=3.6;
@@ -20,7 +21,7 @@ conda install -yq conda\<=4.3.34 python=3.6;
 # See: https://github.com/conda/conda/issues/7672
 conda install --yes ruamel_yaml==0.15.53 conda\<=4.3.34;
 #####################################################################
-conda config --add channels omnia/label/dev
+#conda config --add channels omnia-dev
 conda install -yq conda-env conda-build==2.1.7 jinja2 anaconda-client;
 conda config --show;
 conda clean -tipsy;

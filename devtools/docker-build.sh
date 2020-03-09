@@ -39,9 +39,9 @@ conda config --add channels omnia
 #for PY_BUILD_VERSION in "27" "35" "36" "37"; do
 
 # Make sure we have the appropriate channel added
-conda config --add channels omnia/label/cuda${CUDA_SHORT_VERSION};
-conda config --add channels omnia/label/rc;
-conda config --add channels omnia/label/rccuda${CUDA_SHORT_VERSION};
+#conda config --add channels omnia/label/cuda${CUDA_SHORT_VERSION};
+#conda config --add channels omnia/label/rc;
+#conda config --add channels omnia/label/rccuda${CUDA_SHORT_VERSION};
 #conda config --add channels omnia/label/beta;
 #conda config --add channels omnia/label/betacuda${CUDA_SHORT_VERSION};
 #conda config --add channels omnia/label/dev
