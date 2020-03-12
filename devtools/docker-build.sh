@@ -51,6 +51,6 @@ conda config --add channels omnia
 #    /io/conda-build-all -vvv --python $PY_BUILD_VERSION --numpy "1.15" $UPLOAD -- /io/*
 #done
 
-/io/conda-build-all -vvv --python "37,36,27" --numpy "1.14,1.15" $UPLOAD -- /io/*
+/io/conda-build-all -vvv --python "37,36" --numpy "1.14,1.15,1.16" $UPLOAD -- /io/*
 
 #mv /anaconda/conda-bld/linux-64/*tar.bz2 /io/ || true
