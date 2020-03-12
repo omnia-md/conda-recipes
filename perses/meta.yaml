@@ -17,7 +17,7 @@ requirements:
     - python
     - setuptools
     - ambertools >=19.11
-    - numpy >=1.14
+    - numpy <1.18.1
     - scipy
     - pymbar
     - openmm >=7.3.1
