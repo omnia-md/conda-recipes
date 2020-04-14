@@ -1,9 +1,9 @@
 package:
   name: perses
-  version: 0.5.1
+  version: 0.6.0
 source:
   git_url: https://github.com/choderalab/perses.git
-  git_tag: 0.5.1
+  git_tag: 0.6.0
 build:
   preserve_egg_dir: True
   number: 3
@@ -12,12 +12,14 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy >=1.14
+    - numpy >=1.14 # [not py36]
+    - numpy >=1.14,<1.18 # [py36]
   run:
     - python
     - setuptools
     - ambertools >=19.11
-    - numpy >=1.14
+    - numpy >=1.14 # [not py36]
+    - numpy >=1.14,<1.18 # [py36]
     - scipy
     - pymbar
     - openmm >=7.3.1
