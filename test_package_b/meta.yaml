@@ -14,7 +14,7 @@ build:
 
 extra:
   #force_upload: True
-  upload: main # Upload to anaconda with the "main" label.
+  upload: beta # Upload to anaconda with the "main" label.
 
 requirements:
   build:
