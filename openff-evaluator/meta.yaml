@@ -4,19 +4,18 @@ package:
 
 source:
   git_url: https://github.com/openforcefield/openff-evaluator.git
-  git_tag: 0.1.0-beta.4
+  git_tag: v0.1.0
 
 build:
   preserve_egg_dir: True
-  number: 3 # Build number and string do not work together.
+  number: 0 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
-#   skip: True # [win or py27 or py35]
-  skip: True # prevent endlessly rebuilding since 'beta' is not checked for whether package is to be built
+  skip: True # [win or py27 or py35]
 
 
 extra:
   #force_upload: True
-  upload: beta # Upload to anaconda with the "main" label.
+  upload: main # Upload to anaconda with the "main" label.
 
 requirements:
   build:
