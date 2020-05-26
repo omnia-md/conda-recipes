@@ -2,7 +2,7 @@ package:
   name: forcebalance
   version: "1.7.2"
 
-source:
+source: 
   url: https://github.com/leeping/forcebalance/archive/v1.7.2.tar.gz
   fn: v1.7.2.tar.gz
 
