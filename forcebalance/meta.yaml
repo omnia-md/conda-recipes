@@ -39,6 +39,10 @@ requirements:
     - zlib
     - swig
 
+test:
+  imports:
+    - forcebalance
+
 # Testing will be done on Travis as well
 # as manually before each release.
 #test:
