@@ -12,14 +12,12 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy >=1.14 # [not py36]
-    - numpy >=1.14,<1.18 # [py36]
+    - numpy >=1.14
   run:
     - python
     - setuptools
     - ambertools >=19.11
-    - numpy >=1.14 # [not py36]
-    - numpy >=1.14,<1.18 # [py36]
+    - numpy >=1.14
     - scipy
     - pymbar
     - openmm >=7.4.2
