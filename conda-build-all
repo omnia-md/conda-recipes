@@ -435,7 +435,15 @@ def build_package(m, python, numpy, args):
             # omnia channel. Its an edge case, but a critical one.
             cmd.extend(['-c', 'conda-forge', '-c', 'omnia/label/{}'.format(omnia_label)])
     cmd.append(m.path)
-    retcode = call(cmd)
+    try:
+        retcode = call(cmd)
+    except CalledProcessError as e:
+        print('\nreturncode', e.returncode)
+        print('\ncmd', e.cmd)
+        print('\noutput', e.output)
+        print('\nstdout', e.output)
+        print('\nstderr', e.stderr)
+        raise CalledProcessError from e
     list_package_contents(m, python, numpy)
 
     if args.upload is not None:
