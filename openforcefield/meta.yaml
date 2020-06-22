@@ -1,14 +1,14 @@
 package:
   name: openforcefield
-  version: 0.6.0
+  version: 0.7.0
 
 source:
   git_url: https://github.com/openforcefield/openforcefield.git
-  git_tag: 0.6.0
+  git_tag: 0.7.0
 
 build:
   preserve_egg_dir: True
-  number: 1 # Build number and string do not work together.
+  number: 0 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
   skip: True # [win or py27 or py35]
 
@@ -27,6 +27,7 @@ requirements:
     - nbsphinx
     - m2r >=0.2.1
     - testpath ==0.3.1
+    - openmmforcefields >=0.7.2
     # Run deps must be installed to build sphinx docs
     - numpy
     - smirnoff99frosst
@@ -36,6 +37,7 @@ requirements:
     - rdkit
     - ambertools
     - packaging
+    - pytest
     - requests
     - notebook
     # Serialization: Should these be optional?
@@ -45,7 +47,10 @@ requirements:
     - xmltodict
     - pyyaml
     - cairo >=1.16
-
+    - qcelemental
+    - qcportal
+    - qcengine <= 0.14 # Remove this and py-cpuinfo entry when there's a new release of QCEngine
+  - py-cpuinfo <= 5 # Needed until https://github.com/MolSSI/QCEngine/issues/252 is resolved+released
   run:
     - python
     - numpy
