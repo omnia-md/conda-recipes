@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 3 # Build number and string do not work together.
+  number: 4 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
   skip: True # [win or py27 or py35]
 
@@ -51,6 +51,7 @@ requirements:
     - smirnoff99frosst
     - openforcefields
     - openmm
+    - openmmforcefields
     - networkx
     - rdkit
     - ambertools >=20
