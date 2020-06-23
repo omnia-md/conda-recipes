@@ -59,6 +59,7 @@ requirements:
     - pytest
     - requests
     - notebook
+    - nglview
     # Serialization: Should these be optional?
     - toml
     - bson
