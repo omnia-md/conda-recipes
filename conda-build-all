@@ -288,7 +288,7 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
             #check_call(cmd)
             check_output(cmd, stderr=subprocess.STDOUT)
             return
-        except CalledProcessError as e:
+        except Exception as e:
             err = e
             err.cmd = '[not shown]'
             print(' stdout:\n%s' % err.stdout)
