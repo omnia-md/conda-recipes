@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 1 # Build number and string do not work together.
+  number: 2 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
   skip: True # [win or py27 or py35]
 
@@ -65,11 +65,7 @@ requirements:
     - xmltodict
     - pyyaml
     - cairo >=1.16
-    - qcelemental
     - qcportal
-    - qcengine # Remove this and py-cpuinfo entry when there's a new release of QCEngine
-    - py-cpuinfo ==5 # Needed until https://github.com/MolSSI/QCEngine/issues/252 is resolved+released
-
 
 about:
   home: https://github.com/openforcefield/openforcefield
