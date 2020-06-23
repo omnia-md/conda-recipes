@@ -51,7 +51,6 @@ requirements:
     - smirnoff99frosst
     - openforcefields
     - openmm
-    - openmmforcefields
     - networkx
     - rdkit
     - ambertools >=20
