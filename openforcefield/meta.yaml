@@ -8,7 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
-  number: 2 # Build number and string do not work together.
+  number: 3 # Build number and string do not work together.
   #string: py{{ py }}_a1 # Alpha version 1.
   skip: True # [win or py27 or py35]
 
@@ -65,7 +65,6 @@ requirements:
     - xmltodict
     - pyyaml
     - cairo >=1.16
-    - qcportal
 
 about:
   home: https://github.com/openforcefield/openforcefield
