@@ -20,7 +20,7 @@ extra:
 requirements:
   build:
     # Base depends
-    - python
+    - python >=3.6
     - pip
 
     # Testing
