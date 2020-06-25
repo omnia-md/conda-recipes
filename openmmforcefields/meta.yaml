@@ -33,7 +33,8 @@ requirements:
 
     # Requirements for conversion tools
     - pyyaml
-    - ambertools >=20.0 # contains sufficiently recent ParmEd
+    # Redundant with OFFTK>=0.6.0 build1
+    #- ambertools >=20.0 # contains sufficiently recent ParmEd
     - lxml
     - networkx
 
@@ -42,7 +43,8 @@ requirements:
 
     # openforcefield toolkit and force fields
     - openforcefield >=0.7.0
-    - openforcefields >=1.2.0
+    # Redundant with OFFTK>=0.6.0 build1
+    #- openforcefields >=1.2.0
 
     # OpenEye toolkits are only used to speed up testing; they are not required for use
     #- openeye-toolkits
@@ -62,7 +64,8 @@ requirements:
 
     # Requirements for conversion tools
     - pyyaml
-    - ambertools >=20.0 # contains sufficiently recent ParmEd
+    # Redundant with OFFTK>=0.6.0 build1
+    #- ambertools >=20.0 # contains sufficiently recent ParmEd
     - lxml
     - networkx
 
@@ -71,7 +74,9 @@ requirements:
 
     # openforcefield toolkit and force fields
     - openforcefield >=0.7.0
-    - openforcefields >=1.2.0
+    # Redundant with OFFTK>=0.6.0 build1
+    #- openforcefields >=1.2.0
+
 
     # OpenEye toolkits are only used to speed up testing; they are not required for use
     #- openeye-toolkits
