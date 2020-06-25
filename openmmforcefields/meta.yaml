@@ -42,7 +42,7 @@ requirements:
     - tinydb
 
     # openforcefield toolkit and force fields
-    - openforcefield >=0.7.0
+    - openforcefield #>=0.7.0
     # Redundant with OFFTK>=0.6.0 build1
     #- openforcefields >=1.2.0
 
@@ -73,7 +73,7 @@ requirements:
     - tinydb
 
     # openforcefield toolkit and force fields
-    - openforcefield >=0.7.0
+    - openforcefield #>=0.7.0
     # Redundant with OFFTK>=0.6.0 build1
     #- openforcefields >=1.2.0
 
