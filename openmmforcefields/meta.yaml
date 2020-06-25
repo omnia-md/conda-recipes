@@ -32,7 +32,7 @@ requirements:
 
     # Requirements for conversion tools
     - pyyaml
-    - ambertools >=18.0 # contains sufficiently recent ParmEd
+    - ambertools >=20.0 # contains sufficiently recent ParmEd
     - lxml
     - networkx
 
@@ -40,8 +40,8 @@ requirements:
     - tinydb
 
     # openforcefield toolkit and force fields
-    - openforcefield >=0.6.0
-    - openforcefields >=1.0.0
+    - openforcefield >=0.7.0
+    - openforcefields >=1.2.0
 
     # OpenEye toolkits are only used to speed up testing; they are not required for use
     #- openeye-toolkits
@@ -61,7 +61,7 @@ requirements:
 
     # Requirements for conversion tools
     - pyyaml
-    - ambertools >=18.0 # contains sufficiently recent ParmEd
+    - ambertools >=20.0 # contains sufficiently recent ParmEd
     - lxml
     - networkx
 
@@ -69,8 +69,8 @@ requirements:
     - tinydb
 
     # openforcefield toolkit and force fields
-    - openforcefield >=0.6.0
-    - openforcefields >=1.0.0
+    - openforcefield >=0.7.0
+    - openforcefields >=1.2.0
 
     # OpenEye toolkits are only used to speed up testing; they are not required for use
     #- openeye-toolkits
