@@ -1,10 +1,10 @@
 package:
   name: openff-evaluator
-  version: 0.1.0
+  version: 0.1.1
 
 source:
   git_url: https://github.com/openforcefield/openff-evaluator.git
-  git_tag: v0.1.0
+  git_tag: v0.1.1
 
 build:
   preserve_egg_dir: True
