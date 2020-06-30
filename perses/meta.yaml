@@ -5,6 +5,7 @@ source:
   git_url: https://github.com/choderalab/perses.git
   git_tag: 0.7.1
 build:
+  noarch: generic
   preserve_egg_dir: True
   number: 3
   skip: True  # [win or py2k]
