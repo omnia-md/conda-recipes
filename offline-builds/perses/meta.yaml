@@ -1,12 +1,13 @@
 package:
   name: perses
-  version: 0.7.0
+  version: 0.7.1
 source:
   git_url: https://github.com/choderalab/perses.git
-  git_tag: 0.7.0
+  git_tag: 0.7.1
 build:
+  noarch: python
   preserve_egg_dir: True
-  number: 3
+  number: 1
   skip: True  # [win or py2k]
 requirements:
   build:
@@ -40,6 +41,8 @@ requirements:
     - yank
     - progressbar2
     - tqdm
+    - nose
+    - nose-timer
     - dask-jobqueue
     - openmmforcefields
     - openeye-toolkits
