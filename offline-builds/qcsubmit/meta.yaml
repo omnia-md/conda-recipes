@@ -1,0 +1,67 @@
+package:
+  name: qcsubmit
+  version: 0.0.0
+
+source:
+  git_url: https://github.com/openforcefield/qcsubmit.git
+  git_tag:  ac29b70
+
+build:
+  noarch: python
+  preserve_egg_dir: True
+  number: 0 # Build number and string do not work together.
+  #string: py{{ py }}_a1 # Alpha version 1.
+  skip: True # [win or py27 or py35]
+
+
+extra:
+  #force_upload: True
+  upload: main # Upload to anaconda with the "main" label.
+
+requirements:
+  build:
+    - python
+    - pip
+
+    # Testing
+    - pytest
+    - pytest-cov
+    - openforcefield >=0.7.0
+    - openforcefields
+    - smirnoff99Frosst
+    - openmmforcefields
+    - qcengine >=0.15.0
+    - pyyaml
+    - codecov
+    - qcportal
+    - openeye-toolkits
+    - qcfractal
+    - torsiondrive
+    - fragmenter
+
+
+  run:
+    - python
+    - pip
+
+    # Testing
+    - pytest
+    - pytest-cov
+    - openforcefield >=0.7.0
+    - openforcefields
+    - smirnoff99Frosst
+    - openmmforcefields
+    - qcengine >=0.15.0
+    - pyyaml
+    - codecov
+    - qcportal
+    - openeye-toolkits
+    - qcfractal
+    - torsiondrive
+    - fragmenter
+
+about:
+  home: https://github.com/openforcefield/qcsubmit
+  license: MIT
+  license_file: LICENSE
+  description: Automated tools for submitting molecules to QCFractal
