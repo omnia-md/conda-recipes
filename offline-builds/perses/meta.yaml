@@ -5,9 +5,8 @@ source:
   git_url: https://github.com/choderalab/perses.git
   git_tag: 0.7.1
 build:
-  noarch: python
   preserve_egg_dir: True
-  number: 1
+  number: 3
   skip: True  # [win or py2k]
 requirements:
   build:
@@ -26,7 +25,7 @@ requirements:
     - openmm >=7.4.2
     - parmed
     - openmoltools >=0.8.4
-    - openmmtools
+    - openmmtools >=0.20.0
     - numba
     - netcdf4
     - matplotlib
