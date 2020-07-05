@@ -6,7 +6,7 @@ source:
   git_tag: 0.7.1
 build:
   preserve_egg_dir: True
-  number: 3
+  number: 4
   skip: True  # [win or py2k]
 requirements:
   build:
@@ -45,6 +45,7 @@ requirements:
     - dask-jobqueue
     - openmmforcefields
     - openeye-toolkits
+    - dicttoxml
 test:
   requires:
     - nose
