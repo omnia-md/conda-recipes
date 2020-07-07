@@ -13,7 +13,7 @@ build:
     - perses-relative = perses.app.setup_relative_calculation:run
     - perses-fah = perses.app.fah_generator:run
   script: 
-    - ${PYTHON}  -m pip install .  preserve_egg_dir: True
+    - ${PYTHON}  -m pip install .
 requirements:
   build:
     - python
