@@ -5,15 +5,9 @@ source:
   git_url: https://github.com/choderalab/perses.git
   git_tag: 0.7.1
 build:
-  noarch: python
   preserve_egg_dir: True
-  number: 6
+  number: 4
   skip: True  # [win or py2k]
-  entry_points:
-    - perses-relative = perses.app.setup_relative_calculation:run
-    - perses-fah = perses.app.fah_generator:run
-  script: 
-    - ${PYTHON}  -m pip install .
 requirements:
   build:
     - python
