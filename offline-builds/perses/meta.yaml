@@ -7,7 +7,7 @@ source:
 build:
   noarch: python
   preserve_egg_dir: True
-  number: 6
+  number: 0
   skip: True  # [win or py2k]
   entry_points:
     - perses-relative = perses.app.setup_relative_calculation:run
