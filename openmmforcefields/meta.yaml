@@ -1,10 +1,10 @@
 package:
   name: openmmforcefields
-  version: 0.7.3
+  version: 0.8.0
 
 source:
   git_url: https://github.com/openmm/openmmforcefields.git
-  git_tag: 0.7.3
+  git_tag: 0.8.0
 
 build:
   preserve_egg_dir: True
@@ -40,8 +40,8 @@ requirements:
     - tinydb
 
     # openforcefield toolkit and force fields
-    - openforcefield >=0.6.0
-    - openforcefields >=1.0.0
+    - openforcefield >=0.7.1
+    - openforcefields >=1.2.0
 
     # OpenEye toolkits are only used to speed up testing; they are not required for use
     #- openeye-toolkits
@@ -57,7 +57,7 @@ requirements:
     - codecov
 
     # Requirements for converted force field installer
-    - openmm >=7.4.1
+    - openmm >=7.4.2
 
     # Requirements for conversion tools
     - pyyaml
@@ -69,8 +69,8 @@ requirements:
     - tinydb
 
     # openforcefield toolkit and force fields
-    - openforcefield >=0.6.0
-    - openforcefields >=1.0.0
+    - openforcefield >=0.7.1
+    - openforcefields >=1.2.0
 
     # OpenEye toolkits are only used to speed up testing; they are not required for use
     #- openeye-toolkits
