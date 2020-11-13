@@ -7,10 +7,17 @@ source:
   git_tag: 6343731
 
 build:
-  number: 0
+  preserve_egg_dir: True
+  number: 1 # Build number and string do not work together.
+  #string: py{{ py }}_a1 # Alpha version 1.
+  skip: True # [win or py27 or py35]
   entry_points:
     - pdbfixer = pdbfixer.pdbfixer:main
-  skip: True  # [win32 or (win and py2k)]
+  noarch: python
+  script: 
+    - ${PYTHON}  -m pip install .
+
+
 
 extra:
   upload: rc
