@@ -1,0 +1,40 @@
+package:
+  name: plbenchmarks
+  version: 0.1.0
+
+source: 
+  git_url: https://github.com/openforcefield/PLBenchmarks.git
+  git_tag: 0.1.0
+
+build:
+  number: 0
+  skip: True # [win or py27 or py35]
+  noarch: python
+  script: 
+    - ${PYTHON}  -m pip install .
+
+requirements:
+  build:
+    - python <= 3.6
+    - setuptools
+
+  run:
+    - pyyaml
+    - numpy
+    - matplotlib
+    - pandas
+    - rdkit
+    - networkx
+    - conda-forge::pint
+    - scipy
+    - openforcefield
+
+about:
+  home: https://github.com/openforcefield/PLBenchmarks
+  license: MIT
+  license_file: LICENSE
+  summary: Protein-ligand benchmark dataset for free energy calculations
+
+extra:
+  upload: dev
+
