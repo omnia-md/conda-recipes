@@ -1,10 +1,10 @@
 package:
   name: openforcefield
-  version: 0.8.0
+  version: 0.8.2
 
 source:
   git_url: https://github.com/openforcefield/openforcefield.git
-  git_tag: 0.8.0
+  git_tag: 0.8.2
 
 build:
   preserve_egg_dir: True
@@ -57,6 +57,7 @@ requirements:
     - networkx
     - rdkit
     - ambertools >=20
+    - mdtraj
     - packaging
     - pytest
     - requests
