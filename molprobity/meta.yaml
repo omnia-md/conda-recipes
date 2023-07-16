@@ -1,0 +1,28 @@
+package:
+  name: molprobity
+  version: 4.2
+
+source:
+  fn: molprobity.zip
+  url: https://github.com/rlabduke/MolProbity/archive/molprobity_4.2.zip
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - zlib
+    - gcc      [osx]
+    - mingwpy  [win]
+  run:
+    - zlib
+    - gcc      [osx]
+
+test:
+  commands:
+    - online-analysis
+
+about:
+  home: https://github.com/rlabduke/MolProbity
+  license:
+  summary: All-atom structure validation for macromolecular crystallography
